@@ -1,170 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a7f3712-937c-4ca5-815a-6b7b4bcf8489" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../mybatistest/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/.idea/libraries/spring_aop_4_0_0_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/DispatcherServlet-servlet1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/DispatcherServlet-servlet3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/DispatcherServlet-servlet4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/DispatcherServlet-servlet5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/classes/META-INF/mybatistest.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/classes/com/yiyun/wang/controller/Test.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/classes/com/yiyun/wang/controller/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/classes/com/yiyun/wang/dao/UserDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/classes/com/yiyun/wang/dao/UserDaoImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/classes/com/yiyun/wang/mapper/ScMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/classes/com/yiyun/wang/mapper/ScMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/classes/com/yiyun/wang/mapper/UserMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/classes/com/yiyun/wang/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/classes/com/yiyun/wang/mapper/UserMapper2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/classes/com/yiyun/wang/model/Sc.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/classes/com/yiyun/wang/model/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/classes/com/yiyun/wang/test.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/classes/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/classes/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/asm-3.3.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/cglib-2.2.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/commons-dbcp-1.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/commons-logging-1.1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/commons-pool-1.5.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/javassist-3.17.1-GA.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/log4j-1.2.17.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/log4j-api-2.0-rc1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/log4j-core-2.0-rc1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/mybatis-3.2.7.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/mysql-connector-java-5.1.7-bin.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/mysql-connector-java-8.0.16.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/slf4j-api-1.7.5.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/slf4j-log4j12-1.7.5.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/spring-aop-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/spring-aspects-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/spring-beans-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/spring-context-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/spring-core-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/spring-expression-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/spring-jdbc-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/spring-jms-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/spring-orm-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/spring-oxm-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/spring-test-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/spring-tx-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/spring-web-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/spring-webmvc-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/lib/spring-websocket-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/views/userList.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/artifacts/mybatistest_war_exploded/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/META-INF/mybatistest.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/com/yiyun/wang/controller/Test.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/com/yiyun/wang/controller/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/com/yiyun/wang/dao/UserDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/com/yiyun/wang/dao/UserDaoImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/com/yiyun/wang/mapper/ScMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/com/yiyun/wang/mapper/ScMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/com/yiyun/wang/mapper/UserMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/com/yiyun/wang/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/com/yiyun/wang/mapper/UserMapper2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/com/yiyun/wang/model/Sc.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/com/yiyun/wang/model/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/com/yiyun/wang/test.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/generator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/out/production/mybatistest/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/gyf/backoffice/domain/TUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/gyf/backoffice/domain/TUserExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/gyf/backoffice/mapper/TUserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/gyf/backoffice/mapper/TUserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/yiyun/wang/controller/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/yiyun/wang/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/yiyun/wang/dao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/yiyun/wang/dao/UserDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/yiyun/wang/mapper/ScMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/yiyun/wang/mapper/ScMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/yiyun/wang/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/yiyun/wang/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/yiyun/wang/mapper/UserMapper2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/yiyun/wang/model/Sc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/yiyun/wang/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/com/yiyun/wang/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/generator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/src/mybatis.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/DispatcherServlet-servlet1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/DispatcherServlet-servlet3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/DispatcherServlet-servlet4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/DispatcherServlet-servlet5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/DispatcherServlet-servlet6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/asm-3.3.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/cglib-2.2.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/commons-dbcp-1.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/commons-logging-1.1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/commons-pool-1.5.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/javassist-3.17.1-GA.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/log4j-1.2.17.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/log4j-api-2.0-rc1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/log4j-core-2.0-rc1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/mybatis-3.2.7.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/mybatis-generator-core-1.3.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/mysql-connector-java-5.1.7-bin.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/mysql-connector-java-8.0.16.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/slf4j-api-1.7.5.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/slf4j-log4j12-1.7.5.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/spring-aop-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/spring-aspects-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/spring-beans-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/spring-context-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/spring-core-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/spring-expression-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/spring-jdbc-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/spring-jms-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/spring-orm-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/spring-oxm-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/spring-test-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/spring-tx-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/spring-web-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/spring-webmvc-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/lib/spring-websocket-4.0.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/views/userList.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shihuistore/dao/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shihuistore/dao/src/main/java/dao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shihuistore/demo/src/main/java/com/example/demo/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shihuistore/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shihuistore/service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shihuistore/service/src/main/java/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shihuistore/service/src/main/java/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dao/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/FrontApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/test/java/com/cn/wanxi/front/FrontApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tenmallfront.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatistest/.idea/artifacts/mybatistest_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatistest/.idea/artifacts/mybatistest_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatistest/.idea/libraries/log4j_api_2_0_rc1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatistest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatistest/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatistest/mybatistest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatistest/mybatistest.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatistest/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/FrontApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/FrontApplication.java" afterDir="false" />
-    </list>
+    <list default="true" id="7a7f3712-937c-4ca5-815a-6b7b4bcf8489" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/front/target/" />
@@ -182,70 +19,12 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/advertisin/Test.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/onsale/Test.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/categorynav/Test.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/address/Test.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/hotsale/Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Test.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Test.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/service/src/test/java/Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -256,13 +35,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/dao/src/main/java/front/FrontApplication.java" />
-        <option value="$PROJECT_DIR$/model/pom.xml" />
-        <option value="$PROJECT_DIR$/front/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/front/src/main/resources/generator.xml" />
-        <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/FrontApplication.java" />
-        <option value="$PROJECT_DIR$/front/pom.xml" />
         <option value="$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/address/Test.java" />
         <option value="$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/advertisin/Test.java" />
         <option value="$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/cart/Test.java" />
@@ -282,6 +56,22 @@
         <option value="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/hotsale/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/Test.java" />
         <option value="$PROJECT_DIR$/src/test/java/Test.java" />
+        <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/use/LoginController.java" />
+        <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/use/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/user/Test.java" />
+        <option value="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/user/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/common/pom.xml" />
+        <option value="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/user/UserService.java" />
+        <option value="$PROJECT_DIR$/service/pom.xml" />
+        <option value="$PROJECT_DIR$/front/pom.xml" />
+        <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/user/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/user/User.java" />
+        <option value="$PROJECT_DIR$/model/pom.xml" />
+        <option value="$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/user/UserDao.java" />
+        <option value="$PROJECT_DIR$/dao/pom.xml" />
+        <option value="$PROJECT_DIR$/front/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/FrontApplication.java" />
       </list>
     </option>
   </component>
@@ -292,10 +82,15 @@
         <option name="userSettingsFile" value="D:\apache-maven-3.6.1\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="557" />
-    <option name="y" value="5" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="160" />
+    <option name="y" value="16" />
     <option name="width" value="1359" />
     <option name="height" value="1040" />
   </component>
@@ -315,26 +110,12 @@
               <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
               <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="CatdeaLogs" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -345,15 +126,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15391704" />
     <property name="project.structure.side.proportion" value="0.19881657" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.cn.wanxi.service.user" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="com.cn.wanxi.dao.user" />
@@ -403,37 +187,55 @@
       <workItem from="1574132894137" duration="3701000" />
       <workItem from="1574144176890" duration="1950000" />
       <workItem from="1574213726552" duration="633000" />
+      <workItem from="1574220332228" duration="11856000" />
     </task>
+    <task id="LOCAL-00001" summary="更换为mybatis">
+      <created>1574232830551</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574232830551</updated>
+    </task>
+    <task id="LOCAL-00002" summary="更换为mybatis">
+      <created>1574232948646</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1574232948646</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6284000" />
+    <option name="totallyTimeSpent" value="18140000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="557" y="5" width="1359" height="1040" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3187067" />
+      <window_info id="Web" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20628998" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.39029768" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5406284" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.14734562" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.42903575" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.17768148" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="right" id="Bean Validation" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -479,67 +281,14 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+    <MESSAGE value="更换为mybatis" />
+    <option name="LAST_COMMIT_MESSAGE" value="更换为mybatis" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/advertisin/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/cart/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/categorynav/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/hotsale/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/online/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/onsale/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/order/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/pay/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/productdetails/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/search/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/user/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/src/test/java/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/cart/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/productdetails/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/pay/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/user/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/advertisin/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/address/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/search/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/order/Test.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -556,9 +305,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/pay/Test.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/user/Test.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/advertisin/Test.java">
@@ -579,9 +325,6 @@
     <entry file="file://$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/hotsale/Test.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/src/test/java/Test.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -600,6 +343,7 @@
     <entry file="file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/user/Test.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cn/wanxi/front/user/model/TUser.java" />
     <entry file="file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/advertisin/Test.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -612,15 +356,10 @@
     <entry file="file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/address/Test.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cn/wanxi/front/user/model/TUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-156" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/hotsale/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="216">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -630,16 +369,179 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/Test.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/service/src/test/java/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        <state relative-caret-position="108">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/user/SwaggerConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/user/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/user/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/search/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/user/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/user/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/user/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+            <element signature="e#527#528#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.2.1.RELEASE/spring-data-jpa-2.2.1.RELEASE.jar!/org/springframework/data/jpa/repository/JpaRepository.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="53" column="27" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/user/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+          <folding>
+            <element signature="e#321#322#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="67" column="18" lean-forward="true" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/FrontApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/user/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/user/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="53" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
