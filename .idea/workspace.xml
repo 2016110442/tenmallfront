@@ -4,6 +4,7 @@
     <list default="true" id="7a7f3712-937c-4ca5-815a-6b7b4bcf8489" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main/resources/application.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,7 +24,26 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/common/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1229">
+              <caret line="54" column="17" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -44,8 +64,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/onsale/Test.java" />
-        <option value="$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/order/Test.java" />
         <option value="$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/pay/Test.java" />
         <option value="$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/productdetails/Test.java" />
         <option value="$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/search/Test.java" />
@@ -61,7 +79,6 @@
         <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/use/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/user/Test.java" />
         <option value="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/user/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/common/pom.xml" />
         <option value="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/user/UserService.java" />
         <option value="$PROJECT_DIR$/service/pom.xml" />
         <option value="$PROJECT_DIR$/front/pom.xml" />
@@ -94,6 +111,9 @@
         <option value="$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/advertisin/WxTabAdvertisin.java" />
         <option value="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/advertisin/WxTabAdvertisinServiceImpl.java" />
         <option value="$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/order/WxTabOrderItem.java" />
+        <option value="$PROJECT_DIR$/common/pom.xml" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/cn/wanxi/util/RedisUtil.java" />
+        <option value="$PROJECT_DIR$/common/src/main/java/com/cn/wanxi/util/SendMessageUtil.java" />
         <option value="$PROJECT_DIR$/front/src/main/resources/application.properties" />
       </list>
     </option>
@@ -112,8 +132,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="192" />
-    <option name="width" value="1343" />
+    <option name="x" value="190" />
+    <option name="y" value="4" />
+    <option name="width" value="1532" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -124,14 +145,50 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="CatdeaLogs" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="CatdeaLogs" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
               <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
@@ -399,7 +456,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -410,22 +466,24 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/common/src/main/java/com/cn/wanxi/util" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15391704" />
     <property name="project.structure.side.proportion" value="0.19881657" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="tasks" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Desktop\hibernate\tenmallfront\service\src\main\java\com.cn.wanxi.service\advertisin" />
-      <recent name="C:\Users\Administrator\Desktop\hibernate\tenmallfront\model\src\main\java\com\cn\wanxi\model\order" />
-      <recent name="C:\Users\Administrator\Desktop\hibernate\tenmallfront\model\src\main\java\com\cn\wanxi\model\advertisin" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.cn.wanxi.service.user" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\test\tenmallfront\common\src\main\java\com\cn\wanxi\util" />
+      <recent name="C:\Users\Administrator\Desktop\hibernate\tenmallfront\front\src\main\resources\mapper" />
+      <recent name="C:\Users\Administrator\Desktop\hibernate\tenmallfront\service\src\main\java\com.cn.wanxi.service\order" />
+      <recent name="C:\Users\Administrator\Desktop\hibernate\tenmallfront\dao\src\main\java\com\cn\wanxi\dao\order" />
+      <recent name="C:\Users\Administrator\Desktop\hibernate\tenmallfront\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.cn.wanxi.front.order" />
@@ -434,12 +492,10 @@
       <recent name="com.cn.wanxi.model.order" />
       <recent name="" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Desktop\hibernate\tenmallfront\front\src\main\resources\mapper" />
-      <recent name="C:\Users\Administrator\Desktop\hibernate\tenmallfront\service\src\main\java\com.cn.wanxi.service\order" />
-      <recent name="C:\Users\Administrator\Desktop\hibernate\tenmallfront\dao\src\main\java\com\cn\wanxi\dao\order" />
-      <recent name="C:\Users\Administrator\Desktop\hibernate\tenmallfront\src\main\resources" />
-      <recent name="C:\Users\Administrator\Desktop\hibernate\tenmallfront\service\src\main\resources" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\hibernate\tenmallfront\service\src\main\java\com.cn.wanxi.service\advertisin" />
+      <recent name="C:\Users\Administrator\Desktop\hibernate\tenmallfront\model\src\main\java\com\cn\wanxi\model\order" />
+      <recent name="C:\Users\Administrator\Desktop\hibernate\tenmallfront\model\src\main\java\com\cn\wanxi\model\advertisin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -481,6 +537,8 @@
       <workItem from="1574255004490" duration="369000" />
       <workItem from="1574255386087" duration="245000" />
       <workItem from="1574255641633" duration="108000" />
+      <workItem from="1574255915556" duration="581000" />
+      <workItem from="1574256717119" duration="381000" />
     </task>
     <task id="LOCAL-00001" summary="更换为mybatis">
       <created>1574232830551</created>
@@ -503,16 +561,24 @@
       <option name="project" value="LOCAL" />
       <updated>1574255047066</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="test">
+      <created>1574255981328</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1574255981328</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29120000" />
+    <option name="totallyTimeSpent" value="30082000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="192" y="0" width="1343" height="1040" extended-state="0" />
+    <frame x="190" y="4" width="1532" height="1040" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.43117976" visible="true" weight="0.3047545" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.43117976" visible="true" weight="0.2737772" />
       <window_info id="Structure" order="1" sideWeight="0.56882024" side_tool="true" weight="0.22228146" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -631,13 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -794,9 +853,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/advertisin/WxTabAdvertisinmapper.xml" />
-    <entry file="file://$PROJECT_DIR$/dao/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/src/main/resources/mapper/WxTabAdvertisinmapper.xml" />
     <entry file="file://$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/advertisin/Result.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -919,10 +975,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/dao/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/cn/wanxi/util/SendMessageUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/cn/wanxi/util/RedisUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/src/main/java/com/cn/wanxi/util/WebTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1229">
+          <caret line="54" column="17" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
         </state>
       </provider>
     </entry>
