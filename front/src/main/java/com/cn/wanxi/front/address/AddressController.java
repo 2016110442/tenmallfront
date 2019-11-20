@@ -1,13 +1,15 @@
 package com.cn.wanxi.front.address;
 
-import com.cn.wanxi.service.address.AddressService;
-import com.cn.wanxi.model.address.Address;
+import com.cn.wanxi.service.address.WxTabAddressService;
+import com.cn.wanxi.model.address.WxTabAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import com.cn.wanxi.util.WebTools;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 地址信息
@@ -18,42 +20,42 @@ import java.util.List;
 @RequestMapping("/address")
 public class AddressController{
     @Autowired
-    private AddressService addressService;
+    private WxTabAddressService wxTabAddressService;
 
     //收货人地址列表接口
     @RequestMapping(value = "/listAddress.do",method = RequestMethod.POST)
-    public List<Address> list(Address address){
-        return addressService.find(address);
+    public List<WxTabAddress> list(WxTabAddress address){
+        return wxTabAddressService.find(address);
     }
 
     //地址新增接口
     @RequestMapping(value = "/addAddress.do",method = RequestMethod.POST)
-    public String add(Address address){
-        boolean flag =addressService.add(address);
+    public Map<String,Object> add(WxTabAddress address){
+        boolean flag =wxTabAddressService.add(address);
         if(flag){
-            return "添加成功";
+            return WebTools.returnData("添加成功",0);
         }
-        return "添加失败";
+        return WebTools.returnData("添加失败",-1);
     }
 
     //地址修改接口
     @RequestMapping(value = "/updateAddress.do",method = RequestMethod.POST)
-    public String update(Address address){
-        boolean flag =addressService.update(address);
+    public Map<String, Object> update(WxTabAddress address){
+        boolean flag =wxTabAddressService.update(address);
         if(flag){
-            return "修改成功";
+            return WebTools.returnData("修改成功",0);
         }
-        return "修改失败";
+        return WebTools.returnData("修改失败",-1);
     }
 
     //地址删除接口
-    @RequestMapping(value = "/deleteAddress.do",method = RequestMethod.POST)
-    public String delete(Integer id){
-        boolean flag =addressService.delete(id);
+    @RequestMapping(value = "/deleteAddress.do",method = RequestMethod.GET)
+    public Map<String, Object> delete(Integer id){
+        boolean flag =wxTabAddressService.delete(id);
         if(flag){
-            return "删除成功";
+            return WebTools.returnData("删除成功",0);
         }
-        return "删除失败";
+        return WebTools.returnData("删除失败",-1);
     }
 
 }

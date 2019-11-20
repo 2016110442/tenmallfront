@@ -1,7 +1,7 @@
 package com.cn.wanxi.service.address;
 
-import com.cn.wanxi.dao.address.AddressDao;
-import com.cn.wanxi.model.address.Address;
+import com.cn.wanxi.dao.address.WxTabAddressDao;
+import com.cn.wanxi.model.address.WxTabAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,18 +12,18 @@ import java.util.List;
  * @date 2019/11/20 9:38
  */
 @Service
-public class AddressServiceImpl implements AddressService {
+public class WxTabAddressServiceImpl implements WxTabAddressService {
     @Autowired
-    private AddressDao addressDao;
+    private WxTabAddressDao wxTabAddressDao;
 
     @Override
-    public List<Address> find(Address address) {
-        return addressDao.find(address);
+    public List<WxTabAddress> find(WxTabAddress address) {
+        return wxTabAddressDao.find(address);
     }
 
     @Override
-    public boolean add(Address address) {
-        Integer num = addressDao.insert(address);
+    public boolean add(WxTabAddress address) {
+        Integer num = wxTabAddressDao.insert(address);
         if(num == 1){
             return true;
         }
@@ -31,8 +31,8 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public boolean update(Address address) {
-        Integer num = addressDao.update(address);
+    public boolean update(WxTabAddress address) {
+        Integer num = wxTabAddressDao.update(address);
         if(num == 1){
             return true;
         }
@@ -41,7 +41,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public boolean delete(Integer id) {
-        Integer num = addressDao.delete(id);
+        Integer num = wxTabAddressDao.delete(id);
         if(num == 1){
             return true;
         }
