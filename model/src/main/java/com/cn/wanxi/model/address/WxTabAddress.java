@@ -4,7 +4,7 @@ package com.cn.wanxi.model.address;
 import java.io.Serializable;
 
 /**
- * 地址信息表
+ * 地址信息
  * @author lxq
  * @date 2019/11/20 9:38
  */
