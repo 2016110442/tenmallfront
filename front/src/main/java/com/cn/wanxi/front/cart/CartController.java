@@ -95,9 +95,8 @@ public class CartController {
 
      * @return
      */
-    @RequestMapping("/cardDetail.do")
-    public List cardDetail(int id){
-
+    @RequestMapping(value ="/cardDetail.do",method = RequestMethod.POST)
+    public WxTabSpu cardDetail(int id){
         return cartService.cardDetail(id);
     }
 }
