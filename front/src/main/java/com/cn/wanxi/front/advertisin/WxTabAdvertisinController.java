@@ -2,6 +2,7 @@ package com.cn.wanxi.front.advertisin;
 
 import com.cn.wanxi.model.advertisin.Result;
 import com.cn.wanxi.model.advertisin.WxTabAdvertisin;
+import com.cn.wanxi.service.advertisin.WxTabAdvertisinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
