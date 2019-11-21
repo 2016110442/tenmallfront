@@ -31,4 +31,9 @@ public class WxTabOrderItemServiceImpl implements WxTabOrderItemService {
         PageHelper.startPage(page,size);
         return new PageInfo<Map<String,Object>>(wxTabOrderItemMapper.findByPayStatusAndConsignStatus(payStatus,consignStatus));
     }
+
+    @Override
+    public WxTabOrderItem get(String id) {
+        return wxTabOrderItemMapper.get(id);
+    }
 }

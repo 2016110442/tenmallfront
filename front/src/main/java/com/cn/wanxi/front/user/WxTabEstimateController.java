@@ -3,9 +3,15 @@ package com.cn.wanxi.front.user;
 import com.cn.wanxi.model.order.WxTabOrder;
 import com.cn.wanxi.model.order.WxTabOrderItem;
 import com.cn.wanxi.model.user.WxTabEstimate;
+import com.cn.wanxi.model.user.WxTabReturnCause;
+import com.cn.wanxi.model.user.WxTabReturnOrder;
+import com.cn.wanxi.model.user.WxTabReturnOrderItem;
 import com.cn.wanxi.service.order.WxTabOrderItemService;
 import com.cn.wanxi.service.order.WxTabOrderService;
 import com.cn.wanxi.service.user.WxTabEstimateService;
+import com.cn.wanxi.service.user.WxTabReturnCauseService;
+import com.cn.wanxi.service.user.WxTabReturnOrderItemService;
+import com.cn.wanxi.service.user.WxTabReturnOrderService;
 import com.cn.wanxi.util.WebTools;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +37,12 @@ public class WxTabEstimateController {
     private WxTabOrderItemService wxTabOrderItemService;
     @Autowired
     private WxTabOrderService wxTabOrderService;
+    @Autowired
+    private WxTabReturnCauseService wxTabReturnCauseService;
+    @Autowired
+    private WxTabReturnOrderService wxTabReturnOrderService;
+    @Autowired
+    private WxTabReturnOrderItemService wxTabReturnOrderItemService;
 
     //评价
     @RequestMapping(value = "/product/estimate.do",method = RequestMethod.POST)
@@ -61,14 +73,10 @@ public class WxTabEstimateController {
                                            @RequestParam(required = true) String returnCause,
                                            @RequestParam(required = true) String type){
         //退货申请操作
-        boolean flag = true;//wxTabEstimateService.update(wxTabEstimate);
-        if(flag){
-            return WebTools.returnData("退货申请成功",0);
-        }
-        return WebTools.returnData("退货申请失败",-1);
+        return refund(orderId,orderItemid,evidence,description,returnCause,type);
     }
 
-    //退货申请
+    //退款申请
     @RequestMapping(value = "/product/refund.do",method = RequestMethod.POST)
     public Map<String, Object> refund(@RequestParam(required = true) String orderId,
                                       @RequestParam(required = true) String orderItemid,
@@ -76,12 +84,64 @@ public class WxTabEstimateController {
                                       @RequestParam(required = true) String description,
                                       @RequestParam(required = true) String returnCause,
                                       @RequestParam(required = true) String type){
-        //退款操作
-        boolean flag = true;
-        if(flag){
-            return WebTools.returnData("退款成功",0);
+        //退货退款原因表
+        WxTabReturnCause wxTabReturnCause = new WxTabReturnCause();
+        wxTabReturnCause.setCause(returnCause);
+        boolean flag=wxTabReturnCauseService.add(wxTabReturnCause);
+
+        WxTabOrderItem wxTabOrderItem =wxTabOrderItemService.get(orderItemid);
+        WxTabOrder wxTabOrder =wxTabOrderService.selectByIds(orderId.split(",")).get(0);
+        //退货退款申请表
+        WxTabReturnOrder wxTabReturnOrder = new WxTabReturnOrder();
+        wxTabReturnOrder.setReturnMoney(wxTabOrder.getPayMoney());
+        wxTabReturnOrder.setIsReturnFreight(wxTabOrderItem.getIsReturn().charAt(0));
+        wxTabReturnOrder.setLinkman(wxTabOrder.getUsername());
+        wxTabReturnOrder.setLinkmanMobile(wxTabOrder.getReceiverMobile());
+        //TODO user_id 不知道从哪获取
+        wxTabReturnOrder.setUserId(0);
+        //TODO user_account 不知道从哪获取
+        wxTabReturnOrder.setUserAccount("test");
+        //TODO admin_id 不知道从哪获取
+        wxTabReturnOrder.setAdminId(0);
+        wxTabReturnOrder.setReturnCause(returnCause);
+        wxTabReturnOrder.setOrderId(orderId);
+        wxTabReturnOrder.setEvidence(evidence);
+        wxTabReturnOrder.setDescription(description);
+        wxTabReturnOrder.setType(type.charAt(0));
+        if(flag) {
+            flag = wxTabReturnOrderService.add(wxTabReturnOrder);
         }
-        return WebTools.returnData("退款失败",-1);
+
+        //退货退款申请明细表
+        WxTabReturnOrderItem wxTabReturnOrderItem = new WxTabReturnOrderItem();
+        wxTabReturnOrderItem.setTitle(wxTabOrderItem.getName());
+        wxTabReturnOrderItem.setPrice(wxTabOrderItem.getPrice());
+        wxTabReturnOrderItem.setNum(wxTabOrderItem.getNum());
+        wxTabReturnOrderItem.setImage(wxTabOrderItem.getImage());
+        wxTabReturnOrderItem.setMoney(wxTabOrder.getTotalMoney());
+        wxTabReturnOrderItem.setPayMoney(wxTabOrder.getPayMoney());
+        wxTabReturnOrderItem.setWeight(wxTabOrderItem.getWeight());
+        wxTabReturnOrderItem.setReturnOrderId(wxTabOrder.getId());
+        if(wxTabOrderItem.getCategoryId1() != null && wxTabOrderItem.getCategoryId1()!= 0){
+            wxTabReturnOrderItem.setCategoryId(wxTabOrderItem.getCategoryId1());
+        }else if(wxTabOrderItem.getCategoryId2() != null && wxTabOrderItem.getCategoryId2()!= 0){
+            wxTabReturnOrderItem.setCategoryId(wxTabOrderItem.getCategoryId2());
+        }else if(wxTabOrderItem.getCategoryId3() != null && wxTabOrderItem.getCategoryId3()!= 0){
+            wxTabReturnOrderItem.setCategoryId(wxTabOrderItem.getCategoryId3());
+        }
+        wxTabReturnOrderItem.setSpuId(wxTabOrderItem.getSpuId());
+        wxTabReturnOrderItem.setSkuId(wxTabOrderItem.getSkuId());
+        wxTabReturnOrderItem.setOrderId(orderId);
+        wxTabReturnOrderItem.setOrderItemId(orderItemid);
+        if(flag) {
+            flag = wxTabReturnOrderItemService.add(wxTabReturnOrderItem);
+        }
+
+        //退款操作
+        if(flag){
+            return WebTools.returnData("申请成功",0);
+        }
+        return WebTools.returnData("申请失败",-1);
     }
 
     //订单查询接口
