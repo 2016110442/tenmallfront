@@ -25,7 +25,7 @@ public class WebTools {
      * @return 转化成功的map
      * @throws IllegalAccessException 非法访问异常
      */
-    private static Map<String,Object> objectToMap(Object o) throws IllegalAccessException {
+    public static Map<String,Object> objectToMap(Object o) throws IllegalAccessException {
         if(null == o){
             return null;
         }
