@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 public interface WxTabOrderItemMapper {
 
@@ -36,4 +37,6 @@ public interface WxTabOrderItemMapper {
             "</script>"
     })
     List<WxTabOrderItem> findBySkuIds(@Param("skuIds") String[] skuIds);
+
+    List<Map<String,Object>> findByPayStatusAndConsignStatus(@Param("payStatus") String payStatus,@Param("consignStatus") String consignStatus);
 }
