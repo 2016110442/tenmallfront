@@ -1,6 +1,8 @@
 package com.cn.wanxi.dao.cart;
 
 import com.cn.wanxi.model.cart.AddCartModel;
+import com.cn.wanxi.model.cart.WxTabSku;
+import com.cn.wanxi.model.cart.WxTabSpu;
 import com.cn.wanxi.model.user.User;
 import org.apache.ibatis.annotations.*;
 
@@ -32,8 +34,7 @@ public interface CartDao {
     /**
      *  1.2.7.4.购物车列表接口
      */
-    @Select("select id,username from user where id=#{id}")
-    List findCartList(int page, int size);
+    List<WxTabSpu> findCartList(@Param("page") int page,@Param("size") int size);
     /**
      *  1.2.7.5.获取商品skuid接口
      */

@@ -1,6 +1,7 @@
 package com.cn.wanxi.service.productdetails;
 
 import com.cn.wanxi.dao.productdetails.ProductDetailsDao;
+import com.cn.wanxi.model.cart.WxTabSpu;
 import com.cn.wanxi.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ import java.util.List;
 public class ProductDetailsService implements ProductDetailsServiceImpl {
     @Autowired
      ProductDetailsDao productDetailsDao;
-    public List productDetails(int id) {
+    public WxTabSpu productDetails(int id) {
         return productDetailsDao.productDetails(id);
     }
 }
