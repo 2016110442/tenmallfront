@@ -87,7 +87,7 @@ public class WxTabAddressController {
     }
 
     //商品订单详情接口
-    @RequestMapping(value = "/settlement/deal.do",method = RequestMethod.GET)
+    @RequestMapping(value = "/settlement/deal.do",method = RequestMethod.POST)
     public Map<String, Object> deal(@RequestParam(required = true)String ids){
         Map<String,Object> map = new HashMap<>();
         List<Object> objectList = new ArrayList<>();
