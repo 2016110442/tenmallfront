@@ -71,7 +71,7 @@ public class UserServiceImpl implements UserService {
         String  code= SendMessageUtil.getRandomCode(6);
         Integer result=SendMessageUtil.send(phone,code);
         if(result>0){
-            RedisUtil.setCode(phone,code);
+            RedisUtil.setCode(phone,code); //发送成功,存储验证码
         }
         String  msg=SendMessageUtil.getMessage(result);
         map.put("code",String.valueOf(result));

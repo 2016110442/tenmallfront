@@ -15,12 +15,21 @@ import java.util.concurrent.TimeUnit;
  */
 @Component
 public class RedisUtil {
+    /**
+     * 检查验证码是否存在
+     */
     @Autowired
     private static  RedisTemplate redisTemplate;
     public  static  boolean isCodeExist(String phone,String code){
         ValueOperations<String,String> ops=redisTemplate.opsForValue();
         return  ops.get(phone).equals(code);
     }
+
+    /**
+     * 设置验证码
+     * @param phone
+     * @param code
+     */
     public static void setCode(String phone,String code){
         ValueOperations<String,String> ops=redisTemplate.opsForValue();
         ops.set(phone,code);
