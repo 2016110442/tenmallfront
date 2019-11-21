@@ -56,13 +56,23 @@ public class UserController {
     }
 
 
-
-    @RequestMapping("/update")
-    public String update(User user){
+    /**
+     * 1.2.12.5.个人信息维护接口
+     * @param user
+     * @return
+     */
+    @RequestMapping(value ="/update",method = RequestMethod.POST)
+    public Map<String, Object> update(User user){
         return userService.update(user);
     }
-    @RequestMapping("/uname")
-    public String uname(String phone){
+
+    /**
+     * 1.2.12.6.首页显示登陆名接口
+     * @param
+     * @return
+     */
+    @RequestMapping(value ="/uname",method = RequestMethod.POST)
+    public Map<String,Object> uname(String phone){
         return userService.uname(phone);
     }
 }

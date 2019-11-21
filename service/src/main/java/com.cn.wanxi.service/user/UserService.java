@@ -10,6 +10,6 @@ public interface UserService {
                                         String code,  //验证码
                                         String password); //密码
     public Map<String,String>  getSSM(String phone);
-    public String update(User user);
-    public String uname(String phone);
+    public Map<String, Object> update(User user);
+    public Map<String,Object> uname(String phone);
 }

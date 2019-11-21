@@ -4,11 +4,14 @@ import com.cn.wanxi.dao.user.UserDao;
 import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.util.RedisUtil;
 import com.cn.wanxi.util.SendMessageUtil;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.cn.wanxi.util.WebTools.returnData;
 
 /**
  * @program: tenmallfront
@@ -79,14 +82,32 @@ public class UserServiceImpl implements UserService {
         return map;
     }
 
+    /**
+     * 1.2.12.5.个人信息维护接口
+     * @param user
+     * @return
+     */
     @Override
-    public String update(User user) {
-        return null;
-    }
+    public Map<String, Object> update(User user) {
+         int returnInt=userDao.updateUserInfo(user);
 
+        if(returnInt>0){
+            return returnData("修改成功",0);
+        }
+        return returnData("修改失败",1);
+    }
+    /**
+     * 1.2.12.6.首页显示登陆名接口
+     * @param
+     * @return
+     */
     @Override
-    public String uname(String phone) {
-        return null;
+    public Map<String,Object> uname(String phone) {
+        String resultString = userDao.findUserName(phone);
+        Map<String,Object> map=new HashMap<>();
+
+       map.put("name",resultString);
+       return map;
     }
 
 }
