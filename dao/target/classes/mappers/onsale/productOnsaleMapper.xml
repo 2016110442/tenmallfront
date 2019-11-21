@@ -2,6 +2,41 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cn.wanxi.dao.user.UserDao">
-
+<mapper namespace="com.cn.wanxi.dao.onsale.ProductOnsaleDao">
+    <select id="getOnsaleProducts" resultMap="getOnsaleProducts">
+    select  id,
+            name,
+            caption,
+            brand_id,
+            category1_id,
+            category2_id,
+            category3_id,
+            freight_id,
+            image,
+            introduction,
+            para_items,
+            sale_service,
+            sn,
+            spec_items,
+            template_id
+    from wx_tab_spu
+    where is_marketable=1
+</select>
+    <resultMap id="getOnsaleProducts" type="com.cn.wanxi.model.cart.WxTabSpu">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="caption" column="caption"/>
+        <result property="brand_id" column="brand_id"/>
+        <result property="category1_id" column="category1_id"/>
+        <result property="category2_id" column="category2_id"/>
+        <result property="category3_id" column="category3_id"/>
+        <result property="freight_id" column="freight_id"/>
+        <result property="image" column="image"/>
+        <result property="introduction" column="introduction"/>
+        <result property="para_items" column="para_items"/>
+        <result property="sale_service" column="sale_service"/>
+        <result property="sn" column="sn"/>
+        <result property="spec_items" column="spec_items"/>
+        <result property="template_id" column="template_id"/>
+    </resultMap>
 </mapper>

@@ -2,6 +2,8 @@ package com.cn.wanxi.service.cart;
 
 import com.cn.wanxi.dao.cart.CartDao;
 import com.cn.wanxi.model.cart.AddCartModel;
+import com.cn.wanxi.model.cart.WxTabSku;
+import com.cn.wanxi.model.cart.WxTabSpu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -69,7 +71,7 @@ public class CartService implements CartServiceImpl {
      * @return
      */
     @Override
-    public List findCartList(int page, int size) {
+    public List<WxTabSpu> findCartList(int page, int size) {
         return cartDao.findCartList(page, size);
     }
     /**
@@ -78,7 +80,7 @@ public class CartService implements CartServiceImpl {
      * @return
      */
     @Override
-    public List getSkuid(int spuid, String spec) {
+    public WxTabSku getSkuid(int spuid, String spec) {
         return cartDao.getSkuid(spuid, spec);
     }
     /**

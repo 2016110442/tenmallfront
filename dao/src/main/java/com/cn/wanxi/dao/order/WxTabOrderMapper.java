@@ -1,6 +1,8 @@
 package com.cn.wanxi.dao.order;
 
 import com.cn.wanxi.model.order.WxTabOrder;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -8,17 +10,10 @@ import java.util.List;
 
 public interface WxTabOrderMapper {
 
-    int deleteByPrimaryKey(String id);
-
+    @Insert("insert into wx_tab_order(total_num,total_money,pre_money,post_fee,pay_money,pay_type,username,receiver_contact,receiver_mobile,receiver_address,transaction_id) " +
+            "value(#{totalNum},#{totalMoney},#{preMoney},#{postFee},#{payMoney},#{payType},#{username},#{receiverContact},#{receiverMobile},#{receiverAddress},#{transactionId})")
+    @Options(useGeneratedKeys=true, keyProperty="id", keyColumn="id")
     int insert(WxTabOrder record);
-
-    int insertSelective(WxTabOrder record);
-
-    WxTabOrder selectByPrimaryKey(String id);
-
-    int updateByPrimaryKeySelective(WxTabOrder record);
-
-    int updateByPrimaryKey(WxTabOrder record);
 
     @Select({
             "<script>",

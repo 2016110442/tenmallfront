@@ -3,12 +3,12 @@ package com.cn.wanxi.model.cart;
 
 public class WxTabCart {
     private Integer id;
-    private String skuId;
+    private Integer skuId;
     private Integer spuId;
     private Character status;
     private String username;
     private String spec;
-    private  String num;
+    private String num;
 
     public Integer getId() {
         return id;
@@ -18,11 +18,11 @@ public class WxTabCart {
         this.id = id;
     }
 
-    public String getSkuId() {
+    public Integer getSkuId() {
         return skuId;
     }
 
-    public void setSkuId(String skuId) {
+    public void setSkuId(Integer skuId) {
         this.skuId = skuId;
     }
 

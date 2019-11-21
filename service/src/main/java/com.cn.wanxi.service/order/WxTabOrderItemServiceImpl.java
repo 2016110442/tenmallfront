@@ -14,33 +14,8 @@ public class WxTabOrderItemServiceImpl implements WxTabOrderItemService {
     private WxTabOrderItemMapper wxTabOrderItemMapper;
 
     @Override
-    public int deleteByPrimaryKey(Integer id) {
-        return wxTabOrderItemMapper.deleteByPrimaryKey(id);
-    }
-
-    @Override
     public int insert(WxTabOrderItem record) {
         return wxTabOrderItemMapper.insert(record);
-    }
-
-    @Override
-    public int insertSelective(WxTabOrderItem record) {
-        return wxTabOrderItemMapper.insertSelective(record);
-    }
-
-    @Override
-    public WxTabOrderItem selectByPrimaryKey(Integer id) {
-        return wxTabOrderItemMapper.selectByPrimaryKey(id);
-    }
-
-    @Override
-    public int updateByPrimaryKeySelective(WxTabOrderItem record) {
-        return wxTabOrderItemMapper.updateByPrimaryKeySelective(record);
-    }
-
-    @Override
-    public int updateByPrimaryKey(WxTabOrderItem record) {
-        return wxTabOrderItemMapper.updateByPrimaryKey(record);
     }
 
     @Override

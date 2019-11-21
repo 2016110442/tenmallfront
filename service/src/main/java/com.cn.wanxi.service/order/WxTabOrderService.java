@@ -1,22 +1,13 @@
 package com.cn.wanxi.service.order;
 
+import com.cn.wanxi.model.order.WxOrderVO;
 import com.cn.wanxi.model.order.WxTabOrder;
 
 import java.util.List;
 
 public interface WxTabOrderService {
 
-    int deleteByPrimaryKey(String id);
-
-    int insert(WxTabOrder record);
-
-    int insertSelective(WxTabOrder record);
-
-    WxTabOrder selectByPrimaryKey(String id);
-
-    int updateByPrimaryKeySelective(WxTabOrder record);
-
-    int updateByPrimaryKey(WxTabOrder record);
+    int insert(WxOrderVO wxOrderVO);
 
     List<WxTabOrder> selectByIds(String[] ids);
 }

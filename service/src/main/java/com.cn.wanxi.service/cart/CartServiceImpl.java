@@ -1,6 +1,8 @@
 package com.cn.wanxi.service.cart;
 
 import com.cn.wanxi.model.cart.AddCartModel;
+import com.cn.wanxi.model.cart.WxTabSku;
+import com.cn.wanxi.model.cart.WxTabSpu;
 
 import java.util.List;
 import java.util.Map;
@@ -29,13 +31,13 @@ public interface CartServiceImpl {
      * @param
      * @return
      */
-    List findCartList(int page, int size);
+    List<WxTabSpu> findCartList(int page, int size);
     /**
      *  1.2.7.5.获取商品skuid接口
      * @param
      * @return
      */
-    List getSkuid(int spuid, String spec);
+    WxTabSku getSkuid(int spuid, String spec);
     /**
      *  1.2.7.6.查看产品详情接口
      * @param

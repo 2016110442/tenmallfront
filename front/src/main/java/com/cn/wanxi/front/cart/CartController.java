@@ -1,6 +1,8 @@
 package com.cn.wanxi.front.cart;
 
 import com.cn.wanxi.model.cart.AddCartModel;
+import com.cn.wanxi.model.cart.WxTabSku;
+import com.cn.wanxi.model.cart.WxTabSpu;
 import com.cn.wanxi.service.cart.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,8 +71,8 @@ public class CartController {
      * @param size
      * @return
      */
-    @RequestMapping(value = "/findCartList.do",method = RequestMethod.GET)
-    public List findCartList(int page, int size){
+    @RequestMapping(value = "/findCartList.do",method = RequestMethod.POST)
+    public List<WxTabSpu> findCartList(int page, int size){
 
         return  cartService.findCartList(page,size);
     }
@@ -82,8 +84,8 @@ public class CartController {
      * spec	True	Varchar	商品规格
      * @return
      */
-    @RequestMapping("/getSkuid.do")
-    public List getSkuid(int spuid,String spec){
+    @RequestMapping(value ="/getSkuid.do",method = RequestMethod.POST)
+    public WxTabSku getSkuid(int spuid,String spec){
 
         return cartService.getSkuid(spuid,spec);
     }

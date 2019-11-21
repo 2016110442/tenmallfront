@@ -20,7 +20,7 @@
             spec_items,
             template_id
     from wx_tab_spu
-    where status=1
+    where is_marketable=1
 </select>
     <resultMap id="getOnlineProducts" type="com.cn.wanxi.model.cart.WxTabSpu">
         <id property="id" column="id"/>
