@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="7a7f3712-937c-4ca5-815a-6b7b4bcf8489" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/common/target/classes/META-INF/common.kotlin_module" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/categorynav/CategoryDao.java" afterDir="false" />
@@ -36,14 +37,62 @@
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/categorynav/Test.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/user/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/categorynav/Test.class" beforeDir="false" />
+=======
+    <list default="true" id="7a7f3712-937c-4ca5-815a-6b7b4bcf8489" name="Default Changelist" comment="更换为mybatis">
+      <change afterPath="$PROJECT_DIR$/.idea/github.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/cart/CartDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/productdetails/ProductDetailsDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/cart/CartDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/productdetails/ProductDetailsDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/cart/CartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/productdetails/ProductDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/cart/AddCartModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/cart/WxTabCart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/cart/WxTabSku.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/cart/WxTabSpu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/cart/AddCartModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/cart/WxTabCart.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/cart/CartService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/cart/CartServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/productdetails/ProductDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/productdetails/ProductDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/cart/CartService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/cart/CartServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/productdetails/ProductDetailsService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/productdetails/ProductDetailsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/cart/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/cart/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/categorynav/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/categorynav/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/hotsale/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/hotsale/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/online/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/online/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/onsale/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/onsale/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/pay/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/pay/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/productdetails/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/productdetails/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/search/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/search/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/target/test-classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/dao/target/test-classes/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/cart/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/advertisin/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/advertisin/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/cart/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/cart/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/categorynav/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/categorynav/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/hotsale/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/hotsale/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/online/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/online/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/onsale/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/onsale/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/pay/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/pay/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/productdetails/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/productdetails/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/search/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/search/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/test-classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/test-classes/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/cart/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/cart/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/categorynav/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/categorynav/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/hotsale/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/hotsale/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/online/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/online/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/onsale/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/onsale/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/pay/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/pay/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/productdetails/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/productdetails/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/search/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/search/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/test-classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/test-classes/Test.class" afterDir="false" />
+>>>>>>> 1e86247d25ea97b1e513a3c6b594826a11cc5af5
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <ignored path="$PROJECT_DIR$/front/target/" />
-    <ignored path="$PROJECT_DIR$/service/target/" />
-    <ignored path="$PROJECT_DIR$/model/target/" />
-    <ignored path="$PROJECT_DIR$/common/target/" />
-    <ignored path="$PROJECT_DIR$/dao/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +102,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
@@ -162,6 +212,8 @@
       </file>
     </leaf>
   </component>
+=======
+>>>>>>> 1e86247d25ea97b1e513a3c6b594826a11cc5af5
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -178,6 +230,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -235,6 +288,8 @@
       </list>
     </option>
   </component>
+=======
+>>>>>>> 1e86247d25ea97b1e513a3c6b594826a11cc5af5
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -254,9 +309,11 @@
     <option name="width" value="1532" />
     <option name="height" value="1040" />
   </component>
+  <component name="ProjectId" id="1TuBuvwGq2UJuCQ2RWnB07jAyCO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -610,6 +667,8 @@
       <pane id="Scope" />
     </panes>
   </component>
+=======
+>>>>>>> 1e86247d25ea97b1e513a3c6b594826a11cc5af5
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -618,7 +677,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/common/src/main/java/com/cn/wanxi/util" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/cart" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -738,6 +797,7 @@
     <option name="localTasksCounter" value="7" />
     <servers />
   </component>
+<<<<<<< HEAD
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="37413000" />
   </component>
@@ -815,8 +875,21 @@
       <window_info anchor="right" id="Bean Validation" order="9" />
     </layout-to-restore>
   </component>
+=======
+>>>>>>> 1e86247d25ea97b1e513a3c6b594826a11cc5af5
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -828,6 +901,7 @@
     <MESSAGE value="添加用户短信注册功能" />
     <option name="LAST_COMMIT_MESSAGE" value="添加用户短信注册功能" />
   </component>
+<<<<<<< HEAD
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/user/Test.java" />
     <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/user/Test.java">
@@ -1308,6 +1382,8 @@
       </provider>
     </entry>
   </component>
+=======
+>>>>>>> 1e86247d25ea97b1e513a3c6b594826a11cc5af5
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
