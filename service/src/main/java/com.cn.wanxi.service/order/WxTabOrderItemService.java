@@ -2,6 +2,8 @@ package com.cn.wanxi.service.order;
 
 import com.cn.wanxi.model.order.WxTabOrderItem;
 
+import java.util.List;
+
 public interface WxTabOrderItemService {
 
     int deleteByPrimaryKey(Integer id);
@@ -15,4 +17,6 @@ public interface WxTabOrderItemService {
     int updateByPrimaryKeySelective(WxTabOrderItem record);
 
     int updateByPrimaryKey(WxTabOrderItem record);
+
+    List<WxTabOrderItem> findBySkuIds(String[] skuIds);
 }

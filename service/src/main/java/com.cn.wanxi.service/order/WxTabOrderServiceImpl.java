@@ -3,7 +3,11 @@ package com.cn.wanxi.service.order;
 import com.cn.wanxi.dao.order.WxTabOrderMapper;
 import com.cn.wanxi.model.order.WxTabOrder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public class WxTabOrderServiceImpl implements WxTabOrderService {
 
     @Autowired
@@ -37,5 +41,10 @@ public class WxTabOrderServiceImpl implements WxTabOrderService {
     @Override
     public int updateByPrimaryKey(WxTabOrder record) {
         return wxTabOrderMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<WxTabOrder> selectByIds(String[] ids) {
+        return wxTabOrderMapper.selectByIds(ids);
     }
 }
