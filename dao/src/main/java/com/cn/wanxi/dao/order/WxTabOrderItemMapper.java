@@ -8,17 +8,24 @@ import java.util.List;
 
 public interface WxTabOrderItemMapper {
 
-    int deleteByPrimaryKey(Integer id);
-
     int insert(WxTabOrderItem record);
 
-    int insertSelective(WxTabOrderItem record);
-
-    WxTabOrderItem selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(WxTabOrderItem record);
-
-    int updateByPrimaryKey(WxTabOrderItem record);
+//     <insert id="addEmpsBatch">
+//    INSERT INTO emp(ename,gender,email,did)
+//    VALUES
+//            <foreach collection="emps" item="emp" separator=",">
+//            (#{emp.eName},#{emp.gender},#{emp.email},#{emp.dept.id})
+//      </foreach>
+//     </insert>
+    @Select({
+            "<script>",
+            "insert into wx_tab_order_item(category_id1,category_id2,category_id3,spu_id,sku_id,order_id,name,price,num,money,pay_money,image,post_fee) values",
+            "<foreach collection='lists' item='item' separator=','>",
+            "(#{item.categoryId1},#{item.categoryId2},#{item.categoryId3},#{item.spuId},#{item.skuId},#{item.orderId},#{item.name},#{item.price},#{item.num},#{item.money},#{item.payMoney},#{item.image},#{item.postFee})",
+            "</foreach>",
+            "</script>"
+    })
+    Integer insertList(@Param("lists") List<WxTabOrderItem> lists);
 
     @Select({
             "<script>",
