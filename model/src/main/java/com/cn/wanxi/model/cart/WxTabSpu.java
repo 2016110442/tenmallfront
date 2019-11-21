@@ -4,6 +4,7 @@ public class WxTabSpu {
     private Integer id;
     private String sn;
     private String name;
+    private String caption;
     private Integer brandId;
     private Integer category1Id;
     private Integer category2Id;
@@ -31,6 +32,14 @@ public class WxTabSpu {
 
     public void setWxTabCart(WxTabCart wxTabCart) {
         this.wxTabCart = wxTabCart;
+    }
+
+    public String getCaption() {
+        return caption;
+    }
+
+    public void setCaption(String caption) {
+        this.caption = caption;
     }
 
     public WxTabSku getWxTabSku() {

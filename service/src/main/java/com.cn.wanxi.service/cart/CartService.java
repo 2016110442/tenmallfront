@@ -89,7 +89,7 @@ public class CartService implements CartServiceImpl {
      * @return
      */
     @Override
-    public List cardDetail(int id) {
+    public WxTabSpu cardDetail(int id) {
         return cartDao.cardDetail(id);
     }
 

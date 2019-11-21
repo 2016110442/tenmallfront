@@ -43,5 +43,5 @@ public interface CartServiceImpl {
      * @param
      * @return
      */
-    List cardDetail(int id);
+    WxTabSpu cardDetail(int id);
 }

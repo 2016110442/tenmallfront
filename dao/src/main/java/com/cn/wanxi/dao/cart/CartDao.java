@@ -42,6 +42,5 @@ public interface CartDao {
     /**
      *  1.2.7.6.查看产品详情接口
      */
-    @Select("select id,username from user where id=#{id}")
-    List cardDetail(int id);
+    WxTabSpu cardDetail(int id);
 }
