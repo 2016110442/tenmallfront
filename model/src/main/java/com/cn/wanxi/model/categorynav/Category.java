@@ -1,8 +1,10 @@
 package com.cn.wanxi.model.categorynav;
 
+import java.util.List;
+
 /**
  * @program: tenmallfront
- * @description:
+ * @description: 商品分类
  * @author: niyao
  * @create: 2019-11-21 09:13
  */
@@ -15,7 +17,14 @@ public class Category {
     private Integer seq;//排序
     private Integer parentId;//上级ID
     private Integer templateId;//模板ID
+    private List<Category> menus; //子分类
 
+    public List<Category> getMenus() {
+        return menus;
+    }
+    public void setMenus(List<Category> menus) {
+        this.menus = menus;
+    }
     public Integer getId() {
         return id;
     }

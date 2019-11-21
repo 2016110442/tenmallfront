@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.wanxi.dao.categorynav.CategoryDao">
+<!--    查询所有分类信息-->
     <select id="getCategorys" resultMap="getCategorys">
         select  id,
                 name,
@@ -14,7 +15,30 @@
                 template_id
         from    wx_tab_category
     </select>
+<!--    根据父类ID查询所有子分类-->
     <resultMap id="getCategorys" type="com.cn.wanxi.model.categorynav.Category">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="goodsNum" column="goods_num"/>
+        <result property="isShow" column="is_show"/>
+        <result property="isMenu" column="is_menu"/>
+        <result property="seq" column="seq"/>
+        <result property="parentId" column="parent_id"/>
+        <result property="templateId" column="template_id"/>
+    </resultMap>
+    <select id="getCateByPid" parameterType="Integer" resultMap="getCateByPid">
+        select  id,
+                name,
+                goods_num,
+                is_show,
+                is_menu,
+                seq,
+                parent_id,
+                template_id
+        from    wx_tab_category
+        where   parent_id=#{pid}
+    </select>
+    <resultMap id="getCateByPid" type="com.cn.wanxi.model.categorynav.Category">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="goodsNum" column="goods_num"/>

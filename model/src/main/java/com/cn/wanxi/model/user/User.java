@@ -10,27 +10,27 @@ import java.io.Serializable;
  */
 public class User implements Serializable {
 
-    private Integer id;
-    private String  username;
-    private String  password;
-    private String  phone;
-    private String  email;
-    private String  created;
-    private String  updated;
-    private String  sourceType;
-    private String  nickName;
-    private String  name;
-    private String  status;
-    private String  headPic;
-    private String  qq;
-    private boolean isMobileCheck;
-    private boolean isMailCheck;
-    private String  sex;
-    private String  userLevel;
-    private String  points;
-    private String  experienceValue;
-    private String  birthday;
-    private String  lastLoginTime;
+    private Integer id; //用户id
+    private String  username;//xingm
+    private String  password; //密码
+    private String  phone; //电话号码
+    private String  email; //email
+    private String  created;//创建日期
+    private String  updated;// 更新日期
+    private String  sourceType;//认证来源
+    private String  nickName; //昵称
+    private String  name;//真实姓名
+    private String  status;//账号状态
+    private String  headPic;//头像地址
+    private String  qq;//qq号
+    private String isMobileCheck;//是否手机认证
+    private String isMailCheck;//email认证
+    private String  sex;//性别
+    private String  userLevel;//等级
+    private String  points;//积分
+    private String  experienceValue;//经验
+    private String  birthday;//生日
+    private String  lastLoginTime;//上次登录时间
 
     public Integer getId() {
         return id;
@@ -136,19 +136,19 @@ public class User implements Serializable {
         this.qq = qq;
     }
 
-    public boolean isMobileCheck() {
+    public String isMobileCheck() {
         return isMobileCheck;
     }
 
-    public void setMobileCheck(boolean mobileCheck) {
+    public void setMobileCheck(String mobileCheck) {
         isMobileCheck = mobileCheck;
     }
 
-    public boolean isMailCheck() {
+    public String isMailCheck() {
         return isMailCheck;
     }
 
-    public void setMailCheck(boolean mailCheck) {
+    public void setMailCheck(String mailCheck) {
         isMailCheck = mailCheck;
     }
 
