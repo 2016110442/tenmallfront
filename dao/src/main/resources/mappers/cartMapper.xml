@@ -3,6 +3,38 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.wanxi.dao.cart.CartDao">
+<!--    1.2.7.5.获取商品skuid接口-->
+    <select id="getSkuid" resultMap="getWxTabSku">
+        select * from wx_tab_sku t1
+        where t1.spu_id=#{spuid} and t1.spec=#{spec}
+    </select>
+
+    <resultMap id="getWxTabSku" type="com.cn.wanxi.model.cart.WxTabSku">
+
+            <id property="id" column="id"></id>
+            <result property="sn" column="sn"/>
+            <result property="name" column="name"/>
+            <result property="price" column="price"/>
+            <result property="num" column="num"/>
+            <result property="alertNum" column="alert_num"/>
+            <result property="image" column="image"/>
+            <result property="images" column="images"/>
+            <result property="weight" column="weight"/>
+            <result property="createTime" column="create_time"/>
+            <result property="updateTime" column="update_time"/>
+            <result property="spuId" column="spu_id"/>
+            <result property="categoryId" column="category_id"/>
+            <result property="categoryName" column="category_name"/>
+            <result property="brandName" column="brand_name"/>
+            <result property="spec" column="spec"/>
+            <result property="saleNum" column="sale_num"/>
+            <result property="commentNum" column="comment_num"/>
+            <result property="status" column="status"/>
+
+    </resultMap>
+
+
+    <!--    1.2.7.4.购物车列表接口-->
     <select id="findCartList" resultMap="getCartList">
         select *  from wx_tab_sku t1,wx_tab_spu t2,wx_tab_cart t3
         where t3.spu_id=t2.id and
@@ -10,6 +42,7 @@
         t3.username='wangsan'
         limit #{page},#{size}
     </select>
+
     <resultMap id="getCartList" type="com.cn.wanxi.model.cart.WxTabSpu">
         <id property="id" column="id"/>
         <result property="sn" column="sn"/>

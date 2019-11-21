@@ -80,7 +80,7 @@ public class CartService implements CartServiceImpl {
      * @return
      */
     @Override
-    public List getSkuid(int spuid, String spec) {
+    public WxTabSku getSkuid(int spuid, String spec) {
         return cartDao.getSkuid(spuid, spec);
     }
     /**

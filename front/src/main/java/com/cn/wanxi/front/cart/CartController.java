@@ -84,8 +84,8 @@ public class CartController {
      * spec	True	Varchar	商品规格
      * @return
      */
-    @RequestMapping("/getSkuid.do")
-    public List getSkuid(int spuid,String spec){
+    @RequestMapping(value ="/getSkuid.do",method = RequestMethod.POST)
+    public WxTabSku getSkuid(int spuid,String spec){
 
         return cartService.getSkuid(spuid,spec);
     }

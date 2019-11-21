@@ -37,7 +37,7 @@ public interface CartServiceImpl {
      * @param
      * @return
      */
-    List getSkuid(int spuid, String spec);
+    WxTabSku getSkuid(int spuid, String spec);
     /**
      *  1.2.7.6.查看产品详情接口
      * @param

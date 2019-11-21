@@ -38,8 +38,7 @@ public interface CartDao {
     /**
      *  1.2.7.5.获取商品skuid接口
      */
-    @Select("select id,username from user where id=#{id}")
-    List getSkuid(int spuid, String spec);
+    WxTabSku getSkuid(@Param("spuid") int spuid,@Param("spec")  String spec);
     /**
      *  1.2.7.6.查看产品详情接口
      */
