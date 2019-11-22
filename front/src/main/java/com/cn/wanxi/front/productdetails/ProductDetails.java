@@ -7,6 +7,7 @@ import com.cn.wanxi.service.productdetails.ProductDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -27,6 +28,11 @@ public class ProductDetails {
     @RequestMapping(value = "/productDetails",method = RequestMethod.POST)
     public Map<String,Object> productDetails(int id){
         return productDetailsServiceImpl.productDetails(id);
+    }
+
+    @RequestMapping(value = "/search",method = RequestMethod.POST)
+    public List<WxTabSpu> productDetails(@RequestParam String conditionpara){
+        return productDetailsServiceImpl.search(conditionpara);
     }
 
 }

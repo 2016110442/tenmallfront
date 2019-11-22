@@ -31,4 +31,10 @@ public class ProductDetailsService implements ProductDetailsServiceImpl {
 
         return maps;
     }
+
+    @Override
+    public List<WxTabSpu> search(String conditionpara) {
+        return productDetailsDao.search(conditionpara);
+    }
+
 }

@@ -8,4 +8,6 @@ import java.util.Map;
 
 public interface ProductDetailsServiceImpl  {
     Map<String,Object> productDetails(int id);
+
+    List<WxTabSpu> search(String conditionpara);
 }

@@ -23,4 +23,6 @@ public interface ProductDetailsDao {
     @Select("SELECT sn,num,alert_num,price,spec,image,\n" +
             "images,`status`,weight from wx_tab_sku WHERE spu_id=#{id}")
     List<WxTabSku> productDetailsWxTabSkuList(int id);
+
+    List<WxTabSpu> search(String conditionpara);
 }
