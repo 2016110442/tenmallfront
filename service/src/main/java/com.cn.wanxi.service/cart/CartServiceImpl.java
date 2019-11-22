@@ -31,7 +31,7 @@ public interface CartServiceImpl {
      * @param
      * @return
      */
-    List<WxTabSpu> findCartList(int page, int size);
+    List<Map<String,Object>> findCartList(int page, int size);
     /**
      *  1.2.7.5.获取商品skuid接口
      * @param
@@ -43,5 +43,5 @@ public interface CartServiceImpl {
      * @param
      * @return
      */
-    WxTabSpu cardDetail(int id);
+    Map<String,Object> cardDetail(int id);
 }
