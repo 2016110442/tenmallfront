@@ -4,7 +4,6 @@ import com.cn.wanxi.dao.user.UserDao;
 import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.util.RedisUtil;
 import com.cn.wanxi.util.SendMessageUtil;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +22,8 @@ import static com.cn.wanxi.util.WebTools.returnData;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
-
+    @Autowired
+    private RedisUtil redisUtil;
     /**
      * 根据电话号码查询
      * @param phone
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
             msg.put("code","0");
             msg.put("message","注册成功");
         }
-        if(RedisUtil.isCodeExist(phone,code)){
+        if(redisUtil.isCodeExist(phone,code)){
             msg.put("code","0");
             msg.put("message","注册成功");
         }else {
@@ -74,7 +74,7 @@ public class UserServiceImpl implements UserService {
         String  code= SendMessageUtil.getRandomCode(6);
         Integer result=SendMessageUtil.send(phone,code);
         if(result>0){
-            RedisUtil.setCode(phone,code); //发送成功,存储验证码
+            redisUtil.setCode(phone,code); //发送成功,存储验证码
         }
         String  msg=SendMessageUtil.getMessage(result);
         map.put("code",String.valueOf(result));

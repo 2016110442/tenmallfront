@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.wanxi.dao.order.WxTabOrderItemMapper">
+
+    <select id="findByPayStatusAndConsignStatus" resultType="java.util.Map">
+        select
+            oi.id,
+            oi.category_id1,
+            oi.category_id2,
+            oi.category_id3,
+            oi.spu_id,
+            oi.sku_id,
+            oi.order_id,
+            oi.name,
+            oi.price,
+            oi.num,
+            oi.money,
+            oi.pay_money,
+            oi.image,
+            oi.weight,
+            oi.post_fee,
+            oi.is_return
+        from
+            wx_tab_order_item oi
+        inner join
+            wx_tab_order o
+        on
+            oi.order_id=o.id
+        where 1=1
+        <if test="payStatus != null and payStatus!= ''">
+            and o.pay_status = #{payStatus}
+        </if>
+        <if test="consignStatus != null and consignStatus!= ''">
+            and o.consign_status = #{consignStatus}
+        </if>
+    </select>
+
+
+</mapper>

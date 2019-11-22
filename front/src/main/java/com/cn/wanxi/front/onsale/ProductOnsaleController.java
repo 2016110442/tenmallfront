@@ -20,6 +20,11 @@ import java.util.List;
 public class ProductOnsaleController {
     @Autowired(required = false)
     private ProductOnsaleService productOnsaleService;
+
+    /**
+     * 查询打折的商品
+     * @return
+     */
     @RequestMapping(value = "/onSale",method = RequestMethod.POST)
     public List<WxTabSpu> getOnsaleProducts(){
         return productOnsaleService.getOnsaleProducts();

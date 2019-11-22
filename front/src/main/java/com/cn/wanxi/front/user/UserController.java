@@ -3,9 +3,7 @@ package com.cn.wanxi.front.user;
 import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -29,9 +27,9 @@ public class UserController {
      * @return msg
      */
     @RequestMapping(value = "/register",method = RequestMethod.POST)
-    public Map<String ,String> register(String phone,     /*手机号*/
-                                        String code,      /*验证码*/
-                                        String password){ /*密码*/
+    public Map<String ,String> register(@RequestParam(required = true) String phone,     /*手机号*/
+                                        @RequestParam(required = true) String code,      /*验证码*/
+                                        @RequestParam(required = true) String password){ /*密码*/
         return userService.register(phone,code,password);
     }
 
@@ -41,7 +39,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/ssm",method = RequestMethod.POST)
-    public Map<String,String>  getSSM(String phone){
+    public Map<String,String>  getSSM(@RequestParam(required = true) String phone){
         return userService.getSSM(phone);
     }
 
@@ -51,7 +49,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/findOne",method = RequestMethod.POST)
-    public User findByPhone(String phone){
+    public User findByPhone(@RequestParam(required = true)String phone){
         return userService.findUserByPhone(phone);
     }
 
@@ -62,7 +60,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value ="/update",method = RequestMethod.POST)
-    public Map<String, Object> update(User user){
+    public Map<String, Object> update(@RequestBody User user){
         return userService.update(user);
     }
 
@@ -72,7 +70,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value ="/uname",method = RequestMethod.POST)
-    public Map<String,Object> uname(String phone){
+    public Map<String,Object> uname(@RequestParam(required = true)String phone){
         return userService.uname(phone);
     }
 }

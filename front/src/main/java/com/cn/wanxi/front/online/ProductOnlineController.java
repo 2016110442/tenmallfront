@@ -20,6 +20,11 @@ import java.util.List;
 public class ProductOnlineController {
     @Autowired(required = false)
     private ProductOnlineService productOnlineService;
+
+    /**
+     * 查询新上线的商品
+     * @return
+     */
     @RequestMapping(value = "/online",method = RequestMethod.POST)
     public List<WxTabSpu> getOnlineProducts(){
         return productOnlineService.getOnlineProducts();

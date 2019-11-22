@@ -19,10 +19,11 @@ public class RedisUtil {
      * 检查验证码是否存在
      */
     @Autowired
-    private static  RedisTemplate redisTemplate;
-    public  static  boolean isCodeExist(String phone,String code){
+    public   RedisTemplate redisTemplate;
+
+    public    boolean isCodeExist(String phone,String code){
         ValueOperations<String,String> ops=redisTemplate.opsForValue();
-        return  ops.get(phone).equals(code);
+        return  ops.get(phone)!=null&&ops.get(phone).equals(code);
     }
 
     /**
@@ -30,7 +31,7 @@ public class RedisUtil {
      * @param phone
      * @param code
      */
-    public static void setCode(String phone,String code){
+    public  void setCode(String phone,String code){
         ValueOperations<String,String> ops=redisTemplate.opsForValue();
         ops.set(phone,code);
         redisTemplate.expire(phone,1, TimeUnit.MINUTES);//过期时间1分钟

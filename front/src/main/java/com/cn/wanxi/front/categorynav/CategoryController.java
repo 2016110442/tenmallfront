@@ -3,10 +3,7 @@ package com.cn.wanxi.front.categorynav;
 import com.cn.wanxi.model.categorynav.Category;
 import com.cn.wanxi.service.categorynav.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,7 +35,7 @@ public class CategoryController {
      * @return
      */
     @PostMapping("/categoryByParent")
-    public List<Category> getCateByPid(Integer parentId){
+    public List<Category> getCateByPid(@RequestParam(required = true) Integer parentId){
         System.out.println(parentId);
         return categoryService.getCateByPid(parentId);
     }

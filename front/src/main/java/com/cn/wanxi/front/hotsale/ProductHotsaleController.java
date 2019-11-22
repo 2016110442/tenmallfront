@@ -20,6 +20,11 @@ import java.util.List;
 public class ProductHotsaleController {
     @Autowired(required = false)
     private ProductHotsaleService productHotsaleService;
+
+    /**
+     * 查询热卖商品
+     * @return
+     */
     @RequestMapping(value = "/hotSale",method = RequestMethod.POST)
     public List<WxTabSpu> getHotsaleProducts(){
         return productHotsaleService.getHotsaleProducts();
