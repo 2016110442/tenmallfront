@@ -12,6 +12,8 @@ public interface WxTabOrderItemService {
 
     List<WxTabOrderItem> findBySkuIds(String[] skuIds);
 
+    List<WxTabOrderItem> findByIds(String[] Ids);
+
     PageInfo<Map<String,Object>> pageByPayStatusAndConsignStatus(Integer page, Integer size, String payStatus, String consignStatus);
 
     WxTabOrderItem get(String id);

@@ -1,12 +1,17 @@
 package com.cn.wanxi.front.address;
 
+import com.cn.wanxi.model.cart.WxTabSku;
+import com.cn.wanxi.model.cart.WxTabSpu;
 import com.cn.wanxi.model.order.WxTabOrder;
 import com.cn.wanxi.model.order.WxTabOrderItem;
 import com.cn.wanxi.service.address.WxTabAddressService;
 import com.cn.wanxi.model.address.WxTabAddress;
+import com.cn.wanxi.service.cart.WxTabSkuService;
+import com.cn.wanxi.service.cart.WxTabSpuService;
 import com.cn.wanxi.service.order.WxTabOrderItemService;
 import com.cn.wanxi.service.order.WxTabOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,7 +35,9 @@ public class WxTabAddressController {
     @Autowired
     private WxTabOrderItemService wxTabOrderItemService;
     @Autowired
-    private WxTabOrderService wxTabOrderService;
+    private WxTabSpuService wxTabSpuService;
+    @Autowired
+    private WxTabSkuService wxTabSkuService;
 
     //收货人地址列表接口
     @RequestMapping(value = "/address/listAddress.do",method = RequestMethod.POST)
@@ -102,10 +109,19 @@ public class WxTabAddressController {
                 entityMap = WebTools.objectToMap(wxTabOrderItem);
                 String[] skuIds2 =wxTabOrderItem.getSkuId().split(",");
                 if(skuIds2.length<=0){
-                    return new HashMap<>();
+                    entityMap.put("skuList",new ArrayList<>());
+                    continue;
                 }
-                List<WxTabOrder> wxTabOrders =wxTabOrderService.selectByIds(skuIds2);
-                entityMap.put("skuList",wxTabOrders);
+                //sku
+                List<WxTabSku> wxTabSkus =wxTabSkuService.selectByIds(skuIds2);
+                if(StringUtils.isEmpty(wxTabOrderItem.getSpuId())){
+                    objectList.add(new HashMap<>());
+                    continue;
+                }
+                WxTabSpu wxTabSpu = wxTabSpuService.findByIds(wxTabOrderItem.getSpuId().split(",")).get(0);
+                entityMap = WebTools.objectToMap(wxTabSpu);
+                entityMap.put("skuid",wxTabOrderItem.getSkuId());
+                entityMap.put("skuList",wxTabSkus);
                 objectList.add(entityMap);
                 totalMoney = totalMoney+(wxTabOrderItem.getPrice()*wxTabOrderItem.getNum());
                 totalNum = totalNum+wxTabOrderItem.getNum();
@@ -113,7 +129,7 @@ public class WxTabAddressController {
                 e.printStackTrace();
             }
         }
-        map.put("sku",objectList);
+        map.put("spu",objectList);
         map.put("totalMoney",totalMoney); //总金额
         map.put("totalNum",totalNum); //总数量
         return map;

@@ -38,6 +38,16 @@ public interface WxTabOrderItemMapper {
     })
     List<WxTabOrderItem> findBySkuIds(@Param("skuIds") String[] skuIds);
 
+    @Select({
+            "<script>",
+            "select * from wx_tab_order_item where id in ",
+            "<foreach collection='ids' item='item' open='(' separator=',' close=')'>",
+            "#{item}",
+            "</foreach>",
+            "</script>"
+    })
+    List<WxTabOrderItem> findByIds(@Param("ids") String[] ids);
+
     List<Map<String,Object>> findByPayStatusAndConsignStatus(@Param("payStatus") String payStatus,@Param("consignStatus") String consignStatus);
 
     @Select("select * from wx_tab_order_item where id = #{id}")
