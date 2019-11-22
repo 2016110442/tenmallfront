@@ -2,7 +2,6 @@ package com.cn.wanxi.front.user;
 
 import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.service.user.UserService;
-import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
