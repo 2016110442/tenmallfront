@@ -10,4 +10,7 @@ public interface WxTabReturnCauseService {
 
     //添加
     boolean add(WxTabReturnCause wxTabReturnCause);
+
+    //关联添加
+    boolean addAssociated(String orderId, String orderItemid, String evidence, String description, Integer returnCause, String type);
 }

@@ -23,7 +23,7 @@ public class WxTabReturnOrder implements Serializable {
     private char isReturnFreight;//是否退运费
     private char status;//申请状态 0：申请 1同意 2驳回
     private Date disposeTime;//处理时间
-    private String returnCause;//	退货退款原因
+    private Integer returnCause;//	退货退款原因
     private String evidence;//凭证图片 逗号分割
     private String description;//问题描述
     private String remark;//处理备注
@@ -41,11 +41,11 @@ public class WxTabReturnOrder implements Serializable {
         this.userId = userId;
     }
 
-    public String getReturnCause() {
+    public Integer getReturnCause() {
         return returnCause;
     }
 
-    public void setReturnCause(String returnCause) {
+    public void setReturnCause(Integer returnCause) {
         this.returnCause = returnCause;
     }
 
