@@ -1,6 +1,7 @@
 package com.cn.wanxi.front.user;
 
 import com.cn.wanxi.model.order.WxTabOrder;
+import com.cn.wanxi.model.order.WxTabOrderItem;
 import com.cn.wanxi.model.user.WxTabEstimate;
 import com.cn.wanxi.service.order.WxTabOrderItemService;
 import com.cn.wanxi.service.order.WxTabOrderService;
@@ -97,15 +98,15 @@ public class WxTabEstimateController {
         List<Object> objectList = new ArrayList<>();
         PageInfo<Map<String,Object>> pageInfo = wxTabOrderItemService.pageByPayStatusAndConsignStatus(page,size,payStatus,consignStatus);
         Map<String,Object> entityMap ;
-        for (Map<String,Object> wxTabOrderItem:pageInfo.getList()) {
-            entityMap = wxTabOrderItem;
-            if(StringUtils.isEmpty(wxTabOrderItem.get("order_id"))){
+        for (Map<String,Object> wxTabOrder:pageInfo.getList()) {
+            entityMap = wxTabOrder;
+            if(StringUtils.isEmpty(wxTabOrder.get("order_item_id"))){
                 entityMap.put("skuList",new ArrayList<>());
                 continue;
             }
-            String[] orderId =wxTabOrderItem.get("order_id").toString().split(",");
-            List<WxTabOrder> wxTabOrders =wxTabOrderService.selectByIds(orderId);
-            entityMap.put("skuList",wxTabOrders);
+            String[] orderItemId =wxTabOrder.get("order_item_id").toString().split(",");
+            List<WxTabOrderItem> wxTabOrderItems =wxTabOrderItemService.findByIds(orderItemId);
+            entityMap.put("sublist",wxTabOrderItems);
             objectList.add(entityMap);
         }
         returnPage.setList(objectList);

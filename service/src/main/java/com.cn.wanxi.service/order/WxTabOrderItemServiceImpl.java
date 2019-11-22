@@ -27,6 +27,11 @@ public class WxTabOrderItemServiceImpl implements WxTabOrderItemService {
     }
 
     @Override
+    public List<WxTabOrderItem> findByIds(String[] Ids) {
+        return wxTabOrderItemMapper.findByIds(Ids);
+    }
+
+    @Override
     public PageInfo<Map<String,Object>> pageByPayStatusAndConsignStatus(Integer page, Integer size, String payStatus, String consignStatus) {
         PageHelper.startPage(page,size);
         return new PageInfo<Map<String,Object>>(wxTabOrderItemMapper.findByPayStatusAndConsignStatus(payStatus,consignStatus));
