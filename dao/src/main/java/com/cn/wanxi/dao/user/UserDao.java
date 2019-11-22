@@ -5,11 +5,10 @@ import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface UserDao {
-    @Select("select username,phone,email,nick_name,name,status,head_pic,qq," +
-            "sex,user_level,status,points,experience_value,birthday from wx_tab_user where phone=#{phone}")
-    public User findUserByPhone(@Param("phone") String phone);
-    @Insert("insert into user(phone) valus(#{phone})")
-    public void addUser(@Param("phone") String phone);
+    @Select("select password from wx_tab_user where phone=#{phone}")
+    public String findPassByPhone(@Param("phone") String phone);
+    @Insert("insert into wx_tab_user(phone,password) values(#{phone},#{password})")
+    public void addUser(@Param("phone") String phone,@Param("password") String password);
 
     @Update("update wx_tab_user set username=#{user.username},phone=#{user.phone},email=#{user.email}" +
             ",nick_name=#{user.nickName},name=#{user.name},head_pic=#{user.headPic},qq=#{user.qq},sex=#{user.sex},birthday=#{user.birthday} where id=1")

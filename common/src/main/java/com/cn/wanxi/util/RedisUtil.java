@@ -34,6 +34,6 @@ public class RedisUtil {
     public  void setCode(String phone,String code){
         ValueOperations<String,String> ops=redisTemplate.opsForValue();
         ops.set(phone,code);
-        redisTemplate.expire(phone,1, TimeUnit.MINUTES);//过期时间1分钟
+        redisTemplate.expire(phone,2, TimeUnit.MINUTES);//过期时间2分钟
     }
 }

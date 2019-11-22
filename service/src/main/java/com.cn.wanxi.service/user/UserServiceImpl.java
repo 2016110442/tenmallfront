@@ -6,6 +6,7 @@ import com.cn.wanxi.util.RedisUtil;
 import com.cn.wanxi.util.SendMessageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,8 +31,8 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public User findUserByPhone(String phone) {
-        return userDao.findUserByPhone(phone);
+    public String findPassByPhone(String phone) {
+        return userDao.findPassByPhone(phone);
     }
 
     /**
@@ -46,14 +47,17 @@ public class UserServiceImpl implements UserService {
                                         String code,
                                         String password){
         Map<String,String> msg=new HashMap<>();
-        User user=userDao.findUserByPhone(phone);
-        if(user!=null){
-            msg.put("code","0");
-            msg.put("message","注册成功");
+        String pass=userDao.findPassByPhone(phone);
+        if(pass!=null){
+            msg.put("code","2");
+            msg.put("message","注册失败，用户已经存在");
+           return msg;
         }
         if(redisUtil.isCodeExist(phone,code)){
             msg.put("code","0");
             msg.put("message","注册成功");
+            addUser(phone,DigestUtils.md5DigestAsHex(password.getBytes()));//密码使用MD5加密
+            return msg;
         }else {
             msg.put("code","1");
             msg.put("message","验证码错误，注册失败");
@@ -72,13 +76,15 @@ public class UserServiceImpl implements UserService {
         Map<String,String> map=new HashMap<>();
 
         String  code= SendMessageUtil.getRandomCode(6);
-        Integer result=SendMessageUtil.send(phone,code);
-        if(result>0){
+       // Integer result=SendMessageUtil.send(phone,code);//注释发送短信
+          Integer result=2;//大于0模拟发送成功
+      //  if(result>0){ //注释掉表示默认短信发送成功
             redisUtil.setCode(phone,code); //发送成功,存储验证码
-        }
+     //   }
         String  msg=SendMessageUtil.getMessage(result);
         map.put("code",String.valueOf(result));
         map.put("message",msg);
+        map.put("验证码",code);
         return map;
     }
 
@@ -112,4 +118,26 @@ public class UserServiceImpl implements UserService {
         return map;
     }
 
+    /**
+     * 添加用户
+     * @param phone
+     * @param password
+     */
+    @Override
+    public void addUser(String phone, String password) {
+       userDao.addUser(phone,password);
+    }
+
+    /**
+     * 用户登录判断
+     * @param phone
+     * @param password
+     * @return
+     */
+    @Override
+    public boolean userLogin(String phone, String password) {
+        String pass=userDao.findPassByPhone(phone);
+        return DigestUtils.md5DigestAsHex(password.getBytes())
+                .equals(pass);
+    }
 }

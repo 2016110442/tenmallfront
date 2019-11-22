@@ -2,9 +2,14 @@ package com.cn.wanxi.front.user;
 
 import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.service.user.UserService;
+import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -18,7 +23,26 @@ import java.util.Map;
 public class UserController {
     @Autowired(required = false)
     private UserService userService;
-
+    @RequestMapping("/login")
+    public Map<String ,String> userLogin(@RequestParam(required = true) String phone,
+                                         @RequestParam(required = true) String password,
+                                         HttpSession session,
+                                         HttpServletResponse response){
+        System.out.println(phone+"-"+password);
+        Map<String,String> map=new HashMap<>();
+        if (userService.userLogin(phone,password)){
+            map.put("code","0");
+            map.put("message","登录成功");
+            session.setAttribute("username",phone);
+            Cookie cookie=new Cookie("username",phone);
+            cookie.setMaxAge(1800);
+            response.addCookie(cookie);
+            return map;
+        }
+        map.put("code","1");
+        map.put("message","登录失败");
+        return map;
+    }
     /**
      *
      * @param phone 电话号码
@@ -49,8 +73,8 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/findOne",method = RequestMethod.POST)
-    public User findByPhone(@RequestParam(required = true)String phone){
-        return userService.findUserByPhone(phone);
+    public String findByPhone(@RequestParam(required = true)String phone){
+        return userService.findPassByPhone(phone);
     }
 
 
