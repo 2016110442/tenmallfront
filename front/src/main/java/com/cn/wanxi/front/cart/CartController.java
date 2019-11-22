@@ -72,7 +72,7 @@ public class CartController {
      * @return
      */
     @RequestMapping(value = "/findCartList",method = RequestMethod.POST)
-    public List<WxTabSpu> findCartList(int page, int size){
+    public List<Map<String,Object>> findCartList(int page, int size){
 
         return  cartService.findCartList(page,size);
     }
@@ -96,7 +96,7 @@ public class CartController {
      * @return
      */
     @RequestMapping(value ="/cardDetail",method = RequestMethod.POST)
-    public WxTabSpu cardDetail(int id){
+    public  Map<String,Object> cardDetail(int id){
         return cartService.cardDetail(id);
     }
 }

@@ -53,4 +53,9 @@
         </association>
 
     </resultMap>
+
+    <select id="search" resultType="com.cn.wanxi.model.cart.WxTabSpu">
+        select * from wx_tab_spu where name like '%${value}%'
+    </select>
+
 </mapper>

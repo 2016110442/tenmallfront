@@ -1,6 +1,7 @@
 package com.cn.wanxi.dao.cart;
 
 import com.cn.wanxi.model.cart.AddCartModel;
+import com.cn.wanxi.model.cart.WxTabCart;
 import com.cn.wanxi.model.cart.WxTabSku;
 import com.cn.wanxi.model.cart.WxTabSpu;
 import com.cn.wanxi.model.user.User;
@@ -34,13 +35,26 @@ public interface CartDao {
     /**
      *  1.2.7.4.购物车列表接口
      */
-    List<WxTabSpu> findCartList(@Param("page") int page,@Param("size") int size);
+    @Select("SELECT sku_id,spu_id,num FROM wx_tab_cart WHERE username='wangsan' LIMIT #{page},#{size}")
+    List<WxTabCart> findCartSpuidSkuid(@Param("page") int page,@Param("size") int size);
+
+    @Select("SELECT name,caption,brand_id,category1_id,category2_id,category3_id,\n" +
+            "freight_id,image,images,introduction,para_items,sale_service,sn,spec_items,template_id from wx_tab_spu WHERE id=#{spuId}")
+    WxTabSpu findCartSpuTab(Integer spuId);
+
+    @Select("SELECT sn,num,alert_num,price,spec,image,\n" +
+            "images,`status`,weight from wx_tab_sku WHERE spu_id=#{spuId}")
+    List<WxTabSku> findCartSkuTab(Integer spuId);
     /**
      *  1.2.7.5.获取商品skuid接口
      */
+    @Select("select sn,num,alert_num,price,spec,image,images,`status`,weight from wx_tab_sku t1 where t1.spu_id=#{spuid} and t1.spec=#{spec}")
     WxTabSku getSkuid(@Param("spuid") int spuid,@Param("spec")  String spec);
     /**
      *  1.2.7.6.查看产品详情接口
      */
-    WxTabSpu cardDetail(int id);
+//    @Select("select *  from wx_tab_sku t1,wx_tab_spu t2,wx_tab_cart t3 where t3.spu_id=t2.id and t3.sku_id=t1.id and t3.id=#{id}")
+//    WxTabSpu cardDetail(int id);
+
+
 }

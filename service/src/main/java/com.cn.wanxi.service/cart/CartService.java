@@ -2,11 +2,14 @@ package com.cn.wanxi.service.cart;
 
 import com.cn.wanxi.dao.cart.CartDao;
 import com.cn.wanxi.model.cart.AddCartModel;
+import com.cn.wanxi.model.cart.WxTabCart;
 import com.cn.wanxi.model.cart.WxTabSku;
 import com.cn.wanxi.model.cart.WxTabSpu;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -71,8 +74,19 @@ public class CartService implements CartServiceImpl {
      * @return
      */
     @Override
-    public List<WxTabSpu> findCartList(int page, int size) {
-        return cartDao.findCartList(page, size);
+    public List<Map<String,Object>> findCartList(int page, int size) {
+        List<WxTabCart> wxTabCarts=cartDao.findCartSpuidSkuid(page,size);  //查询spuid ， skuid
+        List<Map<String,Object>> lists=new ArrayList<>();
+        for(WxTabCart spuidskuid:wxTabCarts){
+            Map<String,Object> maps=new HashMap<>();
+            maps.put("spu",cartDao.findCartSpuTab(spuidskuid.getSpuId()));
+            maps.put("skuList", cartDao.findCartSkuTab(spuidskuid.getSpuId()));
+            maps.put("skuid",spuidskuid.getSkuId());
+            maps.put("num", spuidskuid.getNum());
+            lists.add(maps);
+        }
+
+        return lists;
     }
     /**
      *  1.2.7.5.获取商品skuid接口
@@ -89,8 +103,15 @@ public class CartService implements CartServiceImpl {
      * @return
      */
     @Override
-    public WxTabSpu cardDetail(int id) {
-        return cartDao.cardDetail(id);
+    public  Map<String,Object> cardDetail(int id){
+
+            Map<String,Object> maps=new HashMap<>();
+            maps.put("spu",cartDao.findCartSpuTab(id));
+            maps.put("skuList", cartDao.findCartSkuTab(id));
+
+
+
+        return maps;
     }
 
 
