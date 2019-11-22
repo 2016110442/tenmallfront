@@ -102,7 +102,8 @@ public class WxTabAddressController {
                 entityMap = WebTools.objectToMap(wxTabOrderItem);
                 String[] skuIds2 =wxTabOrderItem.getSkuId().split(",");
                 if(skuIds2.length<=0){
-                    return new HashMap<>();
+                    entityMap.put("skuList",new ArrayList<>());
+                    continue;
                 }
                 List<WxTabOrder> wxTabOrders =wxTabOrderService.selectByIds(skuIds2);
                 entityMap.put("skuList",wxTabOrders);

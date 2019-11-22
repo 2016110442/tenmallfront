@@ -10,7 +10,10 @@ import com.cn.wanxi.service.order.WxTabOrderItemService;
 import com.cn.wanxi.service.order.WxTabOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
+
+import java.util.List;
 
 
 /**
@@ -41,17 +44,29 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
     }
 
     @Override
-    public boolean addAssociated(String orderId, String orderItemid, String evidence, String description, Integer returnCause, String type) {
+    public WxTabReturnCause find(WxTabReturnCause wxTabReturnCause) {
+        List<WxTabReturnCause> list =wxTabReturnCauseDao.find(wxTabReturnCause);
+        if(list.size()>0){
+            return list.get(0);
+        }
+        return new WxTabReturnCause();
+    }
+
+    @Override
+    @Transactional
+    public boolean addAssociated(String orderId, String orderItemid, String evidence, String description, String returnCause, String type) {
         //退货退款原因表
         WxTabReturnCause wxTabReturnCause = new WxTabReturnCause();
-        wxTabReturnCause.setCause(returnCause.toString());
+        wxTabReturnCause.setCause(returnCause);
         boolean flag=add(wxTabReturnCause);
+        if (flag) wxTabReturnCause=find(wxTabReturnCause);
         WxTabOrderItem wxTabOrderItem =wxTabOrderItemService.get(orderItemid);
         if(StringUtils.isEmpty(orderId)) return false;
         WxTabOrder wxTabOrder =wxTabOrderService.selectByIds(orderId.split(",")).get(0);
         if(wxTabOrderItem==null || wxTabOrder==null){
             return false;
         }
+
         //退货退款申请表
         WxTabReturnOrder wxTabReturnOrder = new WxTabReturnOrder();
         wxTabReturnOrder.setReturnMoney(wxTabOrder.getPayMoney());
@@ -64,7 +79,7 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
         wxTabReturnOrder.setUserAccount("test");
         //TODO admin_id lxq 当前还不知道从哪获取
         wxTabReturnOrder.setAdminId(-1);
-        wxTabReturnOrder.setReturnCause(returnCause);
+        wxTabReturnOrder.setReturnCause(wxTabReturnCause.getId());
         wxTabReturnOrder.setOrderId(orderId);
         wxTabReturnOrder.setEvidence(evidence);
         wxTabReturnOrder.setDescription(description);
