@@ -89,8 +89,11 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public Map<String, Object> update(User user) {
+        int resuleString=Integer.parseInt(userDao.findRepetition(user.getUsername()));
+        if(resuleString>0){
+            return returnData("修改失败 用户名重复",2);
+        }
          int returnInt=userDao.updateUserInfo(user);
-
         if(returnInt>0){
             return returnData("修改成功",0);
         }
@@ -105,9 +108,8 @@ public class UserServiceImpl implements UserService {
     public Map<String,Object> uname(String phone) {
         String resultString = userDao.findUserName(phone);
         Map<String,Object> map=new HashMap<>();
-
-       map.put("name",resultString);
-       return map;
+        map.put("name",resultString);
+        return map;
     }
 
 }

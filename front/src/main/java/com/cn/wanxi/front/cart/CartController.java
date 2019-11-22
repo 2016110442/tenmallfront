@@ -32,7 +32,7 @@ public class CartController {
      * Spec	    True	Varchar	规格参数，json格式，以逗号分开
      */
 
-    @RequestMapping(value = "/addCart.do",method = RequestMethod.POST)
+    @RequestMapping(value = "/addCart",method = RequestMethod.POST)
     public Map<String,Object> addCart(AddCartModel addCartModel){
 
         return cartService.addCart(addCartModel);
@@ -46,7 +46,7 @@ public class CartController {
      * @param num
      * @return
      */
-    @RequestMapping("/updateNum.do")
+    @RequestMapping("/updateNum")
     public Map<String,Object> updateNum(int id,String num){
 
         return cartService.updateNum(id,num);
@@ -57,7 +57,7 @@ public class CartController {
      * Id	true	Varchar	购物车ID
      * @return
      */
-    @RequestMapping("/deleteCart.do")
+    @RequestMapping("/deleteCart")
     public Map<String,Object> deleteCart(int id){
 
         return cartService.deleteCart(id);
@@ -71,7 +71,7 @@ public class CartController {
      * @param size
      * @return
      */
-    @RequestMapping(value = "/findCartList.do",method = RequestMethod.POST)
+    @RequestMapping(value = "/findCartList",method = RequestMethod.POST)
     public List<WxTabSpu> findCartList(int page, int size){
 
         return  cartService.findCartList(page,size);
@@ -84,7 +84,7 @@ public class CartController {
      * spec	True	Varchar	商品规格
      * @return
      */
-    @RequestMapping(value ="/getSkuid.do",method = RequestMethod.POST)
+    @RequestMapping(value ="/getSkuid",method = RequestMethod.POST)
     public WxTabSku getSkuid(int spuid,String spec){
 
         return cartService.getSkuid(spuid,spec);
@@ -95,7 +95,7 @@ public class CartController {
 
      * @return
      */
-    @RequestMapping(value ="/cardDetail.do",method = RequestMethod.POST)
+    @RequestMapping(value ="/cardDetail",method = RequestMethod.POST)
     public WxTabSpu cardDetail(int id){
         return cartService.cardDetail(id);
     }
