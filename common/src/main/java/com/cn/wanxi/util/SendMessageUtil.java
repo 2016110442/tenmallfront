@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.Random;
 
 /**
+ * http://sms.webchinese.cn/ 在这网站注册，把UID和KEY换成自己的
  * @program: tenmallfront
  * @description: 发送短信
  * @author: niyao
