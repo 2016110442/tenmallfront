@@ -24,15 +24,18 @@ public class WxInterceptor  implements HandlerInterceptor {
         Map<String,String> msg=new HashMap<>();
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json;charset=UTF-8");
-        PrintWriter pw = response.getWriter();
         if(request.getSession().getAttribute("username")!=null)
         {
             return true;
         }
+        PrintWriter pw = response.getWriter();
         msg.put("code","1");
         msg.put("message","请登录");
         pw.write(JSON.toJSONString(msg));
+        pw.flush();
+        pw.close();
         return false;
+
     }
 
     @Override
