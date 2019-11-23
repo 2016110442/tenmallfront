@@ -6,8 +6,10 @@ import org.apache.ibatis.annotations.Param;
 
 
 /**
- * @author lxq
- * @date 2019年11月21日15:55:55
+ * @program: tenmallfront
+ * @description: 退货退款申请dao层
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
  */
 public interface WxTabReturnOrderDao {
 

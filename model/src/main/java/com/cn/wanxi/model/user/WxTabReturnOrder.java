@@ -4,9 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 退货退款申请表
- * @author lxq
- * @date 2019年11月21日15:34:26
+ * @program: tenmallfront
+ * @description: 退货退款申请表
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
  */
 public class WxTabReturnOrder implements Serializable {
     private static final long serialVersionUID = 1232622307225483072L;

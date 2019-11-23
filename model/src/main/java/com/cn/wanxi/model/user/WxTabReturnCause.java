@@ -3,9 +3,10 @@ package com.cn.wanxi.model.user;
 import java.io.Serializable;
 
 /**
- * 退货退款原因表
- * @author lxq
- * @date 2019年11月21日15:31:48
+ * @program: tenmallfront
+ * @description: 退货退款原因表
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
  */
 public class WxTabReturnCause implements Serializable {
 

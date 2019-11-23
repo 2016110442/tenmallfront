@@ -7,6 +7,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @program: tenmallfront
+ * @description:
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
+ */
 @Service
 public class WxTabSpuServiceImpl implements  WxTabSpuService {
     @Autowired

@@ -4,9 +4,10 @@ package com.cn.wanxi.model.address;
 import java.io.Serializable;
 
 /**
- * 地址信息
- * @author lxq
- * @date 2019/11/20 9:38
+ * @program: tenmallfront
+ * @description: 地址信息
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
  */
 public class WxTabAddress implements Serializable {
     private static final long serialVersionUID = -7119625474056842840L;

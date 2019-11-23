@@ -2,14 +2,12 @@ package com.cn.wanxi.front.address;
 
 import com.cn.wanxi.model.cart.WxTabSku;
 import com.cn.wanxi.model.cart.WxTabSpu;
-import com.cn.wanxi.model.order.WxTabOrder;
 import com.cn.wanxi.model.order.WxTabOrderItem;
 import com.cn.wanxi.service.address.WxTabAddressService;
 import com.cn.wanxi.model.address.WxTabAddress;
 import com.cn.wanxi.service.cart.WxTabSkuService;
 import com.cn.wanxi.service.cart.WxTabSpuService;
 import com.cn.wanxi.service.order.WxTabOrderItemService;
-import com.cn.wanxi.service.order.WxTabOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,9 +22,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 地址信息
- * @author lxq
- * @date 2019/11/20 9:38
+ * @program: tenmallfront
+ * @description: 地址信息
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
  */
 @RestController
 public class WxTabAddressController {
@@ -39,13 +38,11 @@ public class WxTabAddressController {
     @Autowired
     private WxTabSkuService wxTabSkuService;
 
-    //收货人地址列表接口
     @RequestMapping(value = "/address/listAddress.do",method = RequestMethod.POST)
     public List<WxTabAddress> list(WxTabAddress address){
         return wxTabAddressService.find(address);
     }
 
-    //地址新增接口
     @RequestMapping(value = "/address/addAddress.do",method = RequestMethod.POST)
     public Map<String,Object> add(@RequestParam(required = true)String receiverAddress,
                                   @RequestParam(required = true)String receiverName,
@@ -63,7 +60,6 @@ public class WxTabAddressController {
         return WebTools.returnData("添加失败",-1);
     }
 
-    //地址修改接口
     @RequestMapping(value = "/address/updateAddress.do",method = RequestMethod.POST)
     public Map<String, Object> update(@RequestParam(required = true)Integer id,
                                       @RequestParam(required = true)String receiverAddress,
@@ -83,7 +79,6 @@ public class WxTabAddressController {
         return WebTools.returnData("修改失败",-1);
     }
 
-    //地址删除接口
     @RequestMapping(value = "/address/deleteAddress.do",method = RequestMethod.POST)
     public Map<String, Object> delete(@RequestParam(required = true)Integer id){
         boolean flag =wxTabAddressService.delete(id);
@@ -93,7 +88,6 @@ public class WxTabAddressController {
         return WebTools.returnData("删除失败",-1);
     }
 
-    //商品订单详情接口
     @RequestMapping(value = "/settlement/deal.do",method = RequestMethod.POST)
     public Map<String, Object> deal(@RequestParam(required = true)String ids){
         Map<String,Object> map = new HashMap<>();

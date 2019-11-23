@@ -5,13 +5,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 工具类
- * @author lxq
- * @date 2019/11/20 15:51:05
+ * @program: tenmallfront
+ * @description: 工具类
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
  */
 public class WebTools {
 
-    //返回数据
+    /**
+     * 返回数据
+     * @param message 消息
+     * @param code code
+     * @return map集合
+     */
     public static Map<String,Object> returnData(String message,Integer code){
         Map<String,Object> map = new HashMap<>();
         map.put("code",code);
