@@ -4,10 +4,11 @@ import com.cn.wanxi.model.cart.WxTabSku;
 
 import java.util.List;
 
-
 /**
- * @author lxq
- * @date 2019年11月22日11:21:53
+ * @program: tenmallfront
+ * @description:
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
  */
 public interface WxTabSkuService {
 

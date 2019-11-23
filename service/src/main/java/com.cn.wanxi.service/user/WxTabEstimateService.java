@@ -5,8 +5,10 @@ import com.cn.wanxi.model.user.WxTabEstimate;
 import java.util.List;
 
 /**
- * @author lxq
- * @date 2019/11/20 9:38
+ * @program: tenmallfront
+ * @description:
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
  */
 public interface WxTabEstimateService {
 

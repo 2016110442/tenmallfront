@@ -7,10 +7,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
-
 /**
- * @author lxq
- * @date 2019年11月21日16:18:01
+ * @program: tenmallfront
+ * @description:
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
  */
 @Service
 public class WxTabReturnOrderServiceImpl implements WxTabReturnOrderService {

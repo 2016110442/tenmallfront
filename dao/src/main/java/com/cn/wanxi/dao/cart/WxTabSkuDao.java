@@ -7,6 +7,12 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
+/**
+ * @program: tenmallfront
+ * @description:
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
+ */
 public interface WxTabSkuDao {
 
     @Select({

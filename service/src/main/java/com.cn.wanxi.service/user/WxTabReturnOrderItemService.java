@@ -1,8 +1,10 @@
 package com.cn.wanxi.service.user;
 
 /**
- * @author lxq
- * @date 2019年11月21日16:17:01
+ * @program: tenmallfront
+ * @description:
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
  */
 import com.cn.wanxi.model.user.WxTabReturnOrderItem;
 

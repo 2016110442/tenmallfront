@@ -3,9 +3,10 @@ package com.cn.wanxi.model.user;
 import java.io.Serializable;
 
 /**
- * 商品评价
- * @author lxq
- * @date 2019/11/20 16:13:38
+ * @program: tenmallfront
+ * @description: 商品评价
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
  */
 public class WxTabEstimate implements Serializable {
 

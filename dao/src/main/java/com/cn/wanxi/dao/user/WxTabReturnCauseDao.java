@@ -9,8 +9,10 @@ import java.util.List;
 
 
 /**
- * @author lxq
- * @date 2019年11月21日15:55:55
+ * @program: tenmallfront
+ * @description: 退货退款原因dao层
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
  */
 public interface WxTabReturnCauseDao {
 

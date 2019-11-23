@@ -6,8 +6,10 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 /**
- * @author lxq
- * @date 2019年11月20日16:22:20
+ * @program: tenmallfront
+ * @description: 商品评价dao层
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
  */
 public interface WxTabEstimateDao {
 

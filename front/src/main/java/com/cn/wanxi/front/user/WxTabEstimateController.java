@@ -1,10 +1,8 @@
 package com.cn.wanxi.front.user;
 
-import com.cn.wanxi.model.order.WxTabOrder;
 import com.cn.wanxi.model.order.WxTabOrderItem;
 import com.cn.wanxi.model.user.WxTabEstimate;
 import com.cn.wanxi.service.order.WxTabOrderItemService;
-import com.cn.wanxi.service.order.WxTabOrderService;
 import com.cn.wanxi.service.user.WxTabEstimateService;
 import com.cn.wanxi.service.user.WxTabReturnCauseService;
 import com.cn.wanxi.util.WebTools;
@@ -21,9 +19,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 商品评价
- * @author lxq
- * @date 2019年11月20日16:27:54
+ * @program: tenmallfront
+ * @description: 商品评价
+ * @author: lixuqiang
+ * @create: 2019-11-23 14:08:41
  */
 @RestController
 public class WxTabEstimateController {
@@ -32,11 +31,8 @@ public class WxTabEstimateController {
     @Autowired
     private WxTabOrderItemService wxTabOrderItemService;
     @Autowired
-    private WxTabOrderService wxTabOrderService;
-    @Autowired
     private WxTabReturnCauseService wxTabReturnCauseService;
 
-    //评价
     @RequestMapping(value = "/product/estimate.do",method = RequestMethod.POST)
     public Map<String,Object> estimate(@RequestParam(required = true) String spuid,
                                        @RequestParam(required = true) String orderItemid,
@@ -56,7 +52,6 @@ public class WxTabEstimateController {
         return WebTools.returnData("评价失败",-1);
     }
 
-    //退货申请
     @RequestMapping(value = "/product/salesReturn.do",method = RequestMethod.POST)
     public Map<String, Object> salesReturn(@RequestParam(required = true) String orderId,
                                            @RequestParam(required = true) String orderItemid,
@@ -72,7 +67,6 @@ public class WxTabEstimateController {
         return WebTools.returnData("退货申请失败",-1);
     }
 
-    //退款申请
     @RequestMapping(value = "/product/refund.do",method = RequestMethod.POST)
     public Map<String, Object> refund(@RequestParam(required = true) String orderId,
                                       @RequestParam(required = true) String orderItemid,
@@ -88,7 +82,6 @@ public class WxTabEstimateController {
         return WebTools.returnData("退款申请失败",-1);
     }
 
-    //订单查询接口
     @RequestMapping(value = "/order/uname.do",method = RequestMethod.POST)
     public PageInfo<Object> uname(@RequestParam(required = true) Integer page,
                                   @RequestParam(required = true) Integer size,
