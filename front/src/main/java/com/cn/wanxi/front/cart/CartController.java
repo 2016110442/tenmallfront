@@ -1,8 +1,7 @@
 package com.cn.wanxi.front.cart;
 
-import com.cn.wanxi.model.cart.AddCartModel;
+import com.cn.wanxi.model.cart.WxTabCart;
 import com.cn.wanxi.model.cart.WxTabSku;
-import com.cn.wanxi.model.cart.WxTabSpu;
 import com.cn.wanxi.service.cart.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +15,7 @@ import java.util.Map;
 /**
  * @program: cart
  * @description:购物车接口类
- * @author: wangrunfa
+ * @author: wangxuesong
  * @create: 2019-11-20 11:33
  */
 
@@ -36,9 +35,9 @@ public class CartController {
      */
 
     @RequestMapping(value = "/addCart",method = RequestMethod.POST)
-    public Map<String,Object> addCart(AddCartModel addCartModel){
+    public Map<String,Object> addCart(WxTabCart wxTabCart){
 
-        return cartService.addCart(addCartModel);
+        return cartService.addCart(wxTabCart);
     }
 
     /**

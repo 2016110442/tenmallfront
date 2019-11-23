@@ -14,10 +14,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author wxs
- * @date 2019/11/20 9:38
- * 1.2.6.1.商品详情接口
- * /product/productDetails.do
+ * @program: product
+ * @description:商品详情
+ * @author: wangxuesong
+ * @create: 2019-11-20 11:33
  */
 
 @RestController

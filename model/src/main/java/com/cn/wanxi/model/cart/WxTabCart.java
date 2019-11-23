@@ -1,6 +1,11 @@
 package com.cn.wanxi.model.cart;
 
-
+/**
+ * @program: WxTabCart
+ * @description: WxTabCart数据库表
+ * @author: wangxuesong
+ * @create: 2019-11-20 11:33
+ */
 public class WxTabCart {
     private Integer id;
     private Integer skuId;

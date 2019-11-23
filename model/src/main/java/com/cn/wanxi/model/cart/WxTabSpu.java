@@ -1,5 +1,12 @@
 package com.cn.wanxi.model.cart;
 
+/**
+ * @program: WxTabSpu
+ * @description: WxTabSpu数据库表
+ * @author: wangxuesong
+ * @create: 2019-11-20 11:33
+ */
+
 public class WxTabSpu {
     private Integer id;
     private String sn;

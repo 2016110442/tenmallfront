@@ -2,6 +2,13 @@ package com.cn.wanxi.model.cart;
 
 import java.sql.Date;
 
+/**
+ * @program: WxTabSku
+ * @description: WxTabSku数据库表
+ * @author: wangxuesong
+ * @create: 2019-11-20 11:33
+ */
+
 public class WxTabSku {
     private Integer id;
     private String sn;

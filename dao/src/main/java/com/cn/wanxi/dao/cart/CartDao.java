@@ -1,18 +1,18 @@
 package com.cn.wanxi.dao.cart;
 
-import com.cn.wanxi.model.cart.AddCartModel;
+
 import com.cn.wanxi.model.cart.WxTabCart;
 import com.cn.wanxi.model.cart.WxTabSku;
 import com.cn.wanxi.model.cart.WxTabSpu;
-import com.cn.wanxi.model.user.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
-import java.util.Map;
 
 /**
- * @author
- * @date 2019/11/20 9:38
+ * @program: cart
+ * @description:购物车接口类
+ * @author: wangxuesong
+ * @create: 2019-11-20 11:33
  */
 @Mapper
 public interface CartDao {
@@ -21,7 +21,7 @@ public interface CartDao {
      * 1.2.7.1. 添加购物车接口
      */
     @Insert("insert into wx_tab_cart(sku_id,spu_id,spec,num) values(#{addCartModel.skuId},#{addCartModel.spuId},#{addCartModel.spec},#{addCartModel.num})")
-    int addCart(@Param("addCartModel") AddCartModel addCartModel);
+    int addCart(@Param("addCartModel") WxTabCart wxTabCart);
     /**
      *  1.2.7.2.修改商品数量接口
      */

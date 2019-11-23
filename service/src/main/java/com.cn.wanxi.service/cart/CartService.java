@@ -17,12 +17,15 @@ import java.util.Map;
 import static com.cn.wanxi.util.WebTools.returnData;
 
 /**
- * @author wxs
- * @date 2019/11/20 9:38
+ * @program: cart
+ * @description:购物车接口类
+ * @author: wangxuesong
+ * @create: 2019-11-20 11:33
  */
 
 @Service
 public class CartService implements CartServiceImpl {
+
     @Autowired
      private CartDao cartDao;
 
@@ -32,10 +35,10 @@ public class CartService implements CartServiceImpl {
      * @return
      */
     @Override
-    public Map<String, Object> addCart(AddCartModel addCartModel) {
-        int returnInt=cartDao.addCart(addCartModel);
+    public Map<String, Object> addCart(WxTabCart wxTabCart) {
+        int returnInt=cartDao.addCart(wxTabCart);
         Map<String, Object> maps= new HashMap<>();
-      if(returnInt>0){
+        if(returnInt>0){
             return returnData("添加成功",0);
         }
         return returnData("添加失败",1);
@@ -108,8 +111,6 @@ public class CartService implements CartServiceImpl {
             Map<String,Object> maps=new HashMap<>();
             maps.put("spu",cartDao.findCartSpuTab(id));
             maps.put("skuList", cartDao.findCartSkuTab(id));
-
-
 
         return maps;
     }

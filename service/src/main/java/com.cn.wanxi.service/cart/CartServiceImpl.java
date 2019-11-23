@@ -1,19 +1,25 @@
 package com.cn.wanxi.service.cart;
 
 import com.cn.wanxi.model.cart.AddCartModel;
+import com.cn.wanxi.model.cart.WxTabCart;
 import com.cn.wanxi.model.cart.WxTabSku;
 import com.cn.wanxi.model.cart.WxTabSpu;
 
 import java.util.List;
 import java.util.Map;
-
+/**
+ * @program: cart
+ * @description:购物车接口类
+ * @author: wangxuesong
+ * @create: 2019-11-20 11:33
+ */
 public interface CartServiceImpl {
     /**
      *  添加购物车接口
-     * @param addCartModel
+     * @param
      * @return
      */
-    Map<String, Object> addCart(AddCartModel addCartModel);
+    Map<String, Object> addCart(WxTabCart wxTabCart);
     /**
      *  1.2.7.2.修改商品数量接口
      * @param

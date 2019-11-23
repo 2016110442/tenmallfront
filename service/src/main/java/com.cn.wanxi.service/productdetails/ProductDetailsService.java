@@ -13,10 +13,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author
- * @date 2019/11/20 9:38
+ * @program: product
+ * @description:商品详情
+ * @author: wangxuesong
+ * @create: 2019-11-20 11:33
  */
-
 @Service
 public class ProductDetailsService implements ProductDetailsServiceImpl {
     @Autowired

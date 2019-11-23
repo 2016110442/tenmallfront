@@ -9,8 +9,10 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
- * @author
- * @date 2019/11/20 9:38
+ * @program: product
+ * @description:商品详情
+ * @author: wangxuesong
+ * @create: 2019-11-20 11:33
  */
 @Mapper
 public interface ProductDetailsDao {
