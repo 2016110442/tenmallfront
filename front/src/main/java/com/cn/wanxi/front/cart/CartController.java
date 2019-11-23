@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
+
 /**
- * wxs
- * 购物车接口类
- *
+ * @program: cart
+ * @description:购物车接口类
+ * @author: wangrunfa
+ * @create: 2019-11-20 11:33
  */
+
 @RestController
 @RequestMapping("/cart")
 public class CartController {
