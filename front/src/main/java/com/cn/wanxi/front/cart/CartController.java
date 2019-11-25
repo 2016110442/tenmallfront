@@ -6,6 +6,7 @@ import com.cn.wanxi.service.cart.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -49,7 +50,7 @@ public class CartController {
      * @return
      */
     @RequestMapping("/updateNum")
-    public Map<String,Object> updateNum(int id,String num){
+    public Map<String,Object> updateNum(@RequestParam(required = true) int id,@RequestParam(required = true) String num){
 
         return cartService.updateNum(id,num);
     }
@@ -60,7 +61,7 @@ public class CartController {
      * @return
      */
     @RequestMapping("/deleteCart")
-    public Map<String,Object> deleteCart(int id){
+    public Map<String,Object> deleteCart(@RequestParam(required = true) int id){
 
         return cartService.deleteCart(id);
     }
@@ -74,7 +75,7 @@ public class CartController {
      * @return
      */
     @RequestMapping(value = "/findCartList",method = RequestMethod.POST)
-    public List<Map<String,Object>> findCartList(int page, int size){
+    public List<Map<String,Object>> findCartList(@RequestParam(required = true) int page,@RequestParam(required = true) int size){
 
         return  cartService.findCartList(page,size);
     }
@@ -87,7 +88,7 @@ public class CartController {
      * @return
      */
     @RequestMapping(value ="/getSkuid",method = RequestMethod.POST)
-    public WxTabSku getSkuid(int spuid,String spec){
+    public WxTabSku getSkuid(@RequestParam(required = true) int spuid,@RequestParam(required = true) String spec){
 
         return cartService.getSkuid(spuid,spec);
     }
@@ -98,7 +99,7 @@ public class CartController {
      * @return
      */
     @RequestMapping(value ="/cardDetail",method = RequestMethod.POST)
-    public  Map<String,Object> cardDetail(int id){
+    public  Map<String,Object> cardDetail(@RequestParam(required = true) int id){
         return cartService.cardDetail(id);
     }
 }

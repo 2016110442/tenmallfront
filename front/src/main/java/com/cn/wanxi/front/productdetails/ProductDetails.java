@@ -26,7 +26,7 @@ public class ProductDetails {
     @Autowired
     private ProductDetailsServiceImpl productDetailsServiceImpl;
     @RequestMapping(value = "/productDetails",method = RequestMethod.POST)
-    public Map<String,Object> productDetails(int id){
+    public Map<String,Object> productDetails(@RequestParam(required = true) int id){
         return productDetailsServiceImpl.productDetails(id);
     }
 
