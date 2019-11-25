@@ -18,6 +18,7 @@ import java.util.List;
 /**
  * @program: tenmallfront
  * @description:
+ *
  * @author: lixuqiang
  * @create: 2019-11-23 14:08:41
  */
@@ -63,7 +64,9 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
         if (flag) wxTabReturnCause=find(wxTabReturnCause);
         WxTabOrderItem wxTabOrderItem =wxTabOrderItemService.get(orderItemid);
         if(StringUtils.isEmpty(orderId)) return false;
-        WxTabOrder wxTabOrder =wxTabOrderService.selectByIds(orderId.split(",")).get(0);
+        List<WxTabOrder> wxTabOrders = wxTabOrderService.selectByIds(orderId.split(","));
+        if(wxTabOrders.size()<=0) return false;
+        WxTabOrder wxTabOrder =wxTabOrders.get(0);
         if(wxTabOrderItem==null || wxTabOrder==null){
             return false;
         }
