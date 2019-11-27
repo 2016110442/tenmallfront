@@ -54,8 +54,11 @@
 
     </resultMap>
 
-    <select id="search" resultType="com.cn.wanxi.model.cart.WxTabSpu">
-        select * from wx_tab_spu where name like '%${value}%'
+    <select id="search" resultType="com.cn.wanxi.model.productdetails.ProductSearch">
+        select w.name,w.caption,w.brand_id,w.category1_id,w.category2_id,
+            w.category3_id,w.freight_id,w.image,w.images,w.introduction,w.para_items,w.sale_service,
+            w.sn,w.spec_items,w.template_id
+            from wx_tab_spu w where name like '%${value}%'
     </select>
 
 </mapper>
