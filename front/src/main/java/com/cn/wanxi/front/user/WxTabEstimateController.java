@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -157,31 +158,32 @@ public class WxTabEstimateController {
             }
         }
 
-        PageInfo<Object> returnPage = new PageInfo<>();
+//        PageInfo<Object> returnPage = new PageInfo<>();
         List<Object> objectList = new ArrayList<>();
         PageInfo<Map<String,Object>> pageInfo = wxTabOrderItemService.pageByPayStatusAndConsignStatus(Integer.valueOf(page),Integer.valueOf(size),payStatus,consignStatus);
         Map<String,Object> entityMap ;
         for (Map<String,Object> wxTabOrder:pageInfo.getList()) {
             entityMap = wxTabOrder;
-            if(StringUtils.isEmpty(wxTabOrder.get("order_item_id"))){
+            if(StringUtils.isEmpty(wxTabOrder.get("orderItemId"))){
                 entityMap.put("skuList",new ArrayList<>());
                 continue;
             }
-            String[] orderItemId =wxTabOrder.get("order_item_id").toString().split(",");
+            String[] orderItemId =wxTabOrder.get("orderItemId").toString().split(",");
             List<WxTabOrderItem> wxTabOrderItems =wxTabOrderItemService.findByIds(orderItemId);
             entityMap.put("sublist",wxTabOrderItems);
             objectList.add(entityMap);
         }
 //        returnPage.setList(objectList);
-        returnPage.setPageNum(pageInfo.getPageNum());
-        returnPage.setPageSize(pageInfo.getPageSize());
-        returnPage.setTotal(pageInfo.getTotal());
-        returnPage.setSize(pageInfo.getSize());
-        try {
-            Map<String,Object> map =WebTools.objectToMap(returnPage);
-            map.put("sublist",objectList);
-            return map;
-        } catch (IllegalAccessException e) {}
-        return WebTools.returnData("查询异常！",-1);
+//        returnPage.setPageNum(pageInfo.getPageNum());
+//        returnPage.setPageSize(pageInfo.getPageSize());
+//        returnPage.setTotal(pageInfo.getTotal());
+//        returnPage.setSize(pageInfo.getSize());
+        Map<String,Object> returnPage = new HashMap<>();
+        returnPage.put("page",pageInfo.getPageNum());
+        returnPage.put("size",pageInfo.getPageSize());
+        returnPage.put("total",pageInfo.getTotal());
+//      Map<String,Object> map =WebTools.objectToMap(returnPage);
+        returnPage.put("list",objectList);
+        return returnPage;
     }
 }
