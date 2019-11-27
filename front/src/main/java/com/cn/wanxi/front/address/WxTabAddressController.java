@@ -163,8 +163,13 @@ public class WxTabAddressController {
                     objectList.add(new HashMap<>());
                     continue;
                 }
-                WxTabSpu wxTabSpu = wxTabSpuService.findByIds(wxTabOrderItem.getSpuId().split(",")).get(0);
-                entityMap = WebTools.objectToMap(wxTabSpu);
+                List<WxTabSpu> wxTabSpus =wxTabSpuService.findByIds(wxTabOrderItem.getSpuId().split(","));
+                if(wxTabSpus.size()>0){
+                    WxTabSpu wxTabSpu = wxTabSpus.get(0);
+                    entityMap = WebTools.objectToMap(wxTabSpu);
+                }else{
+                    entityMap = new HashMap<>();
+                }
                 entityMap.put("skuid",wxTabOrderItem.getSkuId());
                 entityMap.put("skuList",wxTabSkus);
                 objectList.add(entityMap);
