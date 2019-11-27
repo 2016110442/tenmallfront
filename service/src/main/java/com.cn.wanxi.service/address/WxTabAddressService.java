@@ -11,6 +11,9 @@ import com.cn.wanxi.model.address.WxTabAddress;
  */
 public interface WxTabAddressService {
 
+    //查询单个
+    WxTabAddress get(String id);
+
     //查询多个
     List<WxTabAddress> find(WxTabAddress address);
 
