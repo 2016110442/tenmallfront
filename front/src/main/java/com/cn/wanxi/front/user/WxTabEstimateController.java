@@ -9,6 +9,7 @@ import com.cn.wanxi.service.user.WxTabEstimateService;
 import com.cn.wanxi.service.user.WxTabReturnCauseService;
 import com.cn.wanxi.util.WebTools;
 import com.github.pagehelper.PageInfo;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,11 +41,11 @@ public class WxTabEstimateController {
     private WxTabOrderService wxTabOrderService;
 
     @RequestMapping(value = "/product/estimate", method = RequestMethod.POST)
-    public Map<String, Object> estimate(@Size(max = 20,message="spuid长度不能超过20") String spuid,
-                                        @Size(max = 11,message="orderItemid长度不能超过11") String orderItemid,
-                                        @Size(max = 255,message="images长度不能超过255") String images,
-                                        @Size(max = 11,message="star长度不能超过11") String star,
-                                        @Size(max = 255,message="content长度不能超过{max}") String content) {
+    public Map<String, Object> estimate(@Length(max = 20,message="spuid长度不能超过20") String spuid,
+                                        @Length(max = 11,message="orderItemid长度不能超过11") String orderItemid,
+                                        @Length(max = 255,message="images长度不能超过255") String images,
+                                        @Length(max = 11,message="star长度不能超过11") String star,
+                                        @Length(max = 255,message="content长度不能超过{max}") String content) {
         if (StringUtils.isEmpty(spuid) ||
                 StringUtils.isEmpty(orderItemid) ||
                 StringUtils.isEmpty(star) ||
@@ -80,12 +80,12 @@ public class WxTabEstimateController {
     }
 
     @RequestMapping(value = "/product/salesReturn", method = RequestMethod.POST)
-    public Map<String, Object> salesReturn(@Size(max = 11,message="orderId长度不能超过11") String orderId,
-                                           @Size(max = 11,message="orderItemid长度不能超过11") String orderItemid,
-                                           @Size(max = 50,message="evidence长度不能超过50") String evidence,
-                                           @Size(max = 50,message="description长度不能超过50") String description,
-                                           @Size(max = 255,message="returnCause长度不能超过255") String returnCause,
-                                           @Size(max = 50,message="type长度不能超过50") String type) {
+    public Map<String, Object> salesReturn(@Length(max = 11,message="orderId长度不能超过11") String orderId,
+                                           @Length(max = 11,message="orderItemid长度不能超过11") String orderItemid,
+                                           @Length(max = 50,message="evidence长度不能超过50") String evidence,
+                                           @Length(max = 50,message="description长度不能超过50") String description,
+                                           @Length(max = 255,message="returnCause长度不能超过255") String returnCause,
+                                           @Length(max = 50,message="type长度不能超过50") String type) {
         if (StringUtils.isEmpty(orderId) ||
                 StringUtils.isEmpty(orderItemid) ||
                 StringUtils.isEmpty(description) ||
@@ -124,12 +124,12 @@ public class WxTabEstimateController {
     }
 
     @RequestMapping(value = "/product/refund", method = RequestMethod.POST)
-    public Map<String, Object> refund(@Size(max = 11,message="orderId长度不能超过11") String orderId,
-                                      @Size(max = 11,message="orderItemid长度不能超过11") String orderItemid,
-                                      @Size(max = 50,message="evidence长度不能超过50") String evidence,
-                                      @Size(max = 50,message="description长度不能超过50") String description,
-                                      @Size(max = 255,message="returnCause长度不能超过255") String returnCause,
-                                      @Size(max = 50,message="type长度不能超过50") String type) {
+    public Map<String, Object> refund(@Length(max = 11,message="orderId长度不能超过11") String orderId,
+                                      @Length(max = 11,message="orderItemid长度不能超过11") String orderItemid,
+                                      @Length(max = 50,message="evidence长度不能超过50") String evidence,
+                                      @Length(max = 50,message="description长度不能超过50") String description,
+                                      @Length(max = 255,message="returnCause长度不能超过255") String returnCause,
+                                      @Length(max = 50,message="type长度不能超过50") String type) {
         if (StringUtils.isEmpty(orderId) ||
                 StringUtils.isEmpty(orderItemid) ||
                 StringUtils.isEmpty(description) ||

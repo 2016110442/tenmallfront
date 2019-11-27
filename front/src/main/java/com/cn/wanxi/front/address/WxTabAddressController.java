@@ -8,16 +8,15 @@ import com.cn.wanxi.model.address.WxTabAddress;
 import com.cn.wanxi.service.cart.WxTabSkuService;
 import com.cn.wanxi.service.cart.WxTabSpuService;
 import com.cn.wanxi.service.order.WxTabOrderItemService;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.cn.wanxi.util.WebTools;
 
-import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,10 +46,10 @@ public class WxTabAddressController {
     }
 
     @RequestMapping(value = "/address/addAddress",method = RequestMethod.POST)
-    public Map<String,Object> add(@Size(max = 255,message="receiverAddress长度不能超过255") String receiverAddress,
-                                  @Size(max = 255,message="receiverName长度不能超过255") String receiverName,
-                                  @Size(max = 255,message="receiverPhone长度不能超过255") String receiverPhone,
-                                  @Size(max = 255,message="isDefault长度不能超过255") String isDefault){
+    public Map<String,Object> add(@Length(max = 255,message="receiverAddress长度不能超过255") String receiverAddress,
+                                  @Length(max = 255,message="receiverName长度不能超过255") String receiverName,
+                                  @Length(max = 255,message="receiverPhone长度不能超过255") String receiverPhone,
+                                  @Length(max = 255,message="isDefault长度不能超过255") String isDefault){
         if(StringUtils.isEmpty(receiverAddress) ||
                 StringUtils.isEmpty(receiverName) ||
                 StringUtils.isEmpty(receiverPhone) ||
@@ -76,11 +75,11 @@ public class WxTabAddressController {
     }
 
     @RequestMapping(value = "/address/updateAddress",method = RequestMethod.POST)
-    public Map<String, Object> update(@Size(max = 11,message="id长度不能超过11") String id,
-                                      @Size(max = 255,message="receiverAddress长度不能超过255") String receiverAddress,
-                                      @Size(max = 255,message="receiverName长度不能超过255") String receiverName,
-                                      @Size(max = 255,message="receiverPhone长度不能超过255") String receiverPhone,
-                                      @Size(max = 255,message="isDefault长度不能超过255") String isDefault){
+    public Map<String, Object> update(@Length(max = 11,message="id长度不能超过11") String id,
+                                      @Length(max = 255,message="receiverAddress长度不能超过255") String receiverAddress,
+                                      @Length(max = 255,message="receiverName长度不能超过255") String receiverName,
+                                      @Length(max = 255,message="receiverPhone长度不能超过255") String receiverPhone,
+                                      @Length(max = 255,message="isDefault长度不能超过255") String isDefault){
         if(StringUtils.isEmpty(id) ||
                 StringUtils.isEmpty(receiverAddress) ||
                 StringUtils.isEmpty(receiverName) ||
