@@ -1,6 +1,7 @@
 package com.cn.wanxi.front.productdetails;
 
 import com.cn.wanxi.model.cart.WxTabSpu;
+import com.cn.wanxi.model.productdetails.ProductSearch;
 import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.service.productdetails.ProductDetailsService;
 import com.cn.wanxi.service.productdetails.ProductDetailsServiceImpl;
@@ -31,8 +32,12 @@ public class ProductDetails {
     }
 
     @RequestMapping(value = "/search",method = RequestMethod.POST)
-    public List<WxTabSpu> productDetails(@RequestParam String conditionpara){
-        return productDetailsServiceImpl.search(conditionpara);
-    }
+    public List<ProductSearch> productDetails(@RequestParam(required = false) String conditionpara){
+        if (conditionpara==null){
+            return productDetailsServiceImpl.search("");
+        }else{
+            return productDetailsServiceImpl.search(conditionpara);
+        }
 
+    }
 }

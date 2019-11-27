@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author
  * @date 2019/11/20 15:50
@@ -21,15 +24,20 @@ public class WxTabOrderController {
     private WxTabOrderService wxTabOrderService;
 
     @RequestMapping(value = "/submit",method = RequestMethod.POST)
-    public Result insert(@RequestBody WxOrderVO wxOrderVO){
-        Result result = new Result();
-        int i = wxTabOrderService.insert(wxOrderVO);
-        if (i==1){
-            result.setCode(1);
-            result.setMessage("XXX");
-        }else{
-            result.setCode(0);
-            result.setMessage("XXX");
+    public Map<String,String> insert(@RequestBody(required = false) WxOrderVO wxOrderVO){
+        Map<String,String> result = new HashMap<>();
+        if (wxOrderVO==null){
+            result.put("code","1");
+            result.put("payUrl","http://alipay.com/pay.jpg");
+        }else {
+            int i = wxTabOrderService.insert(wxOrderVO);
+            if (i==1){
+                result.put("code","0");
+                result.put("payUrl","http://alipay.com/pay.jpg");
+            }else{
+                result.put("code","1");
+                result.put("message","对不起，有必填项为空了");
+            }
         }
         return result;
     }
