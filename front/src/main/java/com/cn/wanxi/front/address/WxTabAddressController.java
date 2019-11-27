@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.cn.wanxi.util.WebTools;
 
@@ -38,16 +37,26 @@ public class WxTabAddressController {
     @Autowired
     private WxTabSkuService wxTabSkuService;
 
-    @RequestMapping(value = "/address/listAddress.do",method = RequestMethod.POST)
-    public List<WxTabAddress> list(WxTabAddress address){
-        return wxTabAddressService.find(address);
+    @RequestMapping(value = "/address/listAddress",method = RequestMethod.POST)
+    public List<WxTabAddress> list(){
+        return wxTabAddressService.find(new WxTabAddress());
     }
 
-    @RequestMapping(value = "/address/addAddress.do",method = RequestMethod.POST)
-    public Map<String,Object> add(@RequestParam(required = true)String receiverAddress,
-                                  @RequestParam(required = true)String receiverName,
-                                  @RequestParam(required = true)String receiverPhone,
-                                  @RequestParam(required = true)char isDefault){
+    @RequestMapping(value = "/address/addAddress",method = RequestMethod.POST)
+    public Map<String,Object> add(String receiverAddress,String receiverName,String receiverPhone,String isDefault){
+        if(StringUtils.isEmpty(receiverAddress) ||
+           StringUtils.isEmpty(receiverName) ||
+           StringUtils.isEmpty(receiverPhone) ||
+           StringUtils.isEmpty(isDefault)){
+            return WebTools.returnData("receiverAddress，receiverName，receiverPhone，isDefault不能为空",-1);
+        }
+        if(isDefault.length()>1){
+            return WebTools.returnData("isDefault必须是char类型",-1);
+        }
+        if(!(isDefault.equals("0") || isDefault.equals("1"))){
+            return WebTools.returnData("isDefault只能是0(是)和1(否)",-1);
+        }
+
         WxTabAddress address = new WxTabAddress();
         address.setReceiverAddress(receiverAddress);
         address.setReceiverName(receiverName);
@@ -60,14 +69,33 @@ public class WxTabAddressController {
         return WebTools.returnData("添加失败",-1);
     }
 
-    @RequestMapping(value = "/address/updateAddress.do",method = RequestMethod.POST)
-    public Map<String, Object> update(@RequestParam(required = true)Integer id,
-                                      @RequestParam(required = true)String receiverAddress,
-                                      @RequestParam(required = true)String receiverName,
-                                      @RequestParam(required = true)String receiverPhone,
-                                      @RequestParam(required = true)char isDefault){
+    @RequestMapping(value = "/address/updateAddress",method = RequestMethod.POST)
+    public Map<String, Object> update(String id,String receiverAddress,String receiverName,String receiverPhone,String isDefault){
+        if(StringUtils.isEmpty(id) ||
+                StringUtils.isEmpty(receiverAddress) ||
+                StringUtils.isEmpty(receiverName) ||
+                StringUtils.isEmpty(receiverPhone) ||
+                StringUtils.isEmpty(isDefault)){
+            return WebTools.returnData("id，receiverAddress，receiverName，receiverPhone，isDefault不能为空",-1);
+        }
+        if(isDefault.length()>1){
+            return WebTools.returnData("isDefault必须是char类型",-1);
+        }
+        if(!(isDefault.equals("0") || isDefault.equals("1"))){
+            return WebTools.returnData("isDefault只能是0(是)和1(否)",-1);
+        }
+        try{
+            Integer num = Integer.valueOf(id);
+        }catch (Exception e){
+            return WebTools.returnData("id必须是int类型",-1);
+        }
+        WxTabAddress findAddress = wxTabAddressService.get(id);
+        if(findAddress == null){
+            return WebTools.returnData("没有查找到对应id数据",-1);
+        }
+
         WxTabAddress address = new WxTabAddress();
-        address.setId(id);
+        address.setId(Integer.valueOf(id));
         address.setReceiverAddress(receiverAddress);
         address.setReceiverName(receiverName);
         address.setReceiverPhone(receiverPhone);
@@ -79,17 +107,33 @@ public class WxTabAddressController {
         return WebTools.returnData("修改失败",-1);
     }
 
-    @RequestMapping(value = "/address/deleteAddress.do",method = RequestMethod.POST)
-    public Map<String, Object> delete(@RequestParam(required = true)Integer id){
-        boolean flag =wxTabAddressService.delete(id);
+    @RequestMapping(value = "/address/deleteAddress",method = RequestMethod.POST)
+    public Map<String, Object> delete(String id){
+        if(StringUtils.isEmpty(id)){
+            return WebTools.returnData("id不能为空",-1);
+        }
+        try{
+            Integer num = Integer.valueOf(id);
+        }catch (Exception e){
+            return WebTools.returnData("id必须是int类型",-1);
+        }
+        WxTabAddress findAddress = wxTabAddressService.get(id);
+        if(findAddress == null){
+            return WebTools.returnData("没有查找到对应id数据",-1);
+        }
+
+        boolean flag =wxTabAddressService.delete(Integer.valueOf(id));
         if(flag){
             return WebTools.returnData("删除成功",0);
         }
         return WebTools.returnData("删除失败",-1);
     }
 
-    @RequestMapping(value = "/settlement/deal.do",method = RequestMethod.POST)
-    public Map<String, Object> deal(@RequestParam(required = true)String ids){
+    @RequestMapping(value = "/settlement/deal",method = RequestMethod.POST)
+    public Map<String, Object> deal(String ids){
+        if(StringUtils.isEmpty(ids)){
+            return WebTools.returnData("ids不能为空",-1);
+        }
         Map<String,Object> map = new HashMap<>();
         List<Object> objectList = new ArrayList<>();
         Integer totalMoney = 0;

@@ -19,6 +19,11 @@ public class WxTabAddressServiceImpl implements WxTabAddressService {
     private WxTabAddressDao wxTabAddressDao;
 
     @Override
+    public WxTabAddress get(String id) {
+        return wxTabAddressDao.get(id);
+    }
+
+    @Override
     public List<WxTabAddress> find(WxTabAddress address) {
         return wxTabAddressDao.find(address);
     }
