@@ -21,7 +21,7 @@ public class WxInterceptor  implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response,
                              Object handler) throws Exception {
-        Map<String,String> msg=new HashMap<>();
+  /*      Map<String,String> msg=new HashMap<>();
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json;charset=UTF-8");
         if(request.getSession().getAttribute("username")!=null)
@@ -34,7 +34,8 @@ public class WxInterceptor  implements HandlerInterceptor {
         pw.write(JSON.toJSONString(msg));
         pw.flush();
         pw.close();
-        return false;
+        return false;*/
+        return true;
 
     }
 

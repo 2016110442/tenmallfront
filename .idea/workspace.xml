@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a7f3712-937c-4ca5-815a-6b7b4bcf8489" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/WxWebMvcConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/cart/CartService.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/cart/CartService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/WxInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/WxInterceptor.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,20 +16,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/WxWebMvcConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="597">
-              <caret line="36" column="38" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -51,8 +39,8 @@
         <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/advertisin/WxTabAdvertisinController.java" />
         <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/user/UserController.java" />
         <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/MyWebMvcConfig.java" />
-        <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/WxInterceptor.java" />
         <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/WxWebMvcConfig.java" />
+        <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/WxInterceptor.java" />
       </list>
     </option>
   </component>
@@ -83,7 +71,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -226,6 +213,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="CatdeaLogs" />
     </panes>
   </component>
@@ -237,7 +225,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/dao/src/main/resources/mappers/productdetails" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -309,7 +297,11 @@
       <workItem from="1574243396094" duration="12045000" />
       <workItem from="1574256697928" duration="1881000" />
       <workItem from="1574307670257" duration="10629000" />
-      <workItem from="1574418933936" duration="2746000" />
+      <workItem from="1574418933936" duration="2890000" />
+      <workItem from="1574421908817" duration="22000" />
+      <workItem from="1574472385401" duration="3000" />
+      <workItem from="1574500889013" duration="742000" />
+      <workItem from="1574667688041" duration="58000" />
     </task>
     <task id="LOCAL-00001" summary="更换为mybatis">
       <created>1574232830551</created>
@@ -353,17 +345,23 @@
       <option name="project" value="LOCAL" />
       <updated>1574421553420</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Merge branch 'master' of http://github.com/2016110442/tenmallfront&#10;&#10;# Conflicts:&#10;#&#9;common/target/classes/com/cn/wanxi/util/RedisUtil.class&#10;#&#9;common/target/classes/com/cn/wanxi/util/SendMessageUtil.class&#10;#&#9;service/target/classes/com/cn/wanxi/service/user/UserServiceImpl.class&#10;#&#9;service/target/classes/com/cn/wanxi/service/user/WxTabReturnCauseServiceImpl.class">
+      <created>1574421713962</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1574421713962</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4968000" />
+    <option name="totallyTimeSpent" value="5937000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.43117976" visible="true" weight="0.19402985" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.43117976" visible="true" weight="0.1913646" />
       <window_info id="Structure" order="1" sideWeight="0.56882024" side_tool="true" weight="0.22228146" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -482,9 +480,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../lib/ProductDetails.java" />
-    <entry file="file://$PROJECT_DIR$/../../lib/ProductDetailsServiceImpl.java" />
-    <entry file="file://$PROJECT_DIR$/../../lib/ProductDetailsService.java" />
+    <entry file="file://$USER_HOME$/lib/ProductDetails.java" />
+    <entry file="file://$USER_HOME$/lib/ProductDetailsServiceImpl.java" />
+    <entry file="file://$USER_HOME$/lib/ProductDetailsService.java" />
     <entry file="file://$PROJECT_DIR$/front/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -492,7 +490,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../lib/ProductDetailsDao.java" />
+    <entry file="file://$USER_HOME$/lib/ProductDetailsDao.java" />
     <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/productdetails/ProductDetails.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
@@ -674,20 +672,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/WxInterceptor.java">
+    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/WxWebMvcConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="27" column="63" lean-forward="true" selection-start-line="27" selection-start-column="63" selection-end-line="27" selection-end-column="63" />
+        <state relative-caret-position="816">
+          <caret line="33" column="13" lean-forward="true" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/WxWebMvcConfig.java">
+    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/WxInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="36" column="38" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="38" />
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
