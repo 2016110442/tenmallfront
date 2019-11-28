@@ -14,4 +14,6 @@ public interface UserService {
     public Map<String,Object> uname(String phone);
     public void addUser(String phone,String password);
     public boolean userLogin(String phone,String password);
+
+    User findMessage(String phone);
 }

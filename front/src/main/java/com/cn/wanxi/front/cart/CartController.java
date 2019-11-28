@@ -4,13 +4,17 @@ import com.cn.wanxi.model.cart.WxTabCart;
 import com.cn.wanxi.model.cart.WxTabSku;
 import com.cn.wanxi.service.cart.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import static com.cn.wanxi.util.WebTools.returnData;
 
 
 /**
@@ -37,7 +41,9 @@ public class CartController {
 
     @RequestMapping(value = "/addCart",method = RequestMethod.POST)
     public Map<String,Object> addCart(WxTabCart wxTabCart){
-
+        if(StringUtils.isEmpty(wxTabCart.getNum()))return returnData("num不能为空",1);
+        if(StringUtils.isEmpty(wxTabCart.getSpuId()))return returnData("SpuId不能为空",1);
+        if(StringUtils.isEmpty(wxTabCart.getNum()))return returnData("Spec不能为空",1);
         return cartService.addCart(wxTabCart);
     }
 
@@ -50,7 +56,9 @@ public class CartController {
      * @return
      */
     @RequestMapping("/updateNum")
-    public Map<String,Object> updateNum(@RequestParam(required = true) int id,@RequestParam(required = true) String num){
+    public Map<String,Object> updateNum(@RequestParam(required = true) Integer id,@RequestParam(required = true) String num){
+        if(StringUtils.isEmpty(id))return returnData("id不能为空",1);
+        if(StringUtils.isEmpty(num))return returnData("num不能为空",1);
 
         return cartService.updateNum(id,num);
     }
@@ -61,7 +69,8 @@ public class CartController {
      * @return
      */
     @RequestMapping("/deleteCart")
-    public Map<String,Object> deleteCart(@RequestParam(required = true) int id){
+    public Map<String,Object> deleteCart(@RequestParam(required = true) Integer id){
+        if(StringUtils.isEmpty(id))return returnData("id不能为空",1);
 
         return cartService.deleteCart(id);
     }
@@ -75,7 +84,7 @@ public class CartController {
      * @return
      */
     @RequestMapping(value = "/findCartList",method = RequestMethod.POST)
-    public List<Map<String,Object>> findCartList(@RequestParam(required = true) int page,@RequestParam(required = true) int size){
+    public List<Map<String,Object>> findCartList(@RequestParam(required = true) Integer page,@RequestParam(required = true) Integer size){
 
         return  cartService.findCartList(page,size);
     }
@@ -88,8 +97,7 @@ public class CartController {
      * @return
      */
     @RequestMapping(value ="/getSkuid",method = RequestMethod.POST)
-    public WxTabSku getSkuid(@RequestParam(required = true) int spuid,@RequestParam(required = true) String spec){
-
+    public WxTabSku getSkuid(@RequestParam(required = true) Integer spuid,@RequestParam(required = true) String spec){
         return cartService.getSkuid(spuid,spec);
     }
     /**
@@ -99,7 +107,8 @@ public class CartController {
      * @return
      */
     @RequestMapping(value ="/cardDetail",method = RequestMethod.POST)
-    public  Map<String,Object> cardDetail(@RequestParam(required = true) int id){
+    public  Map<String,Object> cardDetail( Integer id){
+        if(StringUtils.isEmpty(id))return returnData("id不能为空",1);
         return cartService.cardDetail(id);
     }
 }

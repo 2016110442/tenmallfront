@@ -87,6 +87,15 @@ public class UserServiceImpl implements UserService {
         map.put("验证码",code);
         return map;
     }
+    /**
+     * 1.2.12.4.个人信息
+     * @param
+     * @return
+     */
+    @Override
+    public User findMessage(String phone) {
+        return userDao.findMessages(phone);
+    }
 
     /**
      * 1.2.12.5.个人信息维护接口
@@ -140,4 +149,6 @@ public class UserServiceImpl implements UserService {
         return DigestUtils.md5DigestAsHex(password.getBytes())
                 .equals(pass);
     }
+
+
 }
