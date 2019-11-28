@@ -3,6 +3,7 @@ package com.cn.wanxi.service.productdetails;
 import com.cn.wanxi.dao.productdetails.ProductDetailsDao;
 import com.cn.wanxi.model.cart.WxTabSku;
 import com.cn.wanxi.model.cart.WxTabSpu;
+import com.cn.wanxi.model.productdetails.ProductSearch;
 import com.cn.wanxi.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,8 +35,16 @@ public class ProductDetailsService implements ProductDetailsServiceImpl {
     }
 
     @Override
-    public List<WxTabSpu> search(String conditionpara) {
-        return productDetailsDao.search(conditionpara);
+    public List<ProductSearch> search(String conditionpara) {
+        List<ProductSearch> list = productDetailsDao.search(conditionpara);
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getParaItems()!=null&&list.get(i).getParaItems().indexOf("\"")>0){
+                list.get(i).setParaItems(list.get(i).getParaItems().replace("\"","\'"));
+            }
+            if (list.get(i).getSpecItems()!=null&&list.get(i).getSpecItems().indexOf("\"")>0){
+                list.get(i).setSpecItems(list.get(i).getSpecItems().replace("\"","\'"));
+            }
+        }
+        return list;
     }
-
 }
