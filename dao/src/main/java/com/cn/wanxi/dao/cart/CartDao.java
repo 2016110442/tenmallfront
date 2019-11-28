@@ -7,6 +7,7 @@ import com.cn.wanxi.model.cart.WxTabSpu;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: cart
@@ -40,7 +41,7 @@ public interface CartDao {
 
     @Select("SELECT name,caption,brand_id,category1_id,category2_id,category3_id,\n" +
             "freight_id,image,images,introduction,para_items,sale_service,sn,spec_items,template_id from wx_tab_spu WHERE id=#{spuId}")
-    WxTabSpu findCartSpuTab(Integer spuId);
+    Map<String,Object> findCartSpuTab(Integer spuId);
 
     @Select("SELECT sn,num,alert_num,price,spec,image,\n" +
             "images,`status`,weight from wx_tab_sku WHERE spu_id=#{spuId}")
@@ -48,8 +49,11 @@ public interface CartDao {
     /**
      *  1.2.7.5.获取商品skuid接口
      */
-    @Select("select sn,num,alert_num,price,spec,image,images,`status`,weight from wx_tab_sku t1 where t1.spu_id=#{spuid} and t1.spec=#{spec}")
+    @Select("select sn,num,alert_num,price,spec,image,images,`status`,weight from wx_tab_sku t1 where t1.spu_id=#{spuid} and t1.spec=#{spec} limit 1")
     WxTabSku getSkuid(@Param("spuid") int spuid,@Param("spec")  String spec);
+
+    @Select("SELECT sku_id,spu_id,num FROM wx_tab_cart WHERE id=#{id}")
+    WxTabCart findCartTab(int id);
     /**
      *  1.2.7.6.查看产品详情接口
      */

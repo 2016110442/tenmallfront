@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
         if(pass!=null){
             msg.put("code","2");
             msg.put("message","注册失败，用户已经存在");
-           return msg;
+            return msg;
         }
         if(redisUtil.isCodeExist(phone,code)){
             msg.put("code","0");
@@ -76,16 +76,25 @@ public class UserServiceImpl implements UserService {
         Map<String,String> map=new HashMap<>();
 
         String  code= SendMessageUtil.getRandomCode(6);
-       // Integer result=SendMessageUtil.send(phone,code);//注释发送短信
-          Integer result=2;//大于0模拟发送成功
-      //  if(result>0){ //注释掉表示默认短信发送成功
-            redisUtil.setCode(phone,code); //发送成功,存储验证码
-     //   }
+        // Integer result=SendMessageUtil.send(phone,code);//注释发送短信
+        Integer result=2;//大于0模拟发送成功
+        //  if(result>0){ //注释掉表示默认短信发送成功
+        redisUtil.setCode(phone,code); //发送成功,存储验证码
+        //   }
         String  msg=SendMessageUtil.getMessage(result);
         map.put("code",String.valueOf(result));
         map.put("message",msg);
         map.put("验证码",code);
         return map;
+    }
+    /**
+     * 1.2.12.4.个人信息
+     * @param
+     * @return
+     */
+    @Override
+    public User findMessage(String phone) {
+        return userDao.findMessages(phone);
     }
 
     /**
@@ -99,7 +108,7 @@ public class UserServiceImpl implements UserService {
         if(resuleString>0){
             return returnData("修改失败 用户名重复",2);
         }
-         int returnInt=userDao.updateUserInfo(user);
+        int returnInt=userDao.updateUserInfo(user);
         if(returnInt>0){
             return returnData("修改成功",0);
         }
@@ -125,7 +134,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void addUser(String phone, String password) {
-       userDao.addUser(phone,password);
+        userDao.addUser(phone,password);
     }
 
     /**
@@ -140,4 +149,6 @@ public class UserServiceImpl implements UserService {
         return DigestUtils.md5DigestAsHex(password.getBytes())
                 .equals(pass);
     }
+
+
 }

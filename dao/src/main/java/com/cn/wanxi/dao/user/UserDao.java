@@ -18,4 +18,6 @@ public interface UserDao {
     String findUserName(String phone);
     @Select("select count(*) from wx_tab_user where username=#{username}")
     String findRepetition(String username);
+    @Select("select username,phone,email,nick_name,`name`,`status`,head_pic,qq,sex,user_level,points,experience_value,birthday from wx_tab_user where phone=#{phone}")
+    User findMessages(String phone);
 }

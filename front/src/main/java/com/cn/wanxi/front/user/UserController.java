@@ -71,9 +71,20 @@ public class UserController {
      * @param phone
      * @return
      */
-    @RequestMapping(value = "/findOne",method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public String findByPhone(@RequestParam(required = true)String phone){
         return userService.findPassByPhone(phone);
+    }
+
+
+    /**
+     * 1.2.12.4.个人信息
+     * @param phone
+     * @return
+     */
+    @RequestMapping(value = "/findOne",method = RequestMethod.POST)
+    public User findMessage(@RequestParam(required = true)String phone){
+        return userService.findMessage(phone);
     }
 
 
@@ -83,7 +94,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value ="/update",method = RequestMethod.POST)
-    public Map<String, Object> update(@RequestBody User user){
+    public Map<String, Object> update(User user){
         return userService.update(user);
     }
 
