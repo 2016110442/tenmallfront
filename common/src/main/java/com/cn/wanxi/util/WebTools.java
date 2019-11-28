@@ -3,6 +3,8 @@ package com.cn.wanxi.util;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
 
 /**
  * @program: tenmallfront
@@ -43,5 +45,32 @@ public class WebTools {
             map.put(field.getName(),field.get(o));
         }
         return map;
+    }
+
+    /**
+     * 保存session参数
+     * @param name 名称
+     * @param value 值
+     */
+    public static void setSession(String name,Object value) {
+        RequestAttributes requestAttributes= RequestContextHolder.currentRequestAttributes();
+        if(requestAttributes != null) {
+            requestAttributes.setAttribute(name, value, RequestAttributes.SCOPE_SESSION);
+        }
+    }
+
+    /**
+     * 获取session参数
+     * @param name 名称
+     * @param <T>
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> T getSession(String name) {
+        RequestAttributes requestAttributes=RequestContextHolder.currentRequestAttributes();
+        if(requestAttributes!=null) {
+            return (T) requestAttributes.getAttribute(name, RequestAttributes.SCOPE_SESSION);
+        }
+        return null;
     }
 }

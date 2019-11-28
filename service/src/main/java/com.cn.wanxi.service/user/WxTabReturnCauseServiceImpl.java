@@ -3,11 +3,13 @@ package com.cn.wanxi.service.user;
 import com.cn.wanxi.dao.user.WxTabReturnCauseDao;
 import com.cn.wanxi.model.order.WxTabOrder;
 import com.cn.wanxi.model.order.WxTabOrderItem;
+import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.model.user.WxTabReturnCause;
 import com.cn.wanxi.model.user.WxTabReturnOrder;
 import com.cn.wanxi.model.user.WxTabReturnOrderItem;
 import com.cn.wanxi.service.order.WxTabOrderItemService;
 import com.cn.wanxi.service.order.WxTabOrderService;
+import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,6 +35,8 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
     private WxTabOrderItemService wxTabOrderItemService;
     @Autowired
     private WxTabOrderService wxTabOrderService;
+    @Autowired
+    private UserService userService;
 
     @Override
     public boolean add(WxTabReturnCause wxTabReturnCause) {
@@ -74,14 +78,31 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
         if(!StringUtils.isEmpty(orderId)) wxTabReturnOrder.setIsReturnFreight(wxTabOrderItem.getIsReturn().charAt(0));
         wxTabReturnOrder.setLinkman(wxTabOrder.getUsername());
         wxTabReturnOrder.setLinkmanMobile(wxTabOrder.getReceiverMobile());
-        //TODO user_id lxq 从session中获取
-        wxTabReturnOrder.setUserId(-1);
-        //TODO user_account lxq 从session中获取
-        wxTabReturnOrder.setUserAccount("test");
+        //获取用户信息
+        String phone = WebTools.getSession("username");
+        boolean flag1 = false;
+        if(!StringUtils.isEmpty(phone)){
+            List<User> users = userService.findByPhone(phone);
+            if(users.size()>0){
+                wxTabReturnOrder.setUserId(users.get(0).getId());
+                wxTabReturnOrder.setUserAccount(users.get(0).getUsername());
+            }else{
+                flag1=true;
+            }
+        }else{
+            flag1=true;
+
+        }
+        if(flag1){
+            wxTabReturnOrder.setUserId(-1);
+            wxTabReturnOrder.setUserAccount("no");
+        }
+
         //TODO admin_id lxq 当前还不知道从哪获取
         wxTabReturnOrder.setAdminId(-1);
         wxTabReturnOrder.setReturnCause(wxTabReturnCause.getId());
         wxTabReturnOrder.setOrderId(orderId);
+        if(StringUtils.isEmpty(evidence)) evidence = "无凭证图片";
         wxTabReturnOrder.setEvidence(evidence);
         wxTabReturnOrder.setDescription(description);
         if(!StringUtils.isEmpty(orderId)) wxTabReturnOrder.setType(type.charAt(0));

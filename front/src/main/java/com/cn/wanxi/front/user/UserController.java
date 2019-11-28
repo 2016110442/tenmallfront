@@ -6,7 +6,7 @@ import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.util.StringUtils;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,6 +14,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.cn.wanxi.util.WebTools.returnData;
 
 /**
  * @program: tenmallfront
@@ -80,7 +82,7 @@ public class UserController {
 
     /**
      * 手机获取验证码
-     * @param phone
+     * @param
      * @return
      */
     @RequestMapping(value = "/ssm",method = RequestMethod.POST)
@@ -94,18 +96,14 @@ public class UserController {
     }
 
     /**
-     * 根据手机号查询用户
+     * 1.2.12.4.个人信息
      * @param phone
      * @return
      */
     @RequestMapping(value = "/findOne",method = RequestMethod.POST)
-    public String findByPhone(@RequestParam(required = false)
-                              @NotNull(message = "手机号不能为空")
-                              @Pattern(regexp= "^\\d{11}$",message = "请输入正确手机号")
-                                          String phone){
-        return userService.findPassByPhone(phone);
+    public User findMessage(@RequestParam(required = true)String phone){
+        return userService.findMessage(phone);
     }
-
 
     /**
      * 1.2.12.5.个人信息维护接口
@@ -113,7 +111,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value ="/update",method = RequestMethod.POST)
-    public Map<String, Object> update(@RequestBody User user){
+    public Map<String, Object> update( User user){
         return userService.update(user);
     }
 
@@ -123,7 +121,8 @@ public class UserController {
      * @return
      */
     @RequestMapping(value ="/uname",method = RequestMethod.POST)
-    public Map<String,Object> uname(@RequestParam(required = true)String phone){
+    public Map<String,Object> uname(@RequestParam(required = false)String phone){
+        if(StringUtils.isEmpty(phone))return returnData("phone不能为空",1);
         return userService.uname(phone);
     }
 }
