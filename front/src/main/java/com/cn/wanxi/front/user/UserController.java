@@ -5,7 +5,7 @@ import com.cn.wanxi.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.util.StringUtils;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,6 +13,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.cn.wanxi.util.WebTools.returnData;
 
 /**
  * @program: tenmallfront
@@ -121,7 +123,8 @@ public class UserController {
      * @return
      */
     @RequestMapping(value ="/uname",method = RequestMethod.POST)
-    public Map<String,Object> uname(@RequestParam(required = true)String phone){
+    public Map<String,Object> uname(@RequestParam(required = false)String phone){
+        if(StringUtils.isEmpty(phone))return returnData("phone不能为空",1);
         return userService.uname(phone);
     }
 }
