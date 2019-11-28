@@ -88,7 +88,6 @@ public class UserController {
      * @param phone
      * @return
      */
-    @RequestMapping(value = "/findOne",method = RequestMethod.POST)
     public String findByPhone(@RequestParam(required = false)
                               @NotNull(message = "手机号不能为空")
                               @Pattern(regexp= "^\\d{11}$",message = "请输入正确手机号")
@@ -96,6 +95,15 @@ public class UserController {
         return userService.findPassByPhone(phone);
     }
 
+    /**
+     * 1.2.12.4.个人信息
+     * @param phone
+     * @return
+     */
+    @RequestMapping(value = "/findOne",method = RequestMethod.POST)
+    public User findMessage(@RequestParam(required = true)String phone){
+        return userService.findMessage(phone);
+    }
 
     /**
      * 1.2.12.5.个人信息维护接口
@@ -103,7 +111,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value ="/update",method = RequestMethod.POST)
-    public Map<String, Object> update(@RequestBody User user){
+    public Map<String, Object> update( User user){
         return userService.update(user);
     }
 

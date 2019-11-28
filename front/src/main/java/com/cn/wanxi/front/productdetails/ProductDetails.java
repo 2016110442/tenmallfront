@@ -1,5 +1,6 @@
 package com.cn.wanxi.front.productdetails;
 
+import com.alibaba.druid.util.StringUtils;
 import com.cn.wanxi.model.cart.WxTabSpu;
 import com.cn.wanxi.model.productdetails.ProductSearch;
 import com.cn.wanxi.model.user.User;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
+import static com.cn.wanxi.util.WebTools.returnData;
+
 /**
  * @program: product
  * @description:商品详情
@@ -27,7 +30,8 @@ public class ProductDetails {
     @Autowired
     private ProductDetailsServiceImpl productDetailsServiceImpl;
     @RequestMapping(value = "/productDetails",method = RequestMethod.POST)
-    public Map<String,Object> productDetails(@RequestParam(required = true) int id){
+    public Map<String,Object> productDetails(@RequestParam(required = false) Integer id){
+        if(id==null){if(StringUtils.isEmpty(String.valueOf(id)))return returnData("id不能为空",1);}
         return productDetailsServiceImpl.productDetails(id);
     }
 

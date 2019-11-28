@@ -27,7 +27,7 @@ import static com.cn.wanxi.util.WebTools.returnData;
 public class CartService implements CartServiceImpl {
 
     @Autowired
-     private CartDao cartDao;
+    private CartDao cartDao;
 
     /**
      *  1.2.7.1.接口添加购物车接口
@@ -35,9 +35,9 @@ public class CartService implements CartServiceImpl {
      * @return
      */
     @Override
-    public Map<String, Object> addCart(WxTabCart wxTabCart) {
+    public Map<String,Object> addCart(WxTabCart wxTabCart) {
+
         int returnInt=cartDao.addCart(wxTabCart);
-        Map<String, Object> maps= new HashMap<>();
         if(returnInt>0){
             return returnData("添加成功",0);
         }
@@ -81,9 +81,22 @@ public class CartService implements CartServiceImpl {
         List<WxTabCart> wxTabCarts=cartDao.findCartSpuidSkuid(page,size);  //查询spuid ， skuid
         List<Map<String,Object>> lists=new ArrayList<>();
         for(WxTabCart spuidskuid:wxTabCarts){
-            Map<String,Object> maps=new HashMap<>();
-            maps.put("spu",cartDao.findCartSpuTab(spuidskuid.getSpuId()));
-            maps.put("skuList", cartDao.findCartSkuTab(spuidskuid.getSpuId()));
+
+            Map<String,Object> maps=cartDao.findCartSpuTab(spuidskuid.getSpuId());
+            String paraItems=((String)maps.get("para_items")).replaceAll("\"","'");
+            maps.remove("para_items");
+            maps.put("para_items",paraItems);
+            String specItems=((String)maps.get("spec_items")).replaceAll("\"","'");
+            maps.remove("spec_items");
+            maps.put("para_items",specItems);
+            System.out.printf(maps.toString());
+            List<WxTabSku> wxTabSkulists=cartDao.findCartSkuTab(spuidskuid.getSpuId());
+            List<WxTabSku> wxTabSkulists3=new ArrayList<>();
+            for (WxTabSku wxTabSkulists2:wxTabSkulists) {
+                wxTabSkulists2.setSpec(wxTabSkulists2.getSpec().replaceAll("\"","'"));
+                wxTabSkulists3.add(wxTabSkulists2);
+            }
+            maps.put("skuList",wxTabSkulists3);
             maps.put("skuid",spuidskuid.getSkuId());
             maps.put("num", spuidskuid.getNum());
             lists.add(maps);
@@ -98,7 +111,13 @@ public class CartService implements CartServiceImpl {
      */
     @Override
     public WxTabSku getSkuid(int spuid, String spec) {
-        return cartDao.getSkuid(spuid, spec);
+        //   String specs=spec.replaceAll("'","\\\"");
+        //  String specs2=specs.replaceAll("\"","\\\"");
+        System.out.printf(spec);
+        WxTabSku wxTabSkusj = cartDao.getSkuid(spuid, spec.replaceAll("\"","\\\""));
+        wxTabSkusj.setSpec(wxTabSkusj.getSpec().replaceAll("\"","'"));
+        return wxTabSkusj;
+
     }
     /**
      *  1.2.7.6.查看产品详情接口
@@ -107,10 +126,27 @@ public class CartService implements CartServiceImpl {
      */
     @Override
     public  Map<String,Object> cardDetail(int id){
+        WxTabCart wxTabCarts=cartDao.findCartTab(id);  //查询spuid ， skuid
+        List<Map<String,Object>> lists=new ArrayList<>();
+        if(wxTabCarts==null){return returnData("未找到",1);}
+        Map<String,Object> maps=cartDao.findCartSpuTab(wxTabCarts.getSpuId());
+        String paraItems=((String)maps.get("para_items")).replaceAll("\"","'");
+        maps.remove("para_items");
+        maps.put("para_items",paraItems);
+        String specItems=((String)maps.get("spec_items")).replaceAll("\"","'");
+        maps.remove("spec_items");
+        maps.put("para_items",specItems);
+        System.out.printf(maps.toString());
+        List<WxTabSku> wxTabSkulists=cartDao.findCartSkuTab(wxTabCarts.getSpuId());
+        List<WxTabSku> wxTabSkulists3=new ArrayList<>();
+        for (WxTabSku wxTabSkulists2:wxTabSkulists) {
+            wxTabSkulists2.setSpec(wxTabSkulists2.getSpec().replaceAll("\"","'"));
+            wxTabSkulists3.add(wxTabSkulists2);
+        }
+        maps.put("skuList",wxTabSkulists3);
 
-            Map<String,Object> maps=new HashMap<>();
-            maps.put("spu",cartDao.findCartSpuTab(id));
-            maps.put("skuList", cartDao.findCartSkuTab(id));
+        maps.put("num", wxTabCarts.getNum());
+        lists.add(maps);
 
         return maps;
     }
