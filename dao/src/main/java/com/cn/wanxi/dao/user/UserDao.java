@@ -23,4 +23,7 @@ public interface UserDao {
 
     @Select("select * from wx_tab_user where phone=#{phone}")
     List<User> findByPhone(String phone);
+
+    @Select("select username,phone,email,nick_name,`name`,`status`,head_pic,qq,sex,user_level,points,experience_value,birthday from wx_tab_user where phone=#{phone}")
+    User findMessages(String phone);
 }

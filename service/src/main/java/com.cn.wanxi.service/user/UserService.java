@@ -17,4 +17,5 @@ public interface UserService {
     public boolean userLogin(String phone,String password);
 
     List<User> findByPhone(String phone);
+    User findMessage(String phone);
 }
