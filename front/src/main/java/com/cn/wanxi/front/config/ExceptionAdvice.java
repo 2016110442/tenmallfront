@@ -39,10 +39,10 @@ public class ExceptionAdvice {
         map.put("msg",msgList);
         return map;
     }
-    @ExceptionHandler(value = NumberFormatException.class)
+    @ExceptionHandler(value = NullPointerException.class)
     public Map numberExceptionHandler(){
         Map map = new HashMap();
-        map.put("msg","傻吊int型的参数传你妹的字符串啊");
+        map.put("msg","参数不能为空");
         return map;
     }
 

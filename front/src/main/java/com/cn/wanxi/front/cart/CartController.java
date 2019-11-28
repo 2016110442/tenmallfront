@@ -1,6 +1,6 @@
 package com.cn.wanxi.front.cart;
 
-import com.alibaba.druid.util.StringUtils;
+import org.springframework.util.StringUtils;
 import com.cn.wanxi.model.cart.WxTabCart;
 import com.cn.wanxi.model.cart.WxTabSku;
 import com.cn.wanxi.service.cart.CartService;
@@ -56,7 +56,7 @@ public class CartController {
      */
     @RequestMapping("/updateNum")
     public Map<String,Object> updateNum(@RequestParam(required = true) Integer id,@RequestParam(required = true) String num){
-        if(StringUtils.isEmpty(String.valueOf(id)))return returnData("id不能为空",1);
+        if(StringUtils.isEmpty(id))return returnData("id不能为空",1);
         if(StringUtils.isEmpty(num))return returnData("num不能为空",1);
 
         return cartService.updateNum(id,num);
@@ -69,7 +69,7 @@ public class CartController {
      */
     @RequestMapping("/deleteCart")
     public Map<String,Object> deleteCart(@RequestParam(required = true) Integer id){
-        if(StringUtils.isEmpty(String.valueOf(id)))return returnData("id不能为空",1);
+        if(StringUtils.isEmpty(id))return returnData("id不能为空",1);
 
         return cartService.deleteCart(id);
     }
@@ -83,9 +83,10 @@ public class CartController {
      * @return
      */
     @RequestMapping(value = "/findCartList",method = RequestMethod.POST)
-    public List<Map<String,Object>> findCartList(@RequestParam(required = true) Integer page,@RequestParam(required = true) Integer size){
-
-        return  cartService.findCartList(page,size);
+    public Object findCartList(@RequestParam(required = false) Integer page,@RequestParam(required = false) Integer size){
+        if(StringUtils.isEmpty(page)) return returnData("page不能为空",1);
+        if(StringUtils.isEmpty(size))return returnData("size不能为空",1);
+        return cartService.findCartList(page,size);
     }
 
 
@@ -107,7 +108,7 @@ public class CartController {
      */
     @RequestMapping(value ="/cardDetail",method = RequestMethod.POST)
     public  Map<String,Object> cardDetail( Integer id){
-        if(StringUtils.isEmpty(String.valueOf(id)))return returnData("id不能为空",1);
+        if(StringUtils.isEmpty(id))return returnData("id不能为空",1);
         return cartService.cardDetail(id);
     }
 }
