@@ -1,14 +1,12 @@
 package com.cn.wanxi.front.cart;
 
+import com.cn.wanxi.model.cart.WxTabSpu;
 import org.springframework.util.StringUtils;
 import com.cn.wanxi.model.cart.WxTabCart;
 import com.cn.wanxi.model.cart.WxTabSku;
 import com.cn.wanxi.service.cart.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -37,12 +35,17 @@ public class CartController {
      * spuId	true	varchar	商品id
      * Spec	    True	Varchar	规格参数，json格式，以逗号分开
      */
+    @PostMapping(value = "/addCart", produces = "application/json;charset=UTF-8")
+    public Map<String,Object> addCart(@RequestBody Map<String, String> param){
 
-    @RequestMapping(value = "/addCart",method = RequestMethod.POST)
-    public Map<String,Object> addCart(WxTabCart wxTabCart){
-        if(StringUtils.isEmpty(wxTabCart.getNum()))return returnData("num不能为空",1);
-
-        if(StringUtils.isEmpty(wxTabCart.getNum()))return returnData("Spec不能为空",1);
+        if(StringUtils.isEmpty(param.get("num")))return returnData("num不能为空",1);
+        if(StringUtils.isEmpty(param.get("spuId")))return returnData("SpuId不能为空",1);
+        if(StringUtils.isEmpty(param.get("Spec")))return returnData("Spec不能为空",1);
+        WxTabCart wxTabCart=new WxTabCart();
+        wxTabCart.setSkuId(Integer.parseInt(param.get("skuId")));
+        wxTabCart.setNum(param.get("num"));
+        wxTabCart.setSpuId(Integer.parseInt(param.get("spuId")));
+        wxTabCart.setSpec(param.get("Spec"));
         return cartService.addCart(wxTabCart);
     }
 
@@ -50,16 +53,15 @@ public class CartController {
      * 1.2.7.2.修改商品数量接口
      * id	true	Int	购物车ID
      * num	true	varchar	数量
-     * @param id
-     * @param num
+
      * @return
      */
-    @RequestMapping("/updateNum")
-    public Map<String,Object> updateNum(@RequestParam(required = true) Integer id,@RequestParam(required = true) String num){
-        if(StringUtils.isEmpty(id))return returnData("id不能为空",1);
-        if(StringUtils.isEmpty(num))return returnData("num不能为空",1);
+    @PostMapping(value = "/updateNum", produces = "application/json;charset=UTF-8")
+    public Map<String,Object> updateNum(@RequestBody Map<String, String> param){
+        if(StringUtils.isEmpty(param.get("id")))return returnData("id不能为空",1);
+        if(StringUtils.isEmpty(param.get("num")))return returnData("num不能为空",1);
 
-        return cartService.updateNum(id,num);
+        return cartService.updateNum(Integer.parseInt(param.get("id")),param.get("num"));
     }
 
     /**
@@ -67,26 +69,25 @@ public class CartController {
      * Id	true	Varchar	购物车ID
      * @return
      */
-    @RequestMapping("/deleteCart")
-    public Map<String,Object> deleteCart(@RequestParam(required = true) Integer id){
-        if(StringUtils.isEmpty(id))return returnData("id不能为空",1);
+    @PostMapping(value = "/deleteCart", produces = "application/json;charset=UTF-8")
+    public Map<String,Object> deleteCart(@RequestBody Map<String, String> param){
+        if(StringUtils.isEmpty(param.get("id")))return returnData("id不能为空",1);
 
-        return cartService.deleteCart(id);
+        return cartService.deleteCart(Integer.parseInt(param.get("id")));
     }
 
     /**
      * 1.2.7.4.购物车列表接口
      * page	true	int	页码（GET）
      * size	true	int	每页记录数（GET）
-     * @param page
-     * @param size
+
      * @return
      */
-    @RequestMapping(value = "/findCartList",method = RequestMethod.POST)
-    public Object findCartList(@RequestParam(required = false) Integer page,@RequestParam(required = false) Integer size){
-        if(StringUtils.isEmpty(page)) return returnData("page不能为空",1);
-        if(StringUtils.isEmpty(size))return returnData("size不能为空",1);
-        return cartService.findCartList(page,size);
+    @PostMapping(value = "/findCartList", produces = "application/json;charset=UTF-8")
+    public Object findCartList(@RequestBody Map<String, String> param){
+        if(StringUtils.isEmpty(param.get("page"))) return returnData("page不能为空",1);
+        if(StringUtils.isEmpty(param.get("size")))return returnData("size不能为空",1);
+        return cartService.findCartList(Integer.parseInt(param.get("page")),Integer.parseInt(param.get("size")));
     }
 
 
@@ -96,9 +97,9 @@ public class CartController {
      * spec	True	Varchar	商品规格
      * @return
      */
-    @RequestMapping(value ="/getSkuid",method = RequestMethod.POST)
-    public WxTabSku getSkuid(@RequestParam(required = true) Integer spuid,@RequestParam(required = true) String spec){
-        return cartService.getSkuid(spuid,spec);
+    @PostMapping(value = "/getSkuid", produces = "application/json;charset=UTF-8")
+    public WxTabSku getSkuid(@RequestBody Map<String, String> param){
+        return cartService.getSkuid(Integer.parseInt(param.get("spuid")),param.get("spec"));
     }
     /**
      * 1.2.7.6.查看产品详情接口
@@ -106,9 +107,9 @@ public class CartController {
 
      * @return
      */
-    @RequestMapping(value ="/cardDetail",method = RequestMethod.POST)
-    public  Map<String,Object> cardDetail( Integer id){
-        if(StringUtils.isEmpty(id))return returnData("id不能为空",1);
-        return cartService.cardDetail(id);
+    @PostMapping(value = "/cardDetail", produces = "application/json;charset=UTF-8")
+    public  Map<String,Object> cardDetail(@RequestBody Map<String, String> param){
+        if(StringUtils.isEmpty(param.get("id")))return returnData("id不能为空",1);
+        return cartService.cardDetail(Integer.parseInt(param.get("id")));
     }
 }

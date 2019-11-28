@@ -6,10 +6,7 @@ import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.service.productdetails.ProductDetailsService;
 import com.cn.wanxi.service.productdetails.ProductDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -27,11 +24,13 @@ import static com.cn.wanxi.util.WebTools.returnData;
 @RequestMapping("/product")
 public class ProductDetails {
     @Autowired
+
     private ProductDetailsServiceImpl productDetailsServiceImpl;
-    @RequestMapping(value = "/productDetails",method = RequestMethod.POST)
-    public Map<String,Object> productDetails(@RequestParam(required = false) Integer id){
-        if(StringUtils.isEmpty(id))return returnData("id不能为空",1);
-        return productDetailsServiceImpl.productDetails(id);
+
+    @PostMapping(value = "/productDetails", produces = "application/json;charset=UTF-8")
+    public Object productDetails(@RequestBody Map<String, String> param){
+        if(StringUtils.isEmpty(Integer.parseInt(param.get("id"))))return returnData("id不能为空",1);
+        return productDetailsServiceImpl.productDetails(Integer.parseInt(param.get("id")));
     }
 
     @RequestMapping(value = "/search",method = RequestMethod.POST)

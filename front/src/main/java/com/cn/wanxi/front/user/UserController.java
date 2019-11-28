@@ -62,13 +62,13 @@ public class UserController {
     public Map<String ,String> register(@RequestParam(required = false)
                                         @NotNull(message = "手机号不能为空")
                                         @Pattern(regexp= "^\\d{11}$",message = "请输入正确手机号")
-                                                    String phone,     /*手机号*/
+                                                String phone,     /*手机号*/
                                         @RequestParam(required = false)
                                         @NotNull(message = "验证码不能为空")
                                                 String code,      /*验证码*/
                                         @RequestParam(required = false)
                                         @NotNull(message = "密码不能为空")
-                                                    String password){ /*密码*/
+                                                String password){ /*密码*/
         return userService.register(phone,code,password);
     }
 
@@ -81,7 +81,7 @@ public class UserController {
     public Map<String,String>  getSSM(@RequestParam(required = false)
                                       @Pattern(regexp= "^\\d{11}$",message = "请输入正确手机号")
                                       @NotNull(message = "手机号不能为空")
-                                                  String phone){
+                                              String phone){
         return userService.getSSM(phone);
     }
 
@@ -93,27 +93,46 @@ public class UserController {
     public String findByPhone(@RequestParam(required = false)
                               @NotNull(message = "手机号不能为空")
                               @Pattern(regexp= "^\\d{11}$",message = "请输入正确手机号")
-                                          String phone){
+                                      String phone){
         return userService.findPassByPhone(phone);
     }
 
     /**
      * 1.2.12.4.个人信息
-     * @param phone
+     * @param
      * @return
      */
-    @RequestMapping(value = "/findOne",method = RequestMethod.POST)
-    public User findMessage(@RequestParam(required = true)String phone){
-        return userService.findMessage(phone);
+    @PostMapping(value = "/findOne", produces = "application/json;charset=UTF-8")
+    public Object findMessage(@RequestBody Map<String, String> param){
+        if(StringUtils.isEmpty(param.get("phone")))return returnData("phone不能为空",1);
+        return userService.findMessage(param.get("phone"));
     }
 
     /**
      * 1.2.12.5.个人信息维护接口
-     * @param user
+     * @param
      * @return
      */
-    @RequestMapping(value ="/update",method = RequestMethod.POST)
-    public Map<String, Object> update( User user){
+    @PostMapping(value = "/update", produces = "application/json;charset=UTF-8")
+    public Map<String, Object> update(@RequestBody Map<String, String> param){
+        if(StringUtils.isEmpty(param.get("username")))return returnData("username不能为空",1);
+        if(StringUtils.isEmpty(param.get("phone")))return returnData("phone不能为空",1);
+        if(StringUtils.isEmpty(param.get("nickName")))return returnData("nickName不能为空",1);
+        if(StringUtils.isEmpty(param.get("name")))return returnData("name不能为空",1);
+        if(StringUtils.isEmpty(param.get("sex")))return returnData("sex不能为空",1);
+        if(StringUtils.isEmpty(param.get("Id")))return returnData("Id不能为空",1);
+
+        User user =new User();
+        user.setUsername(param.get("username"));
+        user.setPhone(param.get("phone"));
+        user.setEmail(param.get("email"));
+        user.setNickName(param.get("nickName"));
+        user.setName(param.get("name"));
+        user.setHeadPic(param.get("headPic"));
+        user.setQq(param.get("qq"));
+        user.setSex(param.get("sex"));
+        user.setBirthday(param.get("birthday"));
+        user.setId(Integer.parseInt(param.get("Id")));
         return userService.update(user);
     }
 
@@ -122,9 +141,9 @@ public class UserController {
      * @param
      * @return
      */
-    @RequestMapping(value ="/uname",method = RequestMethod.POST)
-    public Map<String,Object> uname(@RequestParam(required = false)String phone){
-        if(StringUtils.isEmpty(phone))return returnData("phone不能为空",1);
-        return userService.uname(phone);
+    @PostMapping(value = "/uname", produces = "application/json;charset=UTF-8")
+    public Map<String,Object> uname(@RequestBody Map<String, String> param){
+        if(StringUtils.isEmpty(param.get("phone")))return returnData("phone不能为空",1);
+        return userService.uname(param.get("phone"));
     }
 }
