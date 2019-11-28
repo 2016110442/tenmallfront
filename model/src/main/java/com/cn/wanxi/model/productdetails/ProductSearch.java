@@ -140,3 +140,5 @@ public class ProductSearch {
         this.templateId = templateId;
     }
 }
+
+
