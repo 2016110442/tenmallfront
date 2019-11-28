@@ -87,8 +87,9 @@ public class UserController {
      */
     @RequestMapping(value = "/ssm",method = RequestMethod.POST)
     public Object  getSSM(@RequestBody Map<String,Object> param){
-        Map<String,String> map=new HashMap<>();
+
         String phone=(String) param.get("phone");
+
         if(phone.matches("^\\d{11}$")==false||phone==null){
             return WebTools.returnData("手机号不对",1);
         }

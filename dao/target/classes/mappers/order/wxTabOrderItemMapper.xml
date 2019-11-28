@@ -14,21 +14,12 @@
             o.post_fee as postFee,
             o.pay_money as payMoney,
             o.pay_type as payType,
-<<<<<<< HEAD
-            o.create_time as createTime,
-            o.update_time as updateTime,
-            o.pay_time as payTime,
-            o.consign_time as consignTime,
-            o.end_time as endTime,
-            o.close_time as closeTime,
-=======
             DATE_FORMAT(o.create_time,'%Y-%d-%m %h:%i:%s') as createTime,
             DATE_FORMAT(o.update_time,'%Y-%d-%m %h:%i:%s') as updateTime,
             DATE_FORMAT(o.pay_time,'%Y-%d-%m %h:%i:%s') as payTime,
             DATE_FORMAT(o.consign_time,'%Y-%d-%m %h:%i:%s') as consignTime,
             DATE_FORMAT(o.end_time,'%Y-%d-%m %h:%i:%s') as endTime,
             DATE_FORMAT(o.close_time,'%Y-%d-%m %h:%i:%s') as closeTime,
->>>>>>> 07ff165acc8454a49661604b53f38ba511dbf3cc
             o.shipping_name as shippingName,
             o.shipping_code as shippingCode,
             o.username as username,
