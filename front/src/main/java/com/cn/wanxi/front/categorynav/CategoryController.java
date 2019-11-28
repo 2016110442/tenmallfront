@@ -3,8 +3,11 @@ package com.cn.wanxi.front.categorynav;
 import com.cn.wanxi.model.categorynav.Category;
 import com.cn.wanxi.service.categorynav.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 /**
@@ -15,11 +18,11 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/index")
+@Validated
 public class CategoryController {
 
     @Autowired(required = false)
     private CategoryService categoryService;
-
     /**
      * 获取所有分类
      * @return
@@ -35,11 +38,11 @@ public class CategoryController {
      * @return
      */
     @PostMapping("/categoryByParent")
-    public List<Category> getCateByPid(@RequestParam(required = true) Integer parentId){
-        System.out.println(parentId);
+    public Object getCateByPid(@RequestParam(required = false)
+                               @NotNull(message ="参数不能为空")
+                               Integer  parentId){
         return categoryService.getCateByPid(parentId);
     }
-
     /**
      * 查询所有分类及其子分类
      * @return

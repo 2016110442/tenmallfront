@@ -70,4 +70,17 @@ public class WxTabCart {
     public void setNum(String num) {
         this.num = num;
     }
+
+    @Override
+    public String toString() {
+        return "WxTabCart{" +
+                "id=" + id +
+                ", skuId=" + skuId +
+                ", spuId=" + spuId +
+                ", status=" + status +
+                ", username='" + username + '\'' +
+                ", spec='" + spec + '\'' +
+                ", num='" + num + '\'' +
+                '}';
+    }
 }

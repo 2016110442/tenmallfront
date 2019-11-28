@@ -14,6 +14,9 @@ import java.util.List;
  */
 public interface WxTabAddressDao {
 
+    @Select("select * from wx_tab_address where id=#{id}")
+    WxTabAddress get(@Param("id") String id);
+
     @Select("select * from wx_tab_address")
     List<WxTabAddress> find(@Param("wxTabAddress") WxTabAddress wxTabAddress);
 

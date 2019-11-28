@@ -104,23 +104,6 @@ public class CartService implements CartServiceImpl {
 
         return lists;
     }
-
-
-//    @Override
-//    public List<Map<String,Object>> findCartList(int page, int size) {
-//        List<WxTabCart> wxTabCarts=cartDao.findCartSpuidSkuid(page,size);  //查询spuid ， skuid
-//        List<Map<String,Object>> lists=new ArrayList<>();
-//        for(WxTabCart spuidskuid:wxTabCarts){
-//            Map<String,Object> maps=new HashMap<>();
-//            maps.put("spu",cartDao.findCartSpuTab(spuidskuid.getSpuId()));
-//            maps.put("skuList", cartDao.findCartSkuTab(spuidskuid.getSpuId()));
-//            maps.put("skuid",spuidskuid.getSkuId());
-//            maps.put("num", spuidskuid.getNum());
-//            lists.add(maps);
-//        }
-//
-//        return lists;
-//    }
     /**
      *  1.2.7.5.获取商品skuid接口
      * @param

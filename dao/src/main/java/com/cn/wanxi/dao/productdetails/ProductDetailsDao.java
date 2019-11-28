@@ -2,6 +2,7 @@ package com.cn.wanxi.dao.productdetails;
 
 import com.cn.wanxi.model.cart.WxTabSku;
 import com.cn.wanxi.model.cart.WxTabSpu;
+import com.cn.wanxi.model.productdetails.ProductSearch;
 import com.cn.wanxi.model.user.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -26,5 +27,5 @@ public interface ProductDetailsDao {
             "images,`status`,weight from wx_tab_sku WHERE spu_id=#{id}")
     List<WxTabSku> productDetailsWxTabSkuList(int id);
 
-    List<WxTabSpu> search(String conditionpara);
+    List<ProductSearch> search(String conditionpara);
 }

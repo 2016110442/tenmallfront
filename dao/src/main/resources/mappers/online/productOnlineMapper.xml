@@ -26,17 +26,17 @@
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="caption" column="caption"/>
-        <result property="brand_id" column="brand_id"/>
-        <result property="category1_id" column="category1_id"/>
-        <result property="category2_id" column="category2_id"/>
-        <result property="category3_id" column="category3_id"/>
-        <result property="freight_id" column="freight_id"/>
+        <result property="brandId" column="brand_id"/>
+        <result property="category1Id" column="category1_id"/>
+        <result property="category2Id" column="category2_id"/>
+        <result property="category3Id" column="category3_id"/>
+        <result property="freightId" column="freight_id"/>
         <result property="image" column="image"/>
         <result property="introduction" column="introduction"/>
-        <result property="para_items" column="para_items"/>
-        <result property="sale_service" column="sale_service"/>
+        <result property="paraItems" column="para_items"/>
+        <result property="saleService" column="sale_service"/>
         <result property="sn" column="sn"/>
-        <result property="spec_items" column="spec_items"/>
-        <result property="template_id" column="template_id"/>
+        <result property="specItems" column="spec_items"/>
+        <result property="templateId" column="template_id"/>
     </resultMap>
 </mapper>

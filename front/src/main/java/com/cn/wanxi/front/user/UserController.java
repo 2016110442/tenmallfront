@@ -3,11 +3,14 @@ package com.cn.wanxi.front.user;
 import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,12 +22,16 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/user")
+@Validated
 public class UserController {
     @Autowired(required = false)
     private UserService userService;
     @RequestMapping("/login")
-    public Map<String ,String> userLogin(@RequestParam(required = true) String phone,
-                                         @RequestParam(required = true) String password,
+    public Map<String ,String> userLogin(@RequestParam(required = false)
+                                         @Pattern(regexp= "^\\d{11}$",message = "请输入正确手机号")
+                                         @NotNull(message = "手机号不能为空") String phone,
+                                         @RequestParam(required = false)
+                                         @NotNull(message = "密码不能为空") String password,
                                          HttpSession session,
                                          HttpServletResponse response){
         System.out.println(phone+"-"+password);
@@ -50,9 +57,16 @@ public class UserController {
      * @return msg
      */
     @RequestMapping(value = "/register",method = RequestMethod.POST)
-    public Map<String ,String> register(@RequestParam(required = true) String phone,     /*手机号*/
-                                        @RequestParam(required = true) String code,      /*验证码*/
-                                        @RequestParam(required = true) String password){ /*密码*/
+    public Map<String ,String> register(@RequestParam(required = false)
+                                        @NotNull(message = "手机号不能为空")
+                                        @Pattern(regexp= "^\\d{11}$",message = "请输入正确手机号")
+                                                    String phone,     /*手机号*/
+                                        @RequestParam(required = false)
+                                        @NotNull(message = "验证码不能为空")
+                                                String code,      /*验证码*/
+                                        @RequestParam(required = false)
+                                        @NotNull(message = "密码不能为空")
+                                                    String password){ /*密码*/
         return userService.register(phone,code,password);
     }
 
@@ -62,7 +76,10 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/ssm",method = RequestMethod.POST)
-    public Map<String,String>  getSSM(@RequestParam(required = true) String phone){
+    public Map<String,String>  getSSM(@RequestParam(required = false)
+                                      @Pattern(regexp= "^\\d{11}$",message = "请输入正确手机号")
+                                      @NotNull(message = "手机号不能为空")
+                                                  String phone){
         return userService.getSSM(phone);
     }
 

@@ -3,6 +3,7 @@ package com.cn.wanxi.front.hotsale;
 import com.cn.wanxi.model.cart.WxTabSpu;
 import com.cn.wanxi.service.hotsale.ProductHotsaleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +21,6 @@ import java.util.List;
 public class ProductHotsaleController {
     @Autowired(required = false)
     private ProductHotsaleService productHotsaleService;
-
     /**
      * 查询热卖商品
      * @return

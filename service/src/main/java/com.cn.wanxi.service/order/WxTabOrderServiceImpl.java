@@ -24,6 +24,17 @@ public class WxTabOrderServiceImpl implements WxTabOrderService {
     public int insert(WxOrderVO wxOrderVO) {
         WxTabOrder wxTabOrder = new WxTabOrder();
         List<WxTabOrderItem> wxTabOrderItems = wxOrderVO.getOrderItem();
+        if (wxTabOrderItems==null){
+            System.out.println("1");
+            return 0;
+        }
+        for (WxTabOrderItem w :
+                wxTabOrderItems) {
+            if (w.getPrice()==null||w.getNum()==null||w.getMoney()==null||w.getPayMoney()==null){
+                System.out.println("2");
+                return 0;
+            }
+        }
         wxTabOrder.setTotalNum(wxOrderVO.getTotalNum());
         wxTabOrder.setTotalMoney(wxOrderVO.getTotalMoney());
         wxTabOrder.setPreMoney(wxOrderVO.getPreMoney());
