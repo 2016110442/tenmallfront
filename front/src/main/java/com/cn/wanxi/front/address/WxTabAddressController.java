@@ -12,6 +12,7 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,17 +48,27 @@ public class WxTabAddressController {
     }
 
     @RequestMapping(value = "/address/addAddress",method = RequestMethod.POST)
-    public Map<String,Object> add(@Length(max = 255,message="receiverAddress长度不能超过255") String receiverAddress,
-                                  @Length(max = 255,message="receiverName长度不能超过255") String receiverName,
-                                  @Length(max = 255,message="receiverPhone长度不能超过255")
-                                  @Pattern(regexp= "^\\d{11}$",message = "请输入正确收件人手机号") String receiverPhone,
-                                  @Length(max = 255,message="isDefault长度不能超过255") String isDefault){
-        if(StringUtils.isEmpty(receiverAddress) ||
-                StringUtils.isEmpty(receiverName) ||
-                StringUtils.isEmpty(receiverPhone) ||
-                StringUtils.isEmpty(isDefault)){
+    public Map<String,Object> add(@RequestBody Map<String,Object> map){
+        if (StringUtils.isEmpty(map.get("receiverAddress")) ||
+                StringUtils.isEmpty(map.get("receiverName")) ||
+                StringUtils.isEmpty(map.get("receiverPhone")) ||
+                StringUtils.isEmpty(map.get("isDefault"))) {
             return WebTools.returnData("receiverAddress，receiverName，receiverPhone，isDefault不能为空",-1);
         }
+        String receiverAddress = map.get("receiverAddress").toString();
+        String receiverName = map.get("receiverName").toString();
+        String receiverPhone = map.get("receiverPhone").toString();
+        String isDefault = map.get("isDefault").toString();
+        if(receiverAddress.length()>255 ||
+                receiverName.length()>255 ||
+                receiverPhone.length()>255 ||
+                isDefault.length()>255){
+            return WebTools.returnData("receiverAddress，receiverName，receiverPhone，isDefault长度不能超过255",-1);
+        }
+        if(receiverPhone.length()!=11){
+            return WebTools.returnData("请输入正确收件人手机号",-1);
+        }
+
         if(isDefault.length()>1){
             return WebTools.returnData("isDefault必须是char类型",-1);
         }
@@ -77,19 +88,32 @@ public class WxTabAddressController {
     }
 
     @RequestMapping(value = "/address/updateAddress",method = RequestMethod.POST)
-    public Map<String, Object> update(@Length(max = 11,message="id长度不能超过11") String id,
-                                      @Length(max = 255,message="receiverAddress长度不能超过255") String receiverAddress,
-                                      @Length(max = 255,message="receiverName长度不能超过255") String receiverName,
-                                      @Length(max = 255,message="receiverPhone长度不能超过255")
-                                      @Pattern(regexp= "^\\d{11}$",message = "请输入正确收件人手机号") String receiverPhone,
-                                      @Length(max = 255,message="isDefault长度不能超过255") String isDefault){
-        if(StringUtils.isEmpty(id) ||
-                StringUtils.isEmpty(receiverAddress) ||
-                StringUtils.isEmpty(receiverName) ||
-                StringUtils.isEmpty(receiverPhone) ||
-                StringUtils.isEmpty(isDefault)){
-            return WebTools.returnData("id，receiverAddress，receiverName，receiverPhone，isDefault不能为空",-1);
+    public Map<String, Object> update(@RequestBody Map<String,Object> map){
+        if (StringUtils.isEmpty(map.get("receiverAddress")) ||
+                StringUtils.isEmpty(map.get("receiverName")) ||
+                StringUtils.isEmpty(map.get("receiverPhone")) ||
+                StringUtils.isEmpty(map.get("isDefault")) ||
+                StringUtils.isEmpty(map.get("id"))) {
+            return WebTools.returnData("receiverAddress，receiverName，receiverPhone，isDefault, id不能为空",-1);
         }
+        String receiverAddress = map.get("receiverAddress").toString();
+        String receiverName = map.get("receiverName").toString();
+        String receiverPhone = map.get("receiverPhone").toString();
+        String isDefault = map.get("isDefault").toString();
+        String id = map.get("id").toString();
+        if(id.length()>11){
+            return WebTools.returnData("id长度不能超过11",-1);
+        }
+        if(receiverAddress.length()>255 ||
+                receiverName.length()>255 ||
+                receiverPhone.length()>255 ||
+                isDefault.length()>255){
+            return WebTools.returnData("receiverAddress，receiverName，receiverPhone，isDefault长度不能超过255",-1);
+        }
+        if(receiverPhone.length()!=11){
+            return WebTools.returnData("请输入正确收件人手机号",-1);
+        }
+
         if(isDefault.length()>1){
             return WebTools.returnData("isDefault必须是char类型",-1);
         }
@@ -119,10 +143,11 @@ public class WxTabAddressController {
     }
 
     @RequestMapping(value = "/address/deleteAddress",method = RequestMethod.POST)
-    public Map<String, Object> delete(String id){
-        if(StringUtils.isEmpty(id)){
+    public Map<String, Object> delete(@RequestBody Map<String,Object> map){
+        if (StringUtils.isEmpty(map.get("id"))) {
             return WebTools.returnData("id不能为空",-1);
         }
+        String id = map.get("id").toString();
         try{
             Integer num = Integer.valueOf(id);
         }catch (Exception e){
@@ -140,10 +165,12 @@ public class WxTabAddressController {
     }
 
     @RequestMapping(value = "/settlement/deal",method = RequestMethod.POST)
-    public Map<String, Object> deal(String ids){
-        if(StringUtils.isEmpty(ids)){
+    public Map<String, Object> deal(@RequestBody Map<String,Object> map2){
+//            String ids){
+        if (StringUtils.isEmpty(map2.get("ids"))) {
             return WebTools.returnData("ids不能为空",-1);
         }
+        String ids = map2.get("ids").toString();
         Map<String,Object> map = new HashMap<>();
         List<Object> objectList = new ArrayList<>();
         Integer totalMoney = 0;

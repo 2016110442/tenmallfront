@@ -13,11 +13,8 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -42,17 +39,31 @@ public class WxTabEstimateController {
     private WxTabOrderService wxTabOrderService;
 
     @RequestMapping(value = "/product/estimate", method = RequestMethod.POST)
-    public Map<String, Object> estimate(@Length(max = 20,message="spuid长度不能超过20") String spuid,
-                                        @Length(max = 11,message="orderItemid长度不能超过11") String orderItemid,
-                                        @Length(max = 255,message="images长度不能超过255") String images,
-                                        @Length(max = 11,message="star长度不能超过11") String star,
-                                        @Length(max = 255,message="content长度不能超过{max}") String content) {
-        if (StringUtils.isEmpty(spuid) ||
-                StringUtils.isEmpty(orderItemid) ||
-                StringUtils.isEmpty(star) ||
-                StringUtils.isEmpty(content)) {
+    public Map<String, Object> estimate(@RequestBody Map<String,Object> map){
+        if (StringUtils.isEmpty(map.get("spuid")) ||
+                StringUtils.isEmpty(map.get("orderItemid")) ||
+                StringUtils.isEmpty(map.get("star")) ||
+                StringUtils.isEmpty(map.get("content"))) {
             return WebTools.returnData("spuid，orderItemid，star，content不能为空", -1);
         }
+        String spuid = map.get("spuid").toString();
+        String orderItemid = map.get("orderItemid").toString();
+        String star = map.get("star").toString();
+        String content = map.get("content").toString();
+        String images = "";
+        if (!StringUtils.isEmpty(map.get("images"))) {
+            images = map.get("images").toString();
+        }
+        if(orderItemid.length()>11 || star.length()>11){
+            return WebTools.returnData("spuid，star长度不能超过11",-1);
+        }
+        if(spuid.length()>20){
+            return WebTools.returnData("spuid长度不能超过20",-1);
+        }
+        if(images.length()>255 || content.length()>255){
+            return WebTools.returnData("images，content长度不能超过255",-1);
+        }
+
         try {
             Integer.valueOf(orderItemid);
         } catch (Exception e) {
@@ -81,19 +92,34 @@ public class WxTabEstimateController {
     }
 
     @RequestMapping(value = "/product/salesReturn", method = RequestMethod.POST)
-    public Map<String, Object> salesReturn(@Length(max = 11,message="orderId长度不能超过11") String orderId,
-                                           @Length(max = 11,message="orderItemid长度不能超过11") String orderItemid,
-                                           @Length(max = 50,message="evidence长度不能超过50") String evidence,
-                                           @Length(max = 50,message="description长度不能超过50") String description,
-                                           @Length(max = 255,message="returnCause长度不能超过255") String returnCause,
-                                           @Length(max = 50,message="type长度不能超过50") String type) {
-        if (StringUtils.isEmpty(orderId) ||
-                StringUtils.isEmpty(orderItemid) ||
-                StringUtils.isEmpty(description) ||
-                StringUtils.isEmpty(returnCause) ||
-                StringUtils.isEmpty(type)) {
+    public Map<String, Object> salesReturn(@RequestBody Map<String,Object> map){
+        if (StringUtils.isEmpty(map.get("orderId")) ||
+                StringUtils.isEmpty(map.get("orderItemid")) ||
+                StringUtils.isEmpty(map.get("description")) ||
+                StringUtils.isEmpty(map.get("returnCause")) ||
+                StringUtils.isEmpty(map.get("type"))) {
             return WebTools.returnData("orderId，orderItemid，description，returnCause，type不能为空", -1);
         }
+        String orderId = map.get("orderId").toString();
+        String orderItemid = map.get("orderItemid").toString();
+        String description = map.get("description").toString();
+        String returnCause = map.get("returnCause").toString();
+        String type = map.get("type").toString();
+        String evidence = "";
+        if (!StringUtils.isEmpty(map.get("evidence"))) {
+            evidence = map.get("evidence").toString();
+        }
+        if(returnCause.length()>255){
+            return WebTools.returnData("returnCause长度不能超过255",-1);
+        }
+        if(orderId.length()>11 || orderItemid.length()>11){
+            return WebTools.returnData("orderId，orderItemid长度不能超过11",-1);
+        }
+        if(evidence.length()>50 || description.length()>50 || type.length()>50){
+            return WebTools.returnData("evidence，description，type长度不能超过50",-1);
+        }
+
+
         if (!type.equals("1")) {
             return WebTools.returnData("type的值必须为1", -1);
         }
@@ -125,19 +151,33 @@ public class WxTabEstimateController {
     }
 
     @RequestMapping(value = "/product/refund", method = RequestMethod.POST)
-    public Map<String, Object> refund(@Length(max = 11,message="orderId长度不能超过11") String orderId,
-                                      @Length(max = 11,message="orderItemid长度不能超过11") String orderItemid,
-                                      @Length(max = 50,message="evidence长度不能超过50") String evidence,
-                                      @Length(max = 50,message="description长度不能超过50") String description,
-                                      @Length(max = 255,message="returnCause长度不能超过255") String returnCause,
-                                      @Length(max = 50,message="type长度不能超过50") String type) {
-        if (StringUtils.isEmpty(orderId) ||
-                StringUtils.isEmpty(orderItemid) ||
-                StringUtils.isEmpty(description) ||
-                StringUtils.isEmpty(returnCause) ||
-                StringUtils.isEmpty(type)) {
+    public Map<String, Object> refund(@RequestBody Map<String,Object> map){
+        if (StringUtils.isEmpty(map.get("orderId")) ||
+                StringUtils.isEmpty(map.get("orderItemid")) ||
+                StringUtils.isEmpty(map.get("description")) ||
+                StringUtils.isEmpty(map.get("returnCause")) ||
+                StringUtils.isEmpty(map.get("type"))) {
             return WebTools.returnData("orderId，orderItemid，description，returnCause，type不能为空", -1);
         }
+        String orderId = map.get("orderId").toString();
+        String orderItemid = map.get("orderItemid").toString();
+        String description = map.get("description").toString();
+        String returnCause = map.get("returnCause").toString();
+        String type = map.get("type").toString();
+        String evidence = "";
+        if (!StringUtils.isEmpty(map.get("evidence"))) {
+            evidence = map.get("evidence").toString();
+        }
+        if(returnCause.length()>255){
+            return WebTools.returnData("returnCause长度不能超过255",-1);
+        }
+        if(orderId.length()>11 || orderItemid.length()>11){
+            return WebTools.returnData("orderId，orderItemid长度不能超过11",-1);
+        }
+        if(evidence.length()>50 || description.length()>50 || type.length()>50){
+            return WebTools.returnData("evidence，description，type长度不能超过50",-1);
+        }
+
         if (!type.equals("2")) {
             return WebTools.returnData("type的值必须为2", -1);
         }
@@ -168,10 +208,21 @@ public class WxTabEstimateController {
     }
 
     @RequestMapping(value = "/order/uname", method = RequestMethod.POST)
-    public Map<String, Object> uname(String page, String size, String payStatus, String consignStatus) {
-        if (StringUtils.isEmpty(page) ||
-                StringUtils.isEmpty(size)) {
+    public Map<String, Object> uname(@RequestBody Map<String,Object> map) {
+//        String page, String size, String payStatus, String consignStatus){
+        if (StringUtils.isEmpty(map.get("page")) ||
+                StringUtils.isEmpty(map.get("size"))) {
             return WebTools.returnData("page，size不能为空", -1);
+        }
+        String page=map.get("page").toString();
+        String size=map.get("size").toString();
+        String payStatus="";
+        String consignStatus="";
+        if (!StringUtils.isEmpty(map.get("payStatus"))) {
+            payStatus=map.get("payStatus").toString();
+        }
+        if (!StringUtils.isEmpty(map.get("consignStatus"))) {
+            consignStatus=map.get("consignStatus").toString();
         }
         try {
             Integer test1 = Integer.valueOf(page);
@@ -205,16 +256,10 @@ public class WxTabEstimateController {
             objectList.add(entityMap);
         }
 
-//        returnPage.setList(objectList);
-//        returnPage.setPageNum(pageInfo.getPageNum());
-//        returnPage.setPageSize(pageInfo.getPageSize());
-//        returnPage.setTotal(pageInfo.getTotal());
-//        returnPage.setSize(pageInfo.getSize());
         Map<String, Object> returnPage = new HashMap<>();
         returnPage.put("page", pageInfo.getPageNum());
         returnPage.put("size", pageInfo.getPageSize());
         returnPage.put("total", pageInfo.getTotal());
-//      Map<String,Object> map =WebTools.objectToMap(returnPage);
         returnPage.put("list", objectList);
         return returnPage;
     }
