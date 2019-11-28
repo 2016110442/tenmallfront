@@ -2,6 +2,7 @@ package com.cn.wanxi.front.user;
 
 import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.service.user.UserService;
+import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -27,15 +28,18 @@ public class UserController {
     @Autowired(required = false)
     private UserService userService;
     @RequestMapping("/login")
-    public Map<String ,String> userLogin(@RequestParam(required = false)
-                                         @Pattern(regexp= "^\\d{11}$",message = "请输入正确手机号")
-                                         @NotNull(message = "手机号不能为空") String phone,
-                                         @RequestParam(required = false)
-                                         @NotNull(message = "密码不能为空") String password,
-                                         HttpSession session,
-                                         HttpServletResponse response){
-        System.out.println(phone+"-"+password);
+    public Object userLogin(@RequestBody Map<String,Object> param,HttpSession session,HttpServletResponse response){
+
         Map<String,String> map=new HashMap<>();
+        String phone=(String) param.get("phone");
+        String password=(String) param.get("password");
+        if(phone.matches("^\\d{11}$")==false||phone==null){
+            return WebTools.returnData("手机号不对",1);
+        }
+        if(password==null){
+            return WebTools.returnData("密码不能为空",1);
+        }
+
         if (userService.userLogin(phone,password)){
             map.put("code","0");
             map.put("message","登录成功");
@@ -57,16 +61,20 @@ public class UserController {
      * @return msg
      */
     @RequestMapping(value = "/register",method = RequestMethod.POST)
-    public Map<String ,String> register(@RequestParam(required = false)
-                                        @NotNull(message = "手机号不能为空")
-                                        @Pattern(regexp= "^\\d{11}$",message = "请输入正确手机号")
-                                                    String phone,     /*手机号*/
-                                        @RequestParam(required = false)
-                                        @NotNull(message = "验证码不能为空")
-                                                String code,      /*验证码*/
-                                        @RequestParam(required = false)
-                                        @NotNull(message = "密码不能为空")
-                                                    String password){ /*密码*/
+    public Object register(@RequestBody Map<String,Object> param){
+
+        String phone=(String) param.get("phone");
+        String code=(String) param.get("code");
+        String password=(String) param.get("password");
+        if(phone.matches("^\\d{11}$")==false||phone==null){
+            return WebTools.returnData("手机号不对",1);
+        }
+        if(code.matches("^\\d{6}$")==false||code==null){
+            return WebTools.returnData("验证码不对",1);
+        }
+        if(password==null){
+            return WebTools.returnData("密码不能为空",1);
+        }
         return userService.register(phone,code,password);
     }
 
@@ -76,10 +84,12 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/ssm",method = RequestMethod.POST)
-    public Map<String,String>  getSSM(@RequestParam(required = false)
-                                      @Pattern(regexp= "^\\d{11}$",message = "请输入正确手机号")
-                                      @NotNull(message = "手机号不能为空")
-                                                  String phone){
+    public Object  getSSM(@RequestBody Map<String,Object> param){
+        Map<String,String> map=new HashMap<>();
+        String phone=(String) param.get("phone");
+        if(phone.matches("^\\d{11}$")==false||phone==null){
+            return WebTools.returnData("手机号不对",1);
+        }
         return userService.getSSM(phone);
     }
 
