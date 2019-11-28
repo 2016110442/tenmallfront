@@ -5,6 +5,7 @@ import com.cn.wanxi.model.address.WxTabAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,7 +26,14 @@ public class WxTabAddressServiceImpl implements WxTabAddressService {
 
     @Override
     public List<WxTabAddress> find(WxTabAddress address) {
-        return wxTabAddressDao.find(address);
+        List<WxTabAddress> wxTabAddresses = wxTabAddressDao.find(address);
+        List<WxTabAddress> updateWxTabAddresses = new ArrayList<>();
+        for (WxTabAddress wxTabAddress:wxTabAddresses) {
+            wxTabAddress.setReceiverAddress(wxTabAddress.getReceiverAddress().replaceAll("\"","'"));
+            wxTabAddress.setReceiverName(wxTabAddress.getReceiverName().replaceAll("\"","'"));
+            updateWxTabAddresses.add(wxTabAddress);
+        }
+        return updateWxTabAddresses;
     }
 
     @Override

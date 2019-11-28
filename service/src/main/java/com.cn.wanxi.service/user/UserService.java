@@ -2,6 +2,7 @@ package com.cn.wanxi.service.user;
 
 import com.cn.wanxi.model.user.User;
 
+import java.util.List;
 import java.util.Map;
 
 public interface UserService {
@@ -14,4 +15,6 @@ public interface UserService {
     public Map<String,Object> uname(String phone);
     public void addUser(String phone,String password);
     public boolean userLogin(String phone,String password);
+
+    List<User> findByPhone(String phone);
 }

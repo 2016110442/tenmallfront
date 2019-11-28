@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.cn.wanxi.util.WebTools;
 
+import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,7 +49,8 @@ public class WxTabAddressController {
     @RequestMapping(value = "/address/addAddress",method = RequestMethod.POST)
     public Map<String,Object> add(@Length(max = 255,message="receiverAddress长度不能超过255") String receiverAddress,
                                   @Length(max = 255,message="receiverName长度不能超过255") String receiverName,
-                                  @Length(max = 255,message="receiverPhone长度不能超过255") String receiverPhone,
+                                  @Length(max = 255,message="receiverPhone长度不能超过255")
+                                  @Pattern(regexp= "^\\d{11}$",message = "请输入正确收件人手机号") String receiverPhone,
                                   @Length(max = 255,message="isDefault长度不能超过255") String isDefault){
         if(StringUtils.isEmpty(receiverAddress) ||
                 StringUtils.isEmpty(receiverName) ||
@@ -78,7 +80,8 @@ public class WxTabAddressController {
     public Map<String, Object> update(@Length(max = 11,message="id长度不能超过11") String id,
                                       @Length(max = 255,message="receiverAddress长度不能超过255") String receiverAddress,
                                       @Length(max = 255,message="receiverName长度不能超过255") String receiverName,
-                                      @Length(max = 255,message="receiverPhone长度不能超过255") String receiverPhone,
+                                      @Length(max = 255,message="receiverPhone长度不能超过255")
+                                      @Pattern(regexp= "^\\d{11}$",message = "请输入正确收件人手机号") String receiverPhone,
                                       @Length(max = 255,message="isDefault长度不能超过255") String isDefault){
         if(StringUtils.isEmpty(id) ||
                 StringUtils.isEmpty(receiverAddress) ||
@@ -166,12 +169,21 @@ public class WxTabAddressController {
                 List<WxTabSpu> wxTabSpus =wxTabSpuService.findByIds(wxTabOrderItem.getSpuId().split(","));
                 if(wxTabSpus.size()>0){
                     WxTabSpu wxTabSpu = wxTabSpus.get(0);
+                    //更新双引号变为单引号
+                    wxTabSpu.setParaItems(wxTabSpu.getParaItems().replaceAll("\"","'"));
+                    wxTabSpu.setSpecItems(wxTabSpu.getSpecItems().replaceAll("\"","'"));
                     entityMap = WebTools.objectToMap(wxTabSpu);
                 }else{
                     entityMap = new HashMap<>();
                 }
                 entityMap.put("skuid",wxTabOrderItem.getSkuId());
-                entityMap.put("skuList",wxTabSkus);
+                //更新双引号变为单引号
+                List<WxTabSku> updateWxTabSkus = new ArrayList<>();
+                for (WxTabSku wxtabsku : wxTabSkus) {
+                    wxtabsku.setSpec(wxtabsku.getSpec().replaceAll("\"","'"));
+                    updateWxTabSkus.add(wxtabsku);
+                }
+                entityMap.put("skuList",updateWxTabSkus);
                 objectList.add(entityMap);
                 totalMoney = totalMoney+(wxTabOrderItem.getPrice()*wxTabOrderItem.getNum());
                 totalNum = totalNum+wxTabOrderItem.getNum();

@@ -3,6 +3,8 @@ package com.cn.wanxi.dao.user;
 import com.cn.wanxi.model.user.User;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 @Mapper
 public interface UserDao {
     @Select("select password from wx_tab_user where phone=#{phone}")
@@ -18,4 +20,7 @@ public interface UserDao {
     String findUserName(String phone);
     @Select("select count(*) from wx_tab_user where username=#{username}")
     String findRepetition(String username);
+
+    @Select("select * from wx_tab_user where phone=#{phone}")
+    List<User> findByPhone(String phone);
 }

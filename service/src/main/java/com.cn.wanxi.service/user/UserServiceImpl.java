@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.cn.wanxi.util.WebTools.returnData;
@@ -139,5 +140,10 @@ public class UserServiceImpl implements UserService {
         String pass=userDao.findPassByPhone(phone);
         return DigestUtils.md5DigestAsHex(password.getBytes())
                 .equals(pass);
+    }
+
+    @Override
+    public List<User> findByPhone(String phone) {
+        return userDao.findByPhone(phone);
     }
 }
