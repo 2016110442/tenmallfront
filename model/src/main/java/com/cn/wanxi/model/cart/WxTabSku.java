@@ -1,6 +1,7 @@
 package com.cn.wanxi.model.cart;
 
 import java.sql.Date;
+import java.util.List;
 
 /**
  * @program: WxTabSku

@@ -1,5 +1,7 @@
 package com.cn.wanxi.model.cart;
 
+import java.util.List;
+
 /**
  * @program: WxTabSpu
  * @description: WxTabSpu数据库表
@@ -32,7 +34,14 @@ public class WxTabSpu {
     private String status;
     private WxTabCart wxTabCart;
     private WxTabSku wxTabSku;
+    private List<WxTabSku> tabSkuList;
 
+    public List<WxTabSku> getTabSkuList() {
+        return tabSkuList;
+    }
+    public void setTabSkuList(List<WxTabSku> tabSkuList) {
+        this.tabSkuList = tabSkuList;
+    }
     public WxTabCart getWxTabCart() {
         return wxTabCart;
     }

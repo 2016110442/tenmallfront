@@ -38,5 +38,6 @@
         <result property="sn" column="sn"/>
         <result property="specItems" column="spec_items"/>
         <result property="templateId" column="template_id"/>
+        <collection property="tabSkuList" column="id" select="com.cn.wanxi.dao.cart.CartDao.findCartSkuTab"/>
     </resultMap>
 </mapper>
