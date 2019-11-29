@@ -2,9 +2,11 @@ package com.cn.wanxi.front.user;
 
 import com.cn.wanxi.model.order.WxTabOrder;
 import com.cn.wanxi.model.order.WxTabOrderItem;
+import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.model.user.WxTabEstimate;
 import com.cn.wanxi.service.order.WxTabOrderItemService;
 import com.cn.wanxi.service.order.WxTabOrderService;
+import com.cn.wanxi.service.user.UserService;
 import com.cn.wanxi.service.user.WxTabEstimateService;
 import com.cn.wanxi.service.user.WxTabReturnCauseService;
 import com.cn.wanxi.util.WebTools;
@@ -37,6 +39,8 @@ public class WxTabEstimateController {
     private WxTabReturnCauseService wxTabReturnCauseService;
     @Autowired
     private WxTabOrderService wxTabOrderService;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "/product/estimate", method = RequestMethod.POST)
     public Map<String, Object> estimate(@RequestBody Map<String,Object> map){
@@ -84,6 +88,13 @@ public class WxTabEstimateController {
         wxTabEstimate.setImages(images);
         wxTabEstimate.setStar(Integer.valueOf(star));
         wxTabEstimate.setContent(content);
+        String phone = WebTools.getSession("username");
+        if(!StringUtils.isEmpty(phone)){
+            List<User> users = userService.findByPhone(phone);
+            if(users.size()>0){
+                wxTabEstimate.setUsername(users.get(0).getUsername());
+            }
+        }
         boolean flag = wxTabEstimateService.add(wxTabEstimate);
         if (flag) {
             return WebTools.returnData("评价成功", 0);

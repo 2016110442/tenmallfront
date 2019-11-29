@@ -3,11 +3,13 @@ package com.cn.wanxi.front.address;
 import com.cn.wanxi.model.cart.WxTabSku;
 import com.cn.wanxi.model.cart.WxTabSpu;
 import com.cn.wanxi.model.order.WxTabOrderItem;
+import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.service.address.WxTabAddressService;
 import com.cn.wanxi.model.address.WxTabAddress;
 import com.cn.wanxi.service.cart.WxTabSkuService;
 import com.cn.wanxi.service.cart.WxTabSpuService;
 import com.cn.wanxi.service.order.WxTabOrderItemService;
+import com.cn.wanxi.service.user.UserService;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
@@ -41,6 +43,8 @@ public class WxTabAddressController {
     private WxTabSpuService wxTabSpuService;
     @Autowired
     private WxTabSkuService wxTabSkuService;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "/address/listAddress",method = RequestMethod.POST)
     public List<WxTabAddress> list(){
@@ -80,6 +84,14 @@ public class WxTabAddressController {
         address.setReceiverName(receiverName);
         address.setReceiverPhone(receiverPhone);
         address.setIsDefault(String.valueOf(isDefault));
+        String phone = WebTools.getSession("username");
+        if(!StringUtils.isEmpty(phone)){
+            List<User> users = userService.findByPhone(phone);
+            if(users.size()>0){
+                address.setUsername(users.get(0).getUsername());
+            }
+        }
+
         boolean flag =wxTabAddressService.add(address);
         if(flag){
             return WebTools.returnData("添加成功",0);
