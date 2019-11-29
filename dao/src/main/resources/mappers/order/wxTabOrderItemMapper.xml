@@ -49,5 +49,40 @@
         </if>
     </select>
 
+    <select id="findByIds" resultType="com.cn.wanxi.model.order.WxTabOrderItem">
+        select
+            *
+        from
+            wx_tab_order_item
+        where
+            id
+        in
+        <foreach collection='ids' item='item' open='(' separator=',' close=')'>
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="findBySkuIds" resultType="com.cn.wanxi.model.order.WxTabOrderItem">
+        select
+            *
+        from
+            wx_tab_order_item
+        where
+            sku_id
+        in
+        <foreach collection='skuIds' item='item' open='(' separator=',' close=')'>
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="get" resultType="com.cn.wanxi.model.order.WxTabOrderItem">
+        select
+            *
+        from
+            wx_tab_order_item
+        where
+            id = #{id}
+    </select>
+
 
 </mapper>

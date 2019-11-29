@@ -14,13 +14,13 @@ import java.util.List;
  */
 public interface WxTabSpuDao {
 
-    @Select({
-            "<script>",
-                "select * from wx_tab_spu where id in ",
-                "<foreach collection='ids' item='item' open='(' separator=',' close=')'>",
-                    "#{item}",
-                "</foreach>",
-            "</script>"
-    })
+//    @Select({
+//            "<script>",
+//                "select * from wx_tab_spu where id in ",
+//                "<foreach collection='ids' item='item' open='(' separator=',' close=')'>",
+//                    "#{item}",
+//                "</foreach>",
+//            "</script>"
+//    })
     List<WxTabSpu> findByIds(@Param("ids") String[] ids);
 }

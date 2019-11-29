@@ -15,13 +15,13 @@ public interface WxTabOrderMapper {
     @Options(useGeneratedKeys=true, keyProperty="id", keyColumn="id")
     int insert(WxTabOrder record);
 
-    @Select({
-            "<script>",
-            "select * from wx_tab_order where id in ",
-            "<foreach collection='ids' item='item' open='(' separator=',' close=')'>",
-            "#{item}",
-            "</foreach>",
-            "</script>"
-    })
+//    @Select({
+//            "<script>",
+//            "select * from wx_tab_order where id in ",
+//            "<foreach collection='ids' item='item' open='(' separator=',' close=')'>",
+//            "#{item}",
+//            "</foreach>",
+//            "</script>"
+//    })
     List<WxTabOrder> selectByIds(@Param("ids") String[] ids);
 }

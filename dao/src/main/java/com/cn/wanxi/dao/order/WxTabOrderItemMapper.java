@@ -28,28 +28,28 @@ public interface WxTabOrderItemMapper {
     })
     Integer insertList(@Param("lists") List<WxTabOrderItem> lists);
 
-    @Select({
-            "<script>",
-                "select * from wx_tab_order_item where sku_id in ",
-                "<foreach collection='skuIds' item='item' open='(' separator=',' close=')'>",
-                    "#{item}",
-                "</foreach>",
-            "</script>"
-    })
+//    @Select({
+//            "<script>",
+//                "select * from wx_tab_order_item where sku_id in ",
+//                "<foreach collection='skuIds' item='item' open='(' separator=',' close=')'>",
+//                    "#{item}",
+//                "</foreach>",
+//            "</script>"
+//    })
     List<WxTabOrderItem> findBySkuIds(@Param("skuIds") String[] skuIds);
 
-    @Select({
-            "<script>",
-            "select * from wx_tab_order_item where id in ",
-            "<foreach collection='ids' item='item' open='(' separator=',' close=')'>",
-            "#{item}",
-            "</foreach>",
-            "</script>"
-    })
+//    @Select({
+//            "<script>",
+//            "select * from wx_tab_order_item where id in ",
+//            "<foreach collection='ids' item='item' open='(' separator=',' close=')'>",
+//            "#{item}",
+//            "</foreach>",
+//            "</script>"
+//    })
     List<WxTabOrderItem> findByIds(@Param("ids") String[] ids);
 
     List<Map<String,Object>> findByPayStatusAndConsignStatus(@Param("payStatus") String payStatus,@Param("consignStatus") String consignStatus);
 
-    @Select("select * from wx_tab_order_item where id = #{id}")
+//    @Select("select * from wx_tab_order_item where id = #{id}")
     WxTabOrderItem get(String id);
 }

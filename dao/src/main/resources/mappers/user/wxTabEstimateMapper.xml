@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.wanxi.dao.user.WxTabEstimateDao">
+    <select id="find" resultType="com.cn.wanxi.model.user.WxTabEstimate">
+       select
+            *
+       from
+            wx_tab_estimate
+    </select>
+
+    <insert id="insert" parameterType="com.cn.wanxi.model.user.WxTabEstimate">
+        insert into
+            wx_tab_estimate
+                (username,spuid,
+                order_itemid,
+                images,
+                star,
+                content)
+        value
+            (#{wxTabEstimate.username},
+            #{wxTabEstimate.spuid},
+            #{wxTabEstimate.orderItemid},
+            #{wxTabEstimate.images},
+            #{wxTabEstimate.star},
+            #{wxTabEstimate.content})
+    </insert>
+
+    <update id="update" parameterType="com.cn.wanxi.model.user.WxTabEstimate">
+        update
+            wx_tab_estimate
+        set
+            username=#{wxTabEstimate.username},
+            spuid=#{wxTabEstimate.spuid},
+            order_itemid=#{wxTabEstimate.orderItemid},
+            images=#{wxTabEstimate.images},
+            star=#{wxTabEstimate.star},
+            content=#{wxTabEstimate.content}
+        where
+            id=#{wxTabEstimate.id}
+    </update>
+</mapper>

@@ -16,9 +16,9 @@ import java.util.List;
  */
 public interface WxTabReturnCauseDao {
 
-    @Insert("insert into wx_tab_return_cause(cause,seq,status) values(#{wxTabReturnCause.cause},#{wxTabReturnCause.seq},#{wxTabReturnCause.status})")
+//    @Insert("insert into wx_tab_return_cause(cause,seq,status) values(#{wxTabReturnCause.cause},#{wxTabReturnCause.seq},#{wxTabReturnCause.status})")
     Integer insert(@Param("wxTabReturnCause") WxTabReturnCause wxTabReturnCause);
 
-    @Select("select * from wx_tab_return_cause where cause=#{wxTabReturnCause.cause} and status=#{wxTabReturnCause.status}")
+//    @Select("select * from wx_tab_return_cause where cause=#{wxTabReturnCause.cause} and status=#{wxTabReturnCause.status}")
     List<WxTabReturnCause> find(@Param("wxTabReturnCause") WxTabReturnCause wxTabReturnCause);
 }
