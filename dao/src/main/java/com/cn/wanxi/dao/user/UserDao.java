@@ -12,18 +12,21 @@ public interface UserDao {
     @Insert("insert into wx_tab_user(phone,password) values(#{phone},#{password})")
     public void addUser(@Param("phone") String phone,@Param("password") String password);
 
-    @Update("update wx_tab_user set username=#{user.username},phone=#{user.phone},email=#{user.email}" +
-            ",nick_name=#{user.nickName},name=#{user.name},head_pic=#{user.headPic},qq=#{user.qq},sex=#{user.sex},birthday=#{user.birthday} where id=1")
-    int updateUserInfo(@Param("user") User user);
 
-    @Select("select username from wx_tab_user where phone=#{phone}")
-    String findUserName(String phone);
-    @Select("select count(*) from wx_tab_user where username=#{username}")
-    String findRepetition(String username);
 
 //    @Select("select * from wx_tab_user where phone=#{phone}")
     List<User> findByPhone(String phone);
 
-    @Select("select username,phone,email,nick_name,`name`,`status`,head_pic,qq,sex,user_level,points,experience_value,birthday from wx_tab_user where phone=#{phone}")
-    User findMessages(String phone);
+    /**
+     * wxs
+     * @param user
+     * @return
+     */
+    int updateUserInfo(@Param("user") User user);
+
+    String findUserName(@Param("phone")String phone);
+
+    String findRepetition(@Param("username")String username);
+
+    User findMessages(@Param("phone")String phone);
 }

@@ -123,9 +123,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public Map<String,Object> uname(String phone) {
         String resultString = userDao.findUserName(phone);
-        Map<String,Object> map=new HashMap<>();
-        map.put("name",resultString);
-        return map;
+        if(resultString==null){
+            return returnData("未找到此手机号用户！",1);
+        }
+
+        return returnData(resultString,0);
     }
 
     /**
