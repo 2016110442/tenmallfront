@@ -1,9 +1,7 @@
 package com.cn.wanxi.service.cart;
 
-import com.cn.wanxi.model.cart.AddCartModel;
 import com.cn.wanxi.model.cart.WxTabCart;
 import com.cn.wanxi.model.cart.WxTabSku;
-import com.cn.wanxi.model.cart.WxTabSpu;
 
 import java.util.List;
 import java.util.Map;

@@ -1,12 +1,9 @@
 package com.cn.wanxi.service.cart;
 
 import com.cn.wanxi.dao.cart.CartDao;
-import com.cn.wanxi.model.cart.AddCartModel;
 import com.cn.wanxi.model.cart.WxTabCart;
 import com.cn.wanxi.model.cart.WxTabSku;
-import com.cn.wanxi.model.cart.WxTabSpu;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -89,7 +86,6 @@ public class CartService implements CartServiceImpl {
             String specItems=((String)maps.get("spec_items")).replaceAll("\"","'");
             maps.remove("spec_items");
             maps.put("para_items",specItems);
-            System.out.printf(maps.toString());
             List<WxTabSku> wxTabSkulists=cartDao.findCartSkuTab(spuidskuid.getSpuId());
             List<WxTabSku> wxTabSkulists3=new ArrayList<>();
             for (WxTabSku wxTabSkulists2:wxTabSkulists) {
@@ -136,7 +132,6 @@ public class CartService implements CartServiceImpl {
         String specItems=((String)maps.get("spec_items")).replaceAll("\"","'");
         maps.remove("spec_items");
         maps.put("para_items",specItems);
-        System.out.printf(maps.toString());
         List<WxTabSku> wxTabSkulists=cartDao.findCartSkuTab(wxTabCarts.getSpuId());
         List<WxTabSku> wxTabSkulists3=new ArrayList<>();
         for (WxTabSku wxTabSkulists2:wxTabSkulists) {

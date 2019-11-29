@@ -4,10 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.wanxi.dao.cart.CartDao">
 <!--    1.2.7.1. 添加购物车接口-->
-<insert id="addCart" parameterType="com.cn.wanxi.model.cart.AddCartModel" >
+<insert id="addCart" parameterType="com.cn.wanxi.model.cart.WxTabCart" >
         insert into
         wx_tab_cart(sku_id,spu_id,spec,num)
-        values(#{addCartModel.skuId},#{addCartModel.spuId},#{addCartModel.spec},#{addCartModel.num})
+        values(#{wxTabCart.skuId},#{wxTabCart.spuId},#{wxTabCart.spec},#{wxTabCart.num})
 </insert>
 <!--    1.2.7.2.修改商品数量接口-->
     <update id="updateNum">
