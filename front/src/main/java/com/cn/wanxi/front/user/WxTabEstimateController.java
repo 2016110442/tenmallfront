@@ -208,14 +208,21 @@ public class WxTabEstimateController {
     }
 
     @RequestMapping(value = "/order/uname", method = RequestMethod.POST)
-    public Map<String, Object> uname(@RequestBody Map<String,Object> map) {
-//        String page, String size, String payStatus, String consignStatus){
-        if (StringUtils.isEmpty(map.get("page")) ||
-                StringUtils.isEmpty(map.get("size"))) {
+    public Map<String, Object> uname(@RequestBody Map<String,Object> map,String page,String size) {
+        boolean flag = false;
+        if(StringUtils.isEmpty(page) || StringUtils.isEmpty(size)){
+            if (StringUtils.isEmpty(map.get("page")) ||
+                    StringUtils.isEmpty(map.get("size"))) {
+                flag=true;
+            }else{
+                page=map.get("page").toString();
+                size=map.get("size").toString();
+            }
+        }
+        if(flag){
             return WebTools.returnData("page，size不能为空", -1);
         }
-        String page=map.get("page").toString();
-        String size=map.get("size").toString();
+
         String payStatus="";
         String consignStatus="";
         if (!StringUtils.isEmpty(map.get("payStatus"))) {
