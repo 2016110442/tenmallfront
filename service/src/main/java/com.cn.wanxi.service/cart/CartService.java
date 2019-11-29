@@ -111,10 +111,10 @@ public class CartService implements CartServiceImpl {
      */
     @Override
     public WxTabSku getSkuid(int spuid, String spec) {
-        //   String specs=spec.replaceAll("'","\\\"");
-        //  String specs2=specs.replaceAll("\"","\\\"");
-        System.out.printf(spec);
-        WxTabSku wxTabSkusj = cartDao.getSkuid(spuid, spec.replaceAll("\"","\\\""));
+        WxTabSku wxTabSkusj = cartDao.getSkuid(spuid, spec);
+        if(wxTabSkusj==null){
+           return wxTabSkusj;
+        }
         wxTabSkusj.setSpec(wxTabSkusj.getSpec().replaceAll("\"","'"));
         return wxTabSkusj;
 

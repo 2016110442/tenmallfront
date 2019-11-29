@@ -45,5 +45,10 @@ public class ExceptionAdvice {
         map.put("msg","参数不能为空");
         return map;
     }
-
+    @ExceptionHandler(value = NumberFormatException.class)
+    public Map NumberFormatExceptionHandler(){
+        Map map = new HashMap();
+        map.put("msg","请输入正确类型参数");
+        return map;
+    }
 }

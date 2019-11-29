@@ -132,6 +132,7 @@ public class UserController {
         user.setSex(param.get("sex"));
         user.setBirthday(param.get("birthday"));
         user.setId(Integer.parseInt(param.get("Id")));
+
         return userService.update(user);
     }
 

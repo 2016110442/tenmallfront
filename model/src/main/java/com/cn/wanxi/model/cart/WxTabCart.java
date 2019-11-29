@@ -13,7 +13,15 @@ public class WxTabCart {
     private Character status;
     private String username;
     private String spec;
-    private String num;
+    private Integer num;
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
 
     public Integer getId() {
         return id;
@@ -63,11 +71,5 @@ public class WxTabCart {
         this.spec = spec;
     }
 
-    public String getNum() {
-        return num;
-    }
 
-    public void setNum(String num) {
-        this.num = num;
-    }
 }
