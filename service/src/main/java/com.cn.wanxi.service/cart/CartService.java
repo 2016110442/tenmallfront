@@ -80,6 +80,7 @@ public class CartService implements CartServiceImpl {
         for(WxTabCart spuidskuid:wxTabCarts){
 
             Map<String,Object> maps=cartDao.findCartSpuTab(spuidskuid.getSpuId());
+            if(maps==null){return lists;}
             String paraItems=((String)maps.get("para_items")).replaceAll("\"","'");
             maps.remove("para_items");
             maps.put("para_items",paraItems);
