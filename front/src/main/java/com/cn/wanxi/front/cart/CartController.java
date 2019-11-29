@@ -40,13 +40,13 @@ public class CartController {
 
         if(StringUtils.isEmpty(param.get("num")))return returnData("num不能为空",1);
         if(StringUtils.isEmpty(param.get("spuId")))return returnData("SpuId不能为空",1);
-        if(StringUtils.isEmpty(param.get("Spec")))return returnData("Spec不能为空",1);
+        if(StringUtils.isEmpty(param.get("spec")))return returnData("Spec不能为空",1);
         WxTabCart wxTabCart=new WxTabCart();
 
             wxTabCart.setSkuId(Integer.parseInt(param.get("skuId")));
             wxTabCart.setNum(Integer.parseInt(param.get("num")));
             wxTabCart.setSpuId(Integer.parseInt(param.get("spuId")));
-            wxTabCart.setSpec(param.get("Spec"));
+            wxTabCart.setSpec(param.get("spec"));
 
 
         return cartService.addCart(wxTabCart);
@@ -74,9 +74,9 @@ public class CartController {
      */
     @PostMapping(value = "/deleteCart", produces = "application/json;charset=UTF-8")
     public Map<String,Object> deleteCart(@RequestBody Map<String, String> param){
-        if(StringUtils.isEmpty(param.get("Id")))return returnData("id不能为空",1);
+        if(StringUtils.isEmpty(param.get("id")))return returnData("id不能为空",1);
 
-        return cartService.deleteCart(Integer.parseInt(param.get("Id")));
+        return cartService.deleteCart(Integer.parseInt(param.get("id")));
     }
 
     /**
@@ -113,7 +113,7 @@ public class CartController {
      */
     @PostMapping(value = "/cardDetail", produces = "application/json;charset=UTF-8")
     public  Map<String,Object> cardDetail(@RequestBody Map<String, String> param){
-        if(StringUtils.isEmpty(param.get("Id")))return returnData("id不能为空",1);
-        return cartService.cardDetail(Integer.parseInt(param.get("Id")));
+        if(StringUtils.isEmpty(param.get("id")))return returnData("id不能为空",1);
+        return cartService.cardDetail(Integer.parseInt(param.get("id")));
     }
 }

@@ -119,7 +119,7 @@ public class UserController {
         if(StringUtils.isEmpty(param.get("nickName")))return returnData("nickName不能为空",1);
         if(StringUtils.isEmpty(param.get("name")))return returnData("name不能为空",1);
         if(StringUtils.isEmpty(param.get("sex")))return returnData("sex不能为空",1);
-        if(StringUtils.isEmpty(param.get("Id")))return returnData("Id不能为空",1);
+        if(StringUtils.isEmpty(param.get("id")))return returnData("Id不能为空",1);
 
         User user =new User();
         user.setUsername(param.get("username"));
@@ -131,7 +131,7 @@ public class UserController {
         user.setQq(param.get("qq"));
         user.setSex(param.get("sex"));
         user.setBirthday(param.get("birthday"));
-        user.setId(Integer.parseInt(param.get("Id")));
+        user.setId(Integer.parseInt(param.get("id")));
 
         return userService.update(user);
     }
