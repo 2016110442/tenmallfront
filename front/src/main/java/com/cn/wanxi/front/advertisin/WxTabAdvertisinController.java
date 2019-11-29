@@ -4,9 +4,11 @@ import com.cn.wanxi.model.advertisin.Result;
 import com.cn.wanxi.model.advertisin.WxTabAdvertisin;
 import com.cn.wanxi.service.advertisin.WxTabAdvertisinService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author
@@ -19,12 +21,12 @@ public class WxTabAdvertisinController {
     @Autowired(required = false)
     private WxTabAdvertisinService wxTabAdvertisinService;
 
-    @RequestMapping(value = "/findAll",method = RequestMethod.POST)
-    public List<WxTabAdvertisin> findAll(@RequestParam(required = true) String position){
-        if (position==null||"".equals(position)){
+    @PostMapping(value = "/findAll", produces = "application/json;charset=UTF-8")
+    public List<WxTabAdvertisin> findAll(@RequestBody Map<String,Object> param){
+        if (StringUtils.isEmpty(param.get("position"))){
             return null;
         }
-        return wxTabAdvertisinService.selectByPosition(position);
+        return wxTabAdvertisinService.selectByPosition((String) param.get("position"));
     }
 
     @RequestMapping(value = "/findOne",method = RequestMethod.POST)

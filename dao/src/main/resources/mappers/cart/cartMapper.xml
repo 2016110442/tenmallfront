@@ -19,7 +19,7 @@
     </delete>
 <!--    1.2.7.4.购物车列表接口-->
     <select id="findCartSpuidSkuid" resultType="com.cn.wanxi.model.cart.WxTabCart">
-        SELECT sku_id,spu_id,num FROM wx_tab_cart WHERE username='wangsan' LIMIT #{page},#{size}
+        SELECT sku_id,spu_id,num FROM wx_tab_cart WHERE username='321' LIMIT #{page},#{size}
     </select>
     <select id="findCartSpuTab" resultType="java.util.Map">
         SELECT name,caption,brand_id,category1_id,category2_id,category3_id,freight_id,image,images,introduction,para_items,sale_service,sn,spec_items,template_id
