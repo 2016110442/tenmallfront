@@ -4,6 +4,7 @@ import com.cn.wanxi.model.cart.WxTabCart;
 import com.cn.wanxi.model.cart.WxTabSku;
 
 public class ProductSearch {
+    private Integer id;
     private String name;
     private String caption;
     private Integer brandId;
@@ -19,6 +20,14 @@ public class ProductSearch {
     private String sn;
     private String specItems;
     private Integer templateId;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

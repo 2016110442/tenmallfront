@@ -3,6 +3,46 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.wanxi.dao.cart.CartDao">
+<!--    1.2.7.1. 添加购物车接口-->
+<insert id="addCart" parameterType="com.cn.wanxi.model.cart.WxTabCart" >
+        insert into
+        wx_tab_cart(sku_id,spu_id,spec,num)
+        values(#{wxTabCart.skuId},#{wxTabCart.spuId},#{wxTabCart.spec},#{wxTabCart.num})
+</insert>
+<!--    1.2.7.2.修改商品数量接口-->
+    <update id="updateNum">
+        update wx_tab_cart set num=#{num} where id=#{id}
+    </update>
+<!--    1.2.7.3.移除购物车接口-->
+    <delete id="deleteCart">
+        delete from wx_tab_cart where id=#{id}
+    </delete>
+<!--    1.2.7.4.购物车列表接口-->
+    <select id="findCartSpuidSkuid" resultType="com.cn.wanxi.model.cart.WxTabCart">
+        SELECT sku_id,spu_id,num FROM wx_tab_cart WHERE username='wangsan' LIMIT #{page},#{size}
+    </select>
+    <select id="findCartSpuTab" resultType="java.util.Map">
+        SELECT name,caption,brand_id,category1_id,category2_id,category3_id,freight_id,image,images,introduction,para_items,sale_service,sn,spec_items,template_id
+        from wx_tab_spu
+        WHERE id=#{spuId}
+    </select>
+    <select id="findCartSkuTab" resultType="com.cn.wanxi.model.cart.WxTabSku">
+         SELECT sn,num,alert_num,price,spec,image,
+            images,`status`,weight
+         from wx_tab_sku
+         WHERE spu_id=#{spuId}
 
-
+    </select>
+<!--    1.2.7.5.获取商品skuid接口-->
+    <select id="getSkuid" resultType="com.cn.wanxi.model.cart.WxTabSku">
+        select sn,num,alert_num,price,spec,image,images,`status`,weight
+        from wx_tab_sku t1
+        where t1.spu_id=#{spuid}
+        and t1.spec=#{spec} limit 1
+    </select>
+    <select id="findCartTab" resultType="com.cn.wanxi.model.cart.WxTabCart">
+        SELECT sku_id,spu_id,num
+        FROM wx_tab_cart
+        WHERE id=#{id}
+    </select>
 </mapper>
