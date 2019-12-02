@@ -2,16 +2,22 @@ package com.cn.wanxi.front.user;
 
 import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.service.user.UserService;
+import com.cn.wanxi.util.CacheFileUpload;
 import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,11 +61,12 @@ public class UserController {
         map.put("message","登录失败");
         return map;
     }
-
     /**
      *
-     * @param param
-     * @return
+     * @param phone 电话号码
+     * @param code  验证码
+     * @param password 密码
+     * @return msg
      */
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     public Object register(@RequestBody Map<String,Object> param){
@@ -111,12 +118,27 @@ public class UserController {
      * @param
      * @return
      */
+
+    @Autowired
+    private Environment environment;
+
+    @PostMapping(value = "/imageUpload", produces = "application/json;charset=UTF-8")
+    public Map<String,Object> imageUpload(@RequestBody MultipartFile filecontent) {
+          Map<String,Object> returnInfo= CacheFileUpload.cacheFile(filecontent,environment.getProperty("configs.imageurl"));
+       return returnInfo;
+    }
+    /**
+     * 1.2.12.5.个人信息维护接口
+     * @param
+     * @return
+     */
     @PostMapping(value = "/update", produces = "application/json;charset=UTF-8")
     public Map<String, Object> update(@RequestBody Map<String, String> param){
         if(StringUtils.isEmpty(param.get("username")))return returnData("username不能为空",1);
         if(StringUtils.isEmpty(param.get("phone")))return returnData("phone不能为空",1);
         if(StringUtils.isEmpty(param.get("nickName")))return returnData("nickName不能为空",1);
         if(StringUtils.isEmpty(param.get("name")))return returnData("name不能为空",1);
+        if(StringUtils.isEmpty(param.get("headPic")))return returnData("headPic不能为空",1);
         if(StringUtils.isEmpty(param.get("sex")))return returnData("sex不能为空",1);
         if(StringUtils.isEmpty(param.get("id")))return returnData("Id不能为空",1);
 
@@ -145,18 +167,4 @@ public class UserController {
         if(StringUtils.isEmpty(param.get("phone")))return returnData("phone不能为空",1);
         return userService.uname(param.get("phone"));
     }
-
-    @RequestMapping(value = "/updatePassword",method = RequestMethod.POST)
-    public Map<String,Object> updatePw(@RequestBody Map<String, String> param){
-        if (StringUtils.isEmpty(param.get("phone"))) return returnData("phone不能为空",1);
-        if (StringUtils.isEmpty(param.get("oldPassword"))) return returnData("旧密码不能为空",1);
-        if (StringUtils.isEmpty(param.get("newPassword"))) return returnData("新密码不能为空",1);
-        if (param.get("oldPassword").equals(param.get("newPassword"))){
-            return returnData("新旧密码不能相等",1);
-        }
-        return userService.updatePw(param.get("phone"),param.get("oldPassword"),param.get("newPassword"));
-    }
-
-
-
 }
