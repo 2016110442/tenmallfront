@@ -79,6 +79,7 @@ public class CartService implements CartServiceImpl {
         List<Map<String,Object>> lists=new ArrayList<>();
         try {
         for(WxTabCart spuidskuid:wxTabCarts){//
+
             Map<String,Object> maps=cartDao.findCartSpuTab(spuidskuid.getSpuId());
             if(maps==null){return lists;}
             String paraItems=((String)maps.get("para_items")).replaceAll("\"","'");
@@ -96,6 +97,7 @@ public class CartService implements CartServiceImpl {
             maps.put("skuList",wxTabSkulists3);
             maps.put("skuid",spuidskuid.getSkuId());
             maps.put("num", spuidskuid.getNum());
+            maps.put("cartId", spuidskuid.getId());
             lists.add(maps);
         }
         }catch (Exception e){
