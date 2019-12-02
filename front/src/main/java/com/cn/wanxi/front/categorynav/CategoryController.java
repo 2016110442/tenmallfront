@@ -41,9 +41,9 @@ public class CategoryController {
      */
     @PostMapping("/categoryByParent")
     public Object getCateByPid(@RequestBody Map<String,Object> param){
-        String parentId=(String) param.get("phone");
+        String parentId=(String) param.get("parentId");
         if(parentId.matches("^[0-9]*$")==false||parentId==null){
-            return WebTools.returnData("手机号不对",1);
+            return WebTools.returnData("请输入正确参数",1);
         }
         return categoryService.getCateByPid(Integer.valueOf(parentId));
     }

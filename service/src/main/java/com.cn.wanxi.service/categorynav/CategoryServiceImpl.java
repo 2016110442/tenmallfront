@@ -36,26 +36,7 @@ public class CategoryServiceImpl implements CategoryService{
     @Override
     public List<Category> getCategoryBySub() {
         List<Category> categories=categoryDao.getCategorys();
-        ListIterator<Category> iterator=categories.listIterator();
-        while (iterator.hasNext()){
-            Category category=iterator.next();
-            System.out.println(category.getParentId());
-            List<Category> sublist=categoryDao.getCateByPid(category.getId());
-            category.setMenus(sublist);
-            iterator.set(category);
-        }
         return categories;
     }
-/*    public void setSubList(List<Category> list){
-        if (list==null) return;
-        ListIterator<Category> iterator=list.listIterator();
-        while (iterator.hasNext()){
-            Category category=iterator.next();
-            System.out.println(category.getParentId());
-            List<Category> sublist=categoryDao.getCateByPid(category.getId());
-            setSubList(sublist);
-            category.setMenus(sublist);
-            iterator.set(category);
-        }
-    }*/
+
 }
