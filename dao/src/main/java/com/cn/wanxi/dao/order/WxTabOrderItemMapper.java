@@ -48,7 +48,7 @@ public interface WxTabOrderItemMapper {
 //    })
     List<WxTabOrderItem> findByIds(@Param("ids") String[] ids);
 
-    List<Map<String,Object>> findByPayStatusAndConsignStatus(@Param("payStatus") String payStatus,@Param("consignStatus") String consignStatus);
+    List<Map<String,Object>> findByPayStatusAndConsignStatus(@Param("payStatus") String payStatus,@Param("consignStatus") String consignStatus,@Param("username") String username);
 
 //    @Select("select * from wx_tab_order_item where id = #{id}")
     WxTabOrderItem get(String id);
