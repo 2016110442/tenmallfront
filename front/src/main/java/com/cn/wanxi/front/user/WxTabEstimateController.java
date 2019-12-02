@@ -260,7 +260,7 @@ public class WxTabEstimateController {
         }
 //        PageInfo<Object> returnPage = new PageInfo<>();
         List<Object> objectList = new ArrayList<>();
-        PageInfo<Map<String, Object>> pageInfo = wxTabOrderItemService.pageByPayStatusAndConsignStatus(Integer.valueOf(page), Integer.valueOf(size), payStatus, consignStatus);
+        PageInfo<Map<String, Object>> pageInfo = wxTabOrderItemService.pageByPayStatusAndConsignStatus(Integer.valueOf(page), Integer.valueOf(size), payStatus, consignStatus,"");
         Map<String, Object> entityMap;
         for (Map<String, Object> wxTabOrder : pageInfo.getList()) {
             entityMap = wxTabOrder;
