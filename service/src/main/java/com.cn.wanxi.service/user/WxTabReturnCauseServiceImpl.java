@@ -91,7 +91,6 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
             }
         }else{
             flag1=true;
-
         }
         if(flag1){
             wxTabReturnOrder.setUserId(-1);

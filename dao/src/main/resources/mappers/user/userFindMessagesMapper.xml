@@ -5,7 +5,7 @@
 <mapper namespace="com.cn.wanxi.dao.user.UserDao">
 
     <select id="findMessages" resultType="com.cn.wanxi.model.user.User">
-       select username,phone,email,nick_name,`name`,`status`,head_pic,qq,sex,user_level,points,experience_value,birthday
+       select id,username,phone,email,nick_name,`name`,`status`,head_pic,qq,sex,user_level,points,experience_value,birthday
        from wx_tab_user
        where phone=#{phone} limit 1
     </select>
