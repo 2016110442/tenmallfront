@@ -55,12 +55,11 @@ public class UserController {
         map.put("message","登录失败");
         return map;
     }
+
     /**
      *
-     * @param phone 电话号码
-     * @param code  验证码
-     * @param password 密码
-     * @return msg
+     * @param param
+     * @return
      */
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     public Object register(@RequestBody Map<String,Object> param){
@@ -146,4 +145,18 @@ public class UserController {
         if(StringUtils.isEmpty(param.get("phone")))return returnData("phone不能为空",1);
         return userService.uname(param.get("phone"));
     }
+
+    @RequestMapping(value = "/updatePassword",method = RequestMethod.POST)
+    public Map<String,Object> updatePw(@RequestBody Map<String, String> param){
+        if (StringUtils.isEmpty(param.get("phone"))) return returnData("phone不能为空",1);
+        if (StringUtils.isEmpty(param.get("oldPassword"))) return returnData("旧密码不能为空",1);
+        if (StringUtils.isEmpty(param.get("newPassword"))) return returnData("新密码不能为空",1);
+        if (param.get("oldPassword").equals(param.get("newPassword"))){
+            return returnData("新旧密码不能相等",1);
+        }
+        return userService.updatePw(param.get("phone"),param.get("oldPassword"),param.get("newPassword"));
+    }
+
+
+
 }

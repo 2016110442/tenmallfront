@@ -99,6 +99,32 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * 处理人：王一运
+     * @param phone
+     * @param oldPassword
+     * @param newPassword
+     * @return
+     */
+    @Override
+    public Map<String, Object> updatePw(String phone, String oldPassword, String newPassword) {
+        User u = userDao.findByPhone(phone).get(0);
+        if (u!=null){
+//            DigestUtils.md5DigestAsHex(password.getBytes())
+            if (u.getPassword().equals(DigestUtils.md5DigestAsHex(oldPassword.getBytes()))){
+                if (userDao.updatePassword(phone,DigestUtils.md5DigestAsHex(oldPassword.getBytes()))==1){
+                    return returnData("修改成功",1);
+                }else{
+                    return returnData("修改失败",1);
+                }
+            }else{
+                return returnData("密码不正确",1);
+            }
+        }else{
+            return returnData("这个phone没有注册或绑定",1);
+        }
+    }
+
+    /**
      * 1.2.12.5.个人信息维护接口
      * @param user
      * @return

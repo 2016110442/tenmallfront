@@ -29,4 +29,6 @@ public interface UserDao {
     String findRepetition(@Param("username")String username);
 
     User findMessages(@Param("phone")String phone);
+
+    int updatePassword(@Param("phone")String phone, @Param("password")String newPassword);
 }

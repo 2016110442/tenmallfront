@@ -18,4 +18,6 @@ public interface UserService {
 
     List<User> findByPhone(String phone);
     User findMessage(String phone);
+
+    Map<String, Object> updatePw(String phone, String oldPassword, String newPassword);
 }
