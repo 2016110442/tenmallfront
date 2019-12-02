@@ -61,10 +61,10 @@ public class CartController {
      */
     @PostMapping(value = "/updateNum", produces = "application/json;charset=UTF-8")
     public Map<String,Object> updateNum(@RequestBody Map<String, String> param){
-        if(StringUtils.isEmpty(param.get("id")))return returnData("id不能为空",1);
+        if(StringUtils.isEmpty(param.get("cartId")))return returnData("cartId不能为空",1);
         if(StringUtils.isEmpty(param.get("num")))return returnData("num不能为空",1);
 
-        return cartService.updateNum(Integer.parseInt(param.get("id")),param.get("num"));
+        return cartService.updateNum(Integer.parseInt(param.get("cartId")),param.get("num"));
     }
 
     /**
