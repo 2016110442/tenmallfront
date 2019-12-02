@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+import static com.cn.wanxi.util.WebTools.getSession;
 import static com.cn.wanxi.util.WebTools.returnData;
 
 
@@ -89,8 +90,8 @@ public class CartController {
     @PostMapping(value = "/findCartList", produces = "application/json;charset=UTF-8")
     public Object findCartList(@RequestBody Map<String, String> param){
         if(StringUtils.isEmpty(param.get("page"))) return returnData("page不能为空",1);
-
         if(StringUtils.isEmpty(param.get("size")))return returnData("size不能为空",1);
+
         return cartService.findCartList(Integer.parseInt(param.get("page"))*Integer.parseInt(param.get("size")),Integer.parseInt(param.get("size")));
     }
 

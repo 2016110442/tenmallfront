@@ -28,6 +28,7 @@ public class WxWebMvcConfig implements WebMvcConfigurer {
        .excludePathPatterns("/user/ssm")
        .excludePathPatterns("/user/register");
 
+
     }
 
     /**

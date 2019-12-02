@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.cn.wanxi.util.WebTools.getSession;
 import static com.cn.wanxi.util.WebTools.returnData;
 
 /**
@@ -23,6 +24,7 @@ import static com.cn.wanxi.util.WebTools.returnData;
 @Service
 public class CartService implements CartServiceImpl {
 
+
     @Autowired
     private CartDao cartDao;
 
@@ -34,7 +36,7 @@ public class CartService implements CartServiceImpl {
     @Override
     public Map<String,Object> addCart(WxTabCart wxTabCart) {
 
-        int returnInt=cartDao.addCart(wxTabCart);
+        int returnInt=cartDao.addCart(wxTabCart,getSession("username"));
         if(returnInt>0){
             return returnData("添加成功",0);
         }
@@ -75,7 +77,8 @@ public class CartService implements CartServiceImpl {
      */
     @Override
     public List<Map<String,Object>> findCartList(int page, int size) {
-        List<WxTabCart> wxTabCarts=cartDao.findCartSpuidSkuid(page,size);  //查询spuid ， skuid
+
+        List<WxTabCart> wxTabCarts=cartDao.findCartSpuidSkuid(page,size,getSession("username"));  //查询spuid ， skuid
         List<Map<String,Object>> lists=new ArrayList<>();
         try {
         for(WxTabCart spuidskuid:wxTabCarts){//
