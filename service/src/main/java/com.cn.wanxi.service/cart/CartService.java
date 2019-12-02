@@ -77,8 +77,8 @@ public class CartService implements CartServiceImpl {
     public List<Map<String,Object>> findCartList(int page, int size) {
         List<WxTabCart> wxTabCarts=cartDao.findCartSpuidSkuid(page,size);  //查询spuid ， skuid
         List<Map<String,Object>> lists=new ArrayList<>();
-        for(WxTabCart spuidskuid:wxTabCarts){
-
+        try {
+        for(WxTabCart spuidskuid:wxTabCarts){//
             Map<String,Object> maps=cartDao.findCartSpuTab(spuidskuid.getSpuId());
             if(maps==null){return lists;}
             String paraItems=((String)maps.get("para_items")).replaceAll("\"","'");
@@ -98,7 +98,9 @@ public class CartService implements CartServiceImpl {
             maps.put("num", spuidskuid.getNum());
             lists.add(maps);
         }
-
+        }catch (Exception e){
+          return lists;
+        }
         return lists;
     }
     /**
