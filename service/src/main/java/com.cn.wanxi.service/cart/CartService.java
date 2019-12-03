@@ -90,7 +90,7 @@ public class CartService implements CartServiceImpl {
             maps.put("para_items",paraItems);
             String specItems=((String)maps.get("spec_items")).replaceAll("\"","'");
             maps.remove("spec_items");
-            maps.put("para_items",specItems);
+            maps.put("spec_items",specItems);
             List<WxTabSku> wxTabSkulists=cartDao.findCartSkuTab(spuidskuid.getSpuId());
             List<WxTabSku> wxTabSkulists3=new ArrayList<>();
             for (WxTabSku wxTabSkulists2:wxTabSkulists) {
