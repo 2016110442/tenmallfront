@@ -101,7 +101,7 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
         wxTabReturnOrder.setAdminId(-1);
         wxTabReturnOrder.setReturnCause(wxTabReturnCause.getId());
         wxTabReturnOrder.setOrderId(orderId);
-        if(StringUtils.isEmpty(evidence)) evidence = "无凭证图片";
+        if(StringUtils.isEmpty(evidence)) evidence = "-1";//无凭证图片
         wxTabReturnOrder.setEvidence(evidence);
         wxTabReturnOrder.setDescription(description);
         if(!StringUtils.isEmpty(orderId)) wxTabReturnOrder.setType(type.charAt(0));
