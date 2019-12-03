@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+import static com.cn.wanxi.util.WebTools.getSession;
 import static com.cn.wanxi.util.WebTools.returnData;
 
 
@@ -61,10 +62,10 @@ public class CartController {
      */
     @PostMapping(value = "/updateNum", produces = "application/json;charset=UTF-8")
     public Map<String,Object> updateNum(@RequestBody Map<String, String> param){
-        if(StringUtils.isEmpty(param.get("id")))return returnData("id不能为空",1);
+        if(StringUtils.isEmpty(param.get("cartId")))return returnData("cartId不能为空",1);
         if(StringUtils.isEmpty(param.get("num")))return returnData("num不能为空",1);
 
-        return cartService.updateNum(Integer.parseInt(param.get("id")),param.get("num"));
+        return cartService.updateNum(Integer.parseInt(param.get("cartId")),param.get("num"));
     }
 
     /**
@@ -74,9 +75,9 @@ public class CartController {
      */
     @PostMapping(value = "/deleteCart", produces = "application/json;charset=UTF-8")
     public Map<String,Object> deleteCart(@RequestBody Map<String, String> param){
-        if(StringUtils.isEmpty(param.get("id")))return returnData("id不能为空",1);
+        if(StringUtils.isEmpty(param.get("cartId")))return returnData("id不能为空",1);
 
-        return cartService.deleteCart(Integer.parseInt(param.get("id")));
+        return cartService.deleteCart(Integer.parseInt(param.get("cartId")));
     }
 
     /**
@@ -89,8 +90,8 @@ public class CartController {
     @PostMapping(value = "/findCartList", produces = "application/json;charset=UTF-8")
     public Object findCartList(@RequestBody Map<String, String> param){
         if(StringUtils.isEmpty(param.get("page"))) return returnData("page不能为空",1);
-
         if(StringUtils.isEmpty(param.get("size")))return returnData("size不能为空",1);
+
         return cartService.findCartList(Integer.parseInt(param.get("page"))*Integer.parseInt(param.get("size")),Integer.parseInt(param.get("size")));
     }
 

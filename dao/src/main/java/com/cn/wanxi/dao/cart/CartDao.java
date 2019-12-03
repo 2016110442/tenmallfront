@@ -22,7 +22,7 @@ public interface CartDao {
      * 1.2.7.1. 添加购物车接口
      */
 
-    int addCart(@Param("wxTabCart") WxTabCart wxTabCart);
+    int addCart(@Param("wxTabCart") WxTabCart wxTabCart,@Param("userName") String userName);
     /**
      *  1.2.7.2.修改商品数量接口
      */
@@ -37,7 +37,7 @@ public interface CartDao {
      *  1.2.7.4.购物车列表接口
      */
 
-    List<WxTabCart> findCartSpuidSkuid(@Param("page") int page,@Param("size") int size);
+    List<WxTabCart> findCartSpuidSkuid(@Param("page") int page,@Param("size") int size,@Param("userName") String userName);
 
 
     Map<String,Object> findCartSpuTab(Integer spuId);

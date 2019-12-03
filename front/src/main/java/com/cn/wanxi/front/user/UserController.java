@@ -63,9 +63,7 @@ public class UserController {
     }
     /**
      *
-     * @param phone 电话号码
-     * @param code  验证码
-     * @param password 密码
+
      * @return msg
      */
     @RequestMapping(value = "/register",method = RequestMethod.POST)
