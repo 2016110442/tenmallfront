@@ -26,6 +26,8 @@ public interface WxTabAddressDao {
 //    @Update("update wx_tab_address set receiver_address=#{wxTabAddress.receiverAddress},receiver_name=#{wxTabAddress.receiverName},receiver_phone=#{wxTabAddress.receiverPhone},username=#{wxTabAddress.username},is_default=#{wxTabAddress.isDefault} where id=#{wxTabAddress.id}")
     Integer update(@Param("wxTabAddress") WxTabAddress wxTabAddress);
 
+    Integer updateIsDefault(@Param("isDefault") String isDefault,@Param("username") String username);
+
 //    @Delete("delete from wx_tab_address where id=#{id}")
     Integer delete(@Param("id") Integer id);
 }

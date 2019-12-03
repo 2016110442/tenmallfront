@@ -2,8 +2,13 @@ package com.cn.wanxi.service.address;
 
 import com.cn.wanxi.dao.address.WxTabAddressDao;
 import com.cn.wanxi.model.address.WxTabAddress;
+import com.cn.wanxi.model.user.User;
+import com.cn.wanxi.service.user.UserService;
+import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +23,8 @@ import java.util.List;
 public class WxTabAddressServiceImpl implements WxTabAddressService {
     @Autowired
     private WxTabAddressDao wxTabAddressDao;
+    @Autowired
+    private UserService userService;
 
     @Override
     public WxTabAddress get(String id) {
@@ -46,7 +53,21 @@ public class WxTabAddressServiceImpl implements WxTabAddressService {
     }
 
     @Override
+    @Transactional
     public boolean update(WxTabAddress address) {
+        if(address.getIsDefault().equals("0")){
+            //获取用户信息
+            String phone = WebTools.getSession("username");
+            if(!StringUtils.isEmpty(phone)){
+                List<User> users = userService.findByPhone(phone);
+                if(users.size()>0){
+                    wxTabAddressDao.updateIsDefault("1",users.get(0).getUsername());
+                }
+            }else{
+                wxTabAddressDao.updateIsDefault("1","");
+            }
+        }
+
         Integer num = wxTabAddressDao.update(address);
         if(num == 1){
             return true;

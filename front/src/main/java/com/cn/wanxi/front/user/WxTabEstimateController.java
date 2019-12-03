@@ -281,5 +281,27 @@ public class WxTabEstimateController {
         returnPage.put("list", objectList);
         return returnPage;
     }
+
+    @RequestMapping(value = "/order/unameDetail", method = RequestMethod.POST)
+    public Map<String, Object> unameDetail(@RequestBody Map<String,Object> map) {
+        if (StringUtils.isEmpty(map.get("orderItemId"))) {
+            return WebTools.returnData("orderItemId不能为空", -1);
+        }
+        try {
+            Integer orderItemId = Integer.valueOf(map.get("orderItemId").toString());
+        } catch (Exception e) {
+            return WebTools.returnData("orderItemId必须是int类型", -1);
+        }
+        WxTabOrderItem wxTabOrderItem = wxTabOrderItemService.get(map.get("orderItemId").toString());
+        if(wxTabOrderItem == null){
+            return WebTools.returnData("orderItemId没有找到对应数据", -1);
+        }
+        try {
+            return WebTools.objectToMap(wxTabOrderItem);
+        } catch (IllegalAccessException e) {
+
+        }
+        return WebTools.returnData("查询订单详情出现异常！", -1);
+    }
 }
 
