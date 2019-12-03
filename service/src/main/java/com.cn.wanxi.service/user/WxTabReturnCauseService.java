@@ -8,6 +8,8 @@ package com.cn.wanxi.service.user;
  */
 import com.cn.wanxi.model.user.WxTabReturnCause;
 
+import javax.servlet.http.HttpServletRequest;
+
 public interface WxTabReturnCauseService {
 
     //添加
@@ -17,5 +19,5 @@ public interface WxTabReturnCauseService {
     WxTabReturnCause find(WxTabReturnCause wxTabReturnCause);
 
     //关联添加
-    boolean addAssociated(String orderId, String orderItemid, String evidence, String description, String returnCause, String type);
+    boolean addAssociated(HttpServletRequest request,String orderId, String orderItemid, String evidence, String description, String returnCause, String type);
 }

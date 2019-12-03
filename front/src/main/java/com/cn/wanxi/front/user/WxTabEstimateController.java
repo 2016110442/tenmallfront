@@ -1,5 +1,6 @@
 package com.cn.wanxi.front.user;
 
+import com.auth0.jwt.JWT;
 import com.cn.wanxi.model.order.WxTabOrder;
 import com.cn.wanxi.model.order.WxTabOrderItem;
 import com.cn.wanxi.model.user.User;
@@ -17,6 +18,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,7 +45,7 @@ public class WxTabEstimateController {
     private UserService userService;
 
     @RequestMapping(value = "/product/estimate", method = RequestMethod.POST)
-    public Map<String, Object> estimate(@RequestBody Map<String,Object> map){
+    public Map<String, Object> estimate(@RequestBody Map<String,Object> map, HttpServletRequest request){
         if (StringUtils.isEmpty(map.get("spuid")) ||
                 StringUtils.isEmpty(map.get("orderItemid")) ||
                 StringUtils.isEmpty(map.get("star")) ||
@@ -88,7 +90,8 @@ public class WxTabEstimateController {
         wxTabEstimate.setImages(images);
         wxTabEstimate.setStar(Integer.valueOf(star));
         wxTabEstimate.setContent(content);
-        String phone = WebTools.getSession("username");
+//        String phone = WebTools.getSession("username");
+        String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
         if(!StringUtils.isEmpty(phone)){
             List<User> users = userService.findByPhone(phone);
             if(users.size()>0){
@@ -103,7 +106,7 @@ public class WxTabEstimateController {
     }
 
     @RequestMapping(value = "/product/salesReturn", method = RequestMethod.POST)
-    public Map<String, Object> salesReturn(@RequestBody Map<String,Object> map){
+    public Map<String, Object> salesReturn(@RequestBody Map<String,Object> map, HttpServletRequest request){
         if (StringUtils.isEmpty(map.get("orderId")) ||
                 StringUtils.isEmpty(map.get("orderItemid")) ||
                 StringUtils.isEmpty(map.get("description")) ||
@@ -153,7 +156,7 @@ public class WxTabEstimateController {
             return WebTools.returnData("orderId没有找到对应数据", -1);
         }
 
-        boolean flag = wxTabReturnCauseService.addAssociated(orderId, orderItemid, evidence, description, returnCause, type);
+        boolean flag = wxTabReturnCauseService.addAssociated(request,orderId, orderItemid, evidence, description, returnCause, type);
         //退货申请操作
         if (flag) {
             return WebTools.returnData("退货申请成功", 0);
@@ -162,7 +165,7 @@ public class WxTabEstimateController {
     }
 
     @RequestMapping(value = "/product/refund", method = RequestMethod.POST)
-    public Map<String, Object> refund(@RequestBody Map<String,Object> map){
+    public Map<String, Object> refund(@RequestBody Map<String,Object> map, HttpServletRequest request){
         if (StringUtils.isEmpty(map.get("orderId")) ||
                 StringUtils.isEmpty(map.get("orderItemid")) ||
                 StringUtils.isEmpty(map.get("description")) ||
@@ -210,7 +213,7 @@ public class WxTabEstimateController {
             return WebTools.returnData("orderId没有找到对应数据", -1);
         }
 
-        boolean flag = wxTabReturnCauseService.addAssociated(orderId, orderItemid, evidence, description, returnCause, type);
+        boolean flag = wxTabReturnCauseService.addAssociated(request,orderId, orderItemid, evidence, description, returnCause, type);
         //退款操作
         if (flag) {
             return WebTools.returnData("退款申请成功", 0);
@@ -219,7 +222,7 @@ public class WxTabEstimateController {
     }
 
     @RequestMapping(value = "/order/uname", method = RequestMethod.POST)
-    public Map<String, Object> uname(@RequestBody Map<String,Object> map,String page,String size) {
+    public Map<String, Object> uname(@RequestBody Map<String,Object> map,String page,String size,HttpServletRequest request) {
         boolean flag = false;
         if(StringUtils.isEmpty(page) || StringUtils.isEmpty(size)){
             if (StringUtils.isEmpty(map.get("page")) ||
@@ -260,7 +263,7 @@ public class WxTabEstimateController {
         }
 //        PageInfo<Object> returnPage = new PageInfo<>();
         List<Object> objectList = new ArrayList<>();
-        PageInfo<Map<String, Object>> pageInfo = wxTabOrderItemService.pageByPayStatusAndConsignStatus(Integer.valueOf(page), Integer.valueOf(size), payStatus, consignStatus,"");
+        PageInfo<Map<String, Object>> pageInfo = wxTabOrderItemService.pageByPayStatusAndConsignStatus(request,Integer.valueOf(page), Integer.valueOf(size), payStatus, consignStatus,"");
         Map<String, Object> entityMap;
         for (Map<String, Object> wxTabOrder : pageInfo.getList()) {
             entityMap = wxTabOrder;

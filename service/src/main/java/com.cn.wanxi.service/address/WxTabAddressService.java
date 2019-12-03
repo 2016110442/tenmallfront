@@ -3,6 +3,8 @@ package com.cn.wanxi.service.address;
 import java.util.List;
 import com.cn.wanxi.model.address.WxTabAddress;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @program: tenmallfront
  * @description:
@@ -21,7 +23,7 @@ public interface WxTabAddressService {
     boolean add(WxTabAddress address);
 
     //修改
-    boolean update(WxTabAddress address);
+    boolean update(WxTabAddress address, HttpServletRequest request);
 
     //删除
     boolean delete(Integer id);

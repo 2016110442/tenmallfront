@@ -1,5 +1,6 @@
 package com.cn.wanxi.service.order;
 
+import com.auth0.jwt.JWT;
 import com.cn.wanxi.dao.order.WxTabOrderItemMapper;
 import com.cn.wanxi.model.order.WxTabOrderItem;
 import com.cn.wanxi.model.user.User;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -38,11 +40,12 @@ public class WxTabOrderItemServiceImpl implements WxTabOrderItemService {
     }
 
     @Override
-    public PageInfo<Map<String,Object>> pageByPayStatusAndConsignStatus(Integer page, Integer size, String payStatus, String consignStatus, String username) {
+    public PageInfo<Map<String,Object>> pageByPayStatusAndConsignStatus(HttpServletRequest request,Integer page, Integer size, String payStatus, String consignStatus, String username) {
         PageHelper.startPage(page,size);
         if(StringUtils.isEmpty(username)){
             //获取用户信息
-            String phone = WebTools.getSession("username");
+//            String phone = WebTools.getSession("username");
+            String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
             if(!StringUtils.isEmpty(phone)){
                 List<User> users = userService.findByPhone(phone);
                 if(users.size()>0){

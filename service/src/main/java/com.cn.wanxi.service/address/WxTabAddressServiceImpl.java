@@ -1,5 +1,6 @@
 package com.cn.wanxi.service.address;
 
+import com.auth0.jwt.JWT;
 import com.cn.wanxi.dao.address.WxTabAddressDao;
 import com.cn.wanxi.model.address.WxTabAddress;
 import com.cn.wanxi.model.user.User;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,10 +56,11 @@ public class WxTabAddressServiceImpl implements WxTabAddressService {
 
     @Override
     @Transactional
-    public boolean update(WxTabAddress address) {
+    public boolean update(WxTabAddress address, HttpServletRequest request) {
         if(address.getIsDefault().equals("0")){
             //获取用户信息
-            String phone = WebTools.getSession("username");
+//            String phone = WebTools.getSession("username");
+            String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
             if(!StringUtils.isEmpty(phone)){
                 List<User> users = userService.findByPhone(phone);
                 if(users.size()>0){

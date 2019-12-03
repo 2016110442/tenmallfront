@@ -1,5 +1,6 @@
 package com.cn.wanxi.service.user;
 
+import com.auth0.jwt.JWT;
 import com.cn.wanxi.dao.user.WxTabReturnCauseDao;
 import com.cn.wanxi.model.order.WxTabOrder;
 import com.cn.wanxi.model.order.WxTabOrderItem;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -59,7 +61,7 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
 
     @Override
     @Transactional
-    public boolean addAssociated(String orderId, String orderItemid, String evidence, String description, String returnCause, String type) {
+    public boolean addAssociated(HttpServletRequest request, String orderId, String orderItemid, String evidence, String description, String returnCause, String type) {
         //退货退款原因表
         WxTabReturnCause wxTabReturnCause = new WxTabReturnCause();
         wxTabReturnCause.setCause(returnCause);
@@ -79,7 +81,8 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
         wxTabReturnOrder.setLinkman(wxTabOrder.getUsername());
         wxTabReturnOrder.setLinkmanMobile(wxTabOrder.getReceiverMobile());
         //获取用户信息
-        String phone = WebTools.getSession("username");
+//        String phone = WebTools.getSession("username");
+        String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
         boolean flag1 = false;
         if(!StringUtils.isEmpty(phone)){
             List<User> users = userService.findByPhone(phone);

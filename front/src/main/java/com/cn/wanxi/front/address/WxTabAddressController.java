@@ -1,5 +1,6 @@
 package com.cn.wanxi.front.address;
 
+import com.auth0.jwt.JWT;
 import com.cn.wanxi.model.cart.WxTabSku;
 import com.cn.wanxi.model.cart.WxTabSpu;
 import com.cn.wanxi.model.order.WxTabOrderItem;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.cn.wanxi.util.WebTools;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,7 +54,7 @@ public class WxTabAddressController {
     }
 
     @RequestMapping(value = "/address/addAddress",method = RequestMethod.POST)
-    public Map<String,Object> add(@RequestBody Map<String,Object> map){
+    public Map<String,Object> add(@RequestBody Map<String,Object> map, HttpServletRequest request){
         if (StringUtils.isEmpty(map.get("receiverAddress")) ||
                 StringUtils.isEmpty(map.get("receiverName")) ||
                 StringUtils.isEmpty(map.get("receiverPhone")) ||
@@ -84,7 +86,8 @@ public class WxTabAddressController {
         address.setReceiverName(receiverName);
         address.setReceiverPhone(receiverPhone);
         address.setIsDefault(String.valueOf(isDefault));
-        String phone = WebTools.getSession("username");
+//        String phone = WebTools.getSession("username");
+        String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
         if(!StringUtils.isEmpty(phone)){
             List<User> users = userService.findByPhone(phone);
             if(users.size()>0){
@@ -100,7 +103,7 @@ public class WxTabAddressController {
     }
 
     @RequestMapping(value = "/address/updateAddress",method = RequestMethod.POST)
-    public Map<String, Object> update(@RequestBody Map<String,Object> map){
+    public Map<String, Object> update(@RequestBody Map<String,Object> map, HttpServletRequest request){
         if (StringUtils.isEmpty(map.get("receiverAddress")) ||
                 StringUtils.isEmpty(map.get("receiverName")) ||
                 StringUtils.isEmpty(map.get("receiverPhone")) ||
@@ -147,7 +150,7 @@ public class WxTabAddressController {
         address.setReceiverName(receiverName);
         address.setReceiverPhone(receiverPhone);
         address.setIsDefault(String.valueOf(isDefault));
-        boolean flag =wxTabAddressService.update(address);
+        boolean flag =wxTabAddressService.update(address, request);
         if(flag){
             return WebTools.returnData("修改成功",0);
         }
