@@ -47,6 +47,9 @@
         <if test="consignStatus != null and consignStatus!= ''">
             and o.consign_status = #{consignStatus}
         </if>
+        <if test="username != null and username!= ''">
+            and o.username = #{username}
+        </if>
     </select>
 
     <select id="findByIds" resultType="com.cn.wanxi.model.order.WxTabOrderItem">

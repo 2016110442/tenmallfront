@@ -24,6 +24,7 @@ public class WxTabOrderController {
 
     @RequestMapping(value = "/submit",method = RequestMethod.POST)
     public Map<String,String> insert(@RequestBody(required = false) WxOrderVO wxOrderVO){
+
         Map<String,String> result = new HashMap<>();
         if (wxOrderVO==null){
             result.put("code","1");
@@ -40,6 +41,11 @@ public class WxTabOrderController {
         }
         return result;
     }
+
+
+
+
+
 
 
 }

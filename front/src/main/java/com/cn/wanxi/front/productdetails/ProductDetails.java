@@ -1,11 +1,9 @@
 package com.cn.wanxi.front.productdetails;
 
-import org.springframework.util.StringUtils;
 import com.cn.wanxi.model.productdetails.ProductSearch;
-import com.cn.wanxi.model.user.User;
-import com.cn.wanxi.service.productdetails.ProductDetailsService;
 import com.cn.wanxi.service.productdetails.ProductDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

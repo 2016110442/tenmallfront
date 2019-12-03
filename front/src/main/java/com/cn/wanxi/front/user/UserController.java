@@ -1,6 +1,7 @@
 package com.cn.wanxi.front.user;
 
 import com.cn.wanxi.model.user.User;
+import com.cn.wanxi.service.token.TokenServiceImpl;
 import com.cn.wanxi.service.user.UserService;
 import com.cn.wanxi.util.CacheFileUpload;
 import com.cn.wanxi.util.WebTools;
@@ -51,6 +52,13 @@ public class UserController {
         if (userService.userLogin(phone,password)){
             map.put("code","0");
             map.put("message","登录成功");
+            User u = new User();
+            u.setPhone(phone);
+            u.setPassword(password);
+            TokenServiceImpl tokenService = new TokenServiceImpl();
+            String token = tokenService.getToken(u);
+//            map.put("token", token);
+            response.setHeader("token",token);
             session.setAttribute("username",phone);
             Cookie cookie=new Cookie("username",phone);
             cookie.setMaxAge(1800);

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -45,7 +46,7 @@ public class WxTabOrderServiceImpl implements WxTabOrderService {
         wxTabOrder.setReceiverContact(wxOrderVO.getReceiverContact());
         wxTabOrder.setReceiverMobile(wxOrderVO.getReceiverMobile());
         wxTabOrder.setReceiverAddress(wxOrderVO.getReceiverAddress());
-        wxTabOrder.setTransactionId("1");
+        wxTabOrder.setTransactionId(String.valueOf(new Date().getTime()));
         wxTabOrderMapper.insert(wxTabOrder);
         for (WxTabOrderItem w :
                 wxTabOrderItems) {

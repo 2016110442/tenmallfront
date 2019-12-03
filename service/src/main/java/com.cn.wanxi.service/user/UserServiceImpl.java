@@ -111,7 +111,7 @@ public class UserServiceImpl implements UserService {
         if (u!=null){
 //            DigestUtils.md5DigestAsHex(password.getBytes())
             if (u.getPassword().equals(DigestUtils.md5DigestAsHex(oldPassword.getBytes()))){
-                if (userDao.updatePassword(phone,DigestUtils.md5DigestAsHex(oldPassword.getBytes()))==1){
+                if (userDao.updatePassword(phone,DigestUtils.md5DigestAsHex(newPassword.getBytes()))==1){
                     return returnData("修改成功",1);
                 }else{
                     return returnData("修改失败",1);
