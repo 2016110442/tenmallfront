@@ -97,7 +97,7 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
             wxTabReturnOrder.setUserAccount("no");
         }
 
-        //TODO admin_id lxq 当前还不知道从哪获取
+        //admin_id lxq 用户操作退货退款申请，目前随意存一个管理员id,之后管理员审判通过后保存管理员id
         wxTabReturnOrder.setAdminId(-1);
         wxTabReturnOrder.setReturnCause(wxTabReturnCause.getId());
         wxTabReturnOrder.setOrderId(orderId);
