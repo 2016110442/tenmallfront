@@ -44,10 +44,10 @@ public class CartController {
         if(StringUtils.isEmpty(param.get("spec")))return returnData("Spec不能为空",1);
         WxTabCart wxTabCart=new WxTabCart();
 
-            wxTabCart.setSkuId(Integer.parseInt(param.get("skuId")));
-            wxTabCart.setNum(Integer.parseInt(param.get("num")));
-            wxTabCart.setSpuId(Integer.parseInt(param.get("spuId")));
-            wxTabCart.setSpec(param.get("spec"));
+        wxTabCart.setSkuId(Integer.parseInt(param.get("skuId")));
+        wxTabCart.setNum(Integer.parseInt(param.get("num")));
+        wxTabCart.setSpuId(Integer.parseInt(param.get("spuId")));
+        wxTabCart.setSpec(param.get("spec"));
 
 
         return cartService.addCart(wxTabCart);

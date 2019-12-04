@@ -3,7 +3,9 @@ package com.cn.wanxi.service.user;
 import com.cn.wanxi.dao.user.UserDao;
 import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.util.RedisUtil;
+import com.cn.wanxi.util.SendMessage;
 import com.cn.wanxi.util.SendMessageUtil;
+import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
@@ -72,21 +74,16 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public Map<String, String> getSSM(String phone) {
+    public Object getSSM(String phone) {
 
         Map<String,String> map=new HashMap<>();
 
         String  code= SendMessageUtil.getRandomCode(6);
-        // Integer result=SendMessageUtil.send(phone,code);//注释发送短信
-        Integer result=2;//大于0模拟发送成功
-        //  if(result>0){ //注释掉表示默认短信发送成功
-        redisUtil.setCode(phone,code); //发送成功,存储验证码
-        //   }
-        String  msg=SendMessageUtil.getMessage(result);
-        map.put("code",String.valueOf(result));
-        map.put("message",msg);
-        map.put("验证码",code);
-        return map;
+        if(SendMessage.sendSMS(phone,code)){
+            redisUtil.setCode(phone,code);
+            return WebTools.returnData("发送成功",0);
+        }
+        return WebTools.returnData("发送失败",1);
     }
     /**
      * 1.2.12.4.个人信息

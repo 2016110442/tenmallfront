@@ -16,5 +16,14 @@
             #{item}
         </foreach>
     </select>
+    <select id="findOrderById" parameterType="int" resultType="map">
+        select id,total_money from wx_tab_order
+        where id=#{id}
+    </select>
+    <update id="updateOrderPayStatus" parameterType="map">
+        update  wx_tab_order set
+            pay_status=#{status}
+        where id=#{id}
+    </update>
 
 </mapper>

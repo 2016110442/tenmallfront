@@ -10,7 +10,7 @@ public interface UserService {
     public Map<String,String > register(String phone,
                                         String code,
                                         String password);
-    public Map<String,String>  getSSM(String phone);
+    public Object  getSSM(String phone);
     public Map<String, Object> update(User user);
     public Map<String,Object> uname(String phone);
     public void addUser(String phone,String password);

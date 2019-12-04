@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="submail">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/common/src/main/resources/lib/submail.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

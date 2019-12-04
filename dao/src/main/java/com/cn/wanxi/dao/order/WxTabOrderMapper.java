@@ -4,9 +4,9 @@ import com.cn.wanxi.model.order.WxTabOrder;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 public interface WxTabOrderMapper {
 
@@ -24,4 +24,6 @@ public interface WxTabOrderMapper {
 //            "</script>"
 //    })
     List<WxTabOrder> selectByIds(@Param("ids") String[] ids);
+    Map<String,Object> findOrderById(Integer id);
+    void updateOrderPayStatus(@Param("id") Integer id,@Param("status") String payStatus);
 }
