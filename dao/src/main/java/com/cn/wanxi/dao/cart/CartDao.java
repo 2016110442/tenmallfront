@@ -22,7 +22,7 @@ public interface CartDao {
      * 1.2.7.1. 添加购物车接口
      */
 
-    int addCart(@Param("wxTabCart") WxTabCart wxTabCart,@Param("userName") String userName);
+    int addCart(@Param("wxTabCart") WxTabCart wxTabCart);
     /**
      *  1.2.7.2.修改商品数量接口
      */

@@ -1,5 +1,6 @@
 package com.cn.wanxi.front.user;
 
+import com.auth0.jwt.JWT;
 import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.service.token.TokenServiceImpl;
 import com.cn.wanxi.service.user.UserService;
@@ -13,6 +14,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.constraints.NotNull;
@@ -139,18 +141,16 @@ public class UserController {
      * @return
      */
     @PostMapping(value = "/update", produces = "application/json;charset=UTF-8")
-    public Map<String, Object> update(@RequestBody Map<String, String> param){
+    public Map<String, Object> update(@RequestBody Map<String, String> param, HttpServletRequest request){
         if(StringUtils.isEmpty(param.get("username")))return returnData("username不能为空",1);
-        if(StringUtils.isEmpty(param.get("phone")))return returnData("phone不能为空",1);
         if(StringUtils.isEmpty(param.get("nickName")))return returnData("nickName不能为空",1);
         if(StringUtils.isEmpty(param.get("name")))return returnData("name不能为空",1);
         if(StringUtils.isEmpty(param.get("headPic")))return returnData("headPic不能为空",1);
         if(StringUtils.isEmpty(param.get("sex")))return returnData("sex不能为空",1);
-        if(StringUtils.isEmpty(param.get("id")))return returnData("Id不能为空",1);
-
+        String token=request.getHeader("token");
         User user =new User();
         user.setUsername(param.get("username"));
-        user.setPhone(param.get("phone"));
+        user.setPhone(JWT.decode(token).getAudience().get(0));
         user.setEmail(param.get("email"));
         user.setNickName(param.get("nickName"));
         user.setName(param.get("name"));
@@ -158,7 +158,6 @@ public class UserController {
         user.setQq(param.get("qq"));
         user.setSex(param.get("sex"));
         user.setBirthday(param.get("birthday"));
-        user.setId(Integer.parseInt(param.get("id")));
 
         return userService.update(user);
     }

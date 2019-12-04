@@ -1,5 +1,6 @@
 package com.cn.wanxi.front.cart;
 
+import com.auth0.jwt.JWT;
 import com.cn.wanxi.model.cart.WxTabSpu;
 import org.springframework.util.StringUtils;
 import com.cn.wanxi.model.cart.WxTabCart;
@@ -8,10 +9,10 @@ import com.cn.wanxi.service.cart.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
-import static com.cn.wanxi.util.WebTools.getSession;
 import static com.cn.wanxi.util.WebTools.returnData;
 
 
@@ -37,18 +38,17 @@ public class CartController {
      * Spec	    True	Varchar	规格参数，json格式，以逗号分开
      */
     @PostMapping(value = "/addCart", produces = "application/json;charset=UTF-8")
-    public Map<String,Object> addCart(@RequestBody Map<String, String> param){
-
+    public Map<String,Object> addCart(@RequestBody Map<String, String> param, HttpServletRequest request){
+        String token= request.getHeader("token");
         if(StringUtils.isEmpty(param.get("num")))return returnData("num不能为空",1);
         if(StringUtils.isEmpty(param.get("spuId")))return returnData("SpuId不能为空",1);
         if(StringUtils.isEmpty(param.get("spec")))return returnData("Spec不能为空",1);
         WxTabCart wxTabCart=new WxTabCart();
 
-        wxTabCart.setSkuId(Integer.parseInt(param.get("skuId")));
         wxTabCart.setNum(Integer.parseInt(param.get("num")));
         wxTabCart.setSpuId(Integer.parseInt(param.get("spuId")));
         wxTabCart.setSpec(param.get("spec"));
-
+        wxTabCart.setUsername(JWT.decode(token).getAudience().get(0));
 
         return cartService.addCart(wxTabCart);
     }
@@ -88,11 +88,11 @@ public class CartController {
      * @return
      */
     @PostMapping(value = "/findCartList", produces = "application/json;charset=UTF-8")
-    public Object findCartList(@RequestBody Map<String, String> param){
+    public Object findCartList(@RequestBody Map<String, String> param, HttpServletRequest request){
         if(StringUtils.isEmpty(param.get("page"))) return returnData("page不能为空",1);
         if(StringUtils.isEmpty(param.get("size")))return returnData("size不能为空",1);
-
-        return cartService.findCartList(Integer.parseInt(param.get("page"))*Integer.parseInt(param.get("size")),Integer.parseInt(param.get("size")));
+        String token= request.getHeader("token");
+        return cartService.findCartList(Integer.parseInt(param.get("page"))*Integer.parseInt(param.get("size")),Integer.parseInt(param.get("size")),JWT.decode(token).getAudience().get(0));
     }
 
 
