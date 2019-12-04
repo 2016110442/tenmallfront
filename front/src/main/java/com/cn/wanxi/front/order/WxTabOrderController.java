@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,14 +24,14 @@ public class WxTabOrderController {
     private WxTabOrderService wxTabOrderService;
 
     @RequestMapping(value = "/submit",method = RequestMethod.POST)
-    public Map<String,String> insert(@RequestBody(required = false) WxOrderVO wxOrderVO){
+    public Map<String,String> insert(@RequestBody(required = false) WxOrderVO wxOrderVO, HttpServletRequest request){
 
         Map<String,String> result = new HashMap<>();
         if (wxOrderVO==null){
             result.put("code","1");
             result.put("payUrl","你想干哈");
         }else {
-            int i = wxTabOrderService.insert(wxOrderVO);
+            int i = wxTabOrderService.insert(wxOrderVO,request);
             if (i==1){
                 result.put("code","0");
                 result.put("payUrl","http://alipay.com/pay.jpg");

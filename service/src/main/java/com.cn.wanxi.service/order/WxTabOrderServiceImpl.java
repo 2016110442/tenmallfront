@@ -1,5 +1,6 @@
 package com.cn.wanxi.service.order;
 
+import com.auth0.jwt.JWT;
 import com.cn.wanxi.dao.order.WxTabOrderItemMapper;
 import com.cn.wanxi.dao.order.WxTabOrderMapper;
 import com.cn.wanxi.model.order.WxOrderVO;
@@ -8,6 +9,7 @@ import com.cn.wanxi.model.order.WxTabOrderItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,7 +24,7 @@ public class WxTabOrderServiceImpl implements WxTabOrderService {
     private WxTabOrderItemMapper wxTabOrderItemMapper;
 
     @Override
-    public int insert(WxOrderVO wxOrderVO) {
+    public int insert(WxOrderVO wxOrderVO, HttpServletRequest request) {
         WxTabOrder wxTabOrder = new WxTabOrder();
         List<WxTabOrderItem> wxTabOrderItems = wxOrderVO.getOrderItem();
         if (wxTabOrderItems==null){
@@ -42,7 +44,9 @@ public class WxTabOrderServiceImpl implements WxTabOrderService {
         wxTabOrder.setPostFee(wxOrderVO.getPostFee());
         wxTabOrder.setPayMoney(wxOrderVO.getPayMoney());
         wxTabOrder.setPayType(wxOrderVO.getPayType());
-        wxTabOrder.setUsername(wxOrderVO.getUsername());
+        String token = request.getHeader("token");
+        String username = JWT.decode(token).getAudience().get(0);
+        wxTabOrder.setUsername(username);
         wxTabOrder.setReceiverContact(wxOrderVO.getReceiverContact());
         wxTabOrder.setReceiverMobile(wxOrderVO.getReceiverMobile());
         wxTabOrder.setReceiverAddress(wxOrderVO.getReceiverAddress());

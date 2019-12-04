@@ -35,8 +35,8 @@ public class ProductDetailsService implements ProductDetailsServiceImpl {
     }
 
     @Override
-    public List<ProductSearch> search(String conditionpara) {
-        List<ProductSearch> list = productDetailsDao.search(conditionpara);
+    public List<ProductSearch> search(String conditionpara,String categoryId3) {
+        List<ProductSearch> list = productDetailsDao.search(conditionpara,categoryId3);
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getParaItems()!=null&&list.get(i).getParaItems().indexOf("\"")>0){
                 list.get(i).setParaItems(list.get(i).getParaItems().replace("\"","\'"));
