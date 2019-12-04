@@ -26,7 +26,11 @@ public class WxWebMvcConfig implements WebMvcConfigurer {
        .addPathPatterns("/**")
        .excludePathPatterns("/user/login")
        .excludePathPatterns("/user/ssm")
-       .excludePathPatterns("/user/register");
+       .excludePathPatterns("/user/register")
+       .excludePathPatterns("/advertisin/**")
+       .excludePathPatterns("/index/**")
+       .excludePathPatterns("/index/**")
+       .excludePathPatterns("/product/**");
 
 
     }

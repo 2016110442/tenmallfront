@@ -18,7 +18,7 @@ public class TokenServiceImpl {
         Map<String, Object> header = new HashMap<>();
         header.put("typ", "JWT");
         header.put("alg", "HS256");
-        Date date = new Date(System.currentTimeMillis()+ 15*60*1000);
+        Date date = new Date(System.currentTimeMillis()+ 60*60*1000);
         token= JWT.create().withAudience(user.getPhone()).withHeader(header).withExpiresAt(date).sign(Algorithm.HMAC256(user.getPassword()));
         return  token;
     }
