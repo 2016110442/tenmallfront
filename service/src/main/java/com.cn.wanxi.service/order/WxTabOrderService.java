@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface WxTabOrderService {
 
-    int insert(WxOrderVO wxOrderVO, HttpServletRequest request);
+    int insert(WxOrderVO wxOrderVO, String username);
 
     List<WxTabOrder> selectByIds(String[] ids);
 }
