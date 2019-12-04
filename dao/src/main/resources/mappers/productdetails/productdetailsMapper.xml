@@ -58,7 +58,15 @@
         select w.id,w.name,w.caption,w.brand_id,w.category1_id,w.category2_id,
             w.category3_id,w.freight_id,w.image,w.images,w.introduction,w.para_items,w.sale_service,
             w.sn,w.spec_items,w.template_id
-            from wx_tab_spu w where name like '%${value}%'
+            from wx_tab_spu w
+            <where>
+                <if test="conditionpara != null">
+                    name like '%${conditionpara}%'
+                </if>
+                <if test="categoryId3 != null ">
+                    or category3_id like '%${categoryId3}%'
+                </if>
+            </where>
     </select>
 
 </mapper>

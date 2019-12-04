@@ -15,5 +15,5 @@ import java.util.Map;
 public interface ProductDetailsServiceImpl  {
     Map<String,Object> productDetails(int id);
 
-    List<ProductSearch> search(String conditionpara);
+    List<ProductSearch> search(String conditionpara,String categoryId3);
 }

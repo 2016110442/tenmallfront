@@ -77,7 +77,13 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
         //退货退款申请表
         WxTabReturnOrder wxTabReturnOrder = new WxTabReturnOrder();
         wxTabReturnOrder.setReturnMoney(wxTabOrder.getPayMoney());
-        if(!StringUtils.isEmpty(orderId)) wxTabReturnOrder.setIsReturnFreight(wxTabOrderItem.getIsReturn().charAt(0));
+        if(!StringUtils.isEmpty(orderId)){
+            if(!StringUtils.isEmpty(wxTabOrderItem.getIsReturn())){
+                wxTabReturnOrder.setIsReturnFreight(wxTabOrderItem.getIsReturn().charAt(0));
+            }else{
+                wxTabReturnOrder.setIsReturnFreight('0');
+            }
+        }
         wxTabReturnOrder.setLinkman(wxTabOrder.getUsername());
         wxTabReturnOrder.setLinkmanMobile(wxTabOrder.getReceiverMobile());
         //获取用户信息

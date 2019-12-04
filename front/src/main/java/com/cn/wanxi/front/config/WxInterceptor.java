@@ -57,6 +57,7 @@ public class WxInterceptor  implements HandlerInterceptor {
                 return false;
             }
 //            JWT.decode(token).getClaim("");
+            JWT.decode(token).getAudience().get(0);
             if (JWT.decode(token).getExpiresAt().before(new Date())){
                 msg.put("code","1");
                 msg.put("message","token已过期");

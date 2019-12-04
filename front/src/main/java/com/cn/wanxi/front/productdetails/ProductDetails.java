@@ -32,11 +32,13 @@ public class ProductDetails {
     }
 
     @RequestMapping(value = "/search",method = RequestMethod.POST)
-    public List<ProductSearch> productDetails(@RequestParam(required = false) String conditionpara){
-        if (conditionpara==null){
-            return productDetailsServiceImpl.search("");
+    public List<ProductSearch> search(@RequestBody Map<String, String> param){
+        String conditionpara = param.get("conditionpara");
+        String categoryId3 = param.get("categoryId3");
+        if (conditionpara==null&&categoryId3==null){
+            return productDetailsServiceImpl.search(null,null);
         }else{
-            return productDetailsServiceImpl.search(conditionpara);
+            return productDetailsServiceImpl.search(conditionpara,categoryId3);
         }
 
     }
