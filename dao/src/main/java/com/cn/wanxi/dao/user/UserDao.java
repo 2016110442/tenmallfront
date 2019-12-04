@@ -26,7 +26,6 @@ public interface UserDao {
 
     String findUserName(@Param("phone")String phone);
 
-    String findRepetition(@Param("username")String username);
 
     User findMessages(@Param("phone")String phone);
 

@@ -53,13 +53,14 @@ public class UserController {
 
         if (userService.userLogin(phone,password)){
             map.put("code","0");
+
             map.put("message","登录成功");
             User u = new User();
             u.setPhone(phone);
             u.setPassword(password);
             TokenServiceImpl tokenService = new TokenServiceImpl();
             String token = tokenService.getToken(u);
-//            map.put("token", token);
+            map.put("token", token);
             response.setHeader("token",token);
             session.setAttribute("username",phone);
             Cookie cookie=new Cookie("username",phone);

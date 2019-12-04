@@ -128,7 +128,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public Map<String, Object> update(User user) {
-        int resuleString=Integer.parseInt(userDao.findRepetition(user.getUsername()));
         int returnInt=userDao.updateUserInfo(user);
         if(returnInt>0){
             return returnData("修改成功",0);
