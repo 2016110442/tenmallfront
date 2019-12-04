@@ -30,4 +30,6 @@ public interface UserDao {
     User findMessages(@Param("phone")String phone);
 
     int updatePassword(@Param("phone")String phone, @Param("password")String newPassword);
+
+    int passwordValidation(@Param("phone") String phone,@Param("password") String password);
 }

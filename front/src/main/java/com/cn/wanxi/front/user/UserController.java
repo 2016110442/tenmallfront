@@ -173,4 +173,34 @@ public class UserController {
         if(StringUtils.isEmpty(param.get("phone")))return returnData("phone不能为空",1);
         return userService.uname(param.get("phone"));
     }
+
+    /**
+     * 退出登陸
+     * @param
+     * @return
+     */
+    @PostMapping(value = "/outLogin", produces = "application/json;charset=UTF-8")
+    public Map<String,Object> outLogin(HttpServletResponse response){
+        response.setHeader("token","");
+        return returnData("退出成功",0);
+    }
+    /**
+     * 修改密码
+     * @param
+     * @return
+     */
+    @PostMapping(value = "/updatePassword", produces = "application/json;charset=UTF-8")
+    public Object updatePassword(@RequestBody Map<String, String> param){
+        String regular="^[1](([3][0-9])|([4][5,7,9])|([5][0-9])|([6][6])|([7][3,5,6,7,8])|([8][0-9])|([9][8,9]))[0-9]{8}$";
+        if(StringUtils.isEmpty(param.get("phone"))&& !param.get("phone").matches("^\\d{11}$")){
+            return returnData("手机号格式不对",1);
+        }
+        if(StringUtils.isEmpty(param.get("password"))&&param.get("password").length()<5){
+            return returnData("密码有误",1);
+        }
+        if(StringUtils.isEmpty(param.get("newPassword"))&& StringUtils.isEmpty(param.get("confirmNewPassword"))&&param.get("newPassword").equals(param.get("confirmNewPassword"))){
+            return returnData("新密码有误",1);
+        }
+        return userService.updatePw(param.get("phone"),param.get("password"),param.get("newPassword"));
+    }
 }

@@ -6,9 +6,10 @@
 
 
     <!--    更新用户信息!-->
-    <update id="updateUserInfo">
+    <update id="updateUserInfo" >
         update wx_tab_user
-        set username=#{user.username},email=#{user.email},nick_name=#{user.nickName},name=#{user.name},head_pic=#{user.headPic},qq=#{user.qq},sex=#{user.sex},birthday=#{user.birthday}
+        set username=#{user.username},email=#{user.email},nick_name=#{user.nickName},`name`=#{user.name},head_pic=#{user.headPic},qq=#{user.qq},sex=#{user.sex},birthday=#{user.birthday}
         where phone=#{user.phone}
     </update>
+
 </mapper>

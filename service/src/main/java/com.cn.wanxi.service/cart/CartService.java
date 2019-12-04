@@ -1,5 +1,7 @@
 package com.cn.wanxi.service.cart;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.cn.wanxi.dao.cart.CartDao;
 import com.cn.wanxi.model.cart.WxTabCart;
 import com.cn.wanxi.model.cart.WxTabSku;
@@ -99,8 +101,16 @@ public class CartService implements CartServiceImpl {
             }
             maps.put("skuList",wxTabSkulists3);
             maps.put("skuid",spuidskuid.getSkuId());
-            maps.put("num", spuidskuid.getNum());
+            maps.put("cartNum", spuidskuid.getNum());
             maps.put("cartId", spuidskuid.getId());
+            maps.put("cartSprc", spuidskuid.getSpec());
+
+            try {
+                JSONObject obj= JSON.parseObject(spuidskuid.getSpec());
+                maps.put("subtotal",spuidskuid.getNum()*Integer.parseInt(String.valueOf(obj.get("price"))));
+            }catch (Exception e){
+                maps.put("subtotal",1999);
+            }
             lists.add(maps);
         }
         }catch (Exception e){

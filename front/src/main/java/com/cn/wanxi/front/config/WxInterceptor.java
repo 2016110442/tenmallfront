@@ -3,6 +3,7 @@ package com.cn.wanxi.front.config;
 import com.alibaba.fastjson.JSON;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -47,7 +48,7 @@ public class WxInterceptor  implements HandlerInterceptor {
         String token = request.getHeader("token");
 
         try {
-            if(token==null){
+            if(StringUtils.isEmpty(token)){
                 msg.put("code","1");
                 msg.put("message","请登录");
 //                pw.write(JSON.toJSONString(msg));
