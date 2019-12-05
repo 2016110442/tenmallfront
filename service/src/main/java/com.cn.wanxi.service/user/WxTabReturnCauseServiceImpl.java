@@ -73,6 +73,9 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
         if(wxTabOrderItem==null || wxTabOrder==null){
             return false;
         }
+        //更改订单是否退货状态
+        wxTabOrderItem.setIsReturn("1");
+        wxTabOrderItemService.insert(wxTabOrderItem);
 
         //退货退款申请表
         WxTabReturnOrder wxTabReturnOrder = new WxTabReturnOrder();
