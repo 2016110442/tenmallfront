@@ -1,5 +1,7 @@
 package com.cn.wanxi.front.cart;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.auth0.jwt.JWT;
 import com.cn.wanxi.model.cart.WxTabSpu;
 import org.springframework.util.StringUtils;
@@ -38,19 +40,23 @@ public class CartController {
      * Spec	    True	Varchar	规格参数，json格式，以逗号分开
      */
     @PostMapping(value = "/addCart", produces = "application/json;charset=UTF-8")
-    public Map<String,Object> addCart(@RequestBody Map<String, String> param, HttpServletRequest request){
+    public Map<String,Object> addCart(@RequestBody String caerString, HttpServletRequest request){
+
+        System.out.println(caerString);
+        JSONObject object= JSON.parseObject(caerString);
+        object.getString("");
         String token= request.getHeader("token");
-        if(StringUtils.isEmpty(param.get("num")))return returnData("num不能为空",1);
-        if(StringUtils.isEmpty(param.get("spuId")))return returnData("SpuId不能为空",1);
-        if(StringUtils.isEmpty(param.get("spec")))return returnData("Spec不能为空",1);
+        if(StringUtils.isEmpty(object.getString("spuId")))return returnData("num不能为空",1);
+        if(StringUtils.isEmpty(object.getString("num")))return returnData("SpuId不能为空",1);
+        if(StringUtils.isEmpty(object.getString("spec")))return returnData("Spec不能为空",1);
         WxTabCart wxTabCart=new WxTabCart();
 
-        wxTabCart.setNum(Integer.parseInt(param.get("num")));
-        wxTabCart.setSpuId(Integer.parseInt(param.get("spuId")));
-        wxTabCart.setSpec(param.get("spec"));
+        wxTabCart.setNum(Integer.valueOf(object.getString("spuId")));
+        wxTabCart.setSpuId(Integer.valueOf(object.getString("num")));
+        wxTabCart.setSpec(object.getString("spec"));
         wxTabCart.setUsername(JWT.decode(token).getAudience().get(0));
-
         return cartService.addCart(wxTabCart);
+
     }
 
     /**
