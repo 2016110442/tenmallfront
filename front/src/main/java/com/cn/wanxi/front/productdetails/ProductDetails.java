@@ -34,13 +34,16 @@ public class ProductDetails {
 
     @RequestMapping(value = "/search",method = RequestMethod.POST)
     public Map<String, Object> search(@RequestBody Map<String, String> param){
-        String conditionpara = param.get("conditionpara");
-        String categoryId3 = param.get("categoryId3");
-        if (conditionpara==null&&categoryId3==null){
-            return WebTools.returnData(productDetailsServiceImpl.search(null,null),1);
-        }else{
-            return WebTools.returnData(productDetailsServiceImpl.search(conditionpara,categoryId3),1);
+        String conditionpara = param.get("keyword");
+        String categoryId3 = param.get("categoryid");
+
+        if (conditionpara!=""&&categoryId3==""){
+            return WebTools.returnData(productDetailsServiceImpl.search(conditionpara,null),0);
         }
+        if (conditionpara==""&&categoryId3!=""){
+            return WebTools.returnData(productDetailsServiceImpl.searchTwo(categoryId3),0);
+        }
+        return WebTools.returnData(productDetailsServiceImpl.search("",null),0);
 
     }
 

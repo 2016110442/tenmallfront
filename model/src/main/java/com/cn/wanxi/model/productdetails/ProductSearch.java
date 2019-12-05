@@ -3,6 +3,8 @@ package com.cn.wanxi.model.productdetails;
 import com.cn.wanxi.model.cart.WxTabCart;
 import com.cn.wanxi.model.cart.WxTabSku;
 
+import java.util.List;
+
 public class ProductSearch {
     private Integer id;
     private String name;
@@ -20,6 +22,15 @@ public class ProductSearch {
     private String sn;
     private String specItems;
     private Integer templateId;
+    private List<WxTabSku> wxTabSku;
+
+    public List<WxTabSku> getWxTabSku() {
+        return wxTabSku;
+    }
+
+    public void setWxTabSku(List<WxTabSku> wxTabSku) {
+        this.wxTabSku = wxTabSku;
+    }
 
     public Integer getId() {
         return id;

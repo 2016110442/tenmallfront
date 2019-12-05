@@ -27,5 +27,8 @@ public interface ProductDetailsDao {
             "images,`status`,weight from wx_tab_sku WHERE spu_id=#{id}")
     List<WxTabSku> productDetailsWxTabSkuList(int id);
 
-    List<ProductSearch> search(String conditionpara,String categoryId3);
+    List<ProductSearch> search(String conditionpara,Integer categoryId3);
+
+    List<ProductSearch> searchTwo(Integer categoryId3);
+
 }

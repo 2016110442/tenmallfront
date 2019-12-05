@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="7a7f3712-937c-4ca5-815a-6b7b4bcf8489" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/service/service.iml" afterDir="false" />
@@ -18,6 +19,54 @@
       <change beforePath="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/user/WxTabReturnCauseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/user/WxTabReturnCauseServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/cart/CartService.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/cart/CartService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/cart/CartServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/cart/CartServiceImpl.class" afterDir="false" />
+=======
+    <list default="true" id="7a7f3712-937c-4ca5-815a-6b7b4bcf8489" name="Default Changelist" comment="优化和修改工具类 lxq 2019年12月5日15:27:09">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/cn/wanxi/util/CacheFileUpload.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/cn/wanxi/util/CacheFileUpload.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/cn/wanxi/util/HttpClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/cn/wanxi/util/HttpClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/cn/wanxi/util/RedisUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/cn/wanxi/util/RedisUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/cn/wanxi/util/SendMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/cn/wanxi/util/SendMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/cn/wanxi/util/SendMessageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/cn/wanxi/util/SendMessageUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/cn/wanxi/util/WebTools.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/target/classes/com/cn/wanxi/util/WebTools.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/productdetails/ProductDetailsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/productdetails/ProductDetailsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/src/main/resources/mappers/productdetails/productdetailsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dao/src/main/resources/mappers/productdetails/productdetailsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/productdetails/ProductDetailsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/dao/target/classes/com/cn/wanxi/dao/productdetails/ProductDetailsDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/target/classes/mappers/cart/cartMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dao/target/classes/mappers/cart/cartMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/productdetails/ProductDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/productdetails/ProductDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/productdetails/ProductSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/productdetails/ProductSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/address/WxTabAddress.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/address/WxTabAddress.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/advertisin/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/advertisin/Result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/advertisin/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/advertisin/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/advertisin/WxTabAdvertisin.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/advertisin/WxTabAdvertisin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/cart/WxTabCart.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/cart/WxTabCart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/cart/WxTabSku.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/cart/WxTabSku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/cart/WxTabSpu.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/cart/WxTabSpu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/categorynav/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/categorynav/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/hotsale/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/hotsale/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/online/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/online/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/onsale/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/onsale/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/order/WxOrderVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/order/WxOrderVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/order/WxTabOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/order/WxTabOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/order/WxTabOrderItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/order/WxTabOrderItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/pay/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/pay/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/productdetails/ProductSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/productdetails/ProductSearch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/productdetails/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/productdetails/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/search/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/search/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/user/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/user/WxTabEstimate.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/user/WxTabEstimate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/user/WxTabReturnCause.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/user/WxTabReturnCause.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/user/WxTabReturnOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/user/WxTabReturnOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/user/WxTabReturnOrderItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/classes/com/cn/wanxi/model/user/WxTabReturnOrderItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/test-classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/test-classes/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/productdetails/ProductDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/productdetails/ProductDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/productdetails/ProductDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/productdetails/ProductDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/cart/CartService.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/cart/CartService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/cart/CartServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/cart/CartServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/order/WxTabOrderItemServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/order/WxTabOrderItemServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/order/WxTabOrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/order/WxTabOrderServiceImpl.class" afterDir="false" />
+>>>>>>> 89b07006fff8f61032792559183bd4ff0a090e1f
       <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/productdetails/ProductDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/productdetails/ProductDetailsService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/user/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/user/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/user/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/cn/wanxi/service/user/UserServiceImpl.class" afterDir="false" />
@@ -25,6 +74,10 @@
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/front/target/" />
+    <ignored path="$PROJECT_DIR$/common/target/" />
+    <ignored path="$PROJECT_DIR$/dao/target/" />
+    <ignored path="$PROJECT_DIR$/service/target/" />
+    <ignored path="$PROJECT_DIR$/model/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +89,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/productdetails/ProductDetails.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="39" column="48" lean-forward="true" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/WxInterceptor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="840">
@@ -50,11 +113,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="159">
               <caret line="114" column="34" selection-start-line="114" selection-start-column="27" selection-end-line="114" selection-end-column="34" />
+=======
+        <entry file="file://$PROJECT_DIR$/dao/src/main/resources/mappers/productdetails/productdetailsMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="62" column="39" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="39" />
+>>>>>>> 89b07006fff8f61032792559183bd4ff0a090e1f
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/advertisin/WxTabAdvertisinController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="621">
@@ -62,11 +132,18 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/productdetails/ProductDetailsServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+>>>>>>> 89b07006fff8f61032792559183bd4ff0a090e1f
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/online/ProductOnlineController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
@@ -74,6 +151,35 @@
               <folding>
                 <element signature="e#866#867#0" expanded="true" />
                 <element signature="e#952#953#0" expanded="true" />
+=======
+        <entry file="file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/productdetails/ProductDetailsService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/productdetails/ProductDetailsDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="356">
+              <caret line="31" column="53" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/productdetails/ProductSearch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+              <folding>
+                <element signature="e#728#729#0" expanded="true" />
+                <element signature="e#759#760#0" expanded="true" />
+                <element signature="e#815#816#0" expanded="true" />
+                <element signature="e#855#856#0" expanded="true" />
+>>>>>>> 89b07006fff8f61032792559183bd4ff0a090e1f
               </folding>
             </state>
           </provider>
@@ -107,6 +213,12 @@
         <option value="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/order/WxTabOrderService.java" />
         <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/order/WxTabOrderController.java" />
         <option value="$PROJECT_DIR$/common/src/main/java/com/cn/wanxi/util/WebTools.java" />
+        <option value="$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/productdetails/ProductSearch.java" />
+        <option value="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/productdetails/ProductDetailsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/productdetails/ProductDetailsDao.java" />
+        <option value="$PROJECT_DIR$/dao/src/main/resources/mappers/productdetails/productdetailsMapper.xml" />
+        <option value="$PROJECT_DIR$/front/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/productdetails/ProductDetailsService.java" />
         <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/productdetails/ProductDetails.java" />
         <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/WxInterceptor.java" />
         <option value="$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/ExceptionAdvice.java" />
@@ -127,10 +239,9 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="769" />
-    <option name="y" value="7" />
-    <option name="width" value="1124" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="393" />
+    <option name="width" value="1425" />
     <option name="height" value="1080" />
   </component>
   <component name="ProjectId" id="1UHabmDoCAp7e215aZp78zYpKev" />
@@ -146,7 +257,10 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+<<<<<<< HEAD
       <pane id="CatdeaLogs" />
+=======
+>>>>>>> 89b07006fff8f61032792559183bd4ff0a090e1f
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -158,12 +272,207 @@
             <path>
               <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
               <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mappers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mappers" type="462c0819:PsiDirectoryNode" />
+              <item name="productdetails" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
               <item name="front" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
               <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
               <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 89b07006fff8f61032792559183bd4ff0a090e1f
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+=======
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="productdetails" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="productdetails" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com.cn.wanxi.service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com.cn.wanxi.service" type="462c0819:PsiDirectoryNode" />
+              <item name="productdetails" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tenmallfront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenmallfront" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 89b07006fff8f61032792559183bd4ff0a090e1f
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -232,6 +541,10 @@
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="CatdeaLogs" />
+>>>>>>> 89b07006fff8f61032792559183bd4ff0a090e1f
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -351,6 +664,7 @@
       <workItem from="1575460112603" duration="2708000" />
       <workItem from="1575526512500" duration="352000" />
       <workItem from="1575529884783" duration="2143000" />
+      <workItem from="1575540509098" duration="2676000" />
     </task>
     <task id="LOCAL-00001" summary="更换为mybatis">
       <created>1574232830551</created>
@@ -461,12 +775,30 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="8689000" />
+=======
+    <option name="totallyTimeSpent" value="8293000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+>>>>>>> 89b07006fff8f61032792559183bd4ff0a090e1f
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="393" y="0" width="1425" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21162046" />
+=======
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17948718" />
+>>>>>>> 89b07006fff8f61032792559183bd4ff0a090e1f
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -474,18 +806,23 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.42578548" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+=======
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28194296" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3685322" />
+>>>>>>> 89b07006fff8f61032792559183bd4ff0a090e1f
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32946146" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.18634886" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Spring" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32946146" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -497,7 +834,7 @@
       <window_info anchor="right" id="Bean Validation" order="7" weight="0.32995737" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2725564" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -505,18 +842,18 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.28245068" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.55121434" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.18691589" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.18634886" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Spring" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32946146" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -588,6 +925,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="/order/submit" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/productdetails/ProductDetailsService.java</url>
+          <line>65</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/productdetails/ProductDetailsService.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="((Response)((ResponseFacade)response).response).coyoteResponse" custom="org.apache.catalina.connector.Response,org.apache.catalina.connector.ResponseFacade" />
@@ -624,13 +977,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/productdetails/ProductDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="39" column="52" lean-forward="true" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -684,6 +1030,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/config/ExceptionAdvice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="469">
@@ -736,10 +1083,71 @@
           <caret line="32" column="75" selection-start-line="32" selection-start-column="75" selection-end-line="32" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/address/WxTabAddressController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4472">
+          <caret line="172" column="9" selection-start-line="172" selection-start-column="9" selection-end-line="172" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/user/WxTabEstimateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6968">
+          <caret line="268" column="35" selection-start-line="268" selection-start-column="35" selection-end-line="268" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-webmvc/5.2.1.RELEASE/spring-webmvc-5.2.1.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="561" selection-start-line="561" selection-end-line="561" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-webmvc/5.2.1.RELEASE/spring-webmvc-5.2.1.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="511" selection-start-line="511" selection-end-line="511" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/5.2.1.RELEASE/spring-web-5.2.1.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/mybatis/mybatis/3.5.1/mybatis-3.5.1.jar!/org/apache/ibatis/binding/MapperProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/src/main/java/com/cn/wanxi/dao/productdetails/ProductDetailsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="31" column="53" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/cn/wanxi/model/productdetails/ProductSearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+          <folding>
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#759#760#0" expanded="true" />
+            <element signature="e#815#816#0" expanded="true" />
+            <element signature="e#855#856#0" expanded="true" />
+>>>>>>> 89b07006fff8f61032792559183bd4ff0a090e1f
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/user/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
@@ -820,5 +1228,42 @@
         </settings>
       </state>
     </states>
+=======
+    <entry file="file://$PROJECT_DIR$/front/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/src/main/resources/mappers/productdetails/productdetailsMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="62" column="39" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/productdetails/ProductDetailsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/main/java/com.cn.wanxi.service/productdetails/ProductDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/main/java/com/cn/wanxi/front/productdetails/ProductDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="39" column="48" lean-forward="true" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 89b07006fff8f61032792559183bd4ff0a090e1f
   </component>
 </project>
