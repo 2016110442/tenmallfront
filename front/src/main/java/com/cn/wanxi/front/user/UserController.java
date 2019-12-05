@@ -52,29 +52,25 @@ public class UserController {
         }
 
         if (userService.userLogin(phone,password)){
-            map.put("code","0");
-
-            map.put("message","登录成功");
             User u = new User();
             u.setPhone(phone);
             u.setPassword(password);
             TokenServiceImpl tokenService = new TokenServiceImpl();
             String token = tokenService.getToken(u);
             map.put("token", token);
+
             response.setHeader("token",token);
             session.setAttribute("username",phone);
             Cookie cookie=new Cookie("username",phone);
             cookie.setMaxAge(1800);
             response.addCookie(cookie);
-            return map;
+            return WebTools.returnData("登录成功",0);
         }
-        map.put("code","1");
-        map.put("message","登录失败");
-        return map;
+
+        return WebTools.returnData("登录失败",1);
     }
     /**
      *
-
      * @return msg
      */
     @RequestMapping(value = "/register",method = RequestMethod.POST)

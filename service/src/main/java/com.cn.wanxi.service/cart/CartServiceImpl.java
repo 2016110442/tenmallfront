@@ -35,13 +35,13 @@ public interface CartServiceImpl {
      * @param
      * @return
      */
-    List<Map<String,Object>> findCartList(int page, int size,String username);
+    Object findCartList(int page, int size,String username);
     /**
      *  1.2.7.5.获取商品skuid接口
      * @param
      * @return
      */
-    WxTabSku getSkuid(int spuid, String spec);
+    Object getSkuid(int spuid, String spec);
     /**
      *  1.2.7.6.查看产品详情接口
      * @param

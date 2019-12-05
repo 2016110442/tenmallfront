@@ -78,7 +78,7 @@ public class CartService implements CartServiceImpl {
      * @return
      */
     @Override
-    public List<Map<String,Object>> findCartList(int page, int size,String username) {
+    public Object findCartList(int page, int size,String username) {
 
         List<WxTabCart> wxTabCarts=cartDao.findCartSpuidSkuid(page,size,username);  //查询spuid ， skuid
         List<Map<String,Object>> lists=new ArrayList<>();
@@ -86,7 +86,7 @@ public class CartService implements CartServiceImpl {
         for(WxTabCart spuidskuid:wxTabCarts){//
 
             Map<String,Object> maps=cartDao.findCartSpuTab(spuidskuid.getSpuId());
-            if(maps==null){return lists;}
+            if(maps==null){return returnData(lists,0);}
             String paraItems=((String)maps.get("para_items")).replaceAll("\"","'");
             maps.remove("para_items");
             maps.put("para_items",paraItems);
@@ -114,9 +114,9 @@ public class CartService implements CartServiceImpl {
             lists.add(maps);
         }
         }catch (Exception e){
-          return lists;
+          return returnData(lists,0);
         }
-        return lists;
+        return returnData(lists,0);
     }
     /**
      *  1.2.7.5.获取商品skuid接口
@@ -124,13 +124,13 @@ public class CartService implements CartServiceImpl {
      * @return
      */
     @Override
-    public WxTabSku getSkuid(int spuid, String spec) {
+    public Object getSkuid(int spuid, String spec) {
         WxTabSku wxTabSkusj = cartDao.getSkuid(spuid, spec);
         if(wxTabSkusj==null){
-           return wxTabSkusj;
+           return returnData("没有这个数据",1);
         }
         wxTabSkusj.setSpec(wxTabSkusj.getSpec().replaceAll("\"","'"));
-        return wxTabSkusj;
+        return returnData(wxTabSkusj,0);
 
     }
     /**
@@ -161,7 +161,7 @@ public class CartService implements CartServiceImpl {
         maps.put("num", wxTabCarts.getNum());
         lists.add(maps);
 
-        return maps;
+        return returnData(maps,0);
     }
 
 

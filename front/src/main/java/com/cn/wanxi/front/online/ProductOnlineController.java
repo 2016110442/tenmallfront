@@ -2,6 +2,7 @@ package com.cn.wanxi.front.online;
 
 import com.cn.wanxi.model.cart.WxTabSpu;
 import com.cn.wanxi.service.online.ProductOnlineService;
+import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,7 +27,7 @@ public class ProductOnlineController {
      * @return
      */
     @RequestMapping(value = "/online",method = RequestMethod.POST)
-    public List<WxTabSpu> getOnlineProducts(){
-        return productOnlineService.getOnlineProducts();
+    public Object getOnlineProducts(){
+        return WebTools.returnData(productOnlineService.getOnlineProducts(),0);
     }
 }
