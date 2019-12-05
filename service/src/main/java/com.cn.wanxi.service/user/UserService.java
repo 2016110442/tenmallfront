@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface UserService {
     public String findPassByPhone(String phone);
-    public Map<String,String > register(String phone,
+    public Object register(String phone,
                                         String code,
                                         String password);
     public Object  getSSM(String phone);
