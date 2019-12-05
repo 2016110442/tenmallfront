@@ -58,6 +58,7 @@ public class UserController {
             TokenServiceImpl tokenService = new TokenServiceImpl();
             String token = tokenService.getToken(u);
             map.put("token", token);
+
             response.setHeader("token",token);
             session.setAttribute("username",phone);
             Cookie cookie=new Cookie("username",phone);
