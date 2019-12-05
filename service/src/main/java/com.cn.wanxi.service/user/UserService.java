@@ -17,7 +17,7 @@ public interface UserService {
     public boolean userLogin(String phone,String password);
 
     List<User> findByPhone(String phone);
-    User findMessage(String phone);
+    Object findMessage(String phone);
 
     Map<String, Object> updatePw(String phone, String oldPassword, String newPassword);
 

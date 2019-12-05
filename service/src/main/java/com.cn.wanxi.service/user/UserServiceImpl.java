@@ -9,6 +9,7 @@ import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
+import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -91,8 +92,12 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public User findMessage(String phone) {
-        return userDao.findMessages(phone);
+    public Object findMessage(String phone) {
+        User user=userDao.findMessages(phone);
+        if(StringUtils.isEmpty(user) && user.equals("[]")){
+            return returnData("个人信息查询失败",1);
+        }
+        return returnData(user,0);
     }
 
     /**
