@@ -5,6 +5,7 @@ import com.cn.wanxi.model.cart.WxTabSku;
 import com.cn.wanxi.model.cart.WxTabSpu;
 import com.cn.wanxi.model.productdetails.ProductSearch;
 import com.cn.wanxi.model.user.User;
+import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,9 +30,7 @@ public class ProductDetailsService implements ProductDetailsServiceImpl {
         Map<String,Object> maps=new HashMap<>();
         maps.put("spu",WxTabSpuList);
         maps.put("skuList",WxTabSkuList);
-
-
-        return maps;
+        return WebTools.returnData(maps,0);
     }
 
     @Override

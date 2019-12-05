@@ -3,7 +3,6 @@ package com.cn.wanxi.front.productdetails;
 import com.cn.wanxi.model.productdetails.ProductSearch;
 import com.cn.wanxi.service.productdetails.ProductDetailsServiceImpl;
 import com.cn.wanxi.util.WebTools;
-import org.graalvm.compiler.nodes.calc.ObjectEqualsNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
