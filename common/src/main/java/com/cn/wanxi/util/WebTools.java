@@ -16,7 +16,7 @@ public class WebTools {
 
     /**
      * 返回数据
-     * @param object 查询数据
+     * @param object 返回的数据
      * @param code code
      * @return map集合
      */
@@ -24,7 +24,7 @@ public class WebTools {
         Map<String,Object> map = new HashMap<>();
         map.put("code",code);
         if(code == 0){
-            map.put("date",object);
+            map.put("data",object);
         }else{
             map.put("message",object);
         }
