@@ -49,8 +49,8 @@ public class WxTabAddressController {
     private UserService userService;
 
     @RequestMapping(value = "/address/listAddress",method = RequestMethod.POST)
-    public List<WxTabAddress> list(){
-        return wxTabAddressService.find(new WxTabAddress());
+    public Map<String, Object> list(){
+        return WebTools.returnData(wxTabAddressService.find(new WxTabAddress()),0);
     }
 
     @RequestMapping(value = "/address/addAddress",method = RequestMethod.POST)
@@ -236,7 +236,7 @@ public class WxTabAddressController {
         map.put("spu",objectList);
         map.put("totalMoney",totalMoney); //总金额
         map.put("totalNum",totalNum); //总数量
-        return map;
+        return WebTools.returnData(map,0);
     }
 
 }
