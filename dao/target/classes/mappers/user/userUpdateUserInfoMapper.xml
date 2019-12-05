@@ -3,15 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.wanxi.dao.user.UserDao">
-    <!--    查询重复代码!-->
-    <select id="findRepetition" resultType="java.lang.String">
-        select count(*) from wx_tab_user where username=#{username}
-    </select>
+
 
     <!--    更新用户信息!-->
-    <update id="updateUserInfo">
+    <update id="updateUserInfo" >
         update wx_tab_user
-        set username=#{user.username},phone=#{user.phone},email=#{user.email},nick_name=#{user.nickName},name=#{user.name},head_pic=#{user.headPic},qq=#{user.qq},sex=#{user.sex},birthday=#{user.birthday}
-        where id=#{user.id}
+        set username=#{user.username},email=#{user.email},nick_name=#{user.nickName},`name`=#{user.name},head_pic=#{user.headPic},qq=#{user.qq},sex=#{user.sex},birthday=#{user.birthday}
+        where phone=#{user.phone}
     </update>
+
 </mapper>

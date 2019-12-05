@@ -1,5 +1,6 @@
 package com.cn.wanxi.front.order;
 
+import com.auth0.jwt.JWT;
 import com.cn.wanxi.model.order.WxOrderVO;
 import com.cn.wanxi.service.order.WxTabOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +26,14 @@ public class WxTabOrderController {
 
     @RequestMapping(value = "/submit",method = RequestMethod.POST)
     public Map<String,String> insert(@RequestBody(required = false) WxOrderVO wxOrderVO, HttpServletRequest request){
-
+        String token = request.getHeader("token");
+        String username = JWT.decode(token).getAudience().get(0);
         Map<String,String> result = new HashMap<>();
         if (wxOrderVO==null){
             result.put("code","1");
             result.put("payUrl","你想干哈");
         }else {
-            int i = wxTabOrderService.insert(wxOrderVO,request);
+            int i = wxTabOrderService.insert(wxOrderVO,username);
             if (i==1){
                 result.put("code","0");
                 result.put("payUrl","http://alipay.com/pay.jpg");

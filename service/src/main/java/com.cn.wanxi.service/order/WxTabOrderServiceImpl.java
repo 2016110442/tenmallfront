@@ -24,7 +24,7 @@ public class WxTabOrderServiceImpl implements WxTabOrderService {
     private WxTabOrderItemMapper wxTabOrderItemMapper;
 
     @Override
-    public int insert(WxOrderVO wxOrderVO, HttpServletRequest request) {
+    public int insert(WxOrderVO wxOrderVO, String username) {
         WxTabOrder wxTabOrder = new WxTabOrder();
         List<WxTabOrderItem> wxTabOrderItems = wxOrderVO.getOrderItem();
         if (wxTabOrderItems==null){
@@ -44,8 +44,7 @@ public class WxTabOrderServiceImpl implements WxTabOrderService {
         wxTabOrder.setPostFee(wxOrderVO.getPostFee());
         wxTabOrder.setPayMoney(wxOrderVO.getPayMoney());
         wxTabOrder.setPayType(wxOrderVO.getPayType());
-        String token = request.getHeader("token");
-        String username = JWT.decode(token).getAudience().get(0);
+
         wxTabOrder.setUsername(username);
         wxTabOrder.setReceiverContact(wxOrderVO.getReceiverContact());
         wxTabOrder.setReceiverMobile(wxOrderVO.getReceiverMobile());
