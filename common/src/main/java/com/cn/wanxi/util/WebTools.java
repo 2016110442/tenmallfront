@@ -28,6 +28,19 @@ public class WebTools {
     }
 
     /**
+     * 返回数据
+     * @param data 查询数据
+     * @param code code
+     * @return map集合
+     */
+    public static Map<String,Object> returnData(Object data,Integer code){
+        Map<String,Object> map = new HashMap<>();
+        map.put("code",code);
+        map.put("data",data);
+        return map;
+    }
+
+    /**
      * 对象转化为map
      * @param o 对象
      * @return 转化成功的map
