@@ -60,14 +60,14 @@ public class WxInterceptor  implements HandlerInterceptor {
             JWT.decode(token).getAudience().get(0);
             if (JWT.decode(token).getExpiresAt().before(new Date())){
                 msg.put("code",10);
-                msg.put("message","token已过期");
+                msg.put("message","token已过期,请登录");
 //                pw.write(JSON.toJSONString(msg));
                 sendMsg(JSON.toJSONString(msg),response);
                 return false;
             }
         } catch (JWTVerificationException e) {
             msg.put("code",10);
-            msg.put("message","401");
+            msg.put("message","请登录");
 //            pw.write(JSON.toJSONString(msg));
             sendMsg(JSON.toJSONString(msg),response);
             return false;
