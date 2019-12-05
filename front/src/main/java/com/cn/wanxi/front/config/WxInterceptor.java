@@ -41,7 +41,7 @@ public class WxInterceptor  implements HandlerInterceptor {
         return false;*/
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json;charset=UTF-8");
-        Map<String,String> msg=new HashMap<>();
+        Map<String,Object> msg=new HashMap<>();
 //        ServletOutputStream out = response.getOutputStream();
 //        PrintWriter pw = response.getWriter();
 
@@ -49,7 +49,7 @@ public class WxInterceptor  implements HandlerInterceptor {
 
         try {
             if(StringUtils.isEmpty(token)){
-                msg.put("code","1");
+                msg.put("code",10);
                 msg.put("message","请登录");
 //                pw.write(JSON.toJSONString(msg));
 //                pw.flush();
@@ -59,14 +59,14 @@ public class WxInterceptor  implements HandlerInterceptor {
 //            JWT.decode(token).getClaim("");
             JWT.decode(token).getAudience().get(0);
             if (JWT.decode(token).getExpiresAt().before(new Date())){
-                msg.put("code","1");
+                msg.put("code",10);
                 msg.put("message","token已过期");
 //                pw.write(JSON.toJSONString(msg));
                 sendMsg(JSON.toJSONString(msg),response);
                 return false;
             }
         } catch (JWTVerificationException e) {
-            msg.put("code","1");
+            msg.put("code",10);
             msg.put("message","401");
 //            pw.write(JSON.toJSONString(msg));
             sendMsg(JSON.toJSONString(msg),response);

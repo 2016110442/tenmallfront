@@ -30,8 +30,8 @@ public class CategoryController {
      * @return
      */
     @PostMapping("/categoryNav")
-    public List<Category> getCategorys(){
-       return categoryService.getCategorys();
+    public Object getCategorys(){
+       return WebTools.returnData(categoryService.getCategorys(),0);
     }
 
     /**
@@ -45,14 +45,14 @@ public class CategoryController {
         if(parentId.matches("^[0-9]*$")==false||parentId==null){
             return WebTools.returnData("请输入正确参数",1);
         }
-        return categoryService.getCateByPid(Integer.valueOf(parentId));
+        return WebTools.returnData(categoryService.getCateByPid(Integer.valueOf(parentId)),0);
     }
     /**
      * 查询所有分类及其子分类
      * @return
      */
     @PostMapping("/categoryBySub")
-    public List<Category> getCategoryBySub(){
-        return categoryService.getCategoryBySub();
+    public Object getCategoryBySub(){
+        return WebTools.returnData(categoryService.getCategoryBySub(),1);
     }
 }
