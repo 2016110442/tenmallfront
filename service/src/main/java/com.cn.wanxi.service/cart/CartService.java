@@ -102,8 +102,7 @@ public class CartService implements CartServiceImpl {
             maps.put("cartSprc", spuidskuid.getSpec());
 
             try {
-                JSONObject obj= JSON.parseObject(spuidskuid.getSpec());
-                maps.put("subtotal",spuidskuid.getNum()*Integer.parseInt(String.valueOf(obj.get("price"))));
+                maps.put("subtotal",spuidskuid.getNum()*wxTabSkulists.getPrice());
             }catch (Exception e){
                 maps.put("subtotal",1999);
             }
