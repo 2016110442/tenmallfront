@@ -41,7 +41,7 @@ public class ProductDetails {
             return WebTools.returnData(productDetailsServiceImpl.search(conditionpara,null),0);
         }
         if (conditionpara==""&&categoryId3!=""){
-            return WebTools.returnData(productDetailsServiceImpl.searchTwo(categoryId3),0);
+            return WebTools.returnData(productDetailsServiceImpl.searchTwo(Integer.parseInt(categoryId3)),0);
         }
         return WebTools.returnData(productDetailsServiceImpl.search("",null),0);
 

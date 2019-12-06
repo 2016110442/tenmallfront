@@ -43,7 +43,9 @@ public interface CartDao {
     Map<String,Object> findCartSpuTab(Integer spuId);
 
 
-    List<WxTabSku> findCartSkuTab(Integer spuId);
+    WxTabSku findCartSkuTab(Integer skuId);
+
+    List<WxTabSku> findCartSkuTabList(Integer skuId);
     /**
      *  1.2.7.5.获取商品skuid接口
      */

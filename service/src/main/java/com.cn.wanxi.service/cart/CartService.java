@@ -93,13 +93,9 @@ public class CartService implements CartServiceImpl {
             String specItems=((String)maps.get("spec_items")).replaceAll("\"","'");
             maps.remove("spec_items");
             maps.put("spec_items",specItems);
-            List<WxTabSku> wxTabSkulists=cartDao.findCartSkuTab(spuidskuid.getSpuId());
-            List<WxTabSku> wxTabSkulists3=new ArrayList<>();
-            for (WxTabSku wxTabSkulists2:wxTabSkulists) {
-                wxTabSkulists2.setSpec(wxTabSkulists2.getSpec().replaceAll("\"","'"));
-                wxTabSkulists3.add(wxTabSkulists2);
-            }
-            maps.put("skuList",wxTabSkulists3);
+            WxTabSku wxTabSkulists=cartDao.findCartSkuTab(spuidskuid.getSkuId());
+
+            maps.put("skuList",wxTabSkulists);
             maps.put("skuid",spuidskuid.getSkuId());
             maps.put("cartNum", spuidskuid.getNum());
             maps.put("cartId", spuidskuid.getId());
@@ -150,7 +146,7 @@ public class CartService implements CartServiceImpl {
         String specItems=((String)maps.get("spec_items")).replaceAll("\"","'");
         maps.remove("spec_items");
         maps.put("para_items",specItems);
-        List<WxTabSku> wxTabSkulists=cartDao.findCartSkuTab(wxTabCarts.getSpuId());
+        List<WxTabSku> wxTabSkulists=cartDao.findCartSkuTabList(wxTabCarts.getSkuId());
         List<WxTabSku> wxTabSkulists3=new ArrayList<>();
         for (WxTabSku wxTabSkulists2:wxTabSkulists) {
             wxTabSkulists2.setSpec(wxTabSkulists2.getSpec().replaceAll("\"","'"));
