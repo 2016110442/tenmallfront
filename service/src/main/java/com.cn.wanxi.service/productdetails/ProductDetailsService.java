@@ -34,13 +34,9 @@ public class ProductDetailsService implements ProductDetailsServiceImpl {
     }
 
     @Override
-    public List<ProductSearch> search(String conditionpara,String categoryId3) {
+    public List<ProductSearch> search(String conditionpara) {
 
-        Integer cateid = null;
-        if (categoryId3!=null){
-            cateid = Integer.valueOf(categoryId3);
-        }
-        List<ProductSearch> list = productDetailsDao.search(conditionpara,cateid);
+        List<ProductSearch> list = productDetailsDao.search(conditionpara);
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getParaItems()!=null&&list.get(i).getParaItems().indexOf("\"")>0){
                 list.get(i).setParaItems(list.get(i).getParaItems().replace("\"","\'"));
