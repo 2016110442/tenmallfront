@@ -40,7 +40,9 @@ public class ProductDetails {
             Integer categoryId3 = Integer.valueOf(conditionpara);
             return WebTools.returnData(productDetailsServiceImpl.searchTwo(categoryId3),0);
         }
-        return WebTools.returnData(productDetailsServiceImpl.search(conditionpara,null),0);
+        if(conditionpara=="")
+            return WebTools.returnData(productDetailsServiceImpl.search(null),0);
+        return WebTools.returnData(productDetailsServiceImpl.search(conditionpara),0);
     }
 
 }

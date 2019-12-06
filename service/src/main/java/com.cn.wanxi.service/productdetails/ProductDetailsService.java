@@ -26,21 +26,24 @@ public class ProductDetailsService implements ProductDetailsServiceImpl {
      ProductDetailsDao productDetailsDao;
     public Map<String,Object> productDetails(int id) {
         WxTabSpu WxTabSpuList= productDetailsDao.productDetailsWxTabSpuList(id);   //wx_tab_spu表
+        WxTabSpuList.setSpecItems(WxTabSpuList.getSpecItems().replaceAll("\"","'"));
+        WxTabSpuList.setParaItems(WxTabSpuList.getParaItems().replaceAll("\"","'"));
         List<WxTabSku>  WxTabSkuList= productDetailsDao.productDetailsWxTabSkuList(id);  //wx_tab_sku表
+        List<WxTabSku> WxTabSkuListcz=new ArrayList<>();
+        for (WxTabSku wxTabSkuList:WxTabSkuList) {
+            wxTabSkuList.setSpec(wxTabSkuList.getSpec().replaceAll("\"","'"));
+            WxTabSkuListcz.add(wxTabSkuList);
+        }
         Map<String,Object> maps=new HashMap<>();
         maps.put("spu",WxTabSpuList);
-        maps.put("skuList",WxTabSkuList);
+        maps.put("skuList",WxTabSkuListcz);
         return WebTools.returnData(maps,0);
     }
 
     @Override
-    public List<ProductSearch> search(String conditionpara,String categoryId3) {
+    public List<ProductSearch> search(String conditionpara) {
 
-        Integer cateid = null;
-        if (categoryId3!=null){
-            cateid = Integer.valueOf(categoryId3);
-        }
-        List<ProductSearch> list = productDetailsDao.search(conditionpara,cateid);
+        List<ProductSearch> list = productDetailsDao.search(conditionpara);
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getParaItems()!=null&&list.get(i).getParaItems().indexOf("\"")>0){
                 list.get(i).setParaItems(list.get(i).getParaItems().replace("\"","\'"));

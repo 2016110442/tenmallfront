@@ -84,7 +84,6 @@ public class CartService implements CartServiceImpl {
         List<Map<String,Object>> lists=new ArrayList<>();
         try {
         for(WxTabCart spuidskuid:wxTabCarts){//
-
             Map<String,Object> maps=cartDao.findCartSpuTab(spuidskuid.getSpuId());
             if(maps==null){return returnData(lists,0);}
             String paraItems=((String)maps.get("para_items")).replaceAll("\"","'");
@@ -94,18 +93,13 @@ public class CartService implements CartServiceImpl {
             maps.remove("spec_items");
             maps.put("spec_items",specItems);
             WxTabSku wxTabSkulists=cartDao.findCartSkuTab(spuidskuid.getSkuId());
-
+            wxTabSkulists.setSpec(wxTabSkulists.getSpec().replaceAll("\"","'"));
             maps.put("skuList",wxTabSkulists);
             maps.put("skuid",spuidskuid.getSkuId());
             maps.put("cartNum", spuidskuid.getNum());
             maps.put("cartId", spuidskuid.getId());
             maps.put("cartSprc", spuidskuid.getSpec());
-
-            try {
-                maps.put("subtotal",spuidskuid.getNum()*wxTabSkulists.getPrice());
-            }catch (Exception e){
-                maps.put("subtotal",1999);
-            }
+            maps.put("subtotal",spuidskuid.getNum()*wxTabSkulists.getPrice());
             lists.add(maps);
         }
         }catch (Exception e){
