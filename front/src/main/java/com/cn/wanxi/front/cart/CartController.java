@@ -46,13 +46,13 @@ public class CartController {
         if(StringUtils.isEmpty(object.getString("spuId")))return returnData("spuId不能为空",1);
         if(StringUtils.isEmpty(object.getString("skuId")))return returnData("skuId不能为空",1);
         if(StringUtils.isEmpty(object.getString("num")))return returnData("num不能为空",1);
-        if(StringUtils.isEmpty(object.getString("spec")))return returnData("Spec不能为空",1);
+        //if(StringUtils.isEmpty(object.getString("spec")))return returnData("Spec不能为空",1);
         WxTabCart wxTabCart=new WxTabCart();
 
         wxTabCart.setNum(Integer.valueOf(object.getString("num")));
         wxTabCart.setSkuId(Integer.valueOf(object.getString("skuId")));
         wxTabCart.setSpuId(Integer.valueOf(object.getString("spuId")));
-        wxTabCart.setSpec(object.getString("spec"));
+        //wxTabCart.setSpec(object.getString("spec"));
         wxTabCart.setUsername(JWT.decode(token).getAudience().get(0));
         return cartService.addCart(wxTabCart);
     }
