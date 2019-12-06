@@ -38,10 +38,10 @@ import static com.cn.wanxi.util.WebTools.returnData;
 public class UserController {
     @Autowired(required = false)
     private UserService userService;
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
     public Object userLogin(@RequestBody Map<String,Object> param,HttpSession session,HttpServletResponse response){
-
-        Map<String,String> map=new HashMap<>();
+        System.out.println(param);
+        Map<String,Object> map=new HashMap<>();
         String phone=(String) param.get("phone");
         String password=(String) param.get("password");
         if(phone.matches("^\\d{11}$")==false||phone==null){
@@ -58,15 +58,15 @@ public class UserController {
             TokenServiceImpl tokenService = new TokenServiceImpl();
             String token = tokenService.getToken(u);
             map.put("token", token);
-
             response.setHeader("token",token);
             session.setAttribute("username",phone);
             Cookie cookie=new Cookie("username",phone);
             cookie.setMaxAge(1800);
             response.addCookie(cookie);
-            return WebTools.returnData("登录成功",0);
+            map.put("code",0);
+            map.put("message","登录成功");
+            return map;
         }
-
         return WebTools.returnData("登录失败",1);
     }
     /**

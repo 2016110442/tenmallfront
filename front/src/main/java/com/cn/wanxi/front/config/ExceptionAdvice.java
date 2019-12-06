@@ -1,5 +1,6 @@
 package com.cn.wanxi.front.config;
 
+import com.cn.wanxi.util.WebTools;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,9 +24,7 @@ public class ExceptionAdvice {
      * @return
      */
     @ExceptionHandler(value = ConstraintViolationException.class)
-    public Map ConstraintViolationExceptionHandler(ConstraintViolationException ex) {
-        Map map = new HashMap();
-
+    public Object ConstraintViolationExceptionHandler(ConstraintViolationException ex) {
         Set<ConstraintViolation<?>> constraintViolations = ex.getConstraintViolations();
 
         Iterator<ConstraintViolation<?>> iterator = constraintViolations.iterator();
@@ -36,19 +35,14 @@ public class ExceptionAdvice {
             ConstraintViolation<?> cvl = iterator.next();
             msgList.add(cvl.getMessageTemplate());
         }
-        map.put("msg",msgList);
-        return map;
+        return  WebTools.returnData(msgList,1);
     }
     @ExceptionHandler(value = NullPointerException.class)
     public Map numberExceptionHandler(){
-        Map map = new HashMap();
-        map.put("msg","参数不能为空");
-        return map;
+        return WebTools.returnData("参数不能为空",1);
     }
     @ExceptionHandler(value = NumberFormatException.class)
     public Map NumberFormatExceptionHandler(){
-        Map map = new HashMap();
-        map.put("msg","请输入正确类型参数");
-        return map;
+        return WebTools.returnData("请输入正确参数",1);
     }
 }
