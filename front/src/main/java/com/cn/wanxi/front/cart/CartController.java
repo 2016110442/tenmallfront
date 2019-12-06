@@ -1,5 +1,7 @@
 package com.cn.wanxi.front.cart;
 
+
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.auth0.jwt.JWT;
@@ -107,8 +109,11 @@ public class CartController {
      * @return
      */
     @PostMapping(value = "/getSkuid", produces = "application/json;charset=UTF-8")
-    public Object getSkuid(@RequestBody Map<String, Object> param){
-        return cartService.getSkuid((int) param.get("spuid"),(String) param.get("spec"));
+    public Object getSkuid(@RequestBody String param){
+        JSONObject object=JSON.parseObject(param);
+        System.out.println(object.get("spec").toString());
+      return cartService.getSkuid((int) object.get("spuid"),object.get("spec").toString());
+
     }
     /**
      * 1.2.7.6.查看产品详情接口

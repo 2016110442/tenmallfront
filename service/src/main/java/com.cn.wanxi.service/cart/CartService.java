@@ -98,7 +98,6 @@ public class CartService implements CartServiceImpl {
             maps.put("skuid",spuidskuid.getSkuId());
             maps.put("cartNum", spuidskuid.getNum());
             maps.put("cartId", spuidskuid.getId());
-            maps.put("cartSprc", spuidskuid.getSpec());
             maps.put("subtotal",spuidskuid.getNum()*wxTabSkulists.getPrice());
             lists.add(maps);
         }

@@ -40,20 +40,20 @@ public interface CartDao {
     List<WxTabCart> findCartSpuidSkuid(@Param("page") int page,@Param("size") int size,@Param("userName") String userName);
 
 
-    Map<String,Object> findCartSpuTab(Integer spuId);
+    Map<String,Object> findCartSpuTab(@Param("spuId") Integer spuId);
 
 
-    WxTabSku findCartSkuTab(Integer skuId);
+    WxTabSku findCartSkuTab(@Param("skuId") Integer skuId);
 
-    List<WxTabSku> findCartSkuTabList(Integer skuId);
+    List<WxTabSku> findCartSkuTabList(@Param("skuId") Integer skuId);
     /**
      *  1.2.7.5.获取商品skuid接口
      */
 
-    WxTabSku getSkuid(@Param("spuid") int spuid,@Param("spec")  String spec);
+    WxTabSku getSkuid(@Param("spuid") int spuid,@Param("spec") String spec);
 
 
-    WxTabCart findCartTab(int id);
+    WxTabCart findCartTab(@Param("id") int id);
 
 
 
