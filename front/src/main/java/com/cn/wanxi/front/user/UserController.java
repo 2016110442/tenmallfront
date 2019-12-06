@@ -38,9 +38,9 @@ import static com.cn.wanxi.util.WebTools.returnData;
 public class UserController {
     @Autowired(required = false)
     private UserService userService;
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
     public Object userLogin(@RequestBody Map<String,Object> param,HttpSession session,HttpServletResponse response){
-
+        System.out.println(param);
         Map<String,Object> map=new HashMap<>();
         String phone=(String) param.get("phone");
         String password=(String) param.get("password");

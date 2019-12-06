@@ -39,7 +39,7 @@ public class CartController {
      * spuId	true	varchar	商品id
      * Spec	    True	Varchar	规格参数，json格式，以逗号分开
      */
-    @PostMapping(value = "/addCart", produces = "application/json;charset=UTF-8")
+    @PostMapping(value = "/addCart")
     public Map<String,Object> addCart(@RequestBody String caerString, HttpServletRequest request){
         JSONObject object= JSON.parseObject(caerString);
         String token= request.getHeader("token");
