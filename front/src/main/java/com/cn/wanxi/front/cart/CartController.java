@@ -98,7 +98,7 @@ public class CartController {
         if(StringUtils.isEmpty(param.get("page"))) return returnData("page不能为空",1);
         if(StringUtils.isEmpty(param.get("size")))return returnData("size不能为空",1);
         String token= request.getHeader("token");
-        return cartService.findCartList(Integer.parseInt(param.get("page"))*Integer.parseInt(param.get("size")),Integer.parseInt(param.get("size")),JWT.decode(token).getAudience().get(0));
+        return cartService.findCartList((Integer.parseInt(param.get("page"))-1)*Integer.parseInt(param.get("size")),Integer.parseInt(param.get("size")),JWT.decode(token).getAudience().get(0));
     }
 
 
