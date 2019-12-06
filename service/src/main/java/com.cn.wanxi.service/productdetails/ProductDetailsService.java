@@ -61,7 +61,7 @@ public class ProductDetailsService implements ProductDetailsServiceImpl {
     }
 
     @Override
-    public List<ProductSearch> searchTwo(String categoryId3) {
+    public List<ProductSearch> searchTwo(Integer categoryId3) {
         Integer cateid = null;
         if (categoryId3!=null){
             cateid = Integer.valueOf(categoryId3);

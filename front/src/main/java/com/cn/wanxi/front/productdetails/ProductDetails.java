@@ -35,15 +35,12 @@ public class ProductDetails {
     @RequestMapping(value = "/search",method = RequestMethod.POST)
     public Map<String, Object> search(@RequestBody Map<String, String> param){
         String conditionpara = param.get("keyword");
-        String categoryId3 = param.get("categoryid");
-
-        if (conditionpara!=""&&categoryId3==""){
-            return WebTools.returnData(productDetailsServiceImpl.search(conditionpara,null),0);
-        }
-        if (conditionpara==""&&categoryId3!=""){
+        String stataid = param.get("codestate");
+        if (Integer.valueOf(stataid)==1){
+            Integer categoryId3 = Integer.valueOf(conditionpara);
             return WebTools.returnData(productDetailsServiceImpl.searchTwo(categoryId3),0);
         }
-        return WebTools.returnData(productDetailsServiceImpl.search("",null),0);
+        return WebTools.returnData(productDetailsServiceImpl.search(conditionpara,null),0);
 
     }
 

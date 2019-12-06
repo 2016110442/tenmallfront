@@ -16,6 +16,6 @@ public interface ProductDetailsServiceImpl  {
     Map<String,Object> productDetails(int id);
 
     List<ProductSearch> search(String conditionpara,String categoryId3);
-    List<ProductSearch> searchTwo(String categoryId3);
+    List<ProductSearch> searchTwo(Integer categoryId3);
 
 }
