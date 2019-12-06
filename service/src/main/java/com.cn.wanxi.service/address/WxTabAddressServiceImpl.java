@@ -46,7 +46,11 @@ public class WxTabAddressServiceImpl implements WxTabAddressService {
     }
 
     @Override
-    public boolean add(WxTabAddress address) {
+    public boolean add(WxTabAddress address, HttpServletRequest request) {
+        String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
+        if(!StringUtils.isEmpty(phone)){
+            address.setUsername(phone);
+        }
         Integer num = wxTabAddressDao.insert(address);
         if(num == 1){
             return true;

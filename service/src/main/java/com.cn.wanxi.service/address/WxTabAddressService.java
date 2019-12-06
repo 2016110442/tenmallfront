@@ -20,7 +20,7 @@ public interface WxTabAddressService {
     List<WxTabAddress> find(WxTabAddress address);
 
     //添加
-    boolean add(WxTabAddress address);
+    boolean add(WxTabAddress address, HttpServletRequest request);
 
     //修改
     boolean update(WxTabAddress address, HttpServletRequest request);

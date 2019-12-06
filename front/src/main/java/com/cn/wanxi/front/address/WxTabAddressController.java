@@ -95,7 +95,7 @@ public class WxTabAddressController {
             }
         }
 
-        boolean flag =wxTabAddressService.add(address);
+        boolean flag =wxTabAddressService.add(address,request);
         if(flag){
             return WebTools.returnData("添加成功",0);
         }
