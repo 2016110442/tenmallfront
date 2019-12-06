@@ -113,9 +113,10 @@ public class UserController {
      * @return
      */
     @PostMapping(value = "/findOne", produces = "application/json;charset=UTF-8")
-    public Object findMessage(@RequestBody Map<String, String> param){
-        if(StringUtils.isEmpty(param.get("phone")))return returnData("phone不能为空",1);
-        return userService.findMessage(param.get("phone"));
+    public Object findMessage(HttpServletResponse response){
+        String token = response.getHeader("token");
+
+        return userService.findMessage(JWT.decode(token).getAudience().get(0));
     }
 
     /**
