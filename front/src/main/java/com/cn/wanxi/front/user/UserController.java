@@ -113,9 +113,8 @@ public class UserController {
      * @return
      */
     @PostMapping(value = "/findOne", produces = "application/json;charset=UTF-8")
-    public Object findMessage(HttpServletResponse response){
-        String token = response.getHeader("token");
-
+    public Object findMessage(HttpServletRequest request){
+        String token = request.getHeader("token");
         return userService.findMessage(JWT.decode(token).getAudience().get(0));
     }
 

@@ -1,15 +1,11 @@
 package com.cn.wanxi.front.categorynav;
 
-import com.cn.wanxi.model.categorynav.Category;
 import com.cn.wanxi.service.categorynav.CategoryService;
 import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import java.util.List;
 import java.util.Map;
 
 /**
