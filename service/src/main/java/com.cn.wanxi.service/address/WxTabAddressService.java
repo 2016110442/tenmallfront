@@ -17,7 +17,7 @@ public interface WxTabAddressService {
     WxTabAddress get(String id);
 
     //查询多个
-    List<WxTabAddress> find(WxTabAddress address);
+    List<WxTabAddress> find(WxTabAddress address, HttpServletRequest request);
 
     //添加
     boolean add(WxTabAddress address, HttpServletRequest request);

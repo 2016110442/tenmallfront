@@ -49,8 +49,8 @@ public class WxTabAddressController {
     private UserService userService;
 
     @RequestMapping(value = "/address/listAddress",method = RequestMethod.POST)
-    public Map<String, Object> list(){
-        return WebTools.returnData(wxTabAddressService.find(new WxTabAddress()),0);
+    public Map<String, Object> list(HttpServletRequest request){
+        return WebTools.returnData(wxTabAddressService.find(new WxTabAddress(),request),0);
     }
 
     @RequestMapping(value = "/address/addAddress",method = RequestMethod.POST)

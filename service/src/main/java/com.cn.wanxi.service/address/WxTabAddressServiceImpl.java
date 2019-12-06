@@ -34,7 +34,11 @@ public class WxTabAddressServiceImpl implements WxTabAddressService {
     }
 
     @Override
-    public List<WxTabAddress> find(WxTabAddress address) {
+    public List<WxTabAddress> find(WxTabAddress address, HttpServletRequest request) {
+        String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
+        if(!StringUtils.isEmpty(phone)){
+            address.setUsername(phone);
+        }
         List<WxTabAddress> wxTabAddresses = wxTabAddressDao.find(address);
         List<WxTabAddress> updateWxTabAddresses = new ArrayList<>();
         for (WxTabAddress wxTabAddress:wxTabAddresses) {
