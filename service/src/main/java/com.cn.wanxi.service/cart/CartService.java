@@ -93,7 +93,7 @@ public class CartService implements CartServiceImpl {
             maps.remove("spec_items");
             maps.put("spec_items",specItems);
             WxTabSku wxTabSkulists=cartDao.findCartSkuTab(spuidskuid.getSkuId());
-
+            wxTabSkulists.setSpec(wxTabSkulists.getSpec().replaceAll("\"","'"));
             maps.put("skuList",wxTabSkulists);
             maps.put("skuid",spuidskuid.getSkuId());
             maps.put("cartNum", spuidskuid.getNum());
