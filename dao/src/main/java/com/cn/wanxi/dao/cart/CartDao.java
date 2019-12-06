@@ -37,7 +37,7 @@ public interface CartDao {
      *  1.2.7.4.购物车列表接口
      */
 
-    List<WxTabCart> findCartSpuidSkuid(@Param("page") int page,@Param("size") int size,@Param("userName") String userName);
+    List<WxTabCart> findCartSpuidSkuid(@Param("userName") String userName);
 
 
     Map<String,Object> findCartSpuTab(@Param("spuId") Integer spuId);
