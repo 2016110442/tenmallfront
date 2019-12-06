@@ -26,10 +26,17 @@ public class ProductDetailsService implements ProductDetailsServiceImpl {
      ProductDetailsDao productDetailsDao;
     public Map<String,Object> productDetails(int id) {
         WxTabSpu WxTabSpuList= productDetailsDao.productDetailsWxTabSpuList(id);   //wx_tab_spu表
+        WxTabSpuList.setSpecItems(WxTabSpuList.getSpecItems().replaceAll("\"","'"));
+        WxTabSpuList.setParaItems(WxTabSpuList.getParaItems().replaceAll("\"","'"));
         List<WxTabSku>  WxTabSkuList= productDetailsDao.productDetailsWxTabSkuList(id);  //wx_tab_sku表
+        List<WxTabSku> WxTabSkuListcz=new ArrayList<>();
+        for (WxTabSku wxTabSkuList:WxTabSkuList) {
+            wxTabSkuList.setSpec(wxTabSkuList.getSpec().replaceAll("\"","'"));
+            WxTabSkuListcz.add(wxTabSkuList);
+        }
         Map<String,Object> maps=new HashMap<>();
         maps.put("spu",WxTabSpuList);
-        maps.put("skuList",WxTabSkuList);
+        maps.put("skuList",WxTabSkuListcz);
         return WebTools.returnData(maps,0);
     }
 
