@@ -60,4 +60,9 @@ public class WxTabOrderItemServiceImpl implements WxTabOrderItemService {
     public WxTabOrderItem get(String id) {
         return wxTabOrderItemMapper.get(id);
     }
+
+    @Override
+    public int update(WxTabOrderItem record) {
+        return wxTabOrderItemMapper.update(record);
+    }
 }
