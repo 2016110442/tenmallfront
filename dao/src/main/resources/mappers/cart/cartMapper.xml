@@ -11,11 +11,11 @@
 </insert>
 <!--    1.2.7.2.修改商品数量接口-->
     <update id="updateNum">
-        update wx_tab_cart set num=#{num} where id=#{id}
+        update wx_tab_cart set num=#{num} where id=#{id} and username=#{username}
     </update>
 <!--    1.2.7.3.移除购物车接口-->
     <delete id="deleteCart">
-        delete from wx_tab_cart where id=#{id}
+        delete from wx_tab_cart where id=#{id} and username=#{username}
     </delete>
 <!--    1.2.7.4.购物车列表接口-->
     <select id="findCartSpuidSkuid" resultType="com.cn.wanxi.model.cart.WxTabCart">

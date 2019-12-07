@@ -52,8 +52,8 @@ public class CartService implements CartServiceImpl {
      * @return
      */
     @Override
-    public Map<String, Object> updateNum(int id,String num) {
-        int returnInt=cartDao.updateNum(id,num);
+    public Map<String, Object> updateNum(int id,String num,String uaername) {
+        int returnInt=cartDao.updateNum(id,num,uaername);
         Map<String, Object> maps= new HashMap<>();
         if(returnInt>0){
             return returnData("修改数量成功",0);
@@ -66,8 +66,8 @@ public class CartService implements CartServiceImpl {
      * @return
      */
     @Override
-    public Map<String, Object> deleteCart(int id) {
-        int returnInt=cartDao.deleteCart(id);
+    public Map<String, Object> deleteCart(int id,String uaername) {
+        int returnInt=cartDao.deleteCart(id,uaername);
         Map<String, Object> maps= new HashMap<>();
         if(returnInt>0){
             return returnData("删除成功",0);
