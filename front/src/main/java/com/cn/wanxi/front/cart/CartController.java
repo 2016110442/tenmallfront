@@ -1,5 +1,7 @@
 package com.cn.wanxi.front.cart;
 
+
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.auth0.jwt.JWT;
@@ -65,11 +67,11 @@ public class CartController {
      * @return
      */
     @PostMapping(value = "/updateNum", produces = "application/json;charset=UTF-8")
-    public Map<String,Object> updateNum(@RequestBody Map<String, String> param){
+    public Map<String,Object> updateNum(@RequestBody Map<String, String> param, HttpServletRequest request){
         if(StringUtils.isEmpty(param.get("cartId")))return returnData("cartId不能为空",1);
         if(StringUtils.isEmpty(param.get("num")))return returnData("num不能为空",1);
-
-        return cartService.updateNum(Integer.parseInt(param.get("cartId")),param.get("num"));
+        String token= request.getHeader("token");
+        return cartService.updateNum(Integer.parseInt(param.get("cartId")),param.get("num"),JWT.decode(token).getAudience().get(0));
     }
 
     /**
@@ -78,10 +80,10 @@ public class CartController {
      * @return
      */
     @PostMapping(value = "/deleteCart", produces = "application/json;charset=UTF-8")
-    public Object deleteCart(@RequestBody Map<String, String> param){
+    public Object deleteCart(@RequestBody Map<String, String> param, HttpServletRequest request){
         if(StringUtils.isEmpty(param.get("cartId")))return returnData("id不能为空",1);
-
-        return cartService.deleteCart(Integer.parseInt(param.get("cartId")));
+        String token= request.getHeader("token");
+        return cartService.deleteCart(Integer.parseInt(param.get("cartId")),JWT.decode(token).getAudience().get(0));
     }
 
     /**
@@ -96,7 +98,8 @@ public class CartController {
         if(StringUtils.isEmpty(param.get("page"))) return returnData("page不能为空",1);
         if(StringUtils.isEmpty(param.get("size")))return returnData("size不能为空",1);
         String token= request.getHeader("token");
-        return cartService.findCartList(Integer.parseInt(param.get("page"))*Integer.parseInt(param.get("size")),Integer.parseInt(param.get("size")),JWT.decode(token).getAudience().get(0));
+
+        return cartService.findCartList(Integer.parseInt(param.get("page")),Integer.parseInt(param.get("size")),JWT.decode(token).getAudience().get(0));
     }
 
 
@@ -107,8 +110,11 @@ public class CartController {
      * @return
      */
     @PostMapping(value = "/getSkuid", produces = "application/json;charset=UTF-8")
-    public Object getSkuid(@RequestBody Map<String, Object> param){
-        return cartService.getSkuid((int) param.get("spuid"),(String) param.get("spec"));
+    public Object getSkuid(@RequestBody String param){
+        JSONObject object=JSON.parseObject(param);
+        System.out.println(object.get("spec").toString());
+      return cartService.getSkuid((int) object.get("spuid"),object.get("spec").toString());
+
     }
     /**
      * 1.2.7.6.查看产品详情接口
