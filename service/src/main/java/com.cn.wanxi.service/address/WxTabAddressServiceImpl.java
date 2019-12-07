@@ -81,6 +81,7 @@ public class WxTabAddressServiceImpl implements WxTabAddressService {
                 List<User> users = userService.findByPhone(phone);
                 if(users.size()>0){
                     wxTabAddressDao.updateIsDefault("1",users.get(0).getUsername());
+                    address.setUsername(users.get(0).getUsername());
                 }
             }else{
                 wxTabAddressDao.updateIsDefault("1","");
