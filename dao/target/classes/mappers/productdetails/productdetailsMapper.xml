@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -75,3 +76,5 @@
     </select>
 
 </mapper>
+=======
+>>>>>>> c1e44eac10b7d9937e62e084fe166b58354f6ccf
