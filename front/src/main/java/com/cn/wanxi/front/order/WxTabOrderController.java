@@ -3,6 +3,7 @@ package com.cn.wanxi.front.order;
 import com.auth0.jwt.JWT;
 import com.cn.wanxi.model.order.WxOrderVO;
 import com.cn.wanxi.service.order.WxTabOrderService;
+import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,19 +31,17 @@ public class WxTabOrderController {
         String username = JWT.decode(token).getAudience().get(0);
         Map<String,Object> result = new HashMap<>();
         if (wxOrderVO==null){
-            result.put("code","1");
-            result.put("payUrl","你想干哈");
+            return WebTools.returnData("你想干哈",1);
         }else {
             int i = wxTabOrderService.insert(wxOrderVO,username);
             if (i==1){
-                result.put("code","0");
-                result.put("payUrl","http://alipay.com/pay.jpg");
+                return WebTools.returnData("http://alipay.com/pay.jpg",0);
+
             }else{
-                result.put("code","1");
-                result.put("message","对不起，有必填项为空了");
+                return WebTools.returnData("对不起，有必填项为空了",1);
+
             }
         }
-        return result;
     }
 
 
