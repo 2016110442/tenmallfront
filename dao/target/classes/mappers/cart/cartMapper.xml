@@ -6,8 +6,8 @@
 <!--    1.2.7.1. 添加购物车接口-->
 <insert id="addCart" parameterType="com.cn.wanxi.model.cart.WxTabCart" >
          insert into
-        wx_tab_cart(spu_id,username,spec,num)
-        values(#{wxTabCart.spuId},#{wxTabCart.username},#{wxTabCart.spec},#{wxTabCart.num})
+        wx_tab_cart(spu_id,sku_id,username,spec,num)
+        values(#{wxTabCart.spuId},#{wxTabCart.skuId},#{wxTabCart.username},#{wxTabCart.spec},#{wxTabCart.num})
 </insert>
 <!--    1.2.7.2.修改商品数量接口-->
     <update id="updateNum">
@@ -30,7 +30,14 @@
          SELECT id,sn,num,alert_num,price,spec,image,
             images,`status`,weight
          from wx_tab_sku
-         WHERE spu_id=#{spuId}
+         WHERE id=#{skuId}
+
+    </select>
+    <select id="findCartSkuTabList" resultType="com.cn.wanxi.model.cart.WxTabSku">
+         SELECT id,sn,num,alert_num,price,spec,image,
+            images,`status`,weight
+         from wx_tab_sku
+         WHERE id=#{skuId}
 
     </select>
 <!--    1.2.7.5.获取商品skuid接口-->

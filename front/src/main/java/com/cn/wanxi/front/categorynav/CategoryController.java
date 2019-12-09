@@ -1,15 +1,11 @@
 package com.cn.wanxi.front.categorynav;
 
-import com.cn.wanxi.model.categorynav.Category;
 import com.cn.wanxi.service.categorynav.CategoryService;
 import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,8 +26,8 @@ public class CategoryController {
      * @return
      */
     @PostMapping("/categoryNav")
-    public List<Category> getCategorys(){
-       return categoryService.getCategorys();
+    public Object getCategorys(){
+       return WebTools.returnData(categoryService.getCategorys(),0);
     }
 
     /**
@@ -45,14 +41,14 @@ public class CategoryController {
         if(parentId.matches("^[0-9]*$")==false||parentId==null){
             return WebTools.returnData("请输入正确参数",1);
         }
-        return categoryService.getCateByPid(Integer.valueOf(parentId));
+        return WebTools.returnData(categoryService.getCateByPid(Integer.valueOf(parentId)),0);
     }
     /**
      * 查询所有分类及其子分类
      * @return
      */
     @PostMapping("/categoryBySub")
-    public List<Category> getCategoryBySub(){
-        return categoryService.getCategoryBySub();
+    public Object getCategoryBySub(){
+        return WebTools.returnData(categoryService.getCategoryBySub(),1);
     }
 }

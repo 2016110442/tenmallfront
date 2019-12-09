@@ -16,14 +16,18 @@ public class WebTools {
 
     /**
      * 返回数据
-     * @param message 消息
+     * @param object 返回的数据
      * @param code code
      * @return map集合
      */
-    public static Map<String,Object> returnData(String message,Integer code){
+    public static Map<String,Object> returnData(Object object,Integer code){
         Map<String,Object> map = new HashMap<>();
         map.put("code",code);
-        map.put("message",message);
+        if(code == 0){
+            map.put("data",object);
+        }else{
+            map.put("message",object);
+        }
         return map;
     }
 

@@ -27,31 +27,33 @@ public interface CartDao {
      *  1.2.7.2.修改商品数量接口
      */
 
-    int updateNum(@Param("id") int id, @Param("num") String num);
+    int updateNum(@Param("id") int id, @Param("num") String num,@Param("uaername") String uaername);
     /**
      *  1.2.7.3.移除购物车接口
      */
 
-    int deleteCart(int id);
+    int deleteCart(@Param("id")int id,@Param("username")String username);
     /**
      *  1.2.7.4.购物车列表接口
      */
 
-    List<WxTabCart> findCartSpuidSkuid(@Param("page") int page,@Param("size") int size,@Param("userName") String userName);
+    List<WxTabCart> findCartSpuidSkuid(@Param("userName") String userName);
 
 
-    Map<String,Object> findCartSpuTab(Integer spuId);
+    Map<String,Object> findCartSpuTab(@Param("spuId") Integer spuId);
 
 
-    List<WxTabSku> findCartSkuTab(Integer spuId);
+    WxTabSku findCartSkuTab(@Param("skuId") Integer skuId);
+
+    List<WxTabSku> findCartSkuTabList(@Param("skuId") Integer skuId);
     /**
      *  1.2.7.5.获取商品skuid接口
      */
 
-    WxTabSku getSkuid(@Param("spuid") int spuid,@Param("spec")  String spec);
+    WxTabSku getSkuid(@Param("spuid") int spuid,@Param("spec") String spec);
 
 
-    WxTabCart findCartTab(int id);
+    WxTabCart findCartTab(@Param("id") int id);
 
 
 

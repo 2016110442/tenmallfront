@@ -34,7 +34,15 @@ public class WxTabAddressServiceImpl implements WxTabAddressService {
     }
 
     @Override
-    public List<WxTabAddress> find(WxTabAddress address) {
+    public List<WxTabAddress> find(WxTabAddress address, HttpServletRequest request) {
+        String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
+        if(!StringUtils.isEmpty(phone)){
+            List<User> users = userService.findByPhone(phone);
+            if(users.size()>0){
+                address.setUsername(users.get(0).getUsername());
+            }
+
+        }
         List<WxTabAddress> wxTabAddresses = wxTabAddressDao.find(address);
         List<WxTabAddress> updateWxTabAddresses = new ArrayList<>();
         for (WxTabAddress wxTabAddress:wxTabAddresses) {
@@ -46,7 +54,15 @@ public class WxTabAddressServiceImpl implements WxTabAddressService {
     }
 
     @Override
-    public boolean add(WxTabAddress address) {
+    public boolean add(WxTabAddress address, HttpServletRequest request) {
+        String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
+        if(!StringUtils.isEmpty(phone)){
+            List<User> users = userService.findByPhone(phone);
+            if(users.size()>0){
+                address.setUsername(users.get(0).getUsername());
+            }
+
+        }
         Integer num = wxTabAddressDao.insert(address);
         if(num == 1){
             return true;
@@ -57,17 +73,23 @@ public class WxTabAddressServiceImpl implements WxTabAddressService {
     @Override
     @Transactional
     public boolean update(WxTabAddress address, HttpServletRequest request) {
+        String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
         if(address.getIsDefault().equals("0")){
             //获取用户信息
 //            String phone = WebTools.getSession("username");
-            String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
             if(!StringUtils.isEmpty(phone)){
                 List<User> users = userService.findByPhone(phone);
                 if(users.size()>0){
                     wxTabAddressDao.updateIsDefault("1",users.get(0).getUsername());
+                    address.setUsername(users.get(0).getUsername());
                 }
             }else{
                 wxTabAddressDao.updateIsDefault("1","");
+            }
+        }else{
+            List<User> users = userService.findByPhone(phone);
+            if(users.size()>0){
+                address.setUsername(users.get(0).getUsername());
             }
         }
 

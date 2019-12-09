@@ -9,6 +9,7 @@ import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
+import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -46,26 +47,18 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public Map<String,String > register(String phone,
+    public Object register(String phone,
                                         String code,
                                         String password){
-        Map<String,String> msg=new HashMap<>();
         String pass=userDao.findPassByPhone(phone);
         if(pass!=null){
-            msg.put("code","2");
-            msg.put("message","注册失败，用户已经存在");
-            return msg;
+            return WebTools.returnData("注册失败，用户已经存在",1);
         }
         if(redisUtil.isCodeExist(phone,code)){
-            msg.put("code","0");
-            msg.put("message","注册成功");
             addUser(phone,DigestUtils.md5DigestAsHex(password.getBytes()));//密码使用MD5加密
-            return msg;
-        }else {
-            msg.put("code","1");
-            msg.put("message","验证码错误，注册失败");
+            return WebTools.returnData("注册成功",0);
         }
-        return msg;
+        return WebTools.returnData("验证码错误",1);
     }
 
     /**
@@ -91,8 +84,12 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public User findMessage(String phone) {
-        return userDao.findMessages(phone);
+    public Object findMessage(String phone) {
+        User user=userDao.findMessages(phone);
+        if(StringUtils.isEmpty(user) && user.equals("[]")){
+            return returnData("个人信息查询失败",1);
+        }
+        return returnData(user,0);
     }
 
     /**

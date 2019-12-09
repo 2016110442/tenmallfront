@@ -25,10 +25,10 @@ public class WxTabOrderController {
     private WxTabOrderService wxTabOrderService;
 
     @RequestMapping(value = "/submit",method = RequestMethod.POST)
-    public Map<String,String> insert(@RequestBody(required = false) WxOrderVO wxOrderVO, HttpServletRequest request){
+    public Map<String,Object> insert(@RequestBody(required = false) WxOrderVO wxOrderVO, HttpServletRequest request){
         String token = request.getHeader("token");
         String username = JWT.decode(token).getAudience().get(0);
-        Map<String,String> result = new HashMap<>();
+        Map<String,Object> result = new HashMap<>();
         if (wxOrderVO==null){
             result.put("code","1");
             result.put("payUrl","你想干哈");

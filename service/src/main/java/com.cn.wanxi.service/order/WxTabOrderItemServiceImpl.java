@@ -41,7 +41,6 @@ public class WxTabOrderItemServiceImpl implements WxTabOrderItemService {
 
     @Override
     public PageInfo<Map<String,Object>> pageByPayStatusAndConsignStatus(HttpServletRequest request,Integer page, Integer size, String payStatus, String consignStatus, String username) {
-        PageHelper.startPage(page,size);
         if(StringUtils.isEmpty(username)){
             //获取用户信息
 //            String phone = WebTools.getSession("username");
@@ -53,11 +52,17 @@ public class WxTabOrderItemServiceImpl implements WxTabOrderItemService {
                 }
             }
         }
+        PageHelper.startPage(page,size);
         return new PageInfo<Map<String,Object>>(wxTabOrderItemMapper.findByPayStatusAndConsignStatus(payStatus,consignStatus,username));
     }
 
     @Override
     public WxTabOrderItem get(String id) {
         return wxTabOrderItemMapper.get(id);
+    }
+
+    @Override
+    public int update(WxTabOrderItem record) {
+        return wxTabOrderItemMapper.update(record);
     }
 }

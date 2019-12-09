@@ -2,6 +2,7 @@ package com.cn.wanxi.front.hotsale;
 
 import com.cn.wanxi.model.cart.WxTabSpu;
 import com.cn.wanxi.service.hotsale.ProductHotsaleService;
+import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,7 @@ public class ProductHotsaleController {
      * @return
      */
     @RequestMapping(value = "/hotSale",method = RequestMethod.POST)
-    public List<WxTabSpu> getHotsaleProducts(){
-        return productHotsaleService.getHotsaleProducts();
+    public Object getHotsaleProducts(){
+        return WebTools.returnData(productHotsaleService.getHotsaleProducts(),0);
     }
 }

@@ -15,7 +15,7 @@ public interface UserDao {
 
 
 //    @Select("select * from wx_tab_user where phone=#{phone}")
-    List<User> findByPhone(String phone);
+    List<User> findByPhone(@Param("phone") String phone);
 
     /**
      * wxs

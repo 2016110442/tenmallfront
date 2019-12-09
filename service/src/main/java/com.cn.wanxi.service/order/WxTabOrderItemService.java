@@ -18,4 +18,6 @@ public interface WxTabOrderItemService {
     PageInfo<Map<String,Object>> pageByPayStatusAndConsignStatus(HttpServletRequest request, Integer page, Integer size, String payStatus, String consignStatus, String username);
 
     WxTabOrderItem get(String id);
+
+    int update(WxTabOrderItem record);
 }

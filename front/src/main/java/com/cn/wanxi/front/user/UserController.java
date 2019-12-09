@@ -38,10 +38,10 @@ import static com.cn.wanxi.util.WebTools.returnData;
 public class UserController {
     @Autowired(required = false)
     private UserService userService;
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
     public Object userLogin(@RequestBody Map<String,Object> param,HttpSession session,HttpServletResponse response){
-
-        Map<String,String> map=new HashMap<>();
+        System.out.println(param);
+        Map<String,Object> map=new HashMap<>();
         String phone=(String) param.get("phone");
         String password=(String) param.get("password");
         if(phone.matches("^\\d{11}$")==false||phone==null){
@@ -52,9 +52,6 @@ public class UserController {
         }
 
         if (userService.userLogin(phone,password)){
-            map.put("code","0");
-
-            map.put("message","登录成功");
             User u = new User();
             u.setPhone(phone);
             u.setPassword(password);
@@ -66,15 +63,14 @@ public class UserController {
             Cookie cookie=new Cookie("username",phone);
             cookie.setMaxAge(1800);
             response.addCookie(cookie);
+            map.put("code",0);
+            map.put("message","登录成功");
             return map;
         }
-        map.put("code","1");
-        map.put("message","登录失败");
-        return map;
+        return WebTools.returnData("登录失败",1);
     }
     /**
      *
-
      * @return msg
      */
     @RequestMapping(value = "/register",method = RequestMethod.POST)
@@ -117,9 +113,9 @@ public class UserController {
      * @return
      */
     @PostMapping(value = "/findOne", produces = "application/json;charset=UTF-8")
-    public Object findMessage(@RequestBody Map<String, String> param){
-        if(StringUtils.isEmpty(param.get("phone")))return returnData("phone不能为空",1);
-        return userService.findMessage(param.get("phone"));
+    public Object findMessage(HttpServletRequest request){
+        String token = request.getHeader("token");
+        return userService.findMessage(JWT.decode(token).getAudience().get(0));
     }
 
     /**

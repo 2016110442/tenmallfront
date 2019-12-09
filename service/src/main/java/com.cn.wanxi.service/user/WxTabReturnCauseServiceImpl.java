@@ -64,6 +64,12 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
     public boolean addAssociated(HttpServletRequest request, String orderId, String orderItemid, String evidence, String description, String returnCause, String type) {
         //退货退款原因表
         WxTabReturnCause wxTabReturnCause = new WxTabReturnCause();
+        String seq = wxTabReturnCauseDao.findMaxSeq();
+        if(StringUtils.isEmpty(seq)){
+            wxTabReturnCause.setSeq(1);
+        }else{
+            wxTabReturnCause.setSeq(Integer.valueOf(seq)+1);
+        }
         wxTabReturnCause.setCause(returnCause);
         boolean flag=add(wxTabReturnCause);
         if (flag) wxTabReturnCause=find(wxTabReturnCause);
@@ -73,6 +79,9 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
         if(wxTabOrderItem==null || wxTabOrder==null){
             return false;
         }
+        //更改订单是否退货状态
+        wxTabOrderItem.setIsReturn("1");
+        wxTabOrderItemService.update(wxTabOrderItem);
 
         //退货退款申请表
         WxTabReturnOrder wxTabReturnOrder = new WxTabReturnOrder();
@@ -134,6 +143,8 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
             wxTabReturnOrderItem.setCategoryId(wxTabOrderItem.getCategoryId2());
         }else if(wxTabOrderItem.getCategoryId3() != null && wxTabOrderItem.getCategoryId3()!= 0){
             wxTabReturnOrderItem.setCategoryId(wxTabOrderItem.getCategoryId3());
+        }else{
+            wxTabReturnOrderItem.setCategoryId(-1);
         }
         wxTabReturnOrderItem.setSpuId(wxTabOrderItem.getSpuId());
         wxTabReturnOrderItem.setSkuId(wxTabOrderItem.getSkuId());

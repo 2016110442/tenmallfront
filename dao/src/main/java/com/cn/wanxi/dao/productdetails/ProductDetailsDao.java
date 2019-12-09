@@ -19,13 +19,16 @@ import java.util.List;
 public interface ProductDetailsDao {
 
 
-    @Select("SELECT name,caption,brand_id,category1_id,category2_id,category3_id,\n" +
+    @Select("SELECT id,name,caption,brand_id,category1_id,category2_id,category3_id,\n" +
             "freight_id,image,images,introduction,para_items,sale_service,sn,spec_items,template_id from wx_tab_spu WHERE id=#{id}")
     WxTabSpu productDetailsWxTabSpuList(int id);
 
-    @Select("SELECT sn,num,alert_num,price,spec,image,\n" +
+    @Select("SELECT id,sn,num,alert_num,price,spec,image,\n" +
             "images,`status`,weight from wx_tab_sku WHERE spu_id=#{id}")
     List<WxTabSku> productDetailsWxTabSkuList(int id);
 
-    List<ProductSearch> search(String conditionpara,String categoryId3);
+    List<ProductSearch> search(String conditionpara);
+
+    List<ProductSearch> searchTwo(Integer categoryId3);
+
 }
