@@ -42,7 +42,7 @@ public class WxTabOrderServiceImpl implements WxTabOrderService {
         wxTabOrder.setTotalMoney(wxOrderVO.getTotalMoney());
         wxTabOrder.setPreMoney(0);
         wxTabOrder.setPostFee(0);
-        wxTabOrder.setPayMoney(wxOrderVO.getPayMoney());
+        wxTabOrder.setPayMoney(wxOrderVO.getTotalMoney());
         wxTabOrder.setPayType("支付宝");
 
         wxTabOrder.setUsername(username);
@@ -54,7 +54,10 @@ public class WxTabOrderServiceImpl implements WxTabOrderService {
         for (WxTabOrderItem w :
                 wxTabOrderItems) {
             w.setOrderId(wxTabOrder.getId());
+            w.setMoney(w.getPrice()*w.getNum());
+            w.setPayMoney(w.getPrice()*w.getNum());
         }
+
         wxTabOrderItemMapper.insertList(wxTabOrderItems);
         return 1;
     }
