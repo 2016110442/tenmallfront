@@ -45,14 +45,6 @@ public class ProductDetailsService implements ProductDetailsServiceImpl {
 
         List<ProductSearch> list = productDetailsDao.search(conditionpara);
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getParaItems()!=null&&list.get(i).getParaItems().indexOf("\"")>0){
-                list.get(i).setParaItems(list.get(i).getParaItems().replace("\"","\'"));
-            }
-            if (list.get(i).getSpecItems()!=null&&list.get(i).getSpecItems().indexOf("\"")>0){
-                list.get(i).setSpecItems(list.get(i).getSpecItems().replace("\"","\'"));
-            }
-        }
-        for (int i = 0; i < list.size(); i++) {
             list.get(i).setWxTabSku(productDetailsDao.productDetailsWxTabSkuList(list.get(i).getId()));
             for (int j = 0; j < list.get(i).getWxTabSku().size(); j++) {
                 if (list.get(i).getWxTabSku().get(j).getSpec()!=null&&list.get(i).getWxTabSku().get(j).getSpec().indexOf("\"")>0){
@@ -70,14 +62,6 @@ public class ProductDetailsService implements ProductDetailsServiceImpl {
             cateid = Integer.valueOf(categoryId3);
         }
         List<ProductSearch> list = productDetailsDao.searchTwo(cateid);
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getParaItems()!=null&&list.get(i).getParaItems().indexOf("\"")>0){
-                list.get(i).setParaItems(list.get(i).getParaItems().replace("\"","\'"));
-            }
-            if (list.get(i).getSpecItems()!=null&&list.get(i).getSpecItems().indexOf("\"")>0){
-                list.get(i).setSpecItems(list.get(i).getSpecItems().replace("\"","\'"));
-            }
-        }
         for (int i = 0; i < list.size(); i++) {
             list.get(i).setWxTabSku(productDetailsDao.productDetailsWxTabSkuList(list.get(i).getId()));
             for (int j = 0; j < list.get(i).getWxTabSku().size(); j++) {

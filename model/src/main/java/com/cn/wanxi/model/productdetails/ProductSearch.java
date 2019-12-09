@@ -17,10 +17,8 @@ public class ProductSearch {
     private String image;
     private String images;
     private String introduction;
-    private String paraItems;
     private String saleService;
     private String sn;
-    private String specItems;
     private Integer templateId;
     private List<WxTabSku> wxTabSku;
 
@@ -120,14 +118,6 @@ public class ProductSearch {
         this.introduction = introduction;
     }
 
-    public String getParaItems() {
-        return paraItems;
-    }
-
-    public void setParaItems(String paraItems) {
-        this.paraItems = paraItems;
-    }
-
     public String getSaleService() {
         return saleService;
     }
@@ -142,14 +132,6 @@ public class ProductSearch {
 
     public void setSn(String sn) {
         this.sn = sn;
-    }
-
-    public String getSpecItems() {
-        return specItems;
-    }
-
-    public void setSpecItems(String specItems) {
-        this.specItems = specItems;
     }
 
     public Integer getTemplateId() {

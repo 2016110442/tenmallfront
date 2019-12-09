@@ -33,17 +33,17 @@ public class WxTabOrderServiceImpl implements WxTabOrderService {
         }
         for (WxTabOrderItem w :
                 wxTabOrderItems) {
-            if (w.getPrice()==null||w.getNum()==null||w.getMoney()==null||w.getPayMoney()==null){
+            if (w.getPrice()==null||w.getNum()==null){
                 System.out.println("2");
                 return 0;
             }
         }
         wxTabOrder.setTotalNum(wxOrderVO.getTotalNum());
         wxTabOrder.setTotalMoney(wxOrderVO.getTotalMoney());
-        wxTabOrder.setPreMoney(wxOrderVO.getPreMoney());
-        wxTabOrder.setPostFee(wxOrderVO.getPostFee());
+        wxTabOrder.setPreMoney(0);
+        wxTabOrder.setPostFee(0);
         wxTabOrder.setPayMoney(wxOrderVO.getPayMoney());
-        wxTabOrder.setPayType(wxOrderVO.getPayType());
+        wxTabOrder.setPayType("支付宝");
 
         wxTabOrder.setUsername(username);
         wxTabOrder.setReceiverContact(wxOrderVO.getReceiverContact());
