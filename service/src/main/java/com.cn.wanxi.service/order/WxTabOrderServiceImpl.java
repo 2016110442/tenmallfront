@@ -33,16 +33,16 @@ public class WxTabOrderServiceImpl implements WxTabOrderService {
         }
         for (WxTabOrderItem w :
                 wxTabOrderItems) {
-            if (w.getPrice()==null||w.getNum()==null||w.getMoney()==null||w.getPayMoney()==null){
+            if (w.getPrice()==null||w.getNum()==null){
                 System.out.println("2");
                 return 0;
             }
         }
         wxTabOrder.setTotalNum(wxOrderVO.getTotalNum());
         wxTabOrder.setTotalMoney(wxOrderVO.getTotalMoney());
-        wxTabOrder.setPreMoney(wxOrderVO.getPreMoney());
-        wxTabOrder.setPostFee(wxOrderVO.getPostFee());
-        wxTabOrder.setPayMoney(wxOrderVO.getPayMoney());
+        wxTabOrder.setPreMoney(0);
+        wxTabOrder.setPostFee(0);
+        wxTabOrder.setPayMoney(wxOrderVO.getTotalMoney());
         wxTabOrder.setPayType(wxOrderVO.getPayType());
 
         wxTabOrder.setUsername(username);
@@ -54,6 +54,8 @@ public class WxTabOrderServiceImpl implements WxTabOrderService {
         for (WxTabOrderItem w :
                 wxTabOrderItems) {
             w.setOrderId(wxTabOrder.getId());
+            w.setMoney(w.getPrice()*w.getNum());
+            w.setPayMoney(w.getPrice()*w.getNum());
         }
         wxTabOrderItemMapper.insertList(wxTabOrderItems);
         return 1;
