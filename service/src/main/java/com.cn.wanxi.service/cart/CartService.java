@@ -91,17 +91,17 @@ public class CartService implements CartServiceImpl {
             Map<String,Object> maps=cartDao.findCartSpuTab(spuidskuid.getSpuId());
             if(maps!=null){
 
-
-            String paraItems=((String)maps.get("para_items")).replaceAll("\"","'");
-
-            maps.remove("para_items");
-            maps.put("para_items",paraItems);
-            String specItems=((String)maps.get("spec_items")).replaceAll("\"","'");
-            maps.remove("spec_items");
-            maps.put("spec_items",specItems);
+//
+//            String paraItems=((String)maps.get("para_items")).replaceAll("\"","'");
+//
+//            maps.remove("para_items");
+//            maps.put("para_items",paraItems);
+//            String specItems=((String)maps.get("spec_items")).replaceAll("\"","'");
+//            maps.remove("spec_items");
+//            maps.put("spec_items",specItems);
             WxTabSku wxTabSkulists=cartDao.findCartSkuTab(spuidskuid.getSkuId());
-
-            wxTabSkulists.setSpec(wxTabSkulists.getSpec().replaceAll("\"","'"));
+//
+//            wxTabSkulists.setSpec(wxTabSkulists.getSpec().replaceAll("\"","'"));
             maps.put("skuList",wxTabSkulists);
             maps.put("skuid",spuidskuid.getSkuId());
             maps.put("cartNum", spuidskuid.getNum());
@@ -143,12 +143,12 @@ public class CartService implements CartServiceImpl {
         List<Map<String,Object>> lists=new ArrayList<>();
         if(wxTabCarts==null){return returnData("未找到",1);}
         Map<String,Object> maps=cartDao.findCartSpuTab(wxTabCarts.getSpuId());
-        String paraItems=((String)maps.get("para_items")).replaceAll("\"","'");
-        maps.remove("para_items");
-        maps.put("para_items",paraItems);
-        String specItems=((String)maps.get("spec_items")).replaceAll("\"","'");
-        maps.remove("spec_items");
-        maps.put("para_items",specItems);
+//        String paraItems=((String)maps.get("para_items")).replaceAll("\"","'");
+//        maps.remove("para_items");
+//        maps.put("para_items",paraItems);
+//        String specItems=((String)maps.get("spec_items")).replaceAll("\"","'");
+//        maps.remove("spec_items");
+//        maps.put("para_items",specItems);
         List<WxTabSku> wxTabSkulists=cartDao.findCartSkuTabList(wxTabCarts.getSkuId());
         List<WxTabSku> wxTabSkulists3=new ArrayList<>();
         for (WxTabSku wxTabSkulists2:wxTabSkulists) {

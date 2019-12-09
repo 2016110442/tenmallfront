@@ -20,7 +20,7 @@ public interface ProductDetailsDao {
 
 
     @Select("SELECT id,name,caption,brand_id,category1_id,category2_id,category3_id,\n" +
-            "freight_id,image,images,introduction,para_items,sale_service,sn,spec_items,template_id from wx_tab_spu WHERE id=#{id}")
+            "freight_id,image,images,introduction,sale_service,sn,template_id from wx_tab_spu WHERE id=#{id}")
     WxTabSpu productDetailsWxTabSpuList(int id);
 
     @Select("SELECT id,sn,num,alert_num,price,spec,image,\n" +
