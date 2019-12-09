@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -23,8 +22,6 @@
         <result property="images" column="images"/>
         <result property="saleService" column="sale_service"/>
         <result property="introduction" column="introduction"/>
-        <result property="specItems" column="spec_items"/>
-        <result property="paraItems" column="para_items"/>
         <result property="saleNum" column="sale_num"/>
         <result property="commentNum" column="comment_num"/>
         <result property="isMarketable" column="is_marketable"/>
@@ -57,7 +54,7 @@
 
     <select id="search"  parameterType="string" resultType="com.cn.wanxi.model.productdetails.ProductSearch">
         select w.id,w.name,w.caption,w.brand_id,w.category1_id,w.category2_id,
-            w.category3_id,w.freight_id,w.image,w.images,w.introduction,w.para_items,w.sale_service,
+            w.category3_id,w.freight_id,w.image,w.images,w.introduction,w.sale_service,
             w.sn,w.spec_items,w.template_id
             from wx_tab_spu w
             <where>
@@ -69,12 +66,10 @@
 
     <select id="searchTwo"  resultType="com.cn.wanxi.model.productdetails.ProductSearch">
         select w.id,w.name,w.caption,w.brand_id,w.category1_id,w.category2_id,
-        w.category3_id,w.freight_id,w.image,w.images,w.introduction,w.para_items,w.sale_service,
+        w.category3_id,w.freight_id,w.image,w.images,w.introduction,w.sale_service,
         w.sn,w.spec_items,w.template_id
         from wx_tab_spu w
         where category3_id = #{categoryId3}
     </select>
 
 </mapper>
-=======
->>>>>>> c1e44eac10b7d9937e62e084fe166b58354f6ccf

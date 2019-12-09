@@ -16,7 +16,6 @@
             introduction,
             sale_service,
             sn,
-            spec_items,
             template_id
     from wx_tab_spu
     where is_marketable=1
