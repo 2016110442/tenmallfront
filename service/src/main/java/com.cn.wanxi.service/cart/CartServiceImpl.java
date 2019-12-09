@@ -23,13 +23,13 @@ public interface CartServiceImpl {
      * @param
      * @return
      */
-    Map<String, Object> updateNum(int id,String num,String uaername);
+    Map<String, Object> updateNum(int id,String num,String username);
     /**
      *  1.2.7.3.移除购物车接口
      * @param
      * @return
      */
-    Map<String, Object> deleteCart(int id,String uaername);
+    Map<String, Object> deleteCart(int id,String username);
     /**
      *  1.2.7.4.购物车列表接口
      * @param

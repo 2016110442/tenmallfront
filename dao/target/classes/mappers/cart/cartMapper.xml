@@ -6,20 +6,20 @@
 <!--    1.2.7.1. 添加购物车接口-->
 <insert id="addCart" parameterType="com.cn.wanxi.model.cart.WxTabCart" >
          insert into
-        wx_tab_cart(spu_id,sku_id,username,spec,num)
-        values(#{wxTabCart.spuId},#{wxTabCart.skuId},#{wxTabCart.username},#{wxTabCart.spec},#{wxTabCart.num})
+        wx_tab_cart(spu_id,sku_id,username,num)
+        values(#{wxTabCart.spuId},#{wxTabCart.skuId},#{wxTabCart.username},#{wxTabCart.num})
 </insert>
 <!--    1.2.7.2.修改商品数量接口-->
     <update id="updateNum">
-        update wx_tab_cart set num=#{num} where id=#{id}
+        update wx_tab_cart set num=#{num} where id=#{id} and username=#{username}
     </update>
 <!--    1.2.7.3.移除购物车接口-->
     <delete id="deleteCart">
-        delete from wx_tab_cart where id=#{id}
+        delete from wx_tab_cart where id=#{id} and username=#{username}
     </delete>
 <!--    1.2.7.4.购物车列表接口-->
     <select id="findCartSpuidSkuid" resultType="com.cn.wanxi.model.cart.WxTabCart">
-        SELECT id,sku_id,spu_id,num,spec,status FROM wx_tab_cart WHERE username=#{userName} LIMIT #{page},#{size}
+        SELECT id,sku_id,spu_id,num,spec,status FROM wx_tab_cart WHERE username=#{userName}
     </select>
     <select id="findCartSpuTab" resultType="java.util.Map">
         SELECT id,name,caption,brand_id,category1_id,category2_id,category3_id,freight_id,image,images,introduction,para_items,sale_service,sn,spec_items,template_id

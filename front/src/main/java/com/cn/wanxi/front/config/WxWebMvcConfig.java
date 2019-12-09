@@ -34,7 +34,7 @@ public class WxWebMvcConfig implements WebMvcConfigurer {
        .excludePathPatterns("/user/register")
        .excludePathPatterns("/advertisin/**")
        .excludePathPatterns("/index/**")
-       .excludePathPatterns("/index/**")
+       .excludePathPatterns("/imagePic/**")
        .excludePathPatterns("/product/**");
     }
 

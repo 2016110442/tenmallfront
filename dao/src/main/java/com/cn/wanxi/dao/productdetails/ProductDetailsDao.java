@@ -5,6 +5,7 @@ import com.cn.wanxi.model.cart.WxTabSpu;
 import com.cn.wanxi.model.productdetails.ProductSearch;
 import com.cn.wanxi.model.user.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public interface ProductDetailsDao {
             "images,`status`,weight from wx_tab_sku WHERE spu_id=#{id}")
     List<WxTabSku> productDetailsWxTabSkuList(int id);
 
-    List<ProductSearch> search(String conditionpara);
+    List<ProductSearch> search(@Param("conditionpara") String conditionpara);
 
     List<ProductSearch> searchTwo(Integer categoryId3);
 

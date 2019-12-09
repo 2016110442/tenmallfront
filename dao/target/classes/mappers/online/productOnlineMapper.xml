@@ -14,7 +14,6 @@
             freight_id,
             image,
             introduction,
-            para_items,
             sale_service,
             sn,
             spec_items,
@@ -33,7 +32,6 @@
         <result property="freightId" column="freight_id"/>
         <result property="image" column="image"/>
         <result property="introduction" column="introduction"/>
-        <result property="paraItems" column="para_items"/>
         <result property="saleService" column="sale_service"/>
         <result property="sn" column="sn"/>
         <result property="specItems" column="spec_items"/>
