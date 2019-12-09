@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -54,7 +55,7 @@
 
     </resultMap>
 
-    <select id="search" resultType="com.cn.wanxi.model.productdetails.ProductSearch">
+    <select id="search"  parameterType="string" resultType="com.cn.wanxi.model.productdetails.ProductSearch">
         select w.id,w.name,w.caption,w.brand_id,w.category1_id,w.category2_id,
             w.category3_id,w.freight_id,w.image,w.images,w.introduction,w.para_items,w.sale_service,
             w.sn,w.spec_items,w.template_id
@@ -63,13 +64,10 @@
                 <if test="conditionpara != null ">
                     name like '%${conditionpara}%'
                 </if>
-                <if test="categoryId3 != null ">
-                    or category3_id = #{categoryId3}
-                </if>
             </where>
     </select>
 
-    <select id="searchTwo" resultType="com.cn.wanxi.model.productdetails.ProductSearch">
+    <select id="searchTwo"  resultType="com.cn.wanxi.model.productdetails.ProductSearch">
         select w.id,w.name,w.caption,w.brand_id,w.category1_id,w.category2_id,
         w.category3_id,w.freight_id,w.image,w.images,w.introduction,w.para_items,w.sale_service,
         w.sn,w.spec_items,w.template_id
@@ -78,3 +76,5 @@
     </select>
 
 </mapper>
+=======
+>>>>>>> c1e44eac10b7d9937e62e084fe166b58354f6ccf

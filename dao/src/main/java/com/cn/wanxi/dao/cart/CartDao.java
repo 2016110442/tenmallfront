@@ -27,7 +27,7 @@ public interface CartDao {
      *  1.2.7.2.修改商品数量接口
      */
 
-    int updateNum(@Param("id") int id, @Param("num") String num,@Param("uaername") String uaername);
+    int updateNum(@Param("id") int id, @Param("num") String num,@Param("username") String username);
     /**
      *  1.2.7.3.移除购物车接口
      */

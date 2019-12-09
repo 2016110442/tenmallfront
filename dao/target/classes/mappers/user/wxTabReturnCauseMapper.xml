@@ -25,4 +25,15 @@
             #{wxTabReturnCause.status})
     </insert>
 
+    <select id="findMaxSeq" resultType="String">
+       select
+            seq
+       from
+            wx_tab_return_cause
+       order by
+            seq
+            desc
+       limit 1
+    </select>
+
 </mapper>
