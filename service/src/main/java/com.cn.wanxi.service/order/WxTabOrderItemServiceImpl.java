@@ -5,7 +5,6 @@ import com.cn.wanxi.dao.order.WxTabOrderItemMapper;
 import com.cn.wanxi.model.order.WxTabOrderItem;
 import com.cn.wanxi.model.user.User;
 import com.cn.wanxi.service.user.UserService;
-import com.cn.wanxi.util.WebTools;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
