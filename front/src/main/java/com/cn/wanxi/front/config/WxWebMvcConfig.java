@@ -40,6 +40,7 @@ public class WxWebMvcConfig implements WebMvcConfigurer {
      * 静态资源路径配置
      * @param registry
      */
+
     @Autowired
     private Environment environment;
     @Override
