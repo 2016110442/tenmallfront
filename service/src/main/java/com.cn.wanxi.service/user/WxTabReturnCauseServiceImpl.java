@@ -99,11 +99,12 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
 //        String phone = WebTools.getSession("username");
         String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
         boolean flag1 = false;
+        wxTabReturnOrder.setUserAccount(phone);
         if(!StringUtils.isEmpty(phone)){
             List<User> users = userService.findByPhone(phone);
             if(users.size()>0){
                 wxTabReturnOrder.setUserId(users.get(0).getId());
-                wxTabReturnOrder.setUserAccount(users.get(0).getUsername());
+//                wxTabReturnOrder.setUserAccount(users.get(0).getUsername());
             }else{
                 flag1=true;
             }
@@ -112,7 +113,7 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
         }
         if(flag1){
             wxTabReturnOrder.setUserId(-1);
-            wxTabReturnOrder.setUserAccount("no");
+//            wxTabReturnOrder.setUserAccount("no");
         }
 
         //admin_id lxq 用户操作退货退款申请，目前随意存一个管理员id,之后管理员审判通过后保存管理员id
