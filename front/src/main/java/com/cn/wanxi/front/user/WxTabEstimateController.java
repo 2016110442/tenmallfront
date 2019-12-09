@@ -92,12 +92,13 @@ public class WxTabEstimateController {
         wxTabEstimate.setContent(content);
 //        String phone = WebTools.getSession("username");
         String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
-        if(!StringUtils.isEmpty(phone)){
-            List<User> users = userService.findByPhone(phone);
-            if(users.size()>0){
-                wxTabEstimate.setUsername(users.get(0).getUsername());
-            }
-        }
+        wxTabEstimate.setUsername(phone);
+//        if(!StringUtils.isEmpty(phone)){
+//            List<User> users = userService.findByPhone(phone);
+//            if(users.size()>0){
+//                wxTabEstimate.setUsername(users.get(0).getUsername());
+//            }
+//        }
         boolean flag = wxTabEstimateService.add(wxTabEstimate);
         if (flag) {
             return WebTools.returnData("评价成功", 0);
