@@ -10,7 +10,7 @@
        from
             wx_tab_address
        where
-            id=#{id}
+            id = #{id}
     </select>
 
     <select id="find" resultType="com.cn.wanxi.model.address.WxTabAddress">
