@@ -37,12 +37,12 @@ public class ExceptionAdvice {
         }
         return  WebTools.returnData(msgList,1);
     }
-    @ExceptionHandler(value = NullPointerException.class)
+ /*   @ExceptionHandler(value = NullPointerException.class)
     public Map numberExceptionHandler(){
         return WebTools.returnData("参数不能为空",1);
     }
     @ExceptionHandler(value = NumberFormatException.class)
     public Map NumberFormatExceptionHandler(){
         return WebTools.returnData("请输入正确参数",1);
-    }
+    }*/
 }
