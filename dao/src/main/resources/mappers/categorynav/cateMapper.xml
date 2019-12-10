@@ -19,7 +19,7 @@
         c.`id` c_id,c.`NAME`  c_name,c.`goods_num`  c_goods_num,c.`is_show` c_is_show,c.`is_menu` c_is_menu,c.`seq` c_seq,c.`parent_id` c_parent_id,c.`template_id` c_template_id
         FROM    wx_tab_category a
         LEFT JOIN wx_tab_category b ON a.id=b.parent_id
-        LEFT JOIN wx_tab_category c ON b.id=c.parent_id;
+        LEFT JOIN wx_tab_category c ON b.id=c.parent_id
     </select>
 <!--    根据父类ID查询所有子分类-->
     <resultMap id="getCategorys" type="com.cn.wanxi.model.categorynav.Category">
