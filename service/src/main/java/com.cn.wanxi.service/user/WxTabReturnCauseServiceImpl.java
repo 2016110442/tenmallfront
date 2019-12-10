@@ -64,6 +64,12 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
     public boolean addAssociated(HttpServletRequest request, String orderId, String orderItemid, String evidence, String description, String returnCause, String type) {
         //退货退款原因表
         WxTabReturnCause wxTabReturnCause = new WxTabReturnCause();
+        String seq = wxTabReturnCauseDao.findMaxSeq();
+        if(StringUtils.isEmpty(seq)){
+            wxTabReturnCause.setSeq(1);
+        }else{
+            wxTabReturnCause.setSeq(Integer.valueOf(seq)+1);
+        }
         wxTabReturnCause.setCause(returnCause);
         boolean flag=add(wxTabReturnCause);
         if (flag) wxTabReturnCause=find(wxTabReturnCause);
@@ -73,6 +79,9 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
         if(wxTabOrderItem==null || wxTabOrder==null){
             return false;
         }
+        //更改订单是否退货状态
+        wxTabOrderItem.setIsReturn("1");
+        wxTabOrderItemService.update(wxTabOrderItem);
 
         //退货退款申请表
         WxTabReturnOrder wxTabReturnOrder = new WxTabReturnOrder();
@@ -90,11 +99,12 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
 //        String phone = WebTools.getSession("username");
         String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
         boolean flag1 = false;
+        wxTabReturnOrder.setUserAccount(phone);
         if(!StringUtils.isEmpty(phone)){
             List<User> users = userService.findByPhone(phone);
             if(users.size()>0){
                 wxTabReturnOrder.setUserId(users.get(0).getId());
-                wxTabReturnOrder.setUserAccount(users.get(0).getUsername());
+//                wxTabReturnOrder.setUserAccount(users.get(0).getUsername());
             }else{
                 flag1=true;
             }
@@ -103,7 +113,7 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
         }
         if(flag1){
             wxTabReturnOrder.setUserId(-1);
-            wxTabReturnOrder.setUserAccount("no");
+//            wxTabReturnOrder.setUserAccount("no");
         }
 
         //admin_id lxq 用户操作退货退款申请，目前随意存一个管理员id,之后管理员审判通过后保存管理员id
@@ -134,6 +144,8 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
             wxTabReturnOrderItem.setCategoryId(wxTabOrderItem.getCategoryId2());
         }else if(wxTabOrderItem.getCategoryId3() != null && wxTabOrderItem.getCategoryId3()!= 0){
             wxTabReturnOrderItem.setCategoryId(wxTabOrderItem.getCategoryId3());
+        }else{
+            wxTabReturnOrderItem.setCategoryId(-1);
         }
         wxTabReturnOrderItem.setSpuId(wxTabOrderItem.getSpuId());
         wxTabReturnOrderItem.setSkuId(wxTabOrderItem.getSkuId());

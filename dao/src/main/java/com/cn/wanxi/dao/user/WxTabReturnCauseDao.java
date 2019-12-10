@@ -21,4 +21,6 @@ public interface WxTabReturnCauseDao {
 
 //    @Select("select * from wx_tab_return_cause where cause=#{wxTabReturnCause.cause} and status=#{wxTabReturnCause.status}")
     List<WxTabReturnCause> find(@Param("wxTabReturnCause") WxTabReturnCause wxTabReturnCause);
+
+    String findMaxSeq();
 }

@@ -41,23 +41,29 @@ public class WxTabOrderItemServiceImpl implements WxTabOrderItemService {
 
     @Override
     public PageInfo<Map<String,Object>> pageByPayStatusAndConsignStatus(HttpServletRequest request,Integer page, Integer size, String payStatus, String consignStatus, String username) {
-        PageHelper.startPage(page,size);
         if(StringUtils.isEmpty(username)){
             //获取用户信息
 //            String phone = WebTools.getSession("username");
             String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
-            if(!StringUtils.isEmpty(phone)){
-                List<User> users = userService.findByPhone(phone);
-                if(users.size()>0){
-                    username =users.get(0).getUsername();
-                }
-            }
+            username = phone;
+//            if(!StringUtils.isEmpty(phone)){
+//                List<User> users = userService.findByPhone(phone);
+//                if(users.size()>0){
+//                    username =users.get(0).getUsername();
+//                }
+//            }
         }
+        PageHelper.startPage(page,size);
         return new PageInfo<Map<String,Object>>(wxTabOrderItemMapper.findByPayStatusAndConsignStatus(payStatus,consignStatus,username));
     }
 
     @Override
     public WxTabOrderItem get(String id) {
         return wxTabOrderItemMapper.get(id);
+    }
+
+    @Override
+    public int update(WxTabOrderItem record) {
+        return wxTabOrderItemMapper.update(record);
     }
 }

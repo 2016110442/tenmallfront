@@ -2,6 +2,7 @@ package com.cn.wanxi.front.productdetails;
 
 import com.cn.wanxi.model.productdetails.ProductSearch;
 import com.cn.wanxi.service.productdetails.ProductDetailsServiceImpl;
+import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +22,8 @@ import static com.cn.wanxi.util.WebTools.returnData;
 @RestController
 @RequestMapping("/product")
 public class ProductDetails {
-    @Autowired
 
+    @Autowired
     private ProductDetailsServiceImpl productDetailsServiceImpl;
 
     @PostMapping(value = "/productDetails", produces = "application/json;charset=UTF-8")
@@ -32,15 +33,18 @@ public class ProductDetails {
     }
 
     @RequestMapping(value = "/search",method = RequestMethod.POST)
-    public List<ProductSearch> search(@RequestBody Map<String, String> param){
-        String conditionpara = param.get("conditionpara");
-        String categoryId3 = param.get("categoryId3");
-        if (conditionpara==null&&categoryId3==null){
-            return productDetailsServiceImpl.search(null,null);
-        }else{
-            return productDetailsServiceImpl.search(conditionpara,categoryId3);
+    public Map<String, Object> search(@RequestBody Map<String, String> param){
+        String conditionpara = param.get("keyword");
+        String stataid = param.get("codestate");
+        if (Integer.valueOf(stataid)==1){
+            Integer categoryId3 = Integer.valueOf(conditionpara);
+            return WebTools.returnData(productDetailsServiceImpl.searchTwo(categoryId3),0);
+        }
+        if(conditionpara==""){
+            return WebTools.returnData(productDetailsServiceImpl.search(null),0);
         }
 
+        return WebTools.returnData(productDetailsServiceImpl.search(conditionpara),0);
     }
 
 }

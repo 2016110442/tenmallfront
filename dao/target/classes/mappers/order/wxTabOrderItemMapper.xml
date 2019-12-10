@@ -87,5 +87,13 @@
             id = #{id}
     </select>
 
+    <update id="update" parameterType="com.cn.wanxi.model.order.WxTabOrderItem">
+        update
+            wx_tab_order_item
+        set
+            is_return=#{wxTabOrderItem.isReturn}
+        where
+            id=#{wxTabOrderItem.id}
+    </update>
 
 </mapper>

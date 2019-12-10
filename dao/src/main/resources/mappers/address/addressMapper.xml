@@ -18,6 +18,11 @@
             *
        from
             wx_tab_address
+        <if test="wxTabAddress.username != null and wxTabAddress.username!= ''">
+            where username=#{wxTabAddress.username}
+        </if>
+        order by
+            is_default
     </select>
 
     <insert id="insert" parameterType="com.cn.wanxi.model.address.WxTabAddress">

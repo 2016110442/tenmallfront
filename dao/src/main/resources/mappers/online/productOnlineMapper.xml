@@ -14,10 +14,8 @@
             freight_id,
             image,
             introduction,
-            para_items,
             sale_service,
             sn,
-            spec_items,
             template_id
     from wx_tab_spu
     where is_marketable=1
@@ -33,10 +31,8 @@
         <result property="freightId" column="freight_id"/>
         <result property="image" column="image"/>
         <result property="introduction" column="introduction"/>
-        <result property="paraItems" column="para_items"/>
         <result property="saleService" column="sale_service"/>
         <result property="sn" column="sn"/>
-        <result property="specItems" column="spec_items"/>
         <result property="templateId" column="template_id"/>
         <collection property="tabSkuList" column="id" select="com.cn.wanxi.dao.cart.CartDao.findCartSkuTab"/>
     </resultMap>

@@ -49,8 +49,8 @@ public class WxTabAddressController {
     private UserService userService;
 
     @RequestMapping(value = "/address/listAddress",method = RequestMethod.POST)
-    public List<WxTabAddress> list(){
-        return wxTabAddressService.find(new WxTabAddress());
+    public Map<String, Object> list(HttpServletRequest request){
+        return WebTools.returnData(wxTabAddressService.find(new WxTabAddress(),request),0);
     }
 
     @RequestMapping(value = "/address/addAddress",method = RequestMethod.POST)
@@ -88,14 +88,15 @@ public class WxTabAddressController {
         address.setIsDefault(String.valueOf(isDefault));
 //        String phone = WebTools.getSession("username");
         String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
-        if(!StringUtils.isEmpty(phone)){
-            List<User> users = userService.findByPhone(phone);
-            if(users.size()>0){
-                address.setUsername(users.get(0).getUsername());
-            }
-        }
+        address.setUsername(phone);
+//        if(!StringUtils.isEmpty(phone)){
+//            List<User> users = userService.findByPhone(phone);
+//            if(users.size()>0){
+//                address.setUsername(users.get(0).getUsername());
+//            }
+//        }
 
-        boolean flag =wxTabAddressService.add(address);
+        boolean flag =wxTabAddressService.add(address,request);
         if(flag){
             return WebTools.returnData("添加成功",0);
         }
@@ -212,7 +213,13 @@ public class WxTabAddressController {
                 if(wxTabSpus.size()>0){
                     WxTabSpu wxTabSpu = wxTabSpus.get(0);
                     //更新双引号变为单引号
+                    if(StringUtils.isEmpty(wxTabSpu.getParaItems())){
+                        wxTabSpu.setParaItems("");
+                    }
                     wxTabSpu.setParaItems(wxTabSpu.getParaItems().replaceAll("\"","'"));
+                    if(StringUtils.isEmpty(wxTabSpu.getSpecItems())){
+                        wxTabSpu.setSpecItems("");
+                    }
                     wxTabSpu.setSpecItems(wxTabSpu.getSpecItems().replaceAll("\"","'"));
                     entityMap = WebTools.objectToMap(wxTabSpu);
                 }else{
@@ -236,7 +243,7 @@ public class WxTabAddressController {
         map.put("spu",objectList);
         map.put("totalMoney",totalMoney); //总金额
         map.put("totalNum",totalNum); //总数量
-        return map;
+        return WebTools.returnData(map,0);
     }
 
 }

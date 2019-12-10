@@ -50,6 +50,8 @@
         <if test="username != null and username!= ''">
             and o.username = #{username}
         </if>
+        order by
+            o.create_time desc
     </select>
 
     <select id="findByIds" resultType="com.cn.wanxi.model.order.WxTabOrderItem">
@@ -87,5 +89,13 @@
             id = #{id}
     </select>
 
+    <update id="update" parameterType="com.cn.wanxi.model.order.WxTabOrderItem">
+        update
+            wx_tab_order_item
+        set
+            is_return=#{wxTabOrderItem.isReturn}
+        where
+            id=#{wxTabOrderItem.id}
+    </update>
 
 </mapper>

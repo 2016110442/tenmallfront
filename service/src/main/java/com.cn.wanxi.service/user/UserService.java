@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface UserService {
     public String findPassByPhone(String phone);
-    public Map<String,String > register(String phone,
+    public Object register(String phone,
                                         String code,
                                         String password);
     public Object  getSSM(String phone);
@@ -17,7 +17,7 @@ public interface UserService {
     public boolean userLogin(String phone,String password);
 
     List<User> findByPhone(String phone);
-    User findMessage(String phone);
+    Object findMessage(String phone);
 
     Map<String, Object> updatePw(String phone, String oldPassword, String newPassword);
 

@@ -92,12 +92,13 @@ public class WxTabEstimateController {
         wxTabEstimate.setContent(content);
 //        String phone = WebTools.getSession("username");
         String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
-        if(!StringUtils.isEmpty(phone)){
-            List<User> users = userService.findByPhone(phone);
-            if(users.size()>0){
-                wxTabEstimate.setUsername(users.get(0).getUsername());
-            }
-        }
+        wxTabEstimate.setUsername(phone);
+//        if(!StringUtils.isEmpty(phone)){
+//            List<User> users = userService.findByPhone(phone);
+//            if(users.size()>0){
+//                wxTabEstimate.setUsername(users.get(0).getUsername());
+//            }
+//        }
         boolean flag = wxTabEstimateService.add(wxTabEstimate);
         if (flag) {
             return WebTools.returnData("评价成功", 0);
@@ -281,8 +282,9 @@ public class WxTabEstimateController {
         returnPage.put("page", pageInfo.getPageNum());
         returnPage.put("size", pageInfo.getPageSize());
         returnPage.put("total", pageInfo.getTotal());
+        returnPage.put("pages", pageInfo.getPages());
         returnPage.put("list", objectList);
-        return returnPage;
+        return WebTools.returnData(returnPage,0);
     }
 
     @RequestMapping(value = "/order/unameDetail", method = RequestMethod.POST)
@@ -300,7 +302,7 @@ public class WxTabEstimateController {
             return WebTools.returnData("orderItemId没有找到对应数据", -1);
         }
         try {
-            return WebTools.objectToMap(wxTabOrderItem);
+            return WebTools.returnData(WebTools.objectToMap(wxTabOrderItem),0);
         } catch (IllegalAccessException e) {
 
         }

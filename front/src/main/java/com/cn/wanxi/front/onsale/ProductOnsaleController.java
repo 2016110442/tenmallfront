@@ -2,6 +2,7 @@ package com.cn.wanxi.front.onsale;
 
 import com.cn.wanxi.model.cart.WxTabSpu;
 import com.cn.wanxi.service.onsale.ProductOnsaleService;
+import com.cn.wanxi.util.WebTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,7 +27,7 @@ public class ProductOnsaleController {
      * @return
      */
     @RequestMapping(value = "/onSale",method = RequestMethod.POST)
-    public List<WxTabSpu> getOnsaleProducts(){
-        return productOnsaleService.getOnsaleProducts();
+    public Object getOnsaleProducts(){
+        return WebTools.returnData(productOnsaleService.getOnsaleProducts(),0);
     }
 }

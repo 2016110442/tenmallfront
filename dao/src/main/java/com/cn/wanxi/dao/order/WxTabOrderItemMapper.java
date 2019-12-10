@@ -1,6 +1,7 @@
 package com.cn.wanxi.dao.order;
 
 import com.cn.wanxi.model.order.WxTabOrderItem;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -52,4 +53,6 @@ public interface WxTabOrderItemMapper {
 
 //    @Select("select * from wx_tab_order_item where id = #{id}")
     WxTabOrderItem get(String id);
+
+    int update(@Param("wxTabOrderItem") WxTabOrderItem wxTabOrderItem);
 }
