@@ -34,6 +34,6 @@
         <result property="saleService" column="sale_service"/>
         <result property="sn" column="sn"/>
         <result property="templateId" column="template_id"/>
-<!--        <collection property="tabSkuList" column="id" select="com.cn.wanxi.dao.cart.CartDao.findCartSkuTab"/>-->
+        <collection property="tabSkuList" column="id" select="com.cn.wanxi.dao.cart.CartDao.findCartSkuTab"/>
     </resultMap>
 </mapper>
