@@ -13,9 +13,13 @@ public interface WxTabOrderItemService {
 
     List<WxTabOrderItem> findBySkuIds(String[] skuIds);
 
+    List<WxTabOrderItem> findByOrderId(String orderId);
+
     List<WxTabOrderItem> findByIds(String[] Ids);
 
     PageInfo<Map<String,Object>> pageByPayStatusAndConsignStatus(HttpServletRequest request, Integer page, Integer size, String payStatus, String consignStatus, String username);
+
+    PageInfo<Map<String,Object>> pageByPayStatusAndConsignStatus2(HttpServletRequest request, Integer page, Integer size, String payStatus, String consignStatus, String username);
 
     WxTabOrderItem get(String id);
 

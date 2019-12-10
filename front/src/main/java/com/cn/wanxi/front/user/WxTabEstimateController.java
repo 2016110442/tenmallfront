@@ -41,8 +41,6 @@ public class WxTabEstimateController {
     private WxTabReturnCauseService wxTabReturnCauseService;
     @Autowired
     private WxTabOrderService wxTabOrderService;
-    @Autowired
-    private UserService userService;
 
     @RequestMapping(value = "/product/estimate", method = RequestMethod.POST)
     public Map<String, Object> estimate(@RequestBody Map<String,Object> map, HttpServletRequest request){
@@ -264,16 +262,18 @@ public class WxTabEstimateController {
         }
 //        PageInfo<Object> returnPage = new PageInfo<>();
         List<Object> objectList = new ArrayList<>();
-        PageInfo<Map<String, Object>> pageInfo = wxTabOrderItemService.pageByPayStatusAndConsignStatus(request,Integer.valueOf(page), Integer.valueOf(size), payStatus, consignStatus,"");
+//        PageInfo<Map<String, Object>> pageInfo = wxTabOrderItemService.pageByPayStatusAndConsignStatus(request,Integer.valueOf(page), Integer.valueOf(size), payStatus, consignStatus,"");
+        PageInfo<Map<String, Object>> pageInfo = wxTabOrderItemService.pageByPayStatusAndConsignStatus2(request,Integer.valueOf(page), Integer.valueOf(size), payStatus, consignStatus,"");
         Map<String, Object> entityMap;
         for (Map<String, Object> wxTabOrder : pageInfo.getList()) {
             entityMap = wxTabOrder;
-            if (StringUtils.isEmpty(wxTabOrder.get("orderItemId"))) {
-                entityMap.put("skuList", new ArrayList<>());
-                continue;
-            }
-            String[] orderItemId = wxTabOrder.get("orderItemId").toString().split(",");
-            List<WxTabOrderItem> wxTabOrderItems = wxTabOrderItemService.findByIds(orderItemId);
+//            if (StringUtils.isEmpty(wxTabOrder.get("id"))) {
+//                entityMap.put("skuList", new ArrayList<>());
+//                continue;
+//            }
+//            String[] orderItemId = wxTabOrder.get("orderItemId").toString().split(",");
+//            List<WxTabOrderItem> wxTabOrderItems = wxTabOrderItemService.findByIds(orderItemId);
+            List<WxTabOrderItem> wxTabOrderItems = wxTabOrderItemService.findByOrderId(entityMap.get("id").toString());
             entityMap.put("sublist", wxTabOrderItems);
             objectList.add(entityMap);
         }
@@ -289,20 +289,26 @@ public class WxTabEstimateController {
 
     @RequestMapping(value = "/order/unameDetail", method = RequestMethod.POST)
     public Map<String, Object> unameDetail(@RequestBody Map<String,Object> map) {
-        if (StringUtils.isEmpty(map.get("orderItemId"))) {
-            return WebTools.returnData("orderItemId不能为空", -1);
+        if (StringUtils.isEmpty(map.get("orderId"))) {
+            return WebTools.returnData("orderId不能为空", -1);
         }
         try {
-            Integer orderItemId = Integer.valueOf(map.get("orderItemId").toString());
+            Integer orderId = Integer.valueOf(map.get("orderId").toString());
         } catch (Exception e) {
-            return WebTools.returnData("orderItemId必须是int类型", -1);
+            return WebTools.returnData("orderId必须是int类型", -1);
         }
-        WxTabOrderItem wxTabOrderItem = wxTabOrderItemService.get(map.get("orderItemId").toString());
-        if(wxTabOrderItem == null){
-            return WebTools.returnData("orderItemId没有找到对应数据", -1);
+        List<WxTabOrder> wxTabOrders = wxTabOrderService.selectByIds(map.get("orderId").toString().split(","));
+        if(wxTabOrders.size()==0){
+            return WebTools.returnData("orderId没有找到对应数据", -1);
+        }
+        List<WxTabOrderItem> wxTabOrderItems = wxTabOrderItemService.findByOrderId(wxTabOrders.get(0).getId());
+        if(wxTabOrderItems.size() ==0){
+            return WebTools.returnData("orderId没有找到对应数据", -1);
         }
         try {
-            return WebTools.returnData(WebTools.objectToMap(wxTabOrderItem),0);
+            Map<String,Object> wxTabOrderMap = WebTools.objectToMap(wxTabOrders.get(0));
+            wxTabOrderMap.put("wxTabOrderItemList",wxTabOrderItems);
+            return WebTools.returnData(wxTabOrderMap,0);
         } catch (IllegalAccessException e) {
 
         }

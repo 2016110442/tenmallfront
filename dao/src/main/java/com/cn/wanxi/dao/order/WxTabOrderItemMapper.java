@@ -39,6 +39,8 @@ public interface WxTabOrderItemMapper {
 //    })
     List<WxTabOrderItem> findBySkuIds(@Param("skuIds") String[] skuIds);
 
+    List<WxTabOrderItem> findByOrderId(@Param("orderId") String orderId);
+
 //    @Select({
 //            "<script>",
 //            "select * from wx_tab_order_item where id in ",
@@ -51,7 +53,9 @@ public interface WxTabOrderItemMapper {
 
     List<Map<String,Object>> findByPayStatusAndConsignStatus(@Param("payStatus") String payStatus,@Param("consignStatus") String consignStatus,@Param("username") String username);
 
-//    @Select("select * from wx_tab_order_item where id = #{id}")
+    List<Map<String,Object>> findByPayStatusAndConsignStatus2(@Param("payStatus") String payStatus,@Param("consignStatus") String consignStatus,@Param("username") String username);
+
+    //    @Select("select * from wx_tab_order_item where id = #{id}")
     WxTabOrderItem get(String id);
 
     int update(@Param("wxTabOrderItem") WxTabOrderItem wxTabOrderItem);

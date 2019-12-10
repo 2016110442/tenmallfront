@@ -35,6 +35,11 @@ public class WxTabOrderItemServiceImpl implements WxTabOrderItemService {
     }
 
     @Override
+    public List<WxTabOrderItem> findByOrderId(String orderId) {
+        return wxTabOrderItemMapper.findByOrderId(orderId);
+    }
+
+    @Override
     public List<WxTabOrderItem> findByIds(String[] Ids) {
         return wxTabOrderItemMapper.findByIds(Ids);
     }
@@ -55,6 +60,16 @@ public class WxTabOrderItemServiceImpl implements WxTabOrderItemService {
         }
         PageHelper.startPage(page,size);
         return new PageInfo<Map<String,Object>>(wxTabOrderItemMapper.findByPayStatusAndConsignStatus(payStatus,consignStatus,username));
+    }
+
+    @Override
+    public PageInfo<Map<String,Object>> pageByPayStatusAndConsignStatus2(HttpServletRequest request,Integer page, Integer size, String payStatus, String consignStatus, String username) {
+        if(StringUtils.isEmpty(username)) {
+            String phone = JWT.decode(request.getHeader("token")).getAudience().get(0);
+            username = phone;
+        }
+        PageHelper.startPage(page,size);
+        return new PageInfo<Map<String,Object>>(wxTabOrderItemMapper.findByPayStatusAndConsignStatus2(payStatus,consignStatus,username));
     }
 
     @Override
