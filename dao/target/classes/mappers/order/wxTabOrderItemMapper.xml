@@ -50,6 +50,8 @@
         <if test="username != null and username!= ''">
             and o.username = #{username}
         </if>
+        order by
+            o.create_time desc
     </select>
 
     <select id="findByIds" resultType="com.cn.wanxi.model.order.WxTabOrderItem">
