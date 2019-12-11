@@ -24,6 +24,8 @@ public interface WxTabOrderMapper {
 //            "</script>"
 //    })
     List<WxTabOrder> selectByIds(@Param("ids") String[] ids);
-    Map<String,Object> findOrderById(Integer id);
+    Map<String,Object> findOrderById(@Param("id") Integer id);
     void updateOrderPayStatus(@Param("id") Integer id,@Param("status") String payStatus);
+
+    int delete(@Param("orderId") String orderId);
 }

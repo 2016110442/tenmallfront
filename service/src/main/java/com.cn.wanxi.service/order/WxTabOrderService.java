@@ -11,4 +11,8 @@ public interface WxTabOrderService {
     int insert(WxOrderVO wxOrderVO, String username);
 
     List<WxTabOrder> selectByIds(String[] ids);
+
+    boolean delete(String orderId,String username);
+
+    boolean deletes(String orderIds,String username);
 }

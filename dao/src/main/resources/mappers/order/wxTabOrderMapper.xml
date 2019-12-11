@@ -26,4 +26,11 @@
         where id=#{id}
     </update>
 
+    <delete id="delete" parameterType="String">
+        delete from
+            wx_tab_order
+        where
+            id=#{orderId}
+    </delete>
+
 </mapper>

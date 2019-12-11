@@ -8,6 +8,7 @@ import com.cn.wanxi.model.order.WxTabOrder;
 import com.cn.wanxi.model.order.WxTabOrderItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -64,5 +65,30 @@ public class WxTabOrderServiceImpl implements WxTabOrderService {
     @Override
     public List<WxTabOrder> selectByIds(String[] ids) {
         return wxTabOrderMapper.selectByIds(ids);
+    }
+
+    @Override
+    public boolean delete(String orderId,String username) {
+        int num =wxTabOrderMapper.delete(orderId);
+        if(num==1){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    @Transactional
+    public boolean deletes(String orderIds,String username) {
+        String[] deleteOrderIds =orderIds.split(",");
+        for (String orderId:deleteOrderIds) {
+            List<WxTabOrderItem> wxTabOrderItems = wxTabOrderItemMapper.findByOrderId(orderId);
+            for (WxTabOrderItem wxTabOrderItem:wxTabOrderItems) {
+                wxTabOrderItemMapper.delete(wxTabOrderItem.getId());
+            }
+            if(!delete(orderId,username)){
+                return false;
+            }
+        }
+        return true;
     }
 }

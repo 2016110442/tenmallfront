@@ -314,5 +314,28 @@ public class WxTabEstimateController {
         }
         return WebTools.returnData("查询订单详情出现异常！", -1);
     }
+
+    @RequestMapping(value = "/order/deleteOrder", method = RequestMethod.POST)
+    public Map<String, Object> deleteOrder(@RequestBody Map<String,Object> map,HttpServletRequest request) {
+        if (StringUtils.isEmpty(map.get("orderId"))) {
+            return WebTools.returnData("orderId不能为空", -1);
+        }
+        try {
+            Integer orderId = Integer.valueOf(map.get("orderId").toString());
+        } catch (Exception e) {
+            return WebTools.returnData("orderId必须是int类型", -1);
+        }
+        List<WxTabOrder> wxTabOrders = wxTabOrderService.selectByIds(map.get("orderId").toString().split(","));
+        if(wxTabOrders.size()==0){
+            return WebTools.returnData("orderId没有找到对应数据", -1);
+        }
+        String username = JWT.decode(request.getHeader("token")).getAudience().get(0);
+        boolean flag = wxTabOrderService.deletes(map.get("orderId").toString(),username);
+        if(flag){
+            return WebTools.returnData("订单删除成功！", 0);
+        }
+
+        return WebTools.returnData("订单删除失败，请稍后再试！", -1);
+    }
 }
 

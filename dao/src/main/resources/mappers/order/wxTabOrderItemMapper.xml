@@ -152,4 +152,11 @@
             id=#{wxTabOrderItem.id}
     </update>
 
+    <delete id="delete" parameterType="int">
+        delete from
+            wx_tab_order_item
+        where
+            id=#{orderItemId}
+    </delete>
+
 </mapper>
