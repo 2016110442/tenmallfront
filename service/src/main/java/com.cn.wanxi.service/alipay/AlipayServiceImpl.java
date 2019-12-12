@@ -104,13 +104,15 @@ public class AlipayServiceImpl implements AlipayService{
                 System.out.println("订单支付成功");
                 wxWebSocket.sendMessage("success");
                 out_trade_no=out_trade_no.split("-")[0];
-                orderMapper.updateOrderPayStatus(Integer.valueOf(out_trade_no),"0");
+                orderMapper.updateOrderPayStatus(Integer.valueOf(out_trade_no),"1");
+                wxWebSocket.onClose();
                 return "success";
             }
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
             wxWebSocket.sendMessage("fail");
+            wxWebSocket.onClose();
             e.printStackTrace();
         }
         return "fail";
