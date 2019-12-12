@@ -1,6 +1,7 @@
 package com.cn.wanxi.service.order;
 
 import com.auth0.jwt.JWT;
+import com.cn.wanxi.dao.cart.CartDao;
 import com.cn.wanxi.dao.order.WxTabOrderItemMapper;
 import com.cn.wanxi.dao.order.WxTabOrderMapper;
 import com.cn.wanxi.model.order.WxOrderVO;
@@ -23,6 +24,9 @@ public class WxTabOrderServiceImpl implements WxTabOrderService {
 
     @Autowired
     private WxTabOrderItemMapper wxTabOrderItemMapper;
+
+    @Autowired
+    private CartDao cartDao;
 
     @Override
     public int insert(WxOrderVO wxOrderVO, String username) {
@@ -54,6 +58,7 @@ public class WxTabOrderServiceImpl implements WxTabOrderService {
         wxTabOrderMapper.insert(wxTabOrder);
         for (WxTabOrderItem w :
                 wxTabOrderItems) {
+            cartDao.deleteCart(w.getId(),username);
             w.setOrderId(wxTabOrder.getId());
             w.setMoney(w.getPrice()*w.getNum());
             w.setPayMoney(w.getPrice()*w.getNum());
