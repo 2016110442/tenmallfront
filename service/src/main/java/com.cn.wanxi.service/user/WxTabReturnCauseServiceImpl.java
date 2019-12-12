@@ -73,22 +73,18 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
         wxTabReturnCause.setCause(returnCause);
         boolean flag=add(wxTabReturnCause);
         if (flag) wxTabReturnCause=find(wxTabReturnCause);
-        WxTabOrderItem wxTabOrderItem =wxTabOrderItemService.get(orderItemid);
         if(StringUtils.isEmpty(orderId)) return false;
         WxTabOrder wxTabOrder =wxTabOrderService.selectByIds(orderId.split(",")).get(0);
-        if(wxTabOrderItem==null || wxTabOrder==null){
+        if(wxTabOrder==null){
             return false;
         }
-        //更改订单是否退货状态
-        wxTabOrderItem.setIsReturn("1");
-        wxTabOrderItemService.update(wxTabOrderItem);
 
         //退货退款申请表
         WxTabReturnOrder wxTabReturnOrder = new WxTabReturnOrder();
         wxTabReturnOrder.setReturnMoney(wxTabOrder.getPayMoney());
         if(!StringUtils.isEmpty(orderId)){
-            if(!StringUtils.isEmpty(wxTabOrderItem.getIsReturn())){
-                wxTabReturnOrder.setIsReturnFreight(wxTabOrderItem.getIsReturn().charAt(0));
+            if(!StringUtils.isEmpty(wxTabReturnOrder.getIsReturnFreight())){
+                wxTabReturnOrder.setIsReturnFreight(wxTabReturnOrder.getIsReturnFreight());
             }else{
                 wxTabReturnOrder.setIsReturnFreight('0');
             }
@@ -128,31 +124,58 @@ public class WxTabReturnCauseServiceImpl implements WxTabReturnCauseService {
             flag = wxTabReturnOrderService.add(wxTabReturnOrder);
         }
 
-        //退货退款申请明细表
-        WxTabReturnOrderItem wxTabReturnOrderItem = new WxTabReturnOrderItem();
-        wxTabReturnOrderItem.setTitle(wxTabOrderItem.getName());
-        wxTabReturnOrderItem.setPrice(wxTabOrderItem.getPrice());
-        wxTabReturnOrderItem.setNum(wxTabOrderItem.getNum());
-        wxTabReturnOrderItem.setImage(wxTabOrderItem.getImage());
-        wxTabReturnOrderItem.setMoney(wxTabOrder.getTotalMoney());
-        wxTabReturnOrderItem.setPayMoney(wxTabOrder.getPayMoney());
-        wxTabReturnOrderItem.setWeight(wxTabOrderItem.getWeight());
-        wxTabReturnOrderItem.setReturnOrderId(wxTabOrder.getId());
-        if(wxTabOrderItem.getCategoryId1() != null && wxTabOrderItem.getCategoryId1()!= 0){
-            wxTabReturnOrderItem.setCategoryId(wxTabOrderItem.getCategoryId1());
-        }else if(wxTabOrderItem.getCategoryId2() != null && wxTabOrderItem.getCategoryId2()!= 0){
-            wxTabReturnOrderItem.setCategoryId(wxTabOrderItem.getCategoryId2());
-        }else if(wxTabOrderItem.getCategoryId3() != null && wxTabOrderItem.getCategoryId3()!= 0){
-            wxTabReturnOrderItem.setCategoryId(wxTabOrderItem.getCategoryId3());
-        }else{
-            wxTabReturnOrderItem.setCategoryId(-1);
-        }
-        wxTabReturnOrderItem.setSpuId(wxTabOrderItem.getSpuId());
-        wxTabReturnOrderItem.setSkuId(wxTabOrderItem.getSkuId());
-        wxTabReturnOrderItem.setOrderId(orderId);
-        wxTabReturnOrderItem.setOrderItemId(orderItemid);
-        if(flag) {
-            flag = wxTabReturnOrderItemService.add(wxTabReturnOrderItem);
+        String[] orderItemIds = orderItemid.split(",");
+        for(String findOrderItemId : orderItemIds){
+            WxTabOrderItem wxTabOrderItem =wxTabOrderItemService.get(findOrderItemId);
+            if(wxTabOrderItem==null){
+                return false;
+            }
+            //更改订单是否退货状态
+            wxTabOrderItem.setIsReturn("1");
+            wxTabOrderItemService.update(wxTabOrderItem);
+
+            //退货退款申请明细表
+            WxTabReturnOrderItem wxTabReturnOrderItem = new WxTabReturnOrderItem();
+            if(StringUtils.isEmpty(wxTabOrderItem.getName())){
+                wxTabReturnOrderItem.setTitle("无标题");
+            }else{
+                wxTabReturnOrderItem.setTitle(wxTabOrderItem.getName());
+            }
+            wxTabReturnOrderItem.setPrice(wxTabOrderItem.getPrice());
+            wxTabReturnOrderItem.setNum(wxTabOrderItem.getNum());
+            if(StringUtils.isEmpty(wxTabOrderItem.getImage())){
+                wxTabReturnOrderItem.setImage("无图片");
+            }else{
+                wxTabReturnOrderItem.setImage(wxTabOrderItem.getImage());
+            }
+            wxTabReturnOrderItem.setMoney(wxTabOrderItem.getMoney());
+            wxTabReturnOrderItem.setPayMoney(wxTabOrderItem.getPayMoney());
+            wxTabReturnOrderItem.setWeight(wxTabOrderItem.getWeight());
+            wxTabReturnOrderItem.setReturnOrderId(wxTabOrder.getId());
+            if(wxTabOrderItem.getCategoryId1() != null && wxTabOrderItem.getCategoryId1()!= 0){
+                wxTabReturnOrderItem.setCategoryId(wxTabOrderItem.getCategoryId1());
+            }else if(wxTabOrderItem.getCategoryId2() != null && wxTabOrderItem.getCategoryId2()!= 0){
+                wxTabReturnOrderItem.setCategoryId(wxTabOrderItem.getCategoryId2());
+            }else if(wxTabOrderItem.getCategoryId3() != null && wxTabOrderItem.getCategoryId3()!= 0){
+                wxTabReturnOrderItem.setCategoryId(wxTabOrderItem.getCategoryId3());
+            }else{
+                wxTabReturnOrderItem.setCategoryId(-1);
+            }
+            if(StringUtils.isEmpty(wxTabOrderItem.getSpuId())){
+                wxTabReturnOrderItem.setSpuId("-1");
+            }else{
+                wxTabReturnOrderItem.setSpuId(wxTabOrderItem.getSpuId());
+            }
+            if(StringUtils.isEmpty(wxTabOrderItem.getSkuId())){
+                wxTabReturnOrderItem.setSkuId("-1");
+            }else{
+                wxTabReturnOrderItem.setSkuId(wxTabOrderItem.getSkuId());
+            }
+            wxTabReturnOrderItem.setOrderId(orderId);
+            wxTabReturnOrderItem.setOrderItemId(findOrderItemId);
+            if(flag) {
+                flag = wxTabReturnOrderItemService.add(wxTabReturnOrderItem);
+            }
         }
         return flag;
     }

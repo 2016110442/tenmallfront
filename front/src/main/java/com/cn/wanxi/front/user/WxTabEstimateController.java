@@ -125,9 +125,9 @@ public class WxTabEstimateController {
         if(returnCause.length()>255){
             return WebTools.returnData("returnCause长度不能超过255",-1);
         }
-        if(orderId.length()>11 || orderItemid.length()>11){
-            return WebTools.returnData("orderId，orderItemid长度不能超过11",-1);
-        }
+//        if(orderId.length()>11 || orderItemid.length()>11){
+//            return WebTools.returnData("orderId，orderItemid长度不能超过11",-1);
+//        }
         if(evidence.length()>50 || description.length()>50 || type.length()>50){
             return WebTools.returnData("evidence，description，type长度不能超过50",-1);
         }
@@ -136,19 +136,23 @@ public class WxTabEstimateController {
         if (!type.equals("1")) {
             return WebTools.returnData("type的值必须为1", -1);
         }
+        String[] orderItemIds = orderItemid.split(",");
         try {
-            Integer test1 = Integer.valueOf(orderItemid);
+            for (String orderItem : orderItemIds) {
+                Integer.valueOf(orderItem);
+            }
             String[] orders = orderId.split(",");
             for (String order : orders) {
-                Integer test2 = Integer.valueOf(order);
+                Integer.valueOf(order);
             }
         } catch (Exception e) {
-            return WebTools.returnData("orderItemid和orderId查询时必须是int类型", -1);
+            return WebTools.returnData("orderItemid和orderId用逗号隔开的值必须是int类型", -1);
         }
-
-        WxTabOrderItem wxTabOrderItem = wxTabOrderItemService.get(orderItemid);
-        if (wxTabOrderItem == null) {
-            return WebTools.returnData("orderItemid没有找到对应数据", -1);
+        for (String orderItemId : orderItemIds) {
+            WxTabOrderItem wxTabOrderItem = wxTabOrderItemService.get(orderItemId);
+            if (wxTabOrderItem == null) {
+                return WebTools.returnData("orderItemid没有找到对应数据", -1);
+            }
         }
         List<WxTabOrder> wxTabOrders = wxTabOrderService.selectByIds(orderId.split(","));
         if (wxTabOrders.size() <= 0) {
@@ -184,9 +188,9 @@ public class WxTabEstimateController {
         if(returnCause.length()>255){
             return WebTools.returnData("returnCause长度不能超过255",-1);
         }
-        if(orderId.length()>11 || orderItemid.length()>11){
-            return WebTools.returnData("orderId，orderItemid长度不能超过11",-1);
-        }
+//        if(orderId.length()>11 || orderItemid.length()>11){
+//            return WebTools.returnData("orderId，orderItemid长度不能超过11",-1);
+//        }
         if(evidence.length()>50 || description.length()>50 || type.length()>50){
             return WebTools.returnData("evidence，description，type长度不能超过50",-1);
         }
@@ -194,18 +198,23 @@ public class WxTabEstimateController {
         if (!type.equals("2")) {
             return WebTools.returnData("type的值必须为2", -1);
         }
+        String[] orderItemIds = orderItemid.split(",");
         try {
-            Integer.valueOf(orderItemid);
+            for (String orderItem : orderItemIds) {
+                Integer.valueOf(orderItem);
+            }
             String[] orders = orderId.split(",");
             for (String order : orders) {
                 Integer.valueOf(order);
             }
         } catch (Exception e) {
-            return WebTools.returnData("orderItemid和orderId查询时必须是int类型", -1);
+            return WebTools.returnData("orderItemid和orderId用逗号隔开的值必须是int类型", -1);
         }
-        WxTabOrderItem wxTabOrderItem = wxTabOrderItemService.get(orderItemid);
-        if (wxTabOrderItem == null) {
-            return WebTools.returnData("orderItemid没有找到对应数据", -1);
+        for (String orderItemId : orderItemIds) {
+            WxTabOrderItem wxTabOrderItem = wxTabOrderItemService.get(orderItemId);
+            if (wxTabOrderItem == null) {
+                return WebTools.returnData("orderItemid没有找到对应数据", -1);
+            }
         }
         List<WxTabOrder> wxTabOrders = wxTabOrderService.selectByIds(orderId.split(","));
         if (wxTabOrders.size() <= 0) {
